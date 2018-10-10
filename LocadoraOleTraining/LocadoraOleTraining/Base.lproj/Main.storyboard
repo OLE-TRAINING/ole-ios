@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Dosis-Bold.otf">
+            <string>Dosis-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="LocadoraOleTraining" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SvQ-2p-VgP">
+                                <rect key="frame" x="43" y="578" width="289" height="45"/>
+                                <color key="backgroundColor" red="0.070588235294117646" green="0.59215686274509804" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="ZNz-3i-sNz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Dosis-Bold" family="Dosis" pointSize="12"/>
+                                <state key="normal" title="AVANÇAR">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O8i-GR-EQQ">
+                                <rect key="frame" x="43" y="80" width="289" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="01V-qm-maB"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="TEST">
+                                        <attributes>
+                                            <font key="NSFont" size="12" name="Helvetica"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <color key="highlightedColor" red="0.35686274509803922" green="0.3529411764705882" blue="0.3529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vfe-uC-2Md">
+                                <rect key="frame" x="43" y="286" width="289" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="6IL-DJ-HWh"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96470588235294119" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="SvQ-2p-VgP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="558" id="8rs-Ov-qQi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="O8i-GR-EQQ" secondAttribute="trailing" constant="43" id="9uX-pR-skj"/>
+                            <constraint firstItem="SvQ-2p-VgP" firstAttribute="top" secondItem="vfe-uC-2Md" secondAttribute="bottom" constant="242" id="Jn7-Pz-C9r"/>
+                            <constraint firstItem="vfe-uC-2Md" firstAttribute="trailing" secondItem="SvQ-2p-VgP" secondAttribute="trailing" id="NEn-hO-jeU"/>
+                            <constraint firstItem="O8i-GR-EQQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="43" id="VtW-LK-553"/>
+                            <constraint firstItem="vfe-uC-2Md" firstAttribute="leading" secondItem="SvQ-2p-VgP" secondAttribute="leading" id="Wjm-IN-Fd5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SvQ-2p-VgP" secondAttribute="trailing" constant="43" id="bZo-sg-1yo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vfe-uC-2Md" secondAttribute="trailing" constant="43" id="dbT-Gt-ugD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="SvQ-2p-VgP" secondAttribute="bottom" constant="44" id="eLW-Vc-0bN"/>
+                            <constraint firstItem="vfe-uC-2Md" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="43" id="gnF-AC-HgL"/>
+                            <constraint firstItem="vfe-uC-2Md" firstAttribute="top" secondItem="O8i-GR-EQQ" secondAttribute="bottom" constant="161" id="ipJ-Wk-vMR"/>
+                            <constraint firstItem="O8i-GR-EQQ" firstAttribute="leading" secondItem="SvQ-2p-VgP" secondAttribute="leading" id="nbk-H5-JHk"/>
+                            <constraint firstItem="O8i-GR-EQQ" firstAttribute="trailing" secondItem="SvQ-2p-VgP" secondAttribute="trailing" id="uSe-Ps-t9p"/>
+                            <constraint firstItem="vfe-uC-2Md" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="266" id="vCe-1A-wtL"/>
+                            <constraint firstItem="SvQ-2p-VgP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="43" id="vgl-PC-8ve"/>
+                            <constraint firstItem="O8i-GR-EQQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="xT5-Zv-ZpB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="ButtonAvancar" destination="SvQ-2p-VgP" id="onz-Nl-wgf"/>
+                        <outlet property="LabelEmail" destination="O8i-GR-EQQ" id="y3R-8z-813"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="118.29085457271366"/>
+        </scene>
+    </scenes>
+</document>

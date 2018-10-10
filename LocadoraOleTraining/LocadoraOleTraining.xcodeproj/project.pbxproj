@@ -1,0 +1,706 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3D0A9DF63084C87C047D535B /* Pods_LocadoraOleTraining.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19D0AEF60C156123943D370D /* Pods_LocadoraOleTraining.framework */; };
+		5C59A6D6216E2D2E0053DC45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C59A6D5216E2D2E0053DC45 /* AppDelegate.swift */; };
+		5C59A6D8216E2D2E0053DC45 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C59A6D7216E2D2E0053DC45 /* ViewController.swift */; };
+		5C59A6DB216E2D2E0053DC45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C59A6D9216E2D2E0053DC45 /* Main.storyboard */; };
+		5C59A6DD216E2D300053DC45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C59A6DC216E2D300053DC45 /* Assets.xcassets */; };
+		5C59A6E0216E2D300053DC45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C59A6DE216E2D300053DC45 /* LaunchScreen.storyboard */; };
+		5C59A6EB216E2D300053DC45 /* LocadoraOleTrainingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C59A6EA216E2D300053DC45 /* LocadoraOleTrainingTests.swift */; };
+		5C59A6F6216E2D300053DC45 /* LocadoraOleTrainingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C59A6F5216E2D300053DC45 /* LocadoraOleTrainingUITests.swift */; };
+		5C59A707216E5E950053DC45 /* Atributos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C59A706216E5E950053DC45 /* Atributos.swift */; };
+		5C59A710216E7E6F0053DC45 /* Dosis-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5C59A709216E7E6E0053DC45 /* Dosis-SemiBold.otf */; };
+		5C59A711216E7E6F0053DC45 /* Dosis-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5C59A70A216E7E6E0053DC45 /* Dosis-ExtraBold.otf */; };
+		5C59A712216E7E6F0053DC45 /* Dosis-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5C59A70B216E7E6F0053DC45 /* Dosis-Medium.otf */; };
+		5C59A713216E7E6F0053DC45 /* Dosis-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5C59A70C216E7E6F0053DC45 /* Dosis-Bold.otf */; };
+		5C59A714216E7E6F0053DC45 /* Dosis-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5C59A70D216E7E6F0053DC45 /* Dosis-Light.otf */; };
+		5C59A715216E7E6F0053DC45 /* Dosis-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5C59A70E216E7E6F0053DC45 /* Dosis-Regular.otf */; };
+		5C59A716216E7E6F0053DC45 /* Dosis-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5C59A70F216E7E6F0053DC45 /* Dosis-ExtraLight.otf */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5C59A6E7216E2D300053DC45 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5C59A6CA216E2D2E0053DC45 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5C59A6D1216E2D2E0053DC45;
+			remoteInfo = LocadoraOleTraining;
+		};
+		5C59A6F2216E2D300053DC45 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5C59A6CA216E2D2E0053DC45 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5C59A6D1216E2D2E0053DC45;
+			remoteInfo = LocadoraOleTraining;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		19D0AEF60C156123943D370D /* Pods_LocadoraOleTraining.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocadoraOleTraining.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C59A6D2216E2D2E0053DC45 /* LocadoraOleTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocadoraOleTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C59A6D5216E2D2E0053DC45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5C59A6D7216E2D2E0053DC45 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5C59A6DA216E2D2E0053DC45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5C59A6DC216E2D300053DC45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5C59A6DF216E2D300053DC45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5C59A6E1216E2D300053DC45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C59A6E6216E2D300053DC45 /* LocadoraOleTrainingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocadoraOleTrainingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C59A6EA216E2D300053DC45 /* LocadoraOleTrainingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocadoraOleTrainingTests.swift; sourceTree = "<group>"; };
+		5C59A6EC216E2D300053DC45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C59A6F1216E2D300053DC45 /* LocadoraOleTrainingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocadoraOleTrainingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C59A6F5216E2D300053DC45 /* LocadoraOleTrainingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocadoraOleTrainingUITests.swift; sourceTree = "<group>"; };
+		5C59A6F7216E2D300053DC45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C59A706216E5E950053DC45 /* Atributos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atributos.swift; sourceTree = "<group>"; };
+		5C59A709216E7E6E0053DC45 /* Dosis-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-SemiBold.otf"; sourceTree = "<group>"; };
+		5C59A70A216E7E6E0053DC45 /* Dosis-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-ExtraBold.otf"; sourceTree = "<group>"; };
+		5C59A70B216E7E6F0053DC45 /* Dosis-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Medium.otf"; sourceTree = "<group>"; };
+		5C59A70C216E7E6F0053DC45 /* Dosis-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Bold.otf"; sourceTree = "<group>"; };
+		5C59A70D216E7E6F0053DC45 /* Dosis-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Light.otf"; sourceTree = "<group>"; };
+		5C59A70E216E7E6F0053DC45 /* Dosis-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Regular.otf"; sourceTree = "<group>"; };
+		5C59A70F216E7E6F0053DC45 /* Dosis-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-ExtraLight.otf"; sourceTree = "<group>"; };
+		7B715B4BEEEA97E299EC0DC7 /* Pods-LocadoraOleTraining.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocadoraOleTraining.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LocadoraOleTraining/Pods-LocadoraOleTraining.debug.xcconfig"; sourceTree = "<group>"; };
+		830B95FC87DF7D4C46799C3C /* Pods-LocadoraOleTraining.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocadoraOleTraining.release.xcconfig"; path = "Pods/Target Support Files/Pods-LocadoraOleTraining/Pods-LocadoraOleTraining.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5C59A6CF216E2D2E0053DC45 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D0A9DF63084C87C047D535B /* Pods_LocadoraOleTraining.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C59A6E3216E2D300053DC45 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C59A6EE216E2D300053DC45 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5C59A6C9216E2D2E0053DC45 = {
+			isa = PBXGroup;
+			children = (
+				5C59A6D4216E2D2E0053DC45 /* LocadoraOleTraining */,
+				5C59A6E9216E2D300053DC45 /* LocadoraOleTrainingTests */,
+				5C59A6F4216E2D300053DC45 /* LocadoraOleTrainingUITests */,
+				5C59A6D3216E2D2E0053DC45 /* Products */,
+				C6F07ED1E2C487041FB34790 /* Pods */,
+				6FD368D1712365DDDC574DA8 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5C59A6D3216E2D2E0053DC45 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5C59A6D2216E2D2E0053DC45 /* LocadoraOleTraining.app */,
+				5C59A6E6216E2D300053DC45 /* LocadoraOleTrainingTests.xctest */,
+				5C59A6F1216E2D300053DC45 /* LocadoraOleTrainingUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5C59A6D4216E2D2E0053DC45 /* LocadoraOleTraining */ = {
+			isa = PBXGroup;
+			children = (
+				5C59A6D5216E2D2E0053DC45 /* AppDelegate.swift */,
+				5C59A717216E84330053DC45 /* Pré-Login */,
+				5C59A71A216E84D50053DC45 /* Model */,
+				5C59A708216E7E1E0053DC45 /* Fonts */,
+				5C59A6D9216E2D2E0053DC45 /* Main.storyboard */,
+				5C59A6DC216E2D300053DC45 /* Assets.xcassets */,
+				5C59A6DE216E2D300053DC45 /* LaunchScreen.storyboard */,
+				5C59A6E1216E2D300053DC45 /* Info.plist */,
+			);
+			path = LocadoraOleTraining;
+			sourceTree = "<group>";
+		};
+		5C59A6E9216E2D300053DC45 /* LocadoraOleTrainingTests */ = {
+			isa = PBXGroup;
+			children = (
+				5C59A6EA216E2D300053DC45 /* LocadoraOleTrainingTests.swift */,
+				5C59A6EC216E2D300053DC45 /* Info.plist */,
+			);
+			path = LocadoraOleTrainingTests;
+			sourceTree = "<group>";
+		};
+		5C59A6F4216E2D300053DC45 /* LocadoraOleTrainingUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5C59A6F5216E2D300053DC45 /* LocadoraOleTrainingUITests.swift */,
+				5C59A6F7216E2D300053DC45 /* Info.plist */,
+			);
+			path = LocadoraOleTrainingUITests;
+			sourceTree = "<group>";
+		};
+		5C59A708216E7E1E0053DC45 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5C59A70C216E7E6F0053DC45 /* Dosis-Bold.otf */,
+				5C59A70A216E7E6E0053DC45 /* Dosis-ExtraBold.otf */,
+				5C59A70F216E7E6F0053DC45 /* Dosis-ExtraLight.otf */,
+				5C59A70D216E7E6F0053DC45 /* Dosis-Light.otf */,
+				5C59A70B216E7E6F0053DC45 /* Dosis-Medium.otf */,
+				5C59A70E216E7E6F0053DC45 /* Dosis-Regular.otf */,
+				5C59A709216E7E6E0053DC45 /* Dosis-SemiBold.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		5C59A717216E84330053DC45 /* Pré-Login */ = {
+			isa = PBXGroup;
+			children = (
+				5C59A718216E846A0053DC45 /* Controller */,
+			);
+			name = "Pré-Login";
+			path = "Pré-Login";
+			sourceTree = "<group>";
+		};
+		5C59A718216E846A0053DC45 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5C59A6D7216E2D2E0053DC45 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5C59A71A216E84D50053DC45 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5C59A706216E5E950053DC45 /* Atributos.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6FD368D1712365DDDC574DA8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				19D0AEF60C156123943D370D /* Pods_LocadoraOleTraining.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C6F07ED1E2C487041FB34790 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7B715B4BEEEA97E299EC0DC7 /* Pods-LocadoraOleTraining.debug.xcconfig */,
+				830B95FC87DF7D4C46799C3C /* Pods-LocadoraOleTraining.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5C59A6D1216E2D2E0053DC45 /* LocadoraOleTraining */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5C59A6FA216E2D300053DC45 /* Build configuration list for PBXNativeTarget "LocadoraOleTraining" */;
+			buildPhases = (
+				A94281F0228DB942790986C8 /* [CP] Check Pods Manifest.lock */,
+				5C59A6CE216E2D2E0053DC45 /* Sources */,
+				5C59A6CF216E2D2E0053DC45 /* Frameworks */,
+				5C59A6D0216E2D2E0053DC45 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LocadoraOleTraining;
+			productName = LocadoraOleTraining;
+			productReference = 5C59A6D2216E2D2E0053DC45 /* LocadoraOleTraining.app */;
+			productType = "com.apple.product-type.application";
+		};
+		5C59A6E5216E2D300053DC45 /* LocadoraOleTrainingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5C59A6FD216E2D300053DC45 /* Build configuration list for PBXNativeTarget "LocadoraOleTrainingTests" */;
+			buildPhases = (
+				5C59A6E2216E2D300053DC45 /* Sources */,
+				5C59A6E3216E2D300053DC45 /* Frameworks */,
+				5C59A6E4216E2D300053DC45 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5C59A6E8216E2D300053DC45 /* PBXTargetDependency */,
+			);
+			name = LocadoraOleTrainingTests;
+			productName = LocadoraOleTrainingTests;
+			productReference = 5C59A6E6216E2D300053DC45 /* LocadoraOleTrainingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5C59A6F0216E2D300053DC45 /* LocadoraOleTrainingUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5C59A700216E2D300053DC45 /* Build configuration list for PBXNativeTarget "LocadoraOleTrainingUITests" */;
+			buildPhases = (
+				5C59A6ED216E2D300053DC45 /* Sources */,
+				5C59A6EE216E2D300053DC45 /* Frameworks */,
+				5C59A6EF216E2D300053DC45 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5C59A6F3216E2D300053DC45 /* PBXTargetDependency */,
+			);
+			name = LocadoraOleTrainingUITests;
+			productName = LocadoraOleTrainingUITests;
+			productReference = 5C59A6F1216E2D300053DC45 /* LocadoraOleTrainingUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5C59A6CA216E2D2E0053DC45 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Lorena Rodrigues Bruno";
+				TargetAttributes = {
+					5C59A6D1216E2D2E0053DC45 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					5C59A6E5216E2D300053DC45 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 5C59A6D1216E2D2E0053DC45;
+					};
+					5C59A6F0216E2D300053DC45 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 5C59A6D1216E2D2E0053DC45;
+					};
+				};
+			};
+			buildConfigurationList = 5C59A6CD216E2D2E0053DC45 /* Build configuration list for PBXProject "LocadoraOleTraining" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5C59A6C9216E2D2E0053DC45;
+			productRefGroup = 5C59A6D3216E2D2E0053DC45 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5C59A6D1216E2D2E0053DC45 /* LocadoraOleTraining */,
+				5C59A6E5216E2D300053DC45 /* LocadoraOleTrainingTests */,
+				5C59A6F0216E2D300053DC45 /* LocadoraOleTrainingUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5C59A6D0216E2D2E0053DC45 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C59A716216E7E6F0053DC45 /* Dosis-ExtraLight.otf in Resources */,
+				5C59A713216E7E6F0053DC45 /* Dosis-Bold.otf in Resources */,
+				5C59A715216E7E6F0053DC45 /* Dosis-Regular.otf in Resources */,
+				5C59A6E0216E2D300053DC45 /* LaunchScreen.storyboard in Resources */,
+				5C59A712216E7E6F0053DC45 /* Dosis-Medium.otf in Resources */,
+				5C59A6DD216E2D300053DC45 /* Assets.xcassets in Resources */,
+				5C59A6DB216E2D2E0053DC45 /* Main.storyboard in Resources */,
+				5C59A714216E7E6F0053DC45 /* Dosis-Light.otf in Resources */,
+				5C59A711216E7E6F0053DC45 /* Dosis-ExtraBold.otf in Resources */,
+				5C59A710216E7E6F0053DC45 /* Dosis-SemiBold.otf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C59A6E4216E2D300053DC45 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C59A6EF216E2D300053DC45 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A94281F0228DB942790986C8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LocadoraOleTraining-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5C59A6CE216E2D2E0053DC45 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C59A6D8216E2D2E0053DC45 /* ViewController.swift in Sources */,
+				5C59A707216E5E950053DC45 /* Atributos.swift in Sources */,
+				5C59A6D6216E2D2E0053DC45 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C59A6E2216E2D300053DC45 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C59A6EB216E2D300053DC45 /* LocadoraOleTrainingTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C59A6ED216E2D300053DC45 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5C59A6F6216E2D300053DC45 /* LocadoraOleTrainingUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5C59A6E8216E2D300053DC45 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5C59A6D1216E2D2E0053DC45 /* LocadoraOleTraining */;
+			targetProxy = 5C59A6E7216E2D300053DC45 /* PBXContainerItemProxy */;
+		};
+		5C59A6F3216E2D300053DC45 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5C59A6D1216E2D2E0053DC45 /* LocadoraOleTraining */;
+			targetProxy = 5C59A6F2216E2D300053DC45 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5C59A6D9216E2D2E0053DC45 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5C59A6DA216E2D2E0053DC45 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5C59A6DE216E2D300053DC45 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5C59A6DF216E2D300053DC45 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5C59A6F8216E2D300053DC45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5C59A6F9216E2D300053DC45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5C59A6FB216E2D300053DC45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B715B4BEEEA97E299EC0DC7 /* Pods-LocadoraOleTraining.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SZSQ274898;
+				INFOPLIST_FILE = LocadoraOleTraining/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.zup.oletraining.LocadoraOleTraining;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5C59A6FC216E2D300053DC45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 830B95FC87DF7D4C46799C3C /* Pods-LocadoraOleTraining.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SZSQ274898;
+				INFOPLIST_FILE = LocadoraOleTraining/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.zup.oletraining.LocadoraOleTraining;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		5C59A6FE216E2D300053DC45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SZSQ274898;
+				INFOPLIST_FILE = LocadoraOleTrainingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.zup.oletraining.LocadoraOleTrainingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LocadoraOleTraining.app/LocadoraOleTraining";
+			};
+			name = Debug;
+		};
+		5C59A6FF216E2D300053DC45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SZSQ274898;
+				INFOPLIST_FILE = LocadoraOleTrainingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.zup.oletraining.LocadoraOleTrainingTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LocadoraOleTraining.app/LocadoraOleTraining";
+			};
+			name = Release;
+		};
+		5C59A701216E2D300053DC45 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SZSQ274898;
+				INFOPLIST_FILE = LocadoraOleTrainingUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.zup.oletraining.LocadoraOleTrainingUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LocadoraOleTraining;
+			};
+			name = Debug;
+		};
+		5C59A702216E2D300053DC45 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SZSQ274898;
+				INFOPLIST_FILE = LocadoraOleTrainingUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.zup.oletraining.LocadoraOleTrainingUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = LocadoraOleTraining;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5C59A6CD216E2D2E0053DC45 /* Build configuration list for PBXProject "LocadoraOleTraining" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C59A6F8216E2D300053DC45 /* Debug */,
+				5C59A6F9216E2D300053DC45 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5C59A6FA216E2D300053DC45 /* Build configuration list for PBXNativeTarget "LocadoraOleTraining" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C59A6FB216E2D300053DC45 /* Debug */,
+				5C59A6FC216E2D300053DC45 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5C59A6FD216E2D300053DC45 /* Build configuration list for PBXNativeTarget "LocadoraOleTrainingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C59A6FE216E2D300053DC45 /* Debug */,
+				5C59A6FF216E2D300053DC45 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5C59A700216E2D300053DC45 /* Build configuration list for PBXNativeTarget "LocadoraOleTrainingUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C59A701216E2D300053DC45 /* Debug */,
+				5C59A702216E2D300053DC45 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5C59A6CA216E2D2E0053DC45 /* Project object */;
+}
