@@ -13,8 +13,10 @@ class Atributos: NSObject {
     static let shared = Atributos()
     private override init() {}
     
-    static func setaAtributosLabel(label: UILabel, labelText: String) {
-        shared.setaAtributosLabel(label: label, labelText: labelText)
+    // MARK:-  STATIC METHODS
+    
+    static func setaAtributosLabel(label: UILabel, labelText: String, size: CGFloat, fontFamily: String, spaceLine: Double, textColor: UIColor) {
+        shared.setaAtributosLabel(label: label, labelText: labelText, size: size, fontFamily: fontFamily, spaceLine: spaceLine, textColor: textColor)
     }
     
     static func setaAtributosButton(button: UIButton) {
@@ -22,18 +24,19 @@ class Atributos: NSObject {
     }
     
     
-    func setaAtributosLabel(label: UILabel, labelText: String) {
+    // MARK:-  IMPLEMENTATION OF STATIC METHODS
+    
+    func setaAtributosLabel(label: UILabel, labelText: String, size: CGFloat, fontFamily: String, spaceLine: Double, textColor: UIColor) {
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.alignment = .center
         
         
-        let font = UIFont(name: "Dosis-Bold", size: 16) ?? UIFont.systemFont(ofSize: 16)
-        let textColor = UIColor(red: 0.357, green: 0.353, blue: 0.353, alpha: 1)
+        let font = UIFont(name: fontFamily, size: size) ?? UIFont.systemFont(ofSize: size)
         
         let attributes: [NSAttributedStringKey: Any] =
                 [
-                    .kern: 3.0,
+                    .kern: spaceLine,
                     .foregroundColor: textColor,
                     .font: font,
                     .paragraphStyle: paragraphStyle,

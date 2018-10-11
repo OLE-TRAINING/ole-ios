@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		3D0A9DF63084C87C047D535B /* Pods_LocadoraOleTraining.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19D0AEF60C156123943D370D /* Pods_LocadoraOleTraining.framework */; };
+		5C4F6AD5216F746D00688CB6 /* CadastroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4F6AD4216F746D00688CB6 /* CadastroViewController.swift */; };
+		5C4F6ADE216F816F00688CB6 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C4F6AD6216F816E00688CB6 /* Roboto-Black.ttf */; };
+		5C4F6ADF216F816F00688CB6 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C4F6AD7216F816E00688CB6 /* Roboto-Regular.ttf */; };
+		5C4F6AE0216F816F00688CB6 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C4F6AD8216F816E00688CB6 /* Roboto-Light.ttf */; };
+		5C4F6AE1216F816F00688CB6 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C4F6AD9216F816E00688CB6 /* Roboto-Thin.ttf */; };
+		5C4F6AE2216F816F00688CB6 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C4F6ADA216F816E00688CB6 /* Roboto-Medium.ttf */; };
+		5C4F6AE3216F816F00688CB6 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C4F6ADB216F816E00688CB6 /* Roboto-Bold.ttf */; };
+		5C4F6AE4216F816F00688CB6 /* Roboto-Condensed.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C4F6ADC216F816F00688CB6 /* Roboto-Condensed.ttf */; };
+		5C4F6AE5216F816F00688CB6 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C4F6ADD216F816F00688CB6 /* Roboto-Italic.ttf */; };
+		5C4F6AE7216F857100688CB6 /* ValidaFormulario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4F6AE6216F857100688CB6 /* ValidaFormulario.swift */; };
 		5C59A6D6216E2D2E0053DC45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C59A6D5216E2D2E0053DC45 /* AppDelegate.swift */; };
 		5C59A6D8216E2D2E0053DC45 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C59A6D7216E2D2E0053DC45 /* ViewController.swift */; };
 		5C59A6DB216E2D2E0053DC45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C59A6D9216E2D2E0053DC45 /* Main.storyboard */; };
@@ -44,6 +54,16 @@
 
 /* Begin PBXFileReference section */
 		19D0AEF60C156123943D370D /* Pods_LocadoraOleTraining.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocadoraOleTraining.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C4F6AD4216F746D00688CB6 /* CadastroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroViewController.swift; sourceTree = "<group>"; };
+		5C4F6AD6216F816E00688CB6 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		5C4F6AD7216F816E00688CB6 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		5C4F6AD8216F816E00688CB6 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		5C4F6AD9216F816E00688CB6 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		5C4F6ADA216F816E00688CB6 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		5C4F6ADB216F816E00688CB6 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		5C4F6ADC216F816F00688CB6 /* Roboto-Condensed.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Condensed.ttf"; sourceTree = "<group>"; };
+		5C4F6ADD216F816F00688CB6 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		5C4F6AE6216F857100688CB6 /* ValidaFormulario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidaFormulario.swift; sourceTree = "<group>"; };
 		5C59A6D2216E2D2E0053DC45 /* LocadoraOleTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocadoraOleTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C59A6D5216E2D2E0053DC45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C59A6D7216E2D2E0053DC45 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +115,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C4F6AD2216F743C00688CB6 /* Cadastro */ = {
+			isa = PBXGroup;
+			children = (
+				5C4F6AD3216F744300688CB6 /* Controller */,
+			);
+			path = Cadastro;
+			sourceTree = "<group>";
+		};
+		5C4F6AD3216F744300688CB6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5C4F6AD4216F746D00688CB6 /* CadastroViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		5C59A6C9216E2D2E0053DC45 = {
 			isa = PBXGroup;
 			children = (
@@ -121,7 +157,8 @@
 			isa = PBXGroup;
 			children = (
 				5C59A6D5216E2D2E0053DC45 /* AppDelegate.swift */,
-				5C59A717216E84330053DC45 /* Pré-Login */,
+				5C59A717216E84330053DC45 /* Pré-Login */,
+				5C4F6AD2216F743C00688CB6 /* Cadastro */,
 				5C59A71A216E84D50053DC45 /* Model */,
 				5C59A708216E7E1E0053DC45 /* Fonts */,
 				5C59A6D9216E2D2E0053DC45 /* Main.storyboard */,
@@ -153,6 +190,14 @@
 		5C59A708216E7E1E0053DC45 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				5C4F6AD6216F816E00688CB6 /* Roboto-Black.ttf */,
+				5C4F6ADB216F816E00688CB6 /* Roboto-Bold.ttf */,
+				5C4F6ADC216F816F00688CB6 /* Roboto-Condensed.ttf */,
+				5C4F6ADD216F816F00688CB6 /* Roboto-Italic.ttf */,
+				5C4F6AD8216F816E00688CB6 /* Roboto-Light.ttf */,
+				5C4F6ADA216F816E00688CB6 /* Roboto-Medium.ttf */,
+				5C4F6AD7216F816E00688CB6 /* Roboto-Regular.ttf */,
+				5C4F6AD9216F816E00688CB6 /* Roboto-Thin.ttf */,
 				5C59A70C216E7E6F0053DC45 /* Dosis-Bold.otf */,
 				5C59A70A216E7E6E0053DC45 /* Dosis-ExtraBold.otf */,
 				5C59A70F216E7E6F0053DC45 /* Dosis-ExtraLight.otf */,
@@ -164,7 +209,7 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		5C59A717216E84330053DC45 /* Pré-Login */ = {
+		5C59A717216E84330053DC45 /* Pré-Login */ = {
 			isa = PBXGroup;
 			children = (
 				5C59A718216E846A0053DC45 /* Controller */,
@@ -185,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				5C59A706216E5E950053DC45 /* Atributos.swift */,
+				5C4F6AE6216F857100688CB6 /* ValidaFormulario.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -217,6 +263,7 @@
 				5C59A6CE216E2D2E0053DC45 /* Sources */,
 				5C59A6CF216E2D2E0053DC45 /* Frameworks */,
 				5C59A6D0216E2D2E0053DC45 /* Resources */,
+				90131CD2AE56B110C36B2F00 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -311,15 +358,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C4F6AE4216F816F00688CB6 /* Roboto-Condensed.ttf in Resources */,
+				5C4F6AE5216F816F00688CB6 /* Roboto-Italic.ttf in Resources */,
+				5C4F6AE1216F816F00688CB6 /* Roboto-Thin.ttf in Resources */,
 				5C59A716216E7E6F0053DC45 /* Dosis-ExtraLight.otf in Resources */,
 				5C59A713216E7E6F0053DC45 /* Dosis-Bold.otf in Resources */,
 				5C59A715216E7E6F0053DC45 /* Dosis-Regular.otf in Resources */,
 				5C59A6E0216E2D300053DC45 /* LaunchScreen.storyboard in Resources */,
+				5C4F6AE2216F816F00688CB6 /* Roboto-Medium.ttf in Resources */,
 				5C59A712216E7E6F0053DC45 /* Dosis-Medium.otf in Resources */,
+				5C4F6ADE216F816F00688CB6 /* Roboto-Black.ttf in Resources */,
+				5C4F6ADF216F816F00688CB6 /* Roboto-Regular.ttf in Resources */,
 				5C59A6DD216E2D300053DC45 /* Assets.xcassets in Resources */,
 				5C59A6DB216E2D2E0053DC45 /* Main.storyboard in Resources */,
+				5C4F6AE0216F816F00688CB6 /* Roboto-Light.ttf in Resources */,
 				5C59A714216E7E6F0053DC45 /* Dosis-Light.otf in Resources */,
 				5C59A711216E7E6F0053DC45 /* Dosis-ExtraBold.otf in Resources */,
+				5C4F6AE3216F816F00688CB6 /* Roboto-Bold.ttf in Resources */,
 				5C59A710216E7E6F0053DC45 /* Dosis-SemiBold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,6 +396,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		90131CD2AE56B110C36B2F00 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-LocadoraOleTraining/Pods-LocadoraOleTraining-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPKeyboardAvoiding.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LocadoraOleTraining/Pods-LocadoraOleTraining-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		A94281F0228DB942790986C8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -368,7 +445,9 @@
 			files = (
 				5C59A6D8216E2D2E0053DC45 /* ViewController.swift in Sources */,
 				5C59A707216E5E950053DC45 /* Atributos.swift in Sources */,
+				5C4F6AE7216F857100688CB6 /* ValidaFormulario.swift in Sources */,
 				5C59A6D6216E2D2E0053DC45 /* AppDelegate.swift in Sources */,
+				5C4F6AD5216F746D00688CB6 /* CadastroViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

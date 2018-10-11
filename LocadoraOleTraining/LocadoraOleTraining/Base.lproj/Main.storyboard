@@ -33,6 +33,9 @@
                                 <state key="normal" title="AVANÇAR">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonAvancar:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Woe-Jf-iy7"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O8i-GR-EQQ">
                                 <rect key="frame" x="43" y="80" width="289" height="45"/>
@@ -40,7 +43,7 @@
                                     <constraint firstAttribute="height" constant="45" id="01V-qm-maB"/>
                                 </constraints>
                                 <attributedString key="attributedText">
-                                    <fragment content="TEST">
+                                    <fragment content="INFORME SUA CONTA DE E-MAIL">
                                         <attributes>
                                             <font key="NSFont" size="12" name="Helvetica"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -56,7 +59,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.96470588235294119" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -83,11 +86,162 @@
                     <connections>
                         <outlet property="ButtonAvancar" destination="SvQ-2p-VgP" id="onz-Nl-wgf"/>
                         <outlet property="LabelEmail" destination="O8i-GR-EQQ" id="y3R-8z-813"/>
+                        <outlet property="TextFieldEmail" destination="vfe-uC-2Md" id="NGT-hu-sm9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="117.59999999999999" y="118.29085457271366"/>
+        </scene>
+        <!--Cadastro View Controller-->
+        <scene sceneID="TkR-eS-CWB">
+            <objects>
+                <viewController id="YCo-xf-LWL" customClass="CadastroViewController" customModule="LocadoraOleTraining" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UyC-Ao-Me5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="scW-rj-2Nk" customClass="TPKeyboardAvoidingCollectionView">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="fqh-b3-yhv">
+                                        <rect key="frame" x="43" y="80" width="289" height="561"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rKh-Dj-dJp">
+                                                <rect key="frame" x="0.0" y="0.0" width="289" height="45"/>
+                                                <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="45" id="jmC-ve-v7L"/>
+                                                </constraints>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Crie sua nova conta">
+                                                        <attributes>
+                                                            <font key="NSFont" metaFont="system" size="17"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pJ6-em-q5Y">
+                                                <rect key="frame" x="0.0" y="51" width="289" height="20"/>
+                                                <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="m6u-pa-DbE"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jn5-Xa-svL">
+                                                <rect key="frame" x="0.0" y="77" width="289" height="21"/>
+                                                <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20.5" id="2oL-Ez-Tll"/>
+                                                </constraints>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="E-mail">
+                                                        <attributes>
+                                                            <font key="NSFont" size="17" name=".SFNSText"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DWw-ZQ-qXh">
+                                                <rect key="frame" x="0.0" y="104" width="289" height="90"/>
+                                                <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="90" id="r9M-uy-GC9"/>
+                                                </constraints>
+                                            </view>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome completo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fLg-a4-qko">
+                                                <rect key="frame" x="0.0" y="200" width="289" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="0yd-Vw-VoZ"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome de usuário" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O1I-la-6kD">
+                                                <rect key="frame" x="0.0" y="256" width="289" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="9Oj-ty-Dog"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0y0-LH-dCd">
+                                                <rect key="frame" x="0.0" y="312" width="289" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="Z3p-hK-dum"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                            </textField>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fzq-9O-B2O">
+                                                <rect key="frame" x="0.0" y="368" width="289" height="106"/>
+                                                <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Xn-qY-Ymb">
+                                                <rect key="frame" x="0.0" y="480" width="289" height="45"/>
+                                                <color key="backgroundColor" red="0.070588235289999995" green="0.59215686270000001" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="45" id="PqO-s3-1Ty"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Dosis-Bold" family="Dosis" pointSize="12"/>
+                                                <state key="normal" title="AVANÇAR">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="ButtonAvancar:" destination="YCo-xf-LWL" eventType="touchUpInside" id="59e-hW-7Gr"/>
+                                                </connections>
+                                            </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oPA-u9-eGI">
+                                                <rect key="frame" x="0.0" y="531" width="289" height="30"/>
+                                                <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="s5H-VI-KHm"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="561" id="IJv-gR-eRz"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="fqh-b3-yhv" firstAttribute="leading" secondItem="scW-rj-2Nk" secondAttribute="leading" constant="43" id="0fw-HG-WFr"/>
+                                    <constraint firstAttribute="bottom" secondItem="fqh-b3-yhv" secondAttribute="bottom" constant="309" id="HRW-sJ-131"/>
+                                    <constraint firstItem="fqh-b3-yhv" firstAttribute="centerX" secondItem="scW-rj-2Nk" secondAttribute="centerX" id="OSr-YK-dPQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="fqh-b3-yhv" secondAttribute="trailing" constant="43" id="QU6-dC-QxH"/>
+                                    <constraint firstItem="fqh-b3-yhv" firstAttribute="top" secondItem="scW-rj-2Nk" secondAttribute="top" constant="80" id="pb3-eP-frL"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96470588235294119" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="scW-rj-2Nk" firstAttribute="trailing" secondItem="Dd8-ah-nM9" secondAttribute="trailing" id="0qa-WJ-A5q"/>
+                            <constraint firstItem="scW-rj-2Nk" firstAttribute="top" secondItem="Dd8-ah-nM9" secondAttribute="top" id="X76-N2-NQz"/>
+                            <constraint firstItem="scW-rj-2Nk" firstAttribute="leading" secondItem="Dd8-ah-nM9" secondAttribute="leading" id="dBH-Mq-lKM"/>
+                            <constraint firstAttribute="bottom" secondItem="scW-rj-2Nk" secondAttribute="bottom" id="fNX-1P-MYN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Dd8-ah-nM9"/>
+                    </view>
+                    <connections>
+                        <outlet property="ButtonAvancar" destination="9Xn-qY-Ymb" id="5le-8h-Qk3"/>
+                        <outlet property="LabelEmail" destination="Jn5-Xa-svL" id="Upa-66-Pzq"/>
+                        <outlet property="LabelTitulo" destination="rKh-Dj-dJp" id="HGt-pp-YHO"/>
+                        <outletCollection property="CamposTextField" destination="fLg-a4-qko" collectionClass="NSMutableArray" id="pqf-hI-wPL"/>
+                        <outletCollection property="CamposTextField" destination="O1I-la-6kD" collectionClass="NSMutableArray" id="0Yc-og-EE5"/>
+                        <outletCollection property="CamposTextField" destination="0y0-LH-dCd" collectionClass="NSMutableArray" id="KEv-Ck-wPF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nh6-Ja-2U8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="893.60000000000002" y="117.39130434782609"/>
         </scene>
     </scenes>
 </document>
