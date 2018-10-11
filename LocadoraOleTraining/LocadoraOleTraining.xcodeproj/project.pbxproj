@@ -157,7 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				5C59A6D5216E2D2E0053DC45 /* AppDelegate.swift */,
-				5C59A717216E84330053DC45 /* Pré-Login */,
+				5C59A717216E84330053DC45 /* Pré-Login */,
 				5C4F6AD2216F743C00688CB6 /* Cadastro */,
 				5C59A71A216E84D50053DC45 /* Model */,
 				5C59A708216E7E1E0053DC45 /* Fonts */,
@@ -209,7 +209,7 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		5C59A717216E84330053DC45 /* Pré-Login */ = {
+		5C59A717216E84330053DC45 /* Pré-Login */ = {
 			isa = PBXGroup;
 			children = (
 				5C59A718216E846A0053DC45 /* Controller */,
@@ -401,15 +401,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-LocadoraOleTraining/Pods-LocadoraOleTraining-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPKeyboardAvoiding.framework",
 			);

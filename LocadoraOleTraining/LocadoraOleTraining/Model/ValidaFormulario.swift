@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class ValidaFormulario: NSObject {
 
     static let shared = ValidaFormulario()
@@ -82,6 +83,8 @@ class ValidaFormulario: NSObject {
         
         return textFieldsPreenchidos
     }
+    
+    
     
     
     
