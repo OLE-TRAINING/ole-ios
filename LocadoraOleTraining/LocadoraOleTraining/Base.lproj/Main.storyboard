@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YCo-xf-LWL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -291,6 +291,9 @@
                         <outlet property="ButtonAvancar" destination="9Xn-qY-Ymb" id="5le-8h-Qk3"/>
                         <outlet property="LabelEmail" destination="Jn5-Xa-svL" id="Upa-66-Pzq"/>
                         <outlet property="LabelTitulo" destination="rKh-Dj-dJp" id="HGt-pp-YHO"/>
+                        <outlet property="TextFieldNomeCompleto" destination="fLg-a4-qko" id="rVB-pS-dnU"/>
+                        <outlet property="TextFieldNomeUsuario" destination="O1I-la-6kD" id="JeG-OB-Om8"/>
+                        <outlet property="TextFieldSenha" destination="0y0-LH-dCd" id="FnQ-CA-g2A"/>
                         <outlet property="stackViewNomeCompleto" destination="suh-W3-bWd" id="1YU-Q4-5c9"/>
                         <outlet property="stackViewNomeUsuario" destination="ckz-X5-NeI" id="8gZ-F9-AKA"/>
                         <outlet property="stackViewSenha" destination="ApO-rL-qDi" id="wBy-u2-Drz"/>

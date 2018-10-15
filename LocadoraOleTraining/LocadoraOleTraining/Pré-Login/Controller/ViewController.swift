@@ -34,7 +34,7 @@ class ViewController: UIViewController {
     @IBAction func buttonAvancar(_ sender: UIButton) {
 
         guard let email = TextFieldEmail.text else { return }
-        if !ValidaFormulario.verificaEmail(email) {
+        if ValidaFormulario.verificaEmail(email) {
             ValidaFormulario.showAlertSucessoNoPreenchimento()
         } else {
             ValidaFormulario.showAlertFalhaNoPreenchimento()

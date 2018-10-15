@@ -16,9 +16,15 @@ class CadastroViewController: UIViewController {
     
     @IBOutlet var CamposTextField: [UITextField]!
     
+    @IBOutlet weak var TextFieldNomeCompleto: UITextField!
+    @IBOutlet weak var TextFieldNomeUsuario: UITextField!
+    @IBOutlet weak var TextFieldSenha: UITextField!
+    
     @IBOutlet weak var stackViewNomeCompleto: UIStackView!
     @IBOutlet weak var stackViewNomeUsuario: UIStackView!
     @IBOutlet weak var stackViewSenha: UIStackView!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,8 +46,35 @@ class CadastroViewController: UIViewController {
     
 
     @IBAction func ButtonAvancar(_ sender: UIButton) {
-        if !ValidaFormulario.verificaTextFieldsPreenchidos(textFields: CamposTextField) {
+        
+        if ValidaFormulario.verificaTextFieldsPreenchidos(textFieldNome: TextFieldNomeCompleto, textFieldNomeUsuario: TextFieldNomeUsuario, textFieldSenha: TextFieldSenha){
             ValidaFormulario.showAlertSucessoNoPreenchimento()
+            stackViewNomeCompleto.isHidden = true
+            stackViewNomeUsuario.isHidden = true
+            stackViewSenha.isHidden = true
+
+        } else {
+            switch ValidaFormulario.verificaNomeCompleto(nomeCompleto: TextFieldNomeCompleto.text ?? "") {
+            case true:
+                stackViewNomeCompleto.isHidden = true
+            case false:
+                stackViewNomeCompleto.isHidden = false
+            }
+            
+            switch ValidaFormulario.verificaNomeUsuario(nomeUsuario: TextFieldNomeUsuario.text ?? "") {
+            case true:
+                stackViewNomeUsuario.isHidden = true
+            case false:
+                stackViewNomeUsuario.isHidden = false
+            }
+            
+            switch ValidaFormulario.verificaSenha(senha: TextFieldSenha.text ?? "") {
+            case true:
+                stackViewSenha.isHidden = true
+            case false:
+                stackViewSenha.isHidden = false
+            }
+            
         }
         
     }
