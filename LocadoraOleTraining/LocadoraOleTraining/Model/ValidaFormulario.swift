@@ -50,6 +50,9 @@ class ValidaFormulario: NSObject {
         return shared.verificaSenha(senha: senha)
     }
     
+    static func verificaCodigo(_ codigo: String) -> Bool {
+        return shared.verificaCodigo(codigo)
+    }
     
     
     // MARK:-  IMPLEMENTATION OF STATIC METHODS
@@ -81,6 +84,13 @@ class ValidaFormulario: NSObject {
         
         let senhaTest = NSPredicate(format: "SELF MATCHES[c] %@", senhaRegEx)
         return senhaTest.evaluate(with: senha)
+    }
+    
+    func verificaCodigo(_ codigo: String) -> Bool {
+        let codigoRegEx = "^.{6,15}$" // Codigo length 6-15
+        
+        let codigoTest = NSPredicate(format: "SELF MATCHES[c] %@", codigoRegEx)
+        return codigoTest.evaluate(with: codigo)
     }
     
     func showAlertSucessoNoPreenchimento() {
