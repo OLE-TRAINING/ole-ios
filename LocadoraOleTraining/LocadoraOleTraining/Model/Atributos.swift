@@ -23,6 +23,18 @@ class Atributos: NSObject {
         shared.setaAtributosButton(button: button)
     }
     
+    static func setaAtributosBordaTextField(textField: UITextField, cor: UIColor, width: CGFloat) {
+        shared.setaAtributosBordaTextField(textField: textField, cor: cor, width: width)
+    }
+    
+    static func setaAtributosIniciais(textField: UITextField, stackView: UIStackView) {
+        shared.setaAtributosIniciais(textField: textField, stackView: stackView)
+    }
+    
+    static func setaAtributosCampoInvalido(textField: UITextField, stackView: UIStackView) {
+        shared.setaAtributosCampoInvalido(textField: textField, stackView: stackView)
+    }
+    
     
     // MARK:-  IMPLEMENTATION OF STATIC METHODS
     
@@ -51,4 +63,24 @@ class Atributos: NSObject {
     func setaAtributosButton(button: UIButton) {
         button.layer.cornerRadius = 20;
     }
+    
+    func setaAtributosBordaTextField(textField: UITextField, cor: UIColor, width: CGFloat) {
+        
+        textField.layer.borderColor = cor.cgColor
+        textField.layer.borderWidth = width
+    }
+    
+    func setaAtributosIniciais(textField: UITextField, stackView: UIStackView) {
+        let textColor = UIColor(red: 0.357, green: 0.353, blue: 0.353, alpha: 1)
+        Atributos.setaAtributosBordaTextField(textField: textField, cor: textColor, width: 0.0)
+        stackView.isHidden = true
+    }
+    
+    func setaAtributosCampoInvalido(textField: UITextField, stackView: UIStackView) {
+        let borderColor = UIColor(red: 0.99, green: 0.098, blue: 0.141, alpha: 1)
+        Atributos.setaAtributosBordaTextField(textField: textField, cor: borderColor, width: 1.0)
+        stackView.isHidden = false
+    }
+    
+    
 }
