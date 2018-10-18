@@ -55,6 +55,7 @@ class ValidaFormulario: NSObject {
     }
     
     
+    
     // MARK:-  IMPLEMENTATION OF STATIC METHODS
     
     func verificaEmail(_ email: String) -> Bool {
@@ -65,7 +66,7 @@ class ValidaFormulario: NSObject {
     }
     
     func verificaNomeCompleto(nomeCompleto: String) -> Bool {
-        let nomeRegEx = "^[A-Z]+[a-z ]+$" //nome com espaços e primeira letra maiuscula
+        let nomeRegEx = "^[A-Z]+[a-zA-Z ]+.{3,50}$" //nome com espaços e primeira letra maiuscula
 
         let nomeTest = NSPredicate(format: "SELF MATCHES[c] %@", nomeRegEx)
         return nomeTest.evaluate(with: nomeCompleto)
@@ -73,14 +74,14 @@ class ValidaFormulario: NSObject {
     }
     
     func verificaNomeUsuario(nomeUsuario: String) -> Bool {
-        let nomeUsuarioRegEx = "^[a-zA-Z0-9]+$" //nome de usuario com letras maiúsculas, minúsculas e numeros sem espaços
+        let nomeUsuarioRegEx = "^[a-zA-Z0-9]+.{1,15}$" //nome de usuario com letras maiúsculas, minúsculas e numeros sem espaços
         
         let nomeUsuarioTest = NSPredicate(format: "SELF MATCHES[c] %@", nomeUsuarioRegEx)
         return nomeUsuarioTest.evaluate(with: nomeUsuario)
     }
     
     func verificaSenha(senha: String) -> Bool {
-        let senhaRegEx = "^.{6,15}$" // Password length 6-15
+        let senhaRegEx = "^[a-zA-Z0-9]+.{6,15}$" // Password length 6-15
         
         let senhaTest = NSPredicate(format: "SELF MATCHES[c] %@", senhaRegEx)
         return senhaTest.evaluate(with: senha)
@@ -121,7 +122,6 @@ class ValidaFormulario: NSObject {
 
        var textFieldsPreenchidos = true
 
-        
         if !verificaNomeCompleto(nomeCompleto: textFieldNome.text ?? "") || !verificaNomeUsuario(nomeUsuario: textFieldNomeUsuario.text ?? "") || !verificaSenha(senha: textFieldSenha.text ?? ""){
             textFieldsPreenchidos = false
         } else{

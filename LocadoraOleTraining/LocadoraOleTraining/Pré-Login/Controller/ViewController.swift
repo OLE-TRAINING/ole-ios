@@ -15,7 +15,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var TextFieldEmail: UITextField!
     @IBOutlet weak var stackEmailInvalido: UIStackView!
     
-    let flagAux = 3 //1 = email não existe; 2 = email existe e cadastro está completo; 3 = email existe e cadastro está incompleto;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,23 +35,27 @@ class ViewController: UIViewController {
     
     
     @IBAction func buttonAvancar(_ sender: UIButton) {
-
+        
         guard let email = TextFieldEmail.text else { return }
         if ValidaFormulario.verificaEmail(email) {
             Atributos.setaAtributosIniciais(textField: TextFieldEmail, stackView: stackEmailInvalido)
-            if flagAux == 1 {
-                //email não existe
-                vaiParaTelaCadastro()
-                
-            } else if flagAux == 2 {
-                //email existe e cadastro já está completo
-                vaiParaTelaLogin()
-
-            } else if flagAux == 3 {
-                //email existe e cadastro não está completo
-                vaiParaTelaContinuarCadastro()
-            }
-            
+            APIManager.shared.getUserWithEmail(email, completion: { [weak self] (user: Users?) in
+                if user?.registrationStatus == "UNEXISTENT" {
+                    //email não existe
+                    self?.vaiParaTelaCadastro()
+                    
+                } else if user?.registrationStatus == "PENDING" {
+                    //email existe e cadastro está incompleto
+                    self?.vaiParaTelaContinuarCadastro()
+                    
+                } else if user?.registrationStatus == "REGISTERED" {
+                    //email existe e cadastro está completo
+                    self?.vaiParaTelaLogin()
+                    
+                } else {
+                    // to do
+                }
+            })
         } else {
             Atributos.setaAtributosCampoInvalido(textField: TextFieldEmail, stackView: stackEmailInvalido)
         }

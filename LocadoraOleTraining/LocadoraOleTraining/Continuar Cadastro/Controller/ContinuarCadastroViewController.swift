@@ -48,6 +48,10 @@ class ContinuarCadastroViewController: UIViewController {
         guard let codigo = TextFieldCodigo.text else { return }
         if ValidaFormulario.verificaCodigo(codigo) {
             Atributos.setaAtributosIniciais(textField: TextFieldCodigo, stackView: stackCodigoInvalido)
+            guard let email = LabelEmail.text else { return }
+            APIManager.shared.getUserWithEmail(email, completion: {(user: Users?) in
+                APIManager.shared.atualizarRegistrationStatus(email: (user?.email)!, password: (user?.password)!, completeName: (user?.completeName)!, username: (user?.username)!, registrationStatus: "REGISTERED" )
+            })
             vaiParaTelaLogin()
             
         } else {

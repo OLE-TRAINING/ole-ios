@@ -55,6 +55,7 @@ class CadastroViewController: UIViewController {
     }
     
     
+    
     @IBAction func ButtonAvancar(_ sender: UIButton) {
         
         if ValidaFormulario.verificaTextFieldsPreenchidos(textFieldNome: TextFieldNomeCompleto, textFieldNomeUsuario: TextFieldNomeUsuario, textFieldSenha: TextFieldSenha){
@@ -63,6 +64,8 @@ class CadastroViewController: UIViewController {
             Atributos.setaAtributosIniciais(textField: TextFieldNomeUsuario, stackView: stackViewNomeUsuario)
             Atributos.setaAtributosIniciais(textField: TextFieldSenha, stackView: stackViewSenha)
             
+            let newUser = APIManager.shared.criaNovoUsuario(email: LabelEmail.text!, password: TextFieldSenha.text!, completeName: TextFieldNomeCompleto.text!, username: TextFieldNomeUsuario.text!, registrationStatus: "PENDING")
+            APIManager.shared.postUser(parameters: newUser)
             vaiParaTelaValidarToken()
 
         } else {

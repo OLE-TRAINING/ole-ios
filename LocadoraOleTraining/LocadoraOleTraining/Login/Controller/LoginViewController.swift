@@ -41,10 +41,15 @@ class LoginViewController: UIViewController {
     
     @IBAction func ButtonEntrar(_ sender: UIButton) {
         guard let senha = TextFieldSenha.text else { return }
-        if ValidaFormulario.verificaSenha(senha: senha) {
+//        if ValidaFormulario.verificaSenha(senha: senha) {
+//            ViewDadosInvalidos.isHidden = true
+//            ValidaFormulario.showAlertSucessoNoPreenchimento()
+//        }
+        if APIManager.shared.verificaSenhaLogin(senha: senha, email: LabelEmail.text!) {
             ViewDadosInvalidos.isHidden = true
             ValidaFormulario.showAlertSucessoNoPreenchimento()
-        } else {
+        }
+        else {
             ViewDadosInvalidos.isHidden = false
         }
 

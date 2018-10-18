@@ -48,6 +48,10 @@ class ValidarTokenViewController: UIViewController {
     @IBAction func ButtonValidar(_ sender: UIButton) {
         guard let codigo = TextFieldCodigo.text else { return }
         if ValidaFormulario.verificaCodigo(codigo) {
+            guard let email = LabelEmail.text else { return }
+            APIManager.shared.getUserWithEmail(email, completion: {(user: Users?) in
+                APIManager.shared.atualizarRegistrationStatus(email: (user?.email)!, password: (user?.password)!, completeName: (user?.completeName)!, username: (user?.username)!, registrationStatus: "REGISTERED" )
+            })
             vaiParaTelaLogin()
             Atributos.setaAtributosIniciais(textField: TextFieldCodigo, stackView: stackViewCodigoInvalido)
         } else {
