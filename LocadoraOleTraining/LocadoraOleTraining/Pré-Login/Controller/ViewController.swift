@@ -10,18 +10,17 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var LabelEmail: UILabel!
-    @IBOutlet weak var ButtonAvancar: UIButton!
-    @IBOutlet weak var TextFieldEmail: UITextField!
-    @IBOutlet weak var stackEmailInvalido: UIStackView!
+    @IBOutlet weak var labelEmail: UILabel!
+    @IBOutlet weak var buttonGo: UIButton!
+    @IBOutlet weak var textFieldEmail: UITextField!
+    @IBOutlet weak var stackInvalidEmail: UIStackView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let textColor = UIColor(red: 0.357, green: 0.353, blue: 0.353, alpha: 1)
-        Atributos.setaAtributosLabel(label: LabelEmail, labelText: "INFORME SUA CONTA DE E-MAIL", size: 16, fontFamily: "Dosis-Bold", spaceLine: 3.0, textColor: textColor)
-        Atributos.setaAtributosButton(button: ButtonAvancar)
-        stackEmailInvalido.isHidden = true
+        Attributes.setAttributesLabel(label: labelEmail, labelText: "INFORME SUA CONTA DE E-MAIL", size: 16, fontFamily: "Dosis-Bold", spaceLine: 3.0, textColor: textColor)
+        stackInvalidEmail.isHidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,30 +33,29 @@ class ViewController: UIViewController {
     }
     
     
-    @IBAction func buttonAvancar(_ sender: UIButton) {
+    @IBAction func buttonGo(_ sender: UIButton) {
         
-        guard let email = TextFieldEmail.text else { return }
-        if ValidaFormulario.verificaEmail(email) {
-            Atributos.setaAtributosIniciais(textField: TextFieldEmail, stackView: stackEmailInvalido)
-            APIManager.shared.getUserWithEmail(email, completion: { [weak self] (user: Users?) in
+        guard let email = textFieldEmail.text else { return }
+        if ValidateForm.checkEmail(email) {
+            Attributes.setInicialAttributes(textField: textFieldEmail, stackView: stackInvalidEmail)
+            APIManager.shared.getUserWithEmail(email, completion: { [weak self] (user: UsersInfo?) in
                 if user?.registrationStatus == "UNEXISTENT" {
                     //email não existe
-                    self?.vaiParaTelaCadastro()
-                    
+                    self?.goToRegistrationScreen() 
                 } else if user?.registrationStatus == "PENDING" {
                     //email existe e cadastro está incompleto
-                    self?.vaiParaTelaContinuarCadastro()
+                    self?.goToContinueRegistrationScreen()
                     
                 } else if user?.registrationStatus == "REGISTERED" {
                     //email existe e cadastro está completo
-                    self?.vaiParaTelaLogin()
+                    self?.goToLoginScreen()
                     
                 } else {
-                    // to do
+                    ValidateForm.showAlertError()
                 }
             })
         } else {
-            Atributos.setaAtributosCampoInvalido(textField: TextFieldEmail, stackView: stackEmailInvalido)
+            Attributes.setAttributeInvalidField(textField: textFieldEmail, stackView: stackInvalidEmail)
         }
         
     }
@@ -67,29 +65,29 @@ class ViewController: UIViewController {
 
 extension ViewController {
 
-    func vaiParaTelaCadastro() {
+    func goToRegistrationScreen() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "cadastro") as! CadastroViewController
-        if let email = TextFieldEmail.text {
-            controller.emailUsuario = email
+        let controller = storyboard.instantiateViewController(withIdentifier: "cadastro") as! NewRegistrationViewController
+        if let email = textFieldEmail.text {
+            controller.emailUser = email
         }
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
-    func vaiParaTelaLogin() {
+    func goToLoginScreen() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "login") as! LoginViewController
-        if let email = TextFieldEmail.text {
-            controller.emailUsuario = email
+        if let email = textFieldEmail.text {
+            controller.emailUser = email
         }
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
-    func vaiParaTelaContinuarCadastro() {
+    func goToContinueRegistrationScreen() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "continuarCadastro") as! ContinuarCadastroViewController
-        if let email = TextFieldEmail.text {
-            controller.emailUsuario = email
+        let controller = storyboard.instantiateViewController(withIdentifier: "continuarCadastro") as! ContinueRegistration
+        if let email = textFieldEmail.text {
+            controller.emailUser = email
         }
         self.navigationController?.pushViewController(controller, animated: true)
     }

@@ -29,7 +29,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SvQ-2p-VgP">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SvQ-2p-VgP" customClass="RoundedButton" customModule="LocadoraOleTraining" customModuleProvider="target">
                                 <rect key="frame" x="43" y="578" width="289" height="45"/>
                                 <color key="backgroundColor" red="0.070588235294117646" green="0.59215686274509804" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -40,7 +40,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonAvancar:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Woe-Jf-iy7"/>
+                                    <action selector="buttonGo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Woe-Jf-iy7"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O8i-GR-EQQ">
@@ -113,20 +113,20 @@
                     </view>
                     <navigationItem key="navigationItem" id="IZw-cj-9GF"/>
                     <connections>
-                        <outlet property="ButtonAvancar" destination="SvQ-2p-VgP" id="onz-Nl-wgf"/>
-                        <outlet property="LabelEmail" destination="O8i-GR-EQQ" id="y3R-8z-813"/>
-                        <outlet property="TextFieldEmail" destination="vfe-uC-2Md" id="NGT-hu-sm9"/>
-                        <outlet property="stackEmailInvalido" destination="6os-tJ-RGE" id="IKB-bv-tNS"/>
+                        <outlet property="buttonGo" destination="SvQ-2p-VgP" id="onz-Nl-wgf"/>
+                        <outlet property="labelEmail" destination="O8i-GR-EQQ" id="y3R-8z-813"/>
+                        <outlet property="stackInvalidEmail" destination="6os-tJ-RGE" id="IKB-bv-tNS"/>
+                        <outlet property="textFieldEmail" destination="vfe-uC-2Md" id="NGT-hu-sm9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-111" y="122"/>
         </scene>
-        <!--Cadastro View Controller-->
+        <!--New Registration View Controller-->
         <scene sceneID="TkR-eS-CWB">
             <objects>
-                <viewController storyboardIdentifier="cadastro" id="YCo-xf-LWL" customClass="CadastroViewController" customModule="LocadoraOleTraining" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="cadastro" id="YCo-xf-LWL" customClass="NewRegistrationViewController" customModule="LocadoraOleTraining" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UyC-Ao-Me5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -271,7 +271,7 @@
                                                 <rect key="frame" x="0.0" y="420" width="289" height="64"/>
                                                 <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Xn-qY-Ymb">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Xn-qY-Ymb" customClass="RoundedButton" customModule="LocadoraOleTraining" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="490" width="289" height="45"/>
                                                 <color key="backgroundColor" red="0.070588235289999995" green="0.59215686270000001" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -282,7 +282,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="ButtonAvancar:" destination="YCo-xf-LWL" eventType="touchUpInside" id="59e-hW-7Gr"/>
+                                                    <action selector="ButtonGo:" destination="YCo-xf-LWL" eventType="touchUpInside" id="59e-hW-7Gr"/>
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oPA-u9-eGI">
@@ -302,7 +302,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="left-arrow"/>
                                         <connections>
-                                            <action selector="ButtonVoltar:" destination="YCo-xf-LWL" eventType="touchUpInside" id="HIh-v9-2OK"/>
+                                            <action selector="backButton:" destination="YCo-xf-LWL" eventType="touchUpInside" id="HIh-v9-2OK"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -326,18 +326,18 @@
                         <viewLayoutGuide key="safeArea" id="Dd8-ah-nM9"/>
                     </view>
                     <connections>
-                        <outlet property="ButtonAvancar" destination="9Xn-qY-Ymb" id="5le-8h-Qk3"/>
-                        <outlet property="LabelEmail" destination="Jn5-Xa-svL" id="Upa-66-Pzq"/>
-                        <outlet property="LabelTitulo" destination="rKh-Dj-dJp" id="HGt-pp-YHO"/>
-                        <outlet property="TextFieldNomeCompleto" destination="fLg-a4-qko" id="rVB-pS-dnU"/>
-                        <outlet property="TextFieldNomeUsuario" destination="O1I-la-6kD" id="JeG-OB-Om8"/>
-                        <outlet property="TextFieldSenha" destination="0y0-LH-dCd" id="FnQ-CA-g2A"/>
-                        <outlet property="stackViewNomeCompleto" destination="suh-W3-bWd" id="1YU-Q4-5c9"/>
-                        <outlet property="stackViewNomeUsuario" destination="ckz-X5-NeI" id="8gZ-F9-AKA"/>
-                        <outlet property="stackViewSenha" destination="ApO-rL-qDi" id="wBy-u2-Drz"/>
-                        <outletCollection property="CamposTextField" destination="fLg-a4-qko" collectionClass="NSMutableArray" id="pqf-hI-wPL"/>
-                        <outletCollection property="CamposTextField" destination="O1I-la-6kD" collectionClass="NSMutableArray" id="0Yc-og-EE5"/>
-                        <outletCollection property="CamposTextField" destination="0y0-LH-dCd" collectionClass="NSMutableArray" id="KEv-Ck-wPF"/>
+                        <outlet property="buttonGo" destination="9Xn-qY-Ymb" id="5le-8h-Qk3"/>
+                        <outlet property="labelEmail" destination="Jn5-Xa-svL" id="Upa-66-Pzq"/>
+                        <outlet property="labelTitle" destination="rKh-Dj-dJp" id="HGt-pp-YHO"/>
+                        <outlet property="stackViewFullName" destination="suh-W3-bWd" id="1YU-Q4-5c9"/>
+                        <outlet property="stackViewPassword" destination="ApO-rL-qDi" id="wBy-u2-Drz"/>
+                        <outlet property="stackViewUsername" destination="ckz-X5-NeI" id="8gZ-F9-AKA"/>
+                        <outlet property="textFieldFullName" destination="fLg-a4-qko" id="rVB-pS-dnU"/>
+                        <outlet property="textFieldPassword" destination="0y0-LH-dCd" id="FnQ-CA-g2A"/>
+                        <outlet property="textFieldUsername" destination="O1I-la-6kD" id="JeG-OB-Om8"/>
+                        <outletCollection property="textFields" destination="fLg-a4-qko" collectionClass="NSMutableArray" id="pqf-hI-wPL"/>
+                        <outletCollection property="textFields" destination="O1I-la-6kD" collectionClass="NSMutableArray" id="0Yc-og-EE5"/>
+                        <outletCollection property="textFields" destination="0y0-LH-dCd" collectionClass="NSMutableArray" id="KEv-Ck-wPF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nh6-Ja-2U8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -359,10 +359,10 @@
             </objects>
             <point key="canvasLocation" x="-1038" y="122"/>
         </scene>
-        <!--Continuar Cadastro View Controller-->
+        <!--Continue Registration-->
         <scene sceneID="0sJ-FX-6Ax">
             <objects>
-                <viewController storyboardIdentifier="continuarCadastro" id="Hvx-3C-awR" customClass="ContinuarCadastroViewController" customModule="LocadoraOleTraining" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="continuarCadastro" id="Hvx-3C-awR" customClass="ContinueRegistration" customModule="LocadoraOleTraining" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="W78-qR-UoH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -417,7 +417,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMX-IO-Ug5">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dMX-IO-Ug5" customClass="RoundedButton" customModule="LocadoraOleTraining" customModuleProvider="target">
                                         <rect key="frame" x="42" y="552" width="288" height="45"/>
                                         <color key="backgroundColor" red="0.070588235289999995" green="0.59215686270000001" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -428,7 +428,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="ButtonValidar:" destination="Hvx-3C-awR" eventType="touchUpInside" id="9Ms-Qq-JgV"/>
+                                            <action selector="buttonValidate:" destination="Hvx-3C-awR" eventType="touchUpInside" id="9Ms-Qq-JgV"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lorena@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0v-hE-I4K">
@@ -452,7 +452,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="left-arrow"/>
                                         <connections>
-                                            <action selector="ButtonVoltar:" destination="Hvx-3C-awR" eventType="touchUpInside" id="yI3-vO-qc4"/>
+                                            <action selector="backButton:" destination="Hvx-3C-awR" eventType="touchUpInside" id="yI3-vO-qc4"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -496,23 +496,23 @@
                         <viewLayoutGuide key="safeArea" id="BSL-tp-NWw"/>
                     </view>
                     <connections>
-                        <outlet property="ButtonEnviar" destination="O3S-gh-f6C" id="z2A-CG-fMj"/>
-                        <outlet property="ButtonValidar" destination="dMX-IO-Ug5" id="4o0-Nf-Ov0"/>
-                        <outlet property="LabelEmail" destination="R0v-hE-I4K" id="DVF-We-2w3"/>
-                        <outlet property="LabelNaoRecebeu" destination="BdX-cv-jsw" id="N8s-lW-mre"/>
-                        <outlet property="LabelTitulo" destination="Kaq-k8-uQ8" id="a51-R7-2aq"/>
-                        <outlet property="TextFieldCodigo" destination="ubc-nQ-6Lr" id="qze-n0-KFb"/>
-                        <outlet property="stackCodigoInvalido" destination="DeV-vW-MeM" id="kJq-4f-IOJ"/>
+                        <outlet property="buttonSend" destination="O3S-gh-f6C" id="z2A-CG-fMj"/>
+                        <outlet property="buttonValidate" destination="dMX-IO-Ug5" id="4o0-Nf-Ov0"/>
+                        <outlet property="labelDidNotReceive" destination="BdX-cv-jsw" id="N8s-lW-mre"/>
+                        <outlet property="labelEmail" destination="R0v-hE-I4K" id="DVF-We-2w3"/>
+                        <outlet property="labelTitle" destination="Kaq-k8-uQ8" id="a51-R7-2aq"/>
+                        <outlet property="stackInvalidCode" destination="DeV-vW-MeM" id="kJq-4f-IOJ"/>
+                        <outlet property="textFieldCode" destination="ubc-nQ-6Lr" id="qze-n0-KFb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qtj-vq-BOI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1685.5999999999999" y="116.49175412293854"/>
         </scene>
-        <!--Validar Token View Controller-->
+        <!--Validate Token View Controller-->
         <scene sceneID="ZPh-CL-QhU">
             <objects>
-                <viewController storyboardIdentifier="validarToken" id="XL5-XB-IPa" customClass="ValidarTokenViewController" customModule="LocadoraOleTraining" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="validarToken" id="XL5-XB-IPa" customClass="ValidateTokenViewController" customModule="LocadoraOleTraining" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mas-AX-cfP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -567,7 +567,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZc-8r-UGj">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZc-8r-UGj" customClass="RoundedButton" customModule="LocadoraOleTraining" customModuleProvider="target">
                                         <rect key="frame" x="42" y="552" width="288" height="45"/>
                                         <color key="backgroundColor" red="0.070588235289999995" green="0.59215686270000001" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -578,8 +578,8 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="ButtonValidar:" destination="Hvx-3C-awR" eventType="touchUpInside" id="824-kJ-cfw"/>
-                                            <action selector="ButtonValidar:" destination="XL5-XB-IPa" eventType="touchUpInside" id="jby-v9-CoL"/>
+                                            <action selector="buttonValidate:" destination="Hvx-3C-awR" eventType="touchUpInside" id="824-kJ-cfw"/>
+                                            <action selector="buttonValidate:" destination="XL5-XB-IPa" eventType="touchUpInside" id="jby-v9-CoL"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lorena@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="avB-Kz-Gi9">
@@ -603,7 +603,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="left-arrow"/>
                                         <connections>
-                                            <action selector="ButtonVoltar:" destination="XL5-XB-IPa" eventType="touchUpInside" id="vOb-Ri-hAZ"/>
+                                            <action selector="backButton:" destination="XL5-XB-IPa" eventType="touchUpInside" id="vOb-Ri-hAZ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -647,13 +647,13 @@
                         <viewLayoutGuide key="safeArea" id="7xO-dd-xTe"/>
                     </view>
                     <connections>
-                        <outlet property="ButtonEnviar" destination="TMQ-tI-BsO" id="EoX-iB-3Sa"/>
-                        <outlet property="ButtonValidar" destination="VZc-8r-UGj" id="Q6k-wh-s6a"/>
-                        <outlet property="LabelEmail" destination="avB-Kz-Gi9" id="Bv3-kr-R0N"/>
-                        <outlet property="LabelNaoRecebeu" destination="jt5-uJ-mVj" id="RuE-to-jEv"/>
-                        <outlet property="LabelTitulo" destination="OHM-NB-Zyx" id="O0K-Nx-7nc"/>
-                        <outlet property="TextFieldCodigo" destination="JWu-B5-9vV" id="oJT-ow-R6g"/>
-                        <outlet property="stackViewCodigoInvalido" destination="UCC-GQ-A0p" id="eny-jo-jq6"/>
+                        <outlet property="buttonSend" destination="TMQ-tI-BsO" id="EoX-iB-3Sa"/>
+                        <outlet property="buttonValidate" destination="VZc-8r-UGj" id="Q6k-wh-s6a"/>
+                        <outlet property="labelDidNotReceive" destination="jt5-uJ-mVj" id="RuE-to-jEv"/>
+                        <outlet property="labelEmail" destination="avB-Kz-Gi9" id="Bv3-kr-R0N"/>
+                        <outlet property="labelTitle" destination="OHM-NB-Zyx" id="O0K-Nx-7nc"/>
+                        <outlet property="stackViewInvalidCode" destination="UCC-GQ-A0p" id="eny-jo-jq6"/>
+                        <outlet property="textFieldCode" destination="JWu-B5-9vV" id="oJT-ow-R6g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Vd-yM-pd8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -696,7 +696,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YdY-Mc-fMr">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YdY-Mc-fMr" customClass="RoundedButton" customModule="LocadoraOleTraining" customModuleProvider="target">
                                         <rect key="frame" x="46" y="538" width="288" height="45"/>
                                         <color key="backgroundColor" red="0.070588235289999995" green="0.59215686270000001" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -707,9 +707,9 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <action selector="ButtonEntrar:" destination="5Kx-fR-bH7" eventType="touchUpInside" id="dlJ-gY-Fbs"/>
-                                            <action selector="ButtonValidar:" destination="XL5-XB-IPa" eventType="touchUpInside" id="b6T-MD-evz"/>
-                                            <action selector="ButtonValidar:" destination="Hvx-3C-awR" eventType="touchUpInside" id="n4K-gN-Sae"/>
+                                            <action selector="buttonValidate:" destination="XL5-XB-IPa" eventType="touchUpInside" id="b6T-MD-evz"/>
+                                            <action selector="buttonValidate:" destination="Hvx-3C-awR" eventType="touchUpInside" id="n4K-gN-Sae"/>
+                                            <action selector="logInButton:" destination="5Kx-fR-bH7" eventType="touchUpInside" id="dlJ-gY-Fbs"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nvD-Qi-cfC">
@@ -742,7 +742,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="left-arrow"/>
                                         <connections>
-                                            <action selector="ButtonVoltar:" destination="5Kx-fR-bH7" eventType="touchUpInside" id="BW8-yV-8IW"/>
+                                            <action selector="backButton:" destination="5Kx-fR-bH7" eventType="touchUpInside" id="BW8-yV-8IW"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -776,12 +776,12 @@
                         <viewLayoutGuide key="safeArea" id="MQd-e3-4cb"/>
                     </view>
                     <connections>
-                        <outlet property="ButtonEntrar" destination="YdY-Mc-fMr" id="zh0-Ar-U9M"/>
-                        <outlet property="ButtonEsqueceuSenha" destination="nvD-Qi-cfC" id="Dqr-Z9-KiD"/>
-                        <outlet property="LabelEmail" destination="ur0-Rf-Uge" id="s5d-mF-OfV"/>
-                        <outlet property="LabelTitulo" destination="SKd-lA-ur1" id="VDg-xk-U7y"/>
-                        <outlet property="TextFieldSenha" destination="zHy-4J-pfb" id="JMO-5m-qbJ"/>
-                        <outlet property="ViewDadosInvalidos" destination="0cG-B9-2RV" id="Kek-31-vdC"/>
+                        <outlet property="buttonForgotPassword" destination="nvD-Qi-cfC" id="Dqr-Z9-KiD"/>
+                        <outlet property="buttonLogIn" destination="YdY-Mc-fMr" id="zh0-Ar-U9M"/>
+                        <outlet property="labelEmail" destination="ur0-Rf-Uge" id="s5d-mF-OfV"/>
+                        <outlet property="labelTitle" destination="SKd-lA-ur1" id="VDg-xk-U7y"/>
+                        <outlet property="textFieldPassword" destination="zHy-4J-pfb" id="JMO-5m-qbJ"/>
+                        <outlet property="viewInvalidData" destination="0cG-B9-2RV" id="Kek-31-vdC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AIW-ut-z5I" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -8,18 +8,28 @@
 
 import UIKit
 
-struct Users: Decodable {
-    var email: String = ""
-    var password:String  = ""
-    var completeName: String = ""
-    var username: String = ""
-    var registrationStatus: String = "UNEXISTENT"
-    var id: String = ""
+//struct NewUsers: Decodable {
+//    var email: String = ""
+//    var password:String  = ""
+//    var completeName: String = ""
+//    var username: String = ""
+//    var registrationStatus: String = "INEXISTENT"
+//}
+
+struct UsersInfo: Decodable {
+    //var email: String = ""
+    var completeName: String? = nil
+    var username: String? = nil
+    var registrationStatus: String = "INEXISTENT"
 }
 
+
+
 class APIManager: NSObject {
-    let baseURL = "http://localhost:3000"
-    static let getUsersEndpoint = "/users/"
+    let baseURL = "https://ole.dev.gateway.zup.me/client-training/v1"
+    static let getUsersEndpoint = "/users"
+    static let getTokensEndpoint = "/tokens"
+    let key = "?gw-app-key=593c3280aedd01364c73000d3ac06d76"
     
     static let shared = APIManager()
     
@@ -27,44 +37,33 @@ class APIManager: NSObject {
 
     
     
-    func getAllUsers()  {
-        
-        let url = baseURL + APIManager.getUsersEndpoint
-        manager.get(url, parameters: nil, progress: nil, success: { (task, responseObject) in
-            print(responseObject!)
-        }) { (task, error) in
-            print("Error: ", error)
-        }
-    }
-    
-    func getUserWithEmail(_ email: String, completion: @escaping (Users?) -> Void)  {
-        let url = baseURL + APIManager.getUsersEndpoint  + String(email)
+    func getUserWithEmail(_ email: String, completion: @escaping (UsersInfo?) -> Void)  {
+        let url = baseURL + APIManager.getUsersEndpoint + "/" + String(email) + key
 
         
         manager.get(url, parameters: nil, progress: nil ,success: { (task, responseObject) in
             //print(responseObject.debugDescription)
             let dataJson = try! JSONSerialization.data(withJSONObject: responseObject as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
             let user = try?
-                JSONDecoder().decode(Users.self, from: dataJson)
+                JSONDecoder().decode(UsersInfo.self, from: dataJson)
             completion(user)
             
         }) { (task, error) in
-            //print("Error: " + error.localizedDescription)
-            let newUser = Users()
+            print("Error: " + error.localizedDescription)
+            let newUser = UsersInfo()
             completion(newUser)
         }
         
 
     }
 
-    func atualizarRegistrationStatus(email: String, password: String, completeName: String, username: String, registrationStatus: String) {
+    func updateRegistrationStatus(email: String, password: String, completeName: String, username: String, registrationStatus: String) {
         let parameters = [
             "email": email,
             "password": password,
             "completeName": completeName,
             "username": username,
             "registrationStatus": registrationStatus,
-            "id": email
             ] as [String : Any]
         
         let url = baseURL + APIManager.getUsersEndpoint + String(email)
@@ -74,38 +73,24 @@ class APIManager: NSObject {
             print(error.localizedDescription)
         }
     }
+
     
-    func verificaSenhaLogin(senha: String, email: String) -> Bool{
-        var flag = false
-        getUserWithEmail(email, completion: { (user: Users?) in
-            if senha == user?.password{
-                flag = true
-            }
-        })
-        return flag
-    }
-    
-    func postUser(parameters: [String:Any] ) {
-        let url = baseURL + APIManager.getUsersEndpoint
+    func createNewUser(email: String, password: String, completeName: String, username: String, registrationStatus: String) {
+        let url = baseURL + APIManager.getUsersEndpoint + key
+        
+        let parameters = [
+            "email": email,
+            "password": password,
+            "completeName": completeName,
+            "username": username,
+            "registrationStatus": registrationStatus
+            ] as [String : Any]
         
         manager.post(url, parameters: parameters, progress: nil, success: { (task, responseObject) in
             print(responseObject.debugDescription)
         }) { (task, error) in
             print(error.localizedDescription)
         }
-    }
-    
-    func criaNovoUsuario(email: String, password: String, completeName: String, username: String, registrationStatus: String) -> [String:Any] {
-        let parameters = [
-            "email": email,
-            "password": password,
-            "completeName": completeName,
-            "username": username,
-            "registrationStatus": registrationStatus,
-            "id": email
-            ] as [String : Any]
-        
-        return parameters
 
     }
     

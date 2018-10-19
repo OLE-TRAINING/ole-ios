@@ -10,24 +10,23 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet weak var LabelTitulo: UILabel!
-    @IBOutlet weak var LabelEmail: UILabel!
-    @IBOutlet weak var TextFieldSenha: UITextField!
-    @IBOutlet weak var ButtonEsqueceuSenha: UIButton!
-    @IBOutlet weak var ButtonEntrar: UIButton!
-    @IBOutlet weak var ViewDadosInvalidos: UIView!
+    @IBOutlet weak var labelTitle: UILabel!
+    @IBOutlet weak var labelEmail: UILabel!
+    @IBOutlet weak var textFieldPassword: UITextField!
+    @IBOutlet weak var buttonForgotPassword: UIButton!
+    @IBOutlet weak var buttonLogIn: UIButton!
+    @IBOutlet weak var viewInvalidData: UIView!
     
-    var emailUsuario: String?
+    var emailUser: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let textColor = UIColor(red: 0.357, green: 0.353, blue: 0.353, alpha: 1)
-        Atributos.setaAtributosLabel(label: LabelTitulo, labelText: "INFORME SUA SENHA:", size: 16, fontFamily: "Dosis-Bold", spaceLine: 3.0, textColor: textColor)
-        if let email = emailUsuario {
-            Atributos.setaAtributosLabel(label: LabelEmail, labelText: email, size: 12, fontFamily: "Arial", spaceLine: 0.6, textColor: textColor)
+        Attributes.setAttributesLabel(label: labelTitle, labelText: "INFORME SUA SENHA:", size: 16, fontFamily: "Dosis-Bold", spaceLine: 3.0, textColor: textColor)
+        if let email = emailUser {
+            Attributes.setAttributesLabel(label: labelEmail, labelText: email, size: 12, fontFamily: "Arial", spaceLine: 0.6, textColor: textColor)
         }
-        Atributos.setaAtributosButton(button: ButtonEntrar)
-        ViewDadosInvalidos.isHidden = true
+        viewInvalidData.isHidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,23 +34,24 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func ButtonVoltar(_ sender: UIButton) {
+    @IBAction func backButton(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func ButtonEntrar(_ sender: UIButton) {
-        guard let senha = TextFieldSenha.text else { return }
-//        if ValidaFormulario.verificaSenha(senha: senha) {
-//            ViewDadosInvalidos.isHidden = true
-//            ValidaFormulario.showAlertSucessoNoPreenchimento()
+    @IBAction func logInButton(_ sender: UIButton) {
+        guard let senha = textFieldPassword.text else { return }
+        guard  let email = labelEmail.text else { return }
+
+//        APIManager.shared.getUserWithEmail(email) { (user: Users?) in
+//            if user?.password == senha {
+//                self.viewInvalidData.isHidden = true
+//                ValidateForm.showAlertSucess()
+//            }
+//            else {
+//                self.viewInvalidData.isHidden = false
+//            }
 //        }
-        if APIManager.shared.verificaSenhaLogin(senha: senha, email: LabelEmail.text!) {
-            ViewDadosInvalidos.isHidden = true
-            ValidaFormulario.showAlertSucessoNoPreenchimento()
-        }
-        else {
-            ViewDadosInvalidos.isHidden = false
-        }
+            
 
     }
     
