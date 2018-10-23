@@ -15,12 +15,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var textFieldEmail: UITextField!
     @IBOutlet weak var stackInvalidEmail: UIStackView!
     
+    var viewModel = ViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let textColor = UIColor(red: 0.357, green: 0.353, blue: 0.353, alpha: 1)
-        Attributes.setAttributesLabel(label: labelEmail, labelText: "INFORME SUA CONTA DE E-MAIL", size: 16, fontFamily: "Dosis-Bold", spaceLine: 3.0, textColor: textColor)
-        stackInvalidEmail.isHidden = true
+        viewModel.startAplication(labelEmail: labelEmail, stackInvalidEmail: stackInvalidEmail)
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,21 +34,23 @@ class ViewController: UIViewController {
     
     @IBAction func buttonGo(_ sender: UIButton) {
         
+        viewModel.goToNextScreen(textFieldEmail: textFieldEmail)
+        
         guard let email = textFieldEmail.text else { return }
         if ValidateForm.checkEmail(email) {
             Attributes.setInicialAttributes(textField: textFieldEmail, stackView: stackInvalidEmail)
             APIManager.shared.getUserWithEmail(email, completion: { [weak self] (user: UsersInfo?) in
                 if user?.registrationStatus == "UNEXISTENT" {
                     //email não existe
-                    self?.goToRegistrationScreen() 
+                    self?.goToRegistrationScreen()
                 } else if user?.registrationStatus == "PENDING" {
                     //email existe e cadastro está incompleto
                     self?.goToContinueRegistrationScreen()
-                    
+
                 } else if user?.registrationStatus == "REGISTERED" {
                     //email existe e cadastro está completo
                     self?.goToLoginScreen()
-                    
+
                 } else {
                     ValidateForm.showAlertError()
                 }

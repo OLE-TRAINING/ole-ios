@@ -18,6 +18,7 @@
 		5C4F6AE4216F816F00688CB6 /* Roboto-Condensed.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C4F6ADC216F816F00688CB6 /* Roboto-Condensed.ttf */; };
 		5C4F6AE5216F816F00688CB6 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C4F6ADD216F816F00688CB6 /* Roboto-Italic.ttf */; };
 		5C4F6AE7216F857100688CB6 /* ValidateForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4F6AE6216F857100688CB6 /* ValidateForm.swift */; };
+		5C521274217F9E8800C08698 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C521273217F9E8800C08698 /* ViewModel.swift */; };
 		5C59A6D6216E2D2E0053DC45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C59A6D5216E2D2E0053DC45 /* AppDelegate.swift */; };
 		5C59A6D8216E2D2E0053DC45 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C59A6D7216E2D2E0053DC45 /* ViewController.swift */; };
 		5C59A6DB216E2D2E0053DC45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C59A6D9216E2D2E0053DC45 /* Main.storyboard */; };
@@ -69,6 +70,7 @@
 		5C4F6ADC216F816F00688CB6 /* Roboto-Condensed.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Condensed.ttf"; sourceTree = "<group>"; };
 		5C4F6ADD216F816F00688CB6 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
 		5C4F6AE6216F857100688CB6 /* ValidateForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateForm.swift; sourceTree = "<group>"; };
+		5C521273217F9E8800C08698 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		5C59A6D2216E2D2E0053DC45 /* LocadoraOleTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocadoraOleTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C59A6D5216E2D2E0053DC45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C59A6D7216E2D2E0053DC45 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -129,17 +131,54 @@
 		5C4F6AD2216F743C00688CB6 /* New Registration */ = {
 			isa = PBXGroup;
 			children = (
-				5C4F6AD3216F744300688CB6 /* Controller */,
+				5C4F6AD3216F744300688CB6 /* View */,
+				5C521270217F9C6000C08698 /* View Model */,
 			);
 			path = "New Registration";
 			sourceTree = "<group>";
 		};
-		5C4F6AD3216F744300688CB6 /* Controller */ = {
+		5C4F6AD3216F744300688CB6 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				5C4F6AD4216F746D00688CB6 /* NewRegistrationViewController.swift */,
 			);
-			path = Controller;
+			path = View;
+			sourceTree = "<group>";
+		};
+		5C52126E217F9C3900C08698 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				5C521273217F9E8800C08698 /* ViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		5C52126F217F9C4E00C08698 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		5C521270217F9C6000C08698 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		5C521271217F9C7300C08698 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		5C521272217F9C8400C08698 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 		5C59A6C9216E2D2E0053DC45 = {
@@ -227,18 +266,19 @@
 		5C59A717216E84330053DC45 /* Pre-Login */ = {
 			isa = PBXGroup;
 			children = (
-				5C59A718216E846A0053DC45 /* Controller */,
+				5C59A718216E846A0053DC45 /* View */,
+				5C52126E217F9C3900C08698 /* View Model */,
 			);
 			name = "Pre-Login";
 			path = "Pré-Login";
 			sourceTree = "<group>";
 		};
-		5C59A718216E846A0053DC45 /* Controller */ = {
+		5C59A718216E846A0053DC45 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				5C59A6D7216E2D2E0053DC45 /* ViewController.swift */,
 			);
-			path = Controller;
+			path = View;
 			sourceTree = "<group>";
 		};
 		5C59A71A216E84D50053DC45 /* Model */ = {
@@ -255,49 +295,52 @@
 		5C84C31D2176024E00CADD58 /* Validate Token */ = {
 			isa = PBXGroup;
 			children = (
-				5C84C31E2176026700CADD58 /* Controller */,
+				5C84C31E2176026700CADD58 /* View */,
+				5C521272217F9C8400C08698 /* View Model */,
 			);
 			path = "Validate Token";
 			sourceTree = "<group>";
 		};
-		5C84C31E2176026700CADD58 /* Controller */ = {
+		5C84C31E2176026700CADD58 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				5C84C31B2176023D00CADD58 /* ValidateTokenViewController.swift */,
 			);
-			path = Controller;
+			path = View;
 			sourceTree = "<group>";
 		};
 		5C84C31F217608DE00CADD58 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				5C84C320217608F100CADD58 /* Controller */,
+				5C84C320217608F100CADD58 /* View */,
+				5C52126F217F9C4E00C08698 /* View Model */,
 			);
 			path = Login;
 			sourceTree = "<group>";
 		};
-		5C84C320217608F100CADD58 /* Controller */ = {
+		5C84C320217608F100CADD58 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				5C84C3212176090300CADD58 /* LoginViewController.swift */,
 			);
-			path = Controller;
+			path = View;
 			sourceTree = "<group>";
 		};
 		5CC41EF52175091900F2FB3E /* Continue Registration */ = {
 			isa = PBXGroup;
 			children = (
-				5CC41EF62175099100F2FB3E /* Controller */,
+				5CC41EF62175099100F2FB3E /* View */,
+				5C521271217F9C7300C08698 /* View Model */,
 			);
 			path = "Continue Registration";
 			sourceTree = "<group>";
 		};
-		5CC41EF62175099100F2FB3E /* Controller */ = {
+		5CC41EF62175099100F2FB3E /* View */ = {
 			isa = PBXGroup;
 			children = (
 				5CC41EF7217509A900F2FB3E /* ContinueRegistration.swift */,
 			);
-			path = Controller;
+			path = View;
 			sourceTree = "<group>";
 		};
 		6FD368D1712365DDDC574DA8 /* Frameworks */ = {
@@ -510,6 +553,7 @@
 				5C59A6D8216E2D2E0053DC45 /* ViewController.swift in Sources */,
 				5C6DD9F7217A757B003A891D /* RoundedButton.swift in Sources */,
 				5C84C31C2176023D00CADD58 /* ValidateTokenViewController.swift in Sources */,
+				5C521274217F9E8800C08698 /* ViewModel.swift in Sources */,
 				5C59A707216E5E950053DC45 /* Attributes.swift in Sources */,
 				5C7858BF217764D60007612D /* APIManager.swift in Sources */,
 				5C4F6AE7216F857100688CB6 /* ValidateForm.swift in Sources */,

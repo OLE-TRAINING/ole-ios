@@ -33,6 +33,7 @@ class Attributes: NSObject {
     }
     
     
+    
     // MARK:-  IMPLEMENTATION OF STATIC METHODS
     
     func setAttributesLabel(label: UILabel, labelText: String, size: CGFloat, fontFamily: String, spaceLine: Double, textColor: UIColor) {
@@ -76,6 +77,7 @@ class Attributes: NSObject {
         stackView.isHidden = false
     }
     
+
     
 }
 

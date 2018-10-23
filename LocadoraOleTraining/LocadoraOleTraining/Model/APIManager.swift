@@ -17,10 +17,10 @@ import UIKit
 //}
 
 struct UsersInfo: Decodable {
-    //var email: String = ""
+    var email: String? = nil
     var completeName: String? = nil
     var username: String? = nil
-    var registrationStatus: String = "INEXISTENT"
+    var registrationStatus: String = "UNEXISTENT"
 }
 
 
@@ -36,6 +36,16 @@ class APIManager: NSObject {
     let manager = AFHTTPSessionManager()
 
     
+//    func getAllPosts() {
+//
+//        let url = baseURL + APIManager.getUsersEndpoint
+//        manager.get(url, parameters: nil, progress: nil, success: { (task, responseObject) in
+//            print(responseObject!)
+//        }) { (task, error) in
+//            print("Error: ", error)
+//        }
+//
+//    }
     
     func getUserWithEmail(_ email: String, completion: @escaping (UsersInfo?) -> Void)  {
         let url = baseURL + APIManager.getUsersEndpoint + "/" + String(email) + key
@@ -73,24 +83,38 @@ class APIManager: NSObject {
             print(error.localizedDescription)
         }
     }
+    
+    func generateToken(completion: @escaping(String?) -> Void) {
+        let url = baseURL + APIManager.getTokensEndpoint + key
+        
+        manager.get(url, parameters: nil, progress: nil, success: { (task, responseObject) in
+            print(responseObject.debugDescription)
+            completion(responseObject.debugDescription)
+        }) { (task, error) in
+            print(error.localizedDescription)
+            completion(nil)
+        }
+    }
 
     
     func createNewUser(email: String, password: String, completeName: String, username: String, registrationStatus: String) {
         let url = baseURL + APIManager.getUsersEndpoint + key
         
-        let parameters = [
-            "email": email,
-            "password": password,
-            "completeName": completeName,
-            "username": username,
-            "registrationStatus": registrationStatus
-            ] as [String : Any]
-        
-        manager.post(url, parameters: parameters, progress: nil, success: { (task, responseObject) in
-            print(responseObject.debugDescription)
-        }) { (task, error) in
-            print(error.localizedDescription)
-        }
+            
+            let parameters = [
+                "email": email,
+                "password": password,
+                "completeName": completeName,
+                "username": username
+                ] as [String : Any]
+            
+            self.manager.post(url, parameters: parameters, progress: nil, success: { (task, responseObject) in
+                print(responseObject.debugDescription)
+            }) { (task, error) in
+                print(error.localizedDescription)
+            }
+
+
 
     }
     

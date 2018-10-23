@@ -32,6 +32,7 @@ class ValidateForm: NSObject {
         return shared.showAlertError()
     }
     
+    
     static func checkFilledTextFields(textFieldName: UITextField, textFieldUsername: UITextField, textFieldPassword: UITextField) -> Bool {
         return shared.checkFilledTextFields(textFieldName: textFieldName, textFieldUsername: textFieldUsername, textFieldPassword: textFieldPassword)
     }
@@ -52,6 +53,7 @@ class ValidateForm: NSObject {
         return shared.checkCode(code)
     }
     
+
     
     
     // MARK:-  IMPLEMENTATION OF STATIC METHODS
@@ -79,7 +81,7 @@ class ValidateForm: NSObject {
     }
     
     func checkPassword(password: String) -> Bool {
-        let passwordRegEx = "^[a-zA-Z0-9]+.{6,15}$" // Password length 6-15
+        let passwordRegEx = "^[a-zA-Z0-9]+.{5,15}$" // Password length 6-15
         
         let testPassword = NSPredicate(format: "SELF MATCHES[c] %@", passwordRegEx)
         return testPassword.evaluate(with: password)
@@ -128,6 +130,7 @@ class ValidateForm: NSObject {
         viewController.present(alertController, animated: true, completion: nil)
     }
     
+    
     func checkFilledTextFields(textFieldName: UITextField, textFieldUsername: UITextField, textFieldPassword: UITextField) -> Bool {
 
        var filledTextFields = true
@@ -142,10 +145,6 @@ class ValidateForm: NSObject {
         
     }
     
-    
-    
-    
-    
-    
+
     
 }
