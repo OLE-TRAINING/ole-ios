@@ -48,7 +48,7 @@ class ContinueRegistration: UIViewController {
         guard let code = textFieldCode.text else { return }
         if ValidateForm.checkCode(code) {
             Attributes.setInicialAttributes(textField: textFieldCode, stackView: stackInvalidCode)
-            guard let email = labelEmail.text else { return }
+//            guard let email = labelEmail.text else { return }
 //            APIManager.shared.getUserWithEmail(email, completion: {(user: NewUsers?) in
 //                APIManager.shared.updateRegistrationStatus(email: (user?.email)!, password: (user?.password)!, completeName: (user?.completeName)!, username: (user?.username)!, registrationStatus: "REGISTERED" )
 //            })

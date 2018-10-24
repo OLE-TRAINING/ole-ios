@@ -7,13 +7,27 @@
 //
 
 import Foundation
-import UIKit
+
+//protocol ViewModelProtocol {
+//    
+//}
+//
+//protocol ViewModelProtocolDisplay {
+//    var email: String { get }
+//    
+//    func goToNextScreen(textFieldEmail : UITextField)
+//    
+//}
+//
+
 
 class ViewModel {
-    
+
     var labelEmail = UILabel()
     var stackInvalidEmail = UIStackView()
     var email: String?
+
+    
     
     init() {
         
@@ -26,72 +40,36 @@ class ViewModel {
         
         let textColor = UIColor(red: 0.357, green: 0.353, blue: 0.353, alpha: 1)
         Attributes.setAttributesLabel(label: self.labelEmail, labelText: "INFORME SUA CONTA DE E-MAIL", size: 16, fontFamily: "Dosis-Bold", spaceLine: 3.0, textColor: textColor)
-        stackInvalidEmail.isHidden = true
+        self.stackInvalidEmail.isHidden = true
     }
     
-    func goToNextScreen(textFieldEmail: UITextField) {
-        
-//        guard let email = textFieldEmail.text else { return }
-//        guard let viewController = UIApplication.shared.keyWindow?.rootViewController else { return }
-//        if ValidateForm.checkEmail(email) {
-//            Attributes.setInicialAttributes(textField: textFieldEmail, stackView: stackInvalidEmail)
-//            APIManager.shared.getUserWithEmail(email, completion: { [weak self] (user: UsersInfo?) in
-//                if user?.registrationStatus == "UNEXISTENT" {
-//                    //email não existe
-//                    viewController.goToRegistrationScreen()
-//                } else if user?.registrationStatus == "PENDING" {
-//                    //email existe e cadastro está incompleto
-//                    
-//                    self?.goToContinueRegistrationScreen()
-//                    
-//                } else if user?.registrationStatus == "REGISTERED" {
-//                    //email existe e cadastro está completo
-//                    self?.goToLoginScreen()
-//                    
-//                } else {
-//                    ValidateForm.showAlertError()
-//                }
-//            })
-//        } else {
-//            Attributes.setAttributeInvalidField(textField: textFieldEmail, stackView: stackInvalidEmail)
-//        }
-    }
     
-}
+    func goToNextScreen(textFieldEmail : UITextField, completion: @escaping(String?) -> Void) {
 
-//extension ViewModel {
-//    
-//    func goToRegistrationScreen() {
-//        guard let viewController = UIApplication.shared.keyWindow?.rootViewController else { return }
-//        
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let controller = storyboard.instantiateViewController(withIdentifier: "cadastro") as! NewRegistrationViewController
-//        if let email = email {
-//            controller.emailUser = email
-//        }
-//        viewController.navigationController?.pushViewController(controller, animated: true)
-//    }
-//    
-//    func goToLoginScreen() {
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let controller = storyboard.instantiateViewController(withIdentifier: "login") as! LoginViewController
-//        if let email = email {
-//            controller.emailUser = email
-//        }
-//        
-//        guard let viewController = UIApplication.shared.keyWindow?.rootViewController else { return }
-//        viewController.self.navigationController?.pushViewController(controller, animated: true)
-//    }
-//    
-//    func goToContinueRegistrationScreen() {
-//        guard let viewController = UIApplication.shared.keyWindow?.rootViewController else { return }
-//        
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let controller = storyboard.instantiateViewController(withIdentifier: "continuarCadastro") as! ContinueRegistration
-//        if let email = email {
-//            controller.emailUser = email
-//        }
-//        viewController.navigationController?.pushViewController(controller, animated: true)
-//    }
-//}
+        guard let email = textFieldEmail.text else { return }
+        if ValidateForm.checkEmail(email) {
+            Attributes.setInicialAttributes(textField: textFieldEmail, stackView: stackInvalidEmail)
+            APIManager.shared.getUserWithEmail(email, completion: { (user: UsersInfo?) in
+                if user?.registrationStatus == "INEXISTENT" {
+                    //email não existe
+                    completion("INEXISTENT")
+                }
+        else if user?.registrationStatus == "PENDING" {
+                    //email existe e cadastro está incompleto
+                    completion("PENDING")
+                    
+                } else if user?.registrationStatus == "REGISTERED" {
+                    //email existe e cadastro está completo
+                    completion("REGISTERED")
+                    
+                } else {
+                    ValidateForm.showAlertError()
+                }
+            })
+        } else {
+            Attributes.setAttributeInvalidField(textField: textFieldEmail, stackView: stackInvalidEmail)
+        }
+    }
+
+}
 

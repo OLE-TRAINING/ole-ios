@@ -8,19 +8,12 @@
 
 import UIKit
 
-//struct NewUsers: Decodable {
-//    var email: String = ""
-//    var password:String  = ""
-//    var completeName: String = ""
-//    var username: String = ""
-//    var registrationStatus: String = "INEXISTENT"
-//}
 
 struct UsersInfo: Decodable {
     var email: String? = nil
     var completeName: String? = nil
     var username: String? = nil
-    var registrationStatus: String = "UNEXISTENT"
+    var registrationStatus: String = "INEXISTENT"
 }
 
 
@@ -67,22 +60,22 @@ class APIManager: NSObject {
 
     }
 
-    func updateRegistrationStatus(email: String, password: String, completeName: String, username: String, registrationStatus: String) {
-        let parameters = [
-            "email": email,
-            "password": password,
-            "completeName": completeName,
-            "username": username,
-            "registrationStatus": registrationStatus,
-            ] as [String : Any]
-        
-        let url = baseURL + APIManager.getUsersEndpoint + String(email)
-        manager.put(url, parameters: parameters, success: { (task, responseObject) in
-            print(responseObject.debugDescription)
-        }) { (task, error) in
-            print(error.localizedDescription)
-        }
-    }
+//    func updateRegistrationStatus(email: String, password: String, completeName: String, username: String, registrationStatus: String) {
+//        let parameters = [
+//            "email": email,
+//            "password": password,
+//            "completeName": completeName,
+//            "username": username,
+//            //"registrationStatus": registrationStatus,
+//            ] as [String : Any]
+//        
+//        let url = baseURL + APIManager.getUsersEndpoint + String(email)
+//        manager.put(url, parameters: parameters, success: { (task, responseObject) in
+//            print(responseObject.debugDescription)
+//        }) { (task, error) in
+//            print(error.localizedDescription)
+//        }
+//    }
     
     func generateToken(completion: @escaping(String?) -> Void) {
         let url = baseURL + APIManager.getTokensEndpoint + key
@@ -97,10 +90,9 @@ class APIManager: NSObject {
     }
 
     
-    func createNewUser(email: String, password: String, completeName: String, username: String, registrationStatus: String) {
+    func createNewUser(email: String, password: String, completeName: String, username: String, registrationStatus: String,  completion: @escaping (Bool?) -> Void) {
         let url = baseURL + APIManager.getUsersEndpoint + key
-        
-            
+
             let parameters = [
                 "email": email,
                 "password": password,
@@ -110,12 +102,11 @@ class APIManager: NSObject {
             
             self.manager.post(url, parameters: parameters, progress: nil, success: { (task, responseObject) in
                 print(responseObject.debugDescription)
+                completion(true)
             }) { (task, error) in
                 print(error.localizedDescription)
+                completion(false)
             }
-
-
-
     }
     
 }

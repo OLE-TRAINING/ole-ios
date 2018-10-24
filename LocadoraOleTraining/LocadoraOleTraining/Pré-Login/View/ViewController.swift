@@ -31,35 +31,39 @@ class ViewController: UIViewController {
         self.view.endEditing(true)
     }
     
-    
-    @IBAction func buttonGo(_ sender: UIButton) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        viewModel.goToNextScreen(textFieldEmail: textFieldEmail)
-        
-        guard let email = textFieldEmail.text else { return }
-        if ValidateForm.checkEmail(email) {
-            Attributes.setInicialAttributes(textField: textFieldEmail, stackView: stackInvalidEmail)
-            APIManager.shared.getUserWithEmail(email, completion: { [weak self] (user: UsersInfo?) in
-                if user?.registrationStatus == "UNEXISTENT" {
-                    //email não existe
-                    self?.goToRegistrationScreen()
-                } else if user?.registrationStatus == "PENDING" {
-                    //email existe e cadastro está incompleto
-                    self?.goToContinueRegistrationScreen()
-
-                } else if user?.registrationStatus == "REGISTERED" {
-                    //email existe e cadastro está completo
-                    self?.goToLoginScreen()
-
-                } else {
-                    ValidateForm.showAlertError()
-                }
-            })
-        } else {
-            Attributes.setAttributeInvalidField(textField: textFieldEmail, stackView: stackInvalidEmail)
+        if segue.identifier == "RegistrationSegue" {
+            
+            if let registrationViewController = segue.destination as? NewRegistrationViewController
+            {
+                
+                registrationViewController.emailUser = viewModel.email
+            }
         }
         
     }
+    
+
+    
+    @IBAction func buttonGo(_ sender: UIButton) {
+        
+        viewModel.goToNextScreen(textFieldEmail: textFieldEmail, completion: { [weak self] (result: String?) in
+            if result == "INEXISTENT" {
+                //email não existe
+                self?.goToRegistrationScreen()
+            } else if result == "PENDING" {
+                //email existe e cadastro está incompleto
+                self?.goToContinueRegistrationScreen()
+                
+            } else if result == "REGISTERED" {
+                //email existe e cadastro está completo
+                self?.goToLoginScreen()
+                
+            }
+        })
+    }
+
 }
 
 
@@ -74,7 +78,8 @@ extension ViewController {
         }
         self.navigationController?.pushViewController(controller, animated: true)
     }
-    
+
+
     func goToLoginScreen() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "login") as! LoginViewController

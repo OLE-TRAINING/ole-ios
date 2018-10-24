@@ -66,7 +66,7 @@ class ValidateForm: NSObject {
     }
     
     func checkFullName(fullName: String) -> Bool {
-        let nameRegEx = "^[A-Z]+[a-zA-Z ]+.{3,50}$" //nome com espaços e primeira letra maiuscula
+        let nameRegEx = "^[a-zA-Z ]+.{2,50}$" //nome com espaços
 
         let testName = NSPredicate(format: "SELF MATCHES[c] %@", nameRegEx)
         return testName.evaluate(with: fullName)
@@ -81,7 +81,7 @@ class ValidateForm: NSObject {
     }
     
     func checkPassword(password: String) -> Bool {
-        let passwordRegEx = "^[a-zA-Z0-9]+.{5,15}$" // Password length 6-15
+        let passwordRegEx = "(?!^[0-9]*$)(?!^[a-zA-Z]*$)^([a-zA-Z0-9]{6,15})$" // Password length 6-15
         
         let testPassword = NSPredicate(format: "SELF MATCHES[c] %@", passwordRegEx)
         return testPassword.evaluate(with: password)
@@ -119,7 +119,7 @@ class ValidateForm: NSObject {
     }
     
     func showAlertError() {
-        let alertController = UIAlertController(title: "Erro", message: "Erro insesperado. Verifique se seu email está preenchido corretamente o tente novamente mais tarde!", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Erro", message: "Erro insesperado. Verifique se todos os campos estão preenchido corretamente o tente novamente mais tarde!", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
             UIAlertAction in
         }

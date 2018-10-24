@@ -63,8 +63,15 @@ class NewRegistrationViewController: UIViewController {
             Attributes.setInicialAttributes(textField: textFieldUsername, stackView: stackViewUsername)
             Attributes.setInicialAttributes(textField: textFieldPassword, stackView: stackViewPassword)
             
-            APIManager.shared.createNewUser(email: labelEmail.text!, password: textFieldPassword.text!, completeName: textFieldFullName.text!, username: textFieldUsername.text!, registrationStatus: "PENDING")
-            goToValidateTokenScreen()
+            APIManager.shared.createNewUser(email: labelEmail.text!, password: textFieldPassword.text!, completeName: textFieldFullName.text!, username: textFieldUsername.text!, registrationStatus: "PENDING", completion: { (result: Bool?) in
+                if let _ = result {
+                    self.goToValidateTokenScreen()
+                }
+                else {
+                    ValidateForm.showAlertError()
+                }
+            })
+            
 
         } else {
             switch ValidateForm.checkFullName(fullName: textFieldFullName.text ?? "") {
