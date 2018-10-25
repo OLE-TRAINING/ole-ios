@@ -51,9 +51,22 @@ class LoginViewController: UIViewController {
 //                self.viewInvalidData.isHidden = false
 //            }
 //        }
-            
 
     }
-    
+    @IBAction func buttonForgotPassword(_ sender: UIButton) {
+        self.goToCheckInformationsScreen()
+    }
 
+}
+
+
+extension LoginViewController {
+    func goToCheckInformationsScreen() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "verificaInformacoes") as! CheckInformationsViewController
+        if let email = labelEmail.text {
+            controller.emailUser = email
+        }
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
 }

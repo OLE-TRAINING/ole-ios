@@ -49,7 +49,6 @@ class NewRegistrationViewController: UIViewController {
     
     
     @IBAction func ButtonGo(_ sender: UIButton) {
-        
         newRegistrationViewModel.goToNextScreen(textFieldFullName: textFieldFullName, textFieldUsername: textFieldUsername, textFieldPassword: textFieldPassword) { (result: Bool?) in
             if let _ = result {
                 self.goToValidateTokenScreen()
