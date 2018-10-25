@@ -34,6 +34,10 @@
 		5C59A714216E7E6F0053DC45 /* Dosis-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5C59A70D216E7E6F0053DC45 /* Dosis-Light.otf */; };
 		5C59A715216E7E6F0053DC45 /* Dosis-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5C59A70E216E7E6F0053DC45 /* Dosis-Regular.otf */; };
 		5C59A716216E7E6F0053DC45 /* Dosis-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5C59A70F216E7E6F0053DC45 /* Dosis-ExtraLight.otf */; };
+		5C69ADA72181DC7A00C5BCEA /* NewRegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C69ADA62181DC7A00C5BCEA /* NewRegistrationViewModel.swift */; };
+		5C69ADA92181EAF900C5BCEA /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C69ADA82181EAF900C5BCEA /* LoginViewModel.swift */; };
+		5C69ADAB2181FC4300C5BCEA /* ContinueRegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C69ADAA2181FC4300C5BCEA /* ContinueRegistrationViewModel.swift */; };
+		5C69ADAD218207B300C5BCEA /* ValidateTokenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C69ADAC218207B300C5BCEA /* ValidateTokenViewModel.swift */; };
 		5C6DD9F7217A757B003A891D /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6DD9F6217A757B003A891D /* RoundedButton.swift */; };
 		5C7858BF217764D60007612D /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7858BE217764D60007612D /* APIManager.swift */; };
 		5C84C31C2176023D00CADD58 /* ValidateTokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C84C31B2176023D00CADD58 /* ValidateTokenViewController.swift */; };
@@ -92,6 +96,10 @@
 		5C59A70D216E7E6F0053DC45 /* Dosis-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Light.otf"; sourceTree = "<group>"; };
 		5C59A70E216E7E6F0053DC45 /* Dosis-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Regular.otf"; sourceTree = "<group>"; };
 		5C59A70F216E7E6F0053DC45 /* Dosis-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-ExtraLight.otf"; sourceTree = "<group>"; };
+		5C69ADA62181DC7A00C5BCEA /* NewRegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegistrationViewModel.swift; sourceTree = "<group>"; };
+		5C69ADA82181EAF900C5BCEA /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		5C69ADAA2181FC4300C5BCEA /* ContinueRegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueRegistrationViewModel.swift; sourceTree = "<group>"; };
+		5C69ADAC218207B300C5BCEA /* ValidateTokenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateTokenViewModel.swift; sourceTree = "<group>"; };
 		5C6DD9F6217A757B003A891D /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		5C7858BB217764240007612D /* LocadoraOleTraining-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LocadoraOleTraining-Bridging-Header.h"; sourceTree = "<group>"; };
 		5C7858BE217764D60007612D /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
@@ -156,6 +164,7 @@
 		5C52126F217F9C4E00C08698 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
+				5C69ADA82181EAF900C5BCEA /* LoginViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -163,6 +172,7 @@
 		5C521270217F9C6000C08698 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
+				5C69ADA62181DC7A00C5BCEA /* NewRegistrationViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -170,6 +180,7 @@
 		5C521271217F9C7300C08698 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
+				5C69ADAA2181FC4300C5BCEA /* ContinueRegistrationViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -177,6 +188,7 @@
 		5C521272217F9C8400C08698 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
+				5C69ADAC218207B300C5BCEA /* ValidateTokenViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -209,9 +221,9 @@
 				5C59A6D5216E2D2E0053DC45 /* AppDelegate.swift */,
 				5C59A717216E84330053DC45 /* Pre-Login */,
 				5C4F6AD2216F743C00688CB6 /* New Registration */,
-				5C84C31F217608DE00CADD58 /* Login */,
 				5CC41EF52175091900F2FB3E /* Continue Registration */,
 				5C84C31D2176024E00CADD58 /* Validate Token */,
+				5C84C31F217608DE00CADD58 /* Login */,
 				5C59A71A216E84D50053DC45 /* Model */,
 				5C59A708216E7E1E0053DC45 /* Fonts */,
 				5C59A6D9216E2D2E0053DC45 /* Main.storyboard */,
@@ -558,8 +570,12 @@
 				5C7858BF217764D60007612D /* APIManager.swift in Sources */,
 				5C4F6AE7216F857100688CB6 /* ValidateForm.swift in Sources */,
 				5C84C3222176090300CADD58 /* LoginViewController.swift in Sources */,
+				5C69ADA92181EAF900C5BCEA /* LoginViewModel.swift in Sources */,
+				5C69ADAB2181FC4300C5BCEA /* ContinueRegistrationViewModel.swift in Sources */,
 				5CC41EF8217509A900F2FB3E /* ContinueRegistration.swift in Sources */,
+				5C69ADAD218207B300C5BCEA /* ValidateTokenViewModel.swift in Sources */,
 				5C59A6D6216E2D2E0053DC45 /* AppDelegate.swift in Sources */,
+				5C69ADA72181DC7A00C5BCEA /* NewRegistrationViewModel.swift in Sources */,
 				5C4F6AD5216F746D00688CB6 /* NewRegistrationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

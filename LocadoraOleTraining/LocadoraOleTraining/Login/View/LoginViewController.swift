@@ -18,15 +18,12 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var viewInvalidData: UIView!
     
     var emailUser: String?
+    var loginViewModel = LoginViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let textColor = UIColor(red: 0.357, green: 0.353, blue: 0.353, alpha: 1)
-        Attributes.setAttributesLabel(label: labelTitle, labelText: "INFORME SUA SENHA:", size: 16, fontFamily: "Dosis-Bold", spaceLine: 3.0, textColor: textColor)
-        if let email = emailUser {
-            Attributes.setAttributesLabel(label: labelEmail, labelText: email, size: 12, fontFamily: "Arial", spaceLine: 0.6, textColor: textColor)
-        }
-        viewInvalidData.isHidden = true
+        loginViewModel.startLogin(labelTitle: labelTitle, labelEmail: labelEmail, viewInvalidData: viewInvalidData, emailUser: emailUser)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,8 +36,11 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func logInButton(_ sender: UIButton) {
-        guard let senha = textFieldPassword.text else { return }
-        guard  let email = labelEmail.text else { return }
+        guard let email = emailUser else { return }
+        loginViewModel.authenticateUser(email: email, textFieldPassword: textFieldPassword)
+        
+//        guard let senha = textFieldPassword.text else { return }
+//        guard  let email = labelEmail.text else { return }
 
 //        APIManager.shared.getUserWithEmail(email) { (user: Users?) in
 //            if user?.password == senha {

@@ -25,23 +25,16 @@ class NewRegistrationViewController: UIViewController {
     @IBOutlet weak var stackViewPassword: UIStackView!
     
     
-    let textColor = UIColor(red: 0.357, green: 0.353, blue: 0.353, alpha: 1)
-    let borderColor = UIColor(red: 0.99, green: 0.098, blue: 0.141, alpha: 1)
+
+//    let borderColor = UIColor(red: 0.99, green: 0.098, blue: 0.141, alpha: 1)
     
     var emailUser: String?
+    var newRegistrationViewModel = NewRegistrationViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Attributes.setAttributesLabel(label: labelTitle, labelText: "CRIE SUA NOVA\nCONTA", size: 16, fontFamily: "Dosis-Bold", spaceLine: 3.0, textColor: textColor)
+        newRegistrationViewModel.startRegistration(emailUser: emailUser, labelTitle: labelTitle, labelEmail: labelEmail, stackViewFullName: stackViewFullName, stackViewUsername: stackViewUsername, stackViewPassword: stackViewPassword)
         
-        if let email = emailUser {
-            Attributes.setAttributesLabel(label: labelEmail, labelText: email, size: 12.5, fontFamily: "Roboto-Regular", spaceLine: 0.6, textColor: textColor)
-        }
-        
-        
-        stackViewFullName.isHidden = true
-        stackViewUsername.isHidden = true
-        stackViewPassword.isHidden = true
 
     }
 
@@ -57,45 +50,10 @@ class NewRegistrationViewController: UIViewController {
     
     @IBAction func ButtonGo(_ sender: UIButton) {
         
-        if ValidateForm.checkFilledTextFields(textFieldName: textFieldFullName, textFieldUsername: textFieldUsername, textFieldPassword: textFieldPassword){
-            
-            Attributes.setInicialAttributes(textField: textFieldFullName, stackView: stackViewFullName)
-            Attributes.setInicialAttributes(textField: textFieldUsername, stackView: stackViewUsername)
-            Attributes.setInicialAttributes(textField: textFieldPassword, stackView: stackViewPassword)
-            
-            APIManager.shared.createNewUser(email: labelEmail.text!, password: textFieldPassword.text!, completeName: textFieldFullName.text!, username: textFieldUsername.text!, registrationStatus: "PENDING", completion: { (result: Bool?) in
-                if let _ = result {
-                    self.goToValidateTokenScreen()
-                }
-                else {
-                    ValidateForm.showAlertError()
-                }
-            })
-            
-
-        } else {
-            switch ValidateForm.checkFullName(fullName: textFieldFullName.text ?? "") {
-            case true:
-                Attributes.setInicialAttributes(textField: textFieldFullName, stackView: stackViewFullName)
-            case false:
-                Attributes.setAttributeInvalidField(textField: textFieldFullName, stackView: stackViewFullName)
+        newRegistrationViewModel.goToNextScreen(textFieldFullName: textFieldFullName, textFieldUsername: textFieldUsername, textFieldPassword: textFieldPassword) { (result: Bool?) in
+            if let _ = result {
+                self.goToValidateTokenScreen()
             }
-            
-            switch ValidateForm.checkUsername(username: textFieldUsername.text ?? "") {
-            case true:
-                Attributes.setInicialAttributes(textField: textFieldUsername, stackView: stackViewUsername)
-            case false:
-                Attributes.setAttributeInvalidField(textField: textFieldUsername, stackView: stackViewUsername)
-                
-            }
-            
-            switch ValidateForm.checkPassword(password: textFieldPassword.text ?? "") {
-            case true:
-                Attributes.setInicialAttributes(textField: textFieldPassword, stackView: stackViewPassword)
-            case false:
-                Attributes.setAttributeInvalidField(textField: textFieldPassword, stackView: stackViewPassword)
-            }
-            
         }
         
     }
