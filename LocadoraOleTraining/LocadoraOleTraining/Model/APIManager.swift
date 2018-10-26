@@ -53,6 +53,7 @@ class APIManager: NSObject {
         }) { (task, error) in
             print("Error getUserWithEmail: " + error.localizedDescription)
             let newUser = UsersInfo()
+            ValidateForm.showAlertError()
             completion(newUser)
         }
         
@@ -83,14 +84,15 @@ class APIManager: NSObject {
             print("Response generateToken: " + responseObject.debugDescription)
         }) { (task, error) in
             print("Error generateToken: " + error.localizedDescription)
+            ValidateForm.showAlertError()
         }
     }
     
     func validateToken(textFieldCode: UITextField, email: String, completion: @escaping(Bool) -> Void) {
-        let url = baseURL + APIManager.getTokensEndpoint + "/" + email + "/" + "token" + key
-
         guard let token = textFieldCode.text else { return }
         
+        let url = baseURL + APIManager.getTokensEndpoint + "/" + email + "/" + token + key
+
         let parameters = [
             "email": email,
             "token": token
@@ -101,14 +103,17 @@ class APIManager: NSObject {
             completion(true)
         }) { (task, error) in
             print("Error validateToken:" + error.localizedDescription)
+            ValidateForm.showAlertError()
             completion(false)
         }
     }
     
     
     func createNewUser(email: String, password: String, completeName: String, username: String,  completion: @escaping (Bool?) -> Void) {
+        manager.requestSerializer = AFJSONRequestSerializer()
+        manager.responseSerializer = AFJSONResponseSerializer()
         let url = baseURL + APIManager.getUsersEndpoint + key
-
+        
             let parameters = [
                 "email": email,
                 "password": password,
@@ -121,6 +126,7 @@ class APIManager: NSObject {
                 completion(true)
             }) { (task, error) in
                 print("Error createNewUser:" + error.localizedDescription)
+                ValidateForm.showAlertError()
                 completion(false)
             }
     }
@@ -140,6 +146,7 @@ class APIManager: NSObject {
             print("Response authenticateUser:" + responseObject.debugDescription)
         }) { (task, error) in
             print("Error authenticateUser:" + error.localizedDescription)
+            ValidateForm.showAlertError()
         }
     }
     

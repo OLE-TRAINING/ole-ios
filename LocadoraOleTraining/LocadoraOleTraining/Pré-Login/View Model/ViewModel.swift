@@ -23,8 +23,8 @@ import Foundation
 
 class ViewModel {
 
-    var labelEmail = UILabel()
-    var stackInvalidEmail = UIStackView()
+    var labelEmail: UILabel!
+    var stackInvalidEmail: UIStackView!
     var email: String?
 
     
@@ -45,7 +45,6 @@ class ViewModel {
     
     
     func goToNextScreen(textFieldEmail : UITextField, completion: @escaping(String?) -> Void) {
-
         guard let email = textFieldEmail.text else { return }
         if ValidateForm.checkEmail(email) {
             Attributes.setInicialAttributes(textField: textFieldEmail, stackView: stackInvalidEmail)
@@ -62,9 +61,8 @@ class ViewModel {
                     //email existe e cadastro está completo
                     completion("REGISTERED")
                     
-                } else {
-                    ValidateForm.showAlertError()
                 }
+
             })
         } else {
             Attributes.setAttributeInvalidField(textField: textFieldEmail, stackView: stackInvalidEmail)

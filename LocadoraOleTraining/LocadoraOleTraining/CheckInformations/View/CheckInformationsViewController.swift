@@ -15,6 +15,7 @@ class CheckInformationsViewController: UIViewController {
     @IBOutlet weak var textFieldUsername: UITextField!
     @IBOutlet weak var buttonGo: UIButton!
     @IBOutlet weak var stackViewUsername: UIStackView!
+    @IBOutlet weak var loading: UIActivityIndicatorView!
     
     var emailUser: String?
     var chechInformationViewModel = CheckInformationsViewModel()
@@ -23,6 +24,11 @@ class CheckInformationsViewController: UIViewController {
         super.viewDidLoad()
         chechInformationViewModel.checkInformations(email: emailUser, labelTitle: labelTitle, labelEmail: labelEmail, stackViewUsername: stackViewUsername)
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        ValidateForm.showLoading(status: false, button: buttonGo, loading: loading)
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,6 +43,7 @@ class CheckInformationsViewController: UIViewController {
     
     
     @IBAction func buttonGo(_ sender: UIButton) {
+        ValidateForm.showLoading(status: true, button: buttonGo, loading: loading)
         chechInformationViewModel.validateUsername(textFieldUsername: textFieldUsername)
     }
     

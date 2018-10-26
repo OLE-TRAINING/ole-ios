@@ -13,6 +13,7 @@ import Foundation
 class LoginViewModel {
     
     var emailUser = String()
+    var viewInvalidData = UIView()
     
     func startLogin(labelTitle: UILabel, labelEmail: UILabel, viewInvalidData: UIView, emailUser: String?) {
         let textColor = UIColor(red: 0.357, green: 0.353, blue: 0.353, alpha: 1)
@@ -22,10 +23,17 @@ class LoginViewModel {
         Attributes.setAttributesLabel(label: labelTitle, labelText: "INFORME SUA SENHA:", size: 16, fontFamily: "Dosis-Bold", spaceLine: 3.0, textColor: textColor)
         Attributes.setAttributesLabel(label: labelEmail, labelText: email, size: 12, fontFamily: "Arial", spaceLine: 0.6, textColor: textColor)
         
-        viewInvalidData.isHidden = true
+        self.viewInvalidData = viewInvalidData
+        self.viewInvalidData.isHidden = true
     }
     
     func authenticateUser(email: String, textFieldPassword: UITextField) {
-        APIManager.shared.authenticateUser(email: email, textFieldPassword: textFieldPassword)
+        guard let password = textFieldPassword.text else { return }
+        if ValidateForm.checkPassword(password: password) {
+            self.viewInvalidData.isHidden = true
+            APIManager.shared.authenticateUser(email: email, textFieldPassword: textFieldPassword)
+        } else {
+            self.viewInvalidData.isHidden = false
+        }
     }
 }

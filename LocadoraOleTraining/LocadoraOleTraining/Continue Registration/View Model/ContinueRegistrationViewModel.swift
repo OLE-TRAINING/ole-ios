@@ -11,7 +11,7 @@ import Foundation
 class ContinueRegistrationViewModel {
     
     var emailUser = String()
-    var stackInvalidCode : UIStackView!
+    var stackInvalidCode = UIStackView()
     
     init() {
         
@@ -29,7 +29,7 @@ class ContinueRegistrationViewModel {
         Attributes.setAttributesLabel(label: labelDidNotReceive, labelText: "Não recebeu o código?", size: 12, fontFamily: "Roboto-Regular", spaceLine: 0.5, textColor: textColor)
         
         self.stackInvalidCode = stackInvalidCode
-        stackInvalidCode.isHidden = true
+        self.stackInvalidCode.isHidden = true
     }
     
     func validateToken(textFieldCode: UITextField, completion: @escaping(Bool) -> Void) {
@@ -46,7 +46,7 @@ class ContinueRegistrationViewModel {
             })
             
         } else {
-            ValidateForm.showAlertError()
+            Attributes.setAttributeInvalidField(textField: textFieldCode, stackView: self.stackInvalidCode)
         }
         
     }

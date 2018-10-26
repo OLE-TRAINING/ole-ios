@@ -14,12 +14,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var buttonGo: UIButton!
     @IBOutlet weak var textFieldEmail: UITextField!
     @IBOutlet weak var stackInvalidEmail: UIStackView!
+    @IBOutlet weak var loading: UIActivityIndicatorView!
     
     var viewModel = ViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.startAplication(labelEmail: labelEmail, stackInvalidEmail: stackInvalidEmail)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        ValidateForm.showLoading(status: false, button: buttonGo, loading: loading)
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,24 +36,11 @@ class ViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "RegistrationSegue" {
-            
-            if let registrationViewController = segue.destination as? NewRegistrationViewController
-            {
-                
-                registrationViewController.emailUser = viewModel.email
-            }
-        }
-        
-    }
-    
+   
 
     
     @IBAction func buttonGo(_ sender: UIButton) {
-        
+        ValidateForm.showLoading(status: true, button: buttonGo, loading: loading)
         viewModel.goToNextScreen(textFieldEmail: textFieldEmail, completion: { [weak self] (result: String?) in
             if result == "INEXISTENT" {
                 //email não existe

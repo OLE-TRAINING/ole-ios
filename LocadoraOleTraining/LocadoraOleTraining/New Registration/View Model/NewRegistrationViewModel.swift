@@ -64,7 +64,7 @@ class NewRegistrationViewModel {
                 }
             })
             
-            APIManager.shared.generateToken(email: email)
+            //APIManager.shared.generateToken(email: email)
             
         } else {
             switch ValidateForm.checkFullName(fullName: textFieldFullName.text ?? "") {

@@ -31,7 +31,7 @@ class ValidateTokenViewModel{
         Attributes.setAttributesLabel(label: labelDidNotReceive, labelText: "Não recebeu o código?", size: 12, fontFamily: "Roboto-Regular", spaceLine: 0.5, textColor: textColor)
         
         self.stackViewInvalidCode = stackViewInvalidCode
-        stackViewInvalidCode.isHidden = true
+        self.stackViewInvalidCode.isHidden = true
     }
     
     func validateToken(textFieldCode: UITextField, completion: @escaping(Bool) -> Void) {
@@ -42,13 +42,12 @@ class ValidateTokenViewModel{
                 if response {
                     completion(true)
                 } else {
-                    Attributes.setAttributeInvalidField(textField: textFieldCode, stackView: self.stackViewInvalidCode)
                     completion(false)
                 }
             })
             
         } else {
-            ValidateForm.showAlertError()
+            Attributes.setAttributeInvalidField(textField: textFieldCode, stackView: self.stackViewInvalidCode)
         }
         
     }
