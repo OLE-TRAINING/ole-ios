@@ -123,8 +123,8 @@ class ValidateForm: NSObject {
     }
     
     func showAlertError() {
-        let alertController = UIAlertController(title: "Erro", message: "Erro insesperado. Verifique se todos os campos estão preenchido corretamente o tente novamente mais tarde!", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+        let alertController = UIAlertController(title: "Ops..", message: "Ocorreu um erro inesperado, por favor tente novamente.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Tentar novamente", style: UIAlertActionStyle.default) {
             UIAlertAction in
         }
         

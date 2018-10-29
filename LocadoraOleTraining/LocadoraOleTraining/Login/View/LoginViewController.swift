@@ -30,8 +30,8 @@ class LoginViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        ValidateForm.showLoading(status: false, button: buttonLogIn, loading: loadingLogIn)
-        ValidateForm.showLoading(status: false, button: buttonForgotPassword, loading: loadingForgotPassword)
+        loginViewModel.showLoading(status: false, button: buttonLogIn, loading: loadingLogIn)
+        loginViewModel.showLoading(status: false, button: buttonForgotPassword, loading: loadingForgotPassword)
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,15 +44,13 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func logInButton(_ sender: UIButton) {
-        ValidateForm.showLoading(status: true, button: buttonLogIn, loading: loadingLogIn)
+        loginViewModel.showLoading(status: true, button: buttonLogIn, loading: loadingLogIn)
         guard let email = emailUser else { return }
-        loginViewModel.authenticateUser(email: email, textFieldPassword: textFieldPassword)
-        
-
+        loginViewModel.authenticateUser(email: email, textFieldPassword: textFieldPassword, button: buttonLogIn, loading: loadingLogIn)
 
     }
     @IBAction func buttonForgotPassword(_ sender: UIButton) {
-        ValidateForm.showLoading(status: true, button: buttonForgotPassword, loading: loadingForgotPassword)
+        loginViewModel.showLoading(status: true, button: buttonForgotPassword, loading: loadingForgotPassword)
         self.goToCheckInformationsScreen()
     }
 

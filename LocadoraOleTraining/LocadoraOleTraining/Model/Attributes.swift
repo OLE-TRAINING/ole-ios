@@ -56,6 +56,7 @@ class Attributes: NSObject {
         let attributedQuote = NSAttributedString(string: labelText, attributes: attributes)
         label.attributedText = attributedQuote
         
+        
     }
     
     

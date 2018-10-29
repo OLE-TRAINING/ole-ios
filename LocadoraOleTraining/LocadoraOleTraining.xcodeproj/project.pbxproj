@@ -41,6 +41,8 @@
 		5C69ADB2218231DE00C5BCEA /* CheckInformationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C69ADB1218231DE00C5BCEA /* CheckInformationsViewController.swift */; };
 		5C69ADB4218231F300C5BCEA /* CheckInformationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C69ADB3218231F300C5BCEA /* CheckInformationsViewModel.swift */; };
 		5C6DD9F7217A757B003A891D /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C6DD9F6217A757B003A891D /* RoundedButton.swift */; };
+		5C778B0621874A3700F6B269 /* ViewControllerNewPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C778B0521874A3700F6B269 /* ViewControllerNewPassword.swift */; };
+		5C778B0821874A5A00F6B269 /* ViewModelNewPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C778B0721874A5A00F6B269 /* ViewModelNewPassword.swift */; };
 		5C7858BF217764D60007612D /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C7858BE217764D60007612D /* APIManager.swift */; };
 		5C84C31C2176023D00CADD58 /* ValidateTokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C84C31B2176023D00CADD58 /* ValidateTokenViewController.swift */; };
 		5C84C3222176090300CADD58 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C84C3212176090300CADD58 /* LoginViewController.swift */; };
@@ -105,6 +107,8 @@
 		5C69ADB1218231DE00C5BCEA /* CheckInformationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInformationsViewController.swift; sourceTree = "<group>"; };
 		5C69ADB3218231F300C5BCEA /* CheckInformationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInformationsViewModel.swift; sourceTree = "<group>"; };
 		5C6DD9F6217A757B003A891D /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		5C778B0521874A3700F6B269 /* ViewControllerNewPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerNewPassword.swift; sourceTree = "<group>"; };
+		5C778B0721874A5A00F6B269 /* ViewModelNewPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelNewPassword.swift; sourceTree = "<group>"; };
 		5C7858BB217764240007612D /* LocadoraOleTraining-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LocadoraOleTraining-Bridging-Header.h"; sourceTree = "<group>"; };
 		5C7858BE217764D60007612D /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		5C84C31B2176023D00CADD58 /* ValidateTokenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateTokenViewController.swift; sourceTree = "<group>"; };
@@ -229,6 +233,7 @@
 				5C84C31D2176024E00CADD58 /* Validate Token */,
 				5C84C31F217608DE00CADD58 /* Login */,
 				5C69ADAE2182318000C5BCEA /* CheckInformations */,
+				5C778B02218749F800F6B269 /* New Password */,
 				5C59A71A216E84D50053DC45 /* Model */,
 				5C59A708216E7E1E0053DC45 /* Fonts */,
 				5C59A6D9216E2D2E0053DC45 /* Main.storyboard */,
@@ -332,6 +337,31 @@
 				5C69ADB1218231DE00C5BCEA /* CheckInformationsViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		5C778B02218749F800F6B269 /* New Password */ = {
+			isa = PBXGroup;
+			children = (
+				5C778B0321874A0D00F6B269 /* View */,
+				5C778B0421874A1300F6B269 /* View Model */,
+			);
+			path = "New Password";
+			sourceTree = "<group>";
+		};
+		5C778B0321874A0D00F6B269 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5C778B0521874A3700F6B269 /* ViewControllerNewPassword.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5C778B0421874A1300F6B269 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				5C778B0721874A5A00F6B269 /* ViewModelNewPassword.swift */,
+			);
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 		5C84C31D2176024E00CADD58 /* Validate Token */ = {
@@ -604,10 +634,12 @@
 				5C84C3222176090300CADD58 /* LoginViewController.swift in Sources */,
 				5C69ADA92181EAF900C5BCEA /* LoginViewModel.swift in Sources */,
 				5C69ADAB2181FC4300C5BCEA /* ContinueRegistrationViewModel.swift in Sources */,
+				5C778B0621874A3700F6B269 /* ViewControllerNewPassword.swift in Sources */,
 				5CC41EF8217509A900F2FB3E /* ContinueRegistration.swift in Sources */,
 				5C69ADAD218207B300C5BCEA /* ValidateTokenViewModel.swift in Sources */,
 				5C59A6D6216E2D2E0053DC45 /* AppDelegate.swift in Sources */,
 				5C69ADA72181DC7A00C5BCEA /* NewRegistrationViewModel.swift in Sources */,
+				5C778B0821874A5A00F6B269 /* ViewModelNewPassword.swift in Sources */,
 				5C4F6AD5216F746D00688CB6 /* NewRegistrationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

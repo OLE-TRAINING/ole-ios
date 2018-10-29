@@ -31,8 +31,8 @@ class ValidateTokenViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        ValidateForm.showLoading(status: false, button: buttonSend, loading: loadingSendAgain )
-        ValidateForm.showLoading(status: false, button: buttonValidate, loading: loadingValidate)
+        validateTokenViewModel.showLoading(status: false, button: buttonSend, loading: loadingSendAgain )
+        validateTokenViewModel.showLoading(status: false, button: buttonValidate, loading: loadingValidate)
     }
     
     override func didReceiveMemoryWarning() {
@@ -44,8 +44,8 @@ class ValidateTokenViewController: UIViewController {
     }
     
     @IBAction func buttonValidate(_ sender: UIButton) {
-        ValidateForm.showLoading(status: true, button: buttonValidate, loading: loadingValidate)
-        validateTokenViewModel.validateToken(textFieldCode: textFieldCode, completion: { (response: Bool) in
+        validateTokenViewModel.showLoading(status: true, button: buttonValidate, loading: loadingValidate)
+        validateTokenViewModel.validateToken(textFieldCode: textFieldCode, button: buttonValidate, loading: loadingValidate, completion: { (response: Bool) in
             if response {
                 self.goToLoginScreen()
             }
@@ -54,7 +54,7 @@ class ValidateTokenViewController: UIViewController {
     }
     
     @IBAction func resendButton(_ sender: UIButton) {
-        ValidateForm.showLoading(status: true, button: buttonSend, loading: loadingSendAgain )
+        validateTokenViewModel.showLoading(status: true, button: buttonSend, loading: loadingSendAgain )
         validateTokenViewModel.resendToken()
     }
     

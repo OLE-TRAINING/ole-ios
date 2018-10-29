@@ -22,18 +22,25 @@ class LoginViewModel {
         
         Attributes.setAttributesLabel(label: labelTitle, labelText: "INFORME SUA SENHA:", size: 16, fontFamily: "Dosis-Bold", spaceLine: 3.0, textColor: textColor)
         Attributes.setAttributesLabel(label: labelEmail, labelText: email, size: 12, fontFamily: "Arial", spaceLine: 0.6, textColor: textColor)
+        labelEmail.textAlignment = 	.left
         
         self.viewInvalidData = viewInvalidData
         self.viewInvalidData.isHidden = true
     }
     
-    func authenticateUser(email: String, textFieldPassword: UITextField) {
+    func authenticateUser(email: String, textFieldPassword: UITextField, button: UIButton, loading: UIActivityIndicatorView) {
         guard let password = textFieldPassword.text else { return }
         if ValidateForm.checkPassword(password: password) {
             self.viewInvalidData.isHidden = true
-            APIManager.shared.authenticateUser(email: email, textFieldPassword: textFieldPassword)
+            APIManager.shared.authenticateUser(email: email, password: password)
         } else {
             self.viewInvalidData.isHidden = false
+            showLoading(status: false, button: button, loading: loading)
         }
+    }
+    
+    func showLoading(status: Bool, button: UIButton, loading: UIActivityIndicatorView)
+    {
+        ValidateForm.showLoading(status: status, button: button, loading: loading)
     }
 }

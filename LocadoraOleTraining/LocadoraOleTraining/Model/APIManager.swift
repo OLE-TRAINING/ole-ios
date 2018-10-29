@@ -29,16 +29,6 @@ class APIManager: NSObject {
     let manager = AFHTTPSessionManager()
 
     
-//    func getAllPosts() {
-//
-//        let url = baseURL + APIManager.getUsersEndpoint
-//        manager.get(url, parameters: nil, progress: nil, success: { (task, responseObject) in
-//            print(responseObject!)
-//        }) { (task, error) in
-//            print("Error: ", error)
-//        }
-//
-//    }
     
     func getUserWithEmail(_ email: String, completion: @escaping (UsersInfo?) -> Void)  {
         let url = baseURL + APIManager.getUsersEndpoint + "/" + String(email) + key
@@ -51,7 +41,7 @@ class APIManager: NSObject {
             completion(user)
             
         }) { (task, error) in
-            print("Error getUserWithEmail: " + error.localizedDescription)
+            //print("Error getUserWithEmail: " + error.localizedDescription)
             let newUser = UsersInfo()
             ValidateForm.showAlertError()
             completion(newUser)
@@ -60,30 +50,14 @@ class APIManager: NSObject {
 
     }
 
-//    func updateRegistrationStatus(email: String, password: String, completeName: String, username: String, registrationStatus: String) {
-//        let parameters = [
-//            "email": email,
-//            "password": password,
-//            "completeName": completeName,
-//            "username": username,
-//            //"registrationStatus": registrationStatus,
-//            ] as [String : Any]
-//        
-//        let url = baseURL + APIManager.getUsersEndpoint + String(email)
-//        manager.put(url, parameters: parameters, success: { (task, responseObject) in
-//            print(responseObject.debugDescription)
-//        }) { (task, error) in
-//            print(error.localizedDescription)
-//        }
-//    }
     
     func generateToken(email: String) {
         let url = baseURL + APIManager.getTokensEndpoint + "/" + String(email) + key
         
         manager.put(url, parameters: nil, success: { (task, responseObject) in
-            print("Response generateToken: " + responseObject.debugDescription)
+            //print("Response generateToken: " + responseObject.debugDescription)
         }) { (task, error) in
-            print("Error generateToken: " + error.localizedDescription)
+            //print("Error generateToken: " + error.localizedDescription)
             ValidateForm.showAlertError()
         }
     }
@@ -91,7 +65,7 @@ class APIManager: NSObject {
     func validateToken(textFieldCode: UITextField, email: String, completion: @escaping(Bool) -> Void) {
         guard let token = textFieldCode.text else { return }
         
-        let url = baseURL + APIManager.getTokensEndpoint + "/" + email + "/" + token + key
+        let url = baseURL + APIManager.getTokensEndpoint + "/" + email + "/register/" + token + key
 
         let parameters = [
             "email": email,
@@ -99,10 +73,10 @@ class APIManager: NSObject {
             ] as [String : Any]
         
         manager.post(url, parameters: parameters, progress: nil, success: { (task, responseObject) in
-            print("Response validateToken:" + responseObject.debugDescription )
+            //print("Response validateToken:" + responseObject.debugDescription )
             completion(true)
         }) { (task, error) in
-            print("Error validateToken:" + error.localizedDescription)
+            //print("Error validateToken:" + error.localizedDescription)
             ValidateForm.showAlertError()
             completion(false)
         }
@@ -122,21 +96,18 @@ class APIManager: NSObject {
                 ] as [String : Any]
             
             manager.post(url, parameters: parameters, progress: nil, success: { (task, responseObject) in
-                print("Response createNewUser:" + responseObject.debugDescription)
+                //print("Response createNewUser:" + responseObject.debugDescription)
                 completion(true)
             }) { (task, error) in
-                print("Error createNewUser:" + error.localizedDescription)
+                //print("Error createNewUser:" + error.localizedDescription)
                 ValidateForm.showAlertError()
                 completion(false)
             }
     }
     
-    func authenticateUser(email: String, textFieldPassword: UITextField) {
+    func authenticateUser(email: String, password: String) {
         let url = baseURL + APIManager.getUsersEndpoint + "/validate" + key
-        guard let password = textFieldPassword.text else {
-            return
-        }
-        
+                
         let parameters = [
             "email": email,
             "password": password
@@ -146,6 +117,46 @@ class APIManager: NSObject {
             print("Response authenticateUser:" + responseObject.debugDescription)
         }) { (task, error) in
             print("Error authenticateUser:" + error.localizedDescription)
+            ValidateForm.showAlertError()
+        }
+    }
+    
+    func confirmUserInformation(email: String, username: String) {
+        manager.requestSerializer = AFJSONRequestSerializer()
+        manager.responseSerializer = AFJSONResponseSerializer()
+        
+        let url = baseURL + APIManager.getUsersEndpoint + "/confirm-data" + key
+
+        
+        let parameters = [
+            "username": username,
+            "email": email
+            ] as [String : Any]
+
+        manager.requestSerializer.setValue("success", forHTTPHeaderField: "x-mock")
+        manager.post(url, parameters: parameters, progress: nil,  success: { (task, responseObject) in
+            print("Response confirmUserInformation:" + responseObject.debugDescription)
+        }) { (task, error) in
+            print("Error confirmUserInformation:" + error.localizedDescription)
+            ValidateForm.showAlertError()
+        }
+        
+    }
+    
+    func changePassword(email: String, confirmationToken: String, newPassword: String, newPasswordConfirmation: String) {
+        let url = baseURL + APIManager.getUsersEndpoint + "/password" + key
+        
+        let parameters = [
+            "email" : email,
+            "confirmationToken" : confirmationToken,
+            "newPassword" : newPassword,
+            "newPasswordConfirmation" : newPasswordConfirmation
+        ] as [String : Any]
+        
+        manager.put(url, parameters: parameters, success: { (task, responseObject) in
+            print("Response changePassword: " + responseObject.debugDescription)
+        }) { (task, error) in
+            print("Error changePassword: " + error.localizedDescription)
             ValidateForm.showAlertError()
         }
     }

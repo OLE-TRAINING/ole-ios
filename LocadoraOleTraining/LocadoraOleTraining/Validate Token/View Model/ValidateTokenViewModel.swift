@@ -34,7 +34,7 @@ class ValidateTokenViewModel{
         self.stackViewInvalidCode.isHidden = true
     }
     
-    func validateToken(textFieldCode: UITextField, completion: @escaping(Bool) -> Void) {
+    func validateToken(textFieldCode: UITextField, button: UIButton, loading: UIActivityIndicatorView, completion: @escaping(Bool) -> Void) {
         guard let code = textFieldCode.text else { return }
         if ValidateForm.checkCode(code) {
             Attributes.setInicialAttributes(textField: textFieldCode, stackView: self.stackViewInvalidCode)
@@ -47,14 +47,19 @@ class ValidateTokenViewModel{
             })
             
         } else {
+            showLoading(status: false, button: button, loading: loading)
             Attributes.setAttributeInvalidField(textField: textFieldCode, stackView: self.stackViewInvalidCode)
         }
         
     }
     
-    
     func resendToken() {
         APIManager.shared.generateToken(email: emailUser)
+    }
+    
+    func showLoading(status: Bool, button: UIButton, loading: UIActivityIndicatorView)
+    {
+        ValidateForm.showLoading(status: status, button: button, loading: loading)
     }
 
 }

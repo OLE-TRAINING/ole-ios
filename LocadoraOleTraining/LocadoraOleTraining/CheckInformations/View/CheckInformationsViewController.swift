@@ -28,7 +28,7 @@ class CheckInformationsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        ValidateForm.showLoading(status: false, button: buttonGo, loading: loading)
+        chechInformationViewModel.showLoading(status: false, button: buttonGo, loading: loading)
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,11 +43,26 @@ class CheckInformationsViewController: UIViewController {
     
     
     @IBAction func buttonGo(_ sender: UIButton) {
-        ValidateForm.showLoading(status: true, button: buttonGo, loading: loading)
-        chechInformationViewModel.validateUsername(textFieldUsername: textFieldUsername)
+        chechInformationViewModel.showLoading(status: true, button: buttonGo, loading: loading)
+        chechInformationViewModel.validateUsername(textFieldUsername: textFieldUsername, button: buttonGo, loading: loading, completion:{ (result) in
+            if result {
+                self.goToNewPasswordScreen()
+            }
+        })
     }
     
 
+}
+
+extension CheckInformationsViewController {
+    func goToNewPasswordScreen() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "trocaSenha") as! ViewControllerNewPassword
+        if let email = labelEmail.text {
+            controller.emailUser = email
+        }
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
 }
 
 

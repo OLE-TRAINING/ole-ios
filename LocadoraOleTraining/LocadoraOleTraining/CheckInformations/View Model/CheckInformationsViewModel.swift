@@ -30,13 +30,22 @@ class CheckInformationsViewModel {
         stackViewUsername.isHidden = true
     }
     
-    func validateUsername(textFieldUsername: UITextField) {
+    func validateUsername(textFieldUsername: UITextField, button: UIButton, loading: UIActivityIndicatorView, completion: @escaping(Bool) -> Void ) {
         guard let username = textFieldUsername.text else { return }
         if ValidateForm.checkUsername(username: username) {
-            Attributes.setInicialAttributes(textField: textFieldUsername, stackView: self.stackViewUsername)            
+            Attributes.setInicialAttributes(textField: textFieldUsername, stackView: self.stackViewUsername)
+            APIManager.shared.confirmUserInformation(email: self.email, username: username)
+            completion(true)
         } else {
+            showLoading(status: false, button: button, loading: loading)
             stackViewUsername.isHidden = false
+            completion(false)
         }
         
+    }
+    
+    func showLoading(status: Bool, button: UIButton, loading: UIActivityIndicatorView)
+    {
+        ValidateForm.showLoading(status: status, button: button, loading: loading)
     }
 }

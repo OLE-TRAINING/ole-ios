@@ -44,7 +44,7 @@ class ViewModel {
     }
     
     
-    func goToNextScreen(textFieldEmail : UITextField, completion: @escaping(String?) -> Void) {
+    func goToNextScreen(textFieldEmail : UITextField, button: UIButton, loading: UIActivityIndicatorView, completion: @escaping(String?) -> Void) {
         guard let email = textFieldEmail.text else { return }
         if ValidateForm.checkEmail(email) {
             Attributes.setInicialAttributes(textField: textFieldEmail, stackView: stackInvalidEmail)
@@ -65,8 +65,14 @@ class ViewModel {
 
             })
         } else {
+            showLoading(status: false, button: button, loading: loading)
             Attributes.setAttributeInvalidField(textField: textFieldEmail, stackView: stackInvalidEmail)
         }
+    }
+    
+    func showLoading(status: Bool, button: UIButton, loading: UIActivityIndicatorView)
+    {
+        ValidateForm.showLoading(status: status, button: button, loading: loading)
     }
 
 }

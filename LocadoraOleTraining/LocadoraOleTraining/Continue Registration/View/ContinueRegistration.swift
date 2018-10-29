@@ -31,8 +31,8 @@ class ContinueRegistration: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        ValidateForm.showLoading(status: false, button: buttonSend, loading: loadingSendAgain )
-        ValidateForm.showLoading(status: false, button: buttonValidate, loading: loadingValidate)
+        continueRegistrationViewModel.showLoading(status: false, button: buttonSend, loading: loadingSendAgain)
+        continueRegistrationViewModel.showLoading(status: false, button: buttonValidate, loading: loadingValidate)
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,8 +45,8 @@ class ContinueRegistration: UIViewController {
     }
     
     @IBAction func buttonValidate(_ sender: UIButton) {
-        ValidateForm.showLoading(status: true, button: buttonValidate, loading: loadingValidate)
-        continueRegistrationViewModel.validateToken(textFieldCode: textFieldCode, completion: { (response: Bool) in
+        continueRegistrationViewModel.showLoading(status: true, button: buttonValidate, loading: loadingValidate)
+        continueRegistrationViewModel.validateToken(textFieldCode: textFieldCode, button: buttonValidate, loading: loadingValidate, completion: { (response: Bool) in
             if response {
                 self.goToLoginScreen()
             }
@@ -56,7 +56,7 @@ class ContinueRegistration: UIViewController {
     }
     
     @IBAction func buttonSend(_ sender: UIButton) {
-        ValidateForm.showLoading(status: true, button: buttonSend, loading: loadingSendAgain)
+        continueRegistrationViewModel.showLoading(status: true, button: buttonSend, loading: loadingSendAgain)
         continueRegistrationViewModel.resendToken()
     }
     

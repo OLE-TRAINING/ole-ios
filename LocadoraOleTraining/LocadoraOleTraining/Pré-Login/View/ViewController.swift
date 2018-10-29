@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        ValidateForm.showLoading(status: false, button: buttonGo, loading: loading)
+        viewModel.showLoading(status: false, button: buttonGo, loading: loading)
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,8 +40,8 @@ class ViewController: UIViewController {
 
     
     @IBAction func buttonGo(_ sender: UIButton) {
-        ValidateForm.showLoading(status: true, button: buttonGo, loading: loading)
-        viewModel.goToNextScreen(textFieldEmail: textFieldEmail, completion: { [weak self] (result: String?) in
+        viewModel.showLoading(status: true, button: buttonGo, loading: loading)
+        viewModel.goToNextScreen(textFieldEmail: textFieldEmail, button: buttonGo, loading: loading, completion: { [weak self] (result: String?) in
             if result == "INEXISTENT" {
                 //email não existe
                 self?.goToRegistrationScreen()
