@@ -45,7 +45,7 @@ class ViewModelNewPassword {
         self.stackViewInvalidConfirmation = stackViewInvalidConfirmation
         self.textFieldToken = textFieldToken
         self.textFieldNewPassword = textFieldNewPassword
-        self.textFieldConfirmPassword = textFieldNewPassword
+        self.textFieldConfirmPassword = textFieldConfirmPassword
         
         Attributes.setInicialAttributes(textField: self.textFieldToken, stackView: self.stackViewInvalidToken)
         Attributes.setInicialAttributes(textField: self.textFieldNewPassword, stackView: self.stackViewInvalidPassword)
@@ -53,40 +53,58 @@ class ViewModelNewPassword {
         
     }
     
-    func changePassword(button: UIButton, loading: UIActivityIndicatorView) {
-        guard let code = textFieldToken.text else { return }
-        if ValidateForm.checkCode(code) {
-            //APIManager.shared.validateToken(textFieldCode: textFieldToken, email: self.email) { (result) in
-            //if result {
+    func changePassword(button: UIButton, loading: UIActivityIndicatorView, completion: @escaping(Bool) -> Void ) {
+        guard let token = textFieldToken.text else { return }
+        guard let password = textFieldNewPassword.text else { return }
+        guard let confirmationPassword = textFieldConfirmPassword.text else { return }
+        if ValidateForm.checkCode(token) {
             Attributes.setInicialAttributes(textField: self.textFieldToken, stackView: self.stackViewInvalidToken)
+            if ValidateForm.checkPassword(password: password) {
+                Attributes.setInicialAttributes(textField: self.textFieldNewPassword, stackView: self.stackViewInvalidPassword)
+                if password == confirmationPassword {
+                    APIManager.shared.validateToken(textFieldCode: textFieldToken, email: self.email) { (result) in
+                        if result {
+                            APIManager.shared.changePassword(email: self.email, confirmationToken: token, newPassword: password, newPasswordConfirmation: confirmationPassword, completion: { (result) in
+                                if result {
+                                    Attributes.setInicialAttributes(textField: self.textFieldNewPassword, stackView: self.stackViewInvalidPassword)
+                                    Attributes.setInicialAttributes(textField: self.textFieldConfirmPassword, stackView: self.stackViewInvalidConfirmation)
+                                    completion(true)
+                                } else {
+                                    completion(false)
+                                    self.showLoading(status: false, button: button, loading: loading)
+                                }
+                                
+                            })
+                        } else {
+                            Attributes.setAttributeInvalidField(textField: self.textFieldToken, stackView: self.stackViewInvalidToken)
+                        }
+                    }
+                } else {
+                    self.showLoading(status: false, button: button, loading: loading)
+                    Attributes.setAttributeInvalidField(textField: self.textFieldConfirmPassword, stackView: self.stackViewInvalidConfirmation)
+                }
+                
+            } else {
+                self.showLoading(status: false, button: button, loading: loading)
+                Attributes.setAttributeInvalidField(textField: self.textFieldNewPassword, stackView: self.stackViewInvalidPassword)
+            }
             
-            //                } else {
-            //                    Attributes.setAttributeInvalidField(textField: self.textFieldToken, stackView: self.stackViewInvalidToken)
-            //                }
-            //            }
-            
-        } else {
-            showLoading(status: false, button: button, loading: loading)
-            Attributes.setAttributeInvalidField(textField: textFieldToken, stackView: self.stackViewInvalidToken)
-        }
-        
-        switch ValidateForm.checkPassword(password: self.textFieldNewPassword.text ?? "") {
-        case true:
-            Attributes.setInicialAttributes(textField: self.textFieldNewPassword, stackView: self.stackViewInvalidPassword)
-        case false:
-            showLoading(status: false, button: button, loading: loading)
-            Attributes.setAttributeInvalidField(textField: self.textFieldNewPassword, stackView: self.stackViewInvalidPassword)
-        }
-        
-        if self.textFieldNewPassword.text == self.textFieldConfirmPassword.text {
-            //chamar serviço de alterar senha do APIManager
-            Attributes.setInicialAttributes(textField: self.textFieldNewPassword, stackView: self.stackViewInvalidPassword)
-            Attributes.setInicialAttributes(textField: self.textFieldConfirmPassword, stackView: self.stackViewInvalidConfirmation)
         } else {
             self.showLoading(status: false, button: button, loading: loading)
-            Attributes.setAttributeInvalidField(textField: self.textFieldConfirmPassword, stackView: self.stackViewInvalidConfirmation)
+            Attributes.setAttributeInvalidField(textField: textFieldToken, stackView: stackViewInvalidToken)
         }
+        
+        
+    
 
+    }
+    
+    func resendToken(completion: @escaping (Bool) -> Void){
+        APIManager.shared.generateToken(email: email, completion: {(result) in
+            if result {
+                completion(true)
+            }
+        })
     }
     
     func showLoading(status: Bool, button: UIButton, loading: UIActivityIndicatorView)

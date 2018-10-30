@@ -57,7 +57,11 @@ class ContinueRegistrationViewModel {
         ValidateForm.showLoading(status: status, button: button, loading: loading)
     }
     
-    func resendToken() {
-        APIManager.shared.generateToken(email: emailUser)
+    func resendToken(completion: @escaping (Bool) -> Void){
+        APIManager.shared.generateToken(email: emailUser, completion: {(result) in
+            if result {
+                completion(true)
+            }
+        })
     }
 }

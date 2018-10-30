@@ -46,17 +46,18 @@ class APIManager: NSObject {
             ValidateForm.showAlertError()
             completion(newUser)
         }
-        
 
     }
 
     
-    func generateToken(email: String) {
+    func generateToken(email: String, completion: @escaping(Bool) -> Void) {
         let url = baseURL + APIManager.getTokensEndpoint + "/" + String(email) + key
         
         manager.put(url, parameters: nil, success: { (task, responseObject) in
+            completion(true)
             //print("Response generateToken: " + responseObject.debugDescription)
         }) { (task, error) in
+            completion(false)
             //print("Error generateToken: " + error.localizedDescription)
             ValidateForm.showAlertError()
         }
@@ -64,8 +65,9 @@ class APIManager: NSObject {
     
     func validateToken(textFieldCode: UITextField, email: String, completion: @escaping(Bool) -> Void) {
         guard let token = textFieldCode.text else { return }
-        
-        let url = baseURL + APIManager.getTokensEndpoint + "/" + email + "/register/" + token + key
+        manager.requestSerializer = AFJSONRequestSerializer()
+        manager.responseSerializer = AFJSONResponseSerializer()
+        let url = baseURL + APIManager.getUsersEndpoint + "/" + email + "/register/" + token + key
 
         let parameters = [
             "email": email,
@@ -106,6 +108,8 @@ class APIManager: NSObject {
     }
     
     func authenticateUser(email: String, password: String) {
+        manager.requestSerializer = AFJSONRequestSerializer()
+        manager.responseSerializer = AFJSONResponseSerializer()
         let url = baseURL + APIManager.getUsersEndpoint + "/validate" + key
                 
         let parameters = [
@@ -114,14 +118,14 @@ class APIManager: NSObject {
             ] as [String : Any]
         
         manager.post(url, parameters: parameters, progress: nil, success: { (task, responseObject) in
-            print("Response authenticateUser:" + responseObject.debugDescription)
+            //print("Response authenticateUser:" + responseObject.debugDescription)
         }) { (task, error) in
-            print("Error authenticateUser:" + error.localizedDescription)
+            //print("Error authenticateUser:" + error.localizedDescription)
             ValidateForm.showAlertError()
         }
     }
     
-    func confirmUserInformation(email: String, username: String) {
+    func confirmUserInformation(email: String, username: String, completion: @escaping (Bool?) -> Void) {
         manager.requestSerializer = AFJSONRequestSerializer()
         manager.responseSerializer = AFJSONResponseSerializer()
         
@@ -133,17 +137,19 @@ class APIManager: NSObject {
             "email": email
             ] as [String : Any]
 
-        manager.requestSerializer.setValue("success", forHTTPHeaderField: "x-mock")
+        manager.requestSerializer.setValue("", forHTTPHeaderField: "x-mock")
         manager.post(url, parameters: parameters, progress: nil,  success: { (task, responseObject) in
-            print("Response confirmUserInformation:" + responseObject.debugDescription)
+            //print("Response confirmUserInformation:" + responseObject.debugDescription)
+            completion(true)
         }) { (task, error) in
-            print("Error confirmUserInformation:" + error.localizedDescription)
+            //print("Error confirmUserInformation:" + error.localizedDescription)
+            completion(false)
             ValidateForm.showAlertError()
         }
         
     }
     
-    func changePassword(email: String, confirmationToken: String, newPassword: String, newPasswordConfirmation: String) {
+    func changePassword(email: String, confirmationToken: String, newPassword: String, newPasswordConfirmation: String, completion: @escaping(Bool) -> Void ) {
         let url = baseURL + APIManager.getUsersEndpoint + "/password" + key
         
         let parameters = [
@@ -153,10 +159,13 @@ class APIManager: NSObject {
             "newPasswordConfirmation" : newPasswordConfirmation
         ] as [String : Any]
         
+        manager.requestSerializer.setValue("success", forHTTPHeaderField: "x-mock")
         manager.put(url, parameters: parameters, success: { (task, responseObject) in
+            completion(true)
             print("Response changePassword: " + responseObject.debugDescription)
         }) { (task, error) in
             print("Error changePassword: " + error.localizedDescription)
+            completion(false)
             ValidateForm.showAlertError()
         }
     }

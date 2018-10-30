@@ -34,6 +34,7 @@
 		5C59A714216E7E6F0053DC45 /* Dosis-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5C59A70D216E7E6F0053DC45 /* Dosis-Light.otf */; };
 		5C59A715216E7E6F0053DC45 /* Dosis-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5C59A70E216E7E6F0053DC45 /* Dosis-Regular.otf */; };
 		5C59A716216E7E6F0053DC45 /* Dosis-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5C59A70F216E7E6F0053DC45 /* Dosis-ExtraLight.otf */; };
+		5C5FE52221889AA200775C66 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5FE52121889AA200775C66 /* HomeViewController.swift */; };
 		5C69ADA72181DC7A00C5BCEA /* NewRegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C69ADA62181DC7A00C5BCEA /* NewRegistrationViewModel.swift */; };
 		5C69ADA92181EAF900C5BCEA /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C69ADA82181EAF900C5BCEA /* LoginViewModel.swift */; };
 		5C69ADAB2181FC4300C5BCEA /* ContinueRegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C69ADAA2181FC4300C5BCEA /* ContinueRegistrationViewModel.swift */; };
@@ -100,6 +101,7 @@
 		5C59A70D216E7E6F0053DC45 /* Dosis-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Light.otf"; sourceTree = "<group>"; };
 		5C59A70E216E7E6F0053DC45 /* Dosis-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Regular.otf"; sourceTree = "<group>"; };
 		5C59A70F216E7E6F0053DC45 /* Dosis-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-ExtraLight.otf"; sourceTree = "<group>"; };
+		5C5FE52121889AA200775C66 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5C69ADA62181DC7A00C5BCEA /* NewRegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegistrationViewModel.swift; sourceTree = "<group>"; };
 		5C69ADA82181EAF900C5BCEA /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		5C69ADAA2181FC4300C5BCEA /* ContinueRegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueRegistrationViewModel.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				5C84C31F217608DE00CADD58 /* Login */,
 				5C69ADAE2182318000C5BCEA /* CheckInformations */,
 				5C778B02218749F800F6B269 /* New Password */,
+				5C5FE51C21889A2D00775C66 /* Home */,
 				5C59A71A216E84D50053DC45 /* Model */,
 				5C59A708216E7E1E0053DC45 /* Fonts */,
 				5C59A6D9216E2D2E0053DC45 /* Main.storyboard */,
@@ -312,6 +315,30 @@
 				5C6DD9F6217A757B003A891D /* RoundedButton.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		5C5FE51C21889A2D00775C66 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				5C5FE51E21889A5400775C66 /* View */,
+				5C5FE51D21889A4D00775C66 /* View Model */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		5C5FE51D21889A4D00775C66 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		5C5FE51E21889A5400775C66 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5C5FE52121889AA200775C66 /* HomeViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		5C69ADAE2182318000C5BCEA /* CheckInformations */ = {
@@ -637,6 +664,7 @@
 				5C778B0621874A3700F6B269 /* ViewControllerNewPassword.swift in Sources */,
 				5CC41EF8217509A900F2FB3E /* ContinueRegistration.swift in Sources */,
 				5C69ADAD218207B300C5BCEA /* ValidateTokenViewModel.swift in Sources */,
+				5C5FE52221889AA200775C66 /* HomeViewController.swift in Sources */,
 				5C59A6D6216E2D2E0053DC45 /* AppDelegate.swift in Sources */,
 				5C69ADA72181DC7A00C5BCEA /* NewRegistrationViewModel.swift in Sources */,
 				5C778B0821874A5A00F6B269 /* ViewModelNewPassword.swift in Sources */,

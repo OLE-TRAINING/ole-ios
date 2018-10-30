@@ -16,6 +16,7 @@ class ViewControllerNewPassword: UIViewController {
     @IBOutlet weak var stackViewInvalidToken: UIStackView!
     @IBOutlet weak var labelDidNotReceive: UILabel!
     @IBOutlet weak var buttonSendAgain: UIButton!
+    @IBOutlet weak var loadingSendAgain: UIActivityIndicatorView!
     @IBOutlet weak var labelSubtitle: UILabel!
     @IBOutlet weak var textFieldNewPassword: UITextField!
     @IBOutlet weak var stackViewInvalidPassword: UIStackView!
@@ -37,6 +38,7 @@ class ViewControllerNewPassword: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModelNewPassword.showLoading(status: false, button: buttonChangePassword, loading: loadingChangePassword)
+        viewModelNewPassword.showLoading(status: false, button: buttonSendAgain, loading: loadingSendAgain)
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,12 +46,34 @@ class ViewControllerNewPassword: UIViewController {
 
     }
     
+    @IBAction func buttonBack(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func buttonSendAgain(_ sender: UIButton) {
+        viewModelNewPassword.showLoading(status: true, button: buttonSendAgain, loading: loadingSendAgain)
+        viewModelNewPassword.resendToken { (result) in
+            self.viewWillAppear(true)
+        }
+    }
     
     @IBAction func buttonChangePassword(_ sender: UIButton) {
         viewModelNewPassword.showLoading(status: true, button: buttonChangePassword, loading: loadingChangePassword)
-        viewModelNewPassword.changePassword(button: buttonChangePassword, loading: loadingChangePassword)
+        viewModelNewPassword.changePassword(button: buttonChangePassword, loading: loadingChangePassword, completion: { (result) in
+            if result {
+                self.goToLoginScreen()
+            }
+        })
     }
-    
+}
 
-
+extension ViewControllerNewPassword {
+    func goToLoginScreen() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "login") as! LoginViewController
+        if let email = labelEmail.text {
+            controller.emailUser = email
+        }
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
 }

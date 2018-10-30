@@ -8,17 +8,6 @@
 
 import Foundation
 
-//protocol ViewModelProtocol {
-//    
-//}
-//
-//protocol ViewModelProtocolDisplay {
-//    var email: String { get }
-//    
-//    func goToNextScreen(textFieldEmail : UITextField)
-//    
-//}
-//
 
 
 class ViewModel {

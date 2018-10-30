@@ -57,7 +57,11 @@ class ContinueRegistration: UIViewController {
     
     @IBAction func buttonSend(_ sender: UIButton) {
         continueRegistrationViewModel.showLoading(status: true, button: buttonSend, loading: loadingSendAgain)
-        continueRegistrationViewModel.resendToken()
+        continueRegistrationViewModel.resendToken(completion: {(result) in
+            if result {
+                self.viewWillAppear(true)
+            }
+        })
     }
     
 }

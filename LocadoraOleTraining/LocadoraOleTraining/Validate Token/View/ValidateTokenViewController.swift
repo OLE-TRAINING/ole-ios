@@ -14,13 +14,13 @@ class ValidateTokenViewController: UIViewController {
     @IBOutlet weak var labelEmail: UILabel!
     @IBOutlet weak var textFieldCode: UITextField!
     @IBOutlet weak var labelDidNotReceive: UILabel!
-    @IBOutlet weak var buttonSend: UIButton!
+    @IBOutlet weak var buttonSendAgain: UIButton!
     @IBOutlet weak var buttonValidate: UIButton!
     @IBOutlet weak var stackInvalidCode: UIStackView!
     @IBOutlet weak var loadingSendAgain: UIActivityIndicatorView!
     @IBOutlet weak var loadingValidate: UIActivityIndicatorView!
     
-    var emailUser: String?
+    var emailUser = String()
     let validateTokenViewModel = ValidateTokenViewModel()
     
     override func viewDidLoad() {
@@ -31,7 +31,7 @@ class ValidateTokenViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        validateTokenViewModel.showLoading(status: false, button: buttonSend, loading: loadingSendAgain )
+        validateTokenViewModel.showLoading(status: false, button: buttonSendAgain, loading: loadingSendAgain )
         validateTokenViewModel.showLoading(status: false, button: buttonValidate, loading: loadingValidate)
     }
     
@@ -54,8 +54,10 @@ class ValidateTokenViewController: UIViewController {
     }
     
     @IBAction func resendButton(_ sender: UIButton) {
-        validateTokenViewModel.showLoading(status: true, button: buttonSend, loading: loadingSendAgain )
-        validateTokenViewModel.resendToken()
+        validateTokenViewModel.showLoading(status: true, button: buttonSendAgain, loading: loadingSendAgain )
+        validateTokenViewModel.resendToken(completion: {(result) in
+            self.viewWillAppear(true)
+        })
     }
     
     
