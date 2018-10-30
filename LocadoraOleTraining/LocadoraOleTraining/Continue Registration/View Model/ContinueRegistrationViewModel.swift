@@ -11,7 +11,7 @@ import Foundation
 class ContinueRegistrationViewModel {
     
     var emailUser = String()
-    var stackInvalidCode : UIStackView!
+    var stackInvalidCode = UIStackView()
     
     init() {
         
@@ -29,10 +29,10 @@ class ContinueRegistrationViewModel {
         Attributes.setAttributesLabel(label: labelDidNotReceive, labelText: "Não recebeu o código?", size: 12, fontFamily: "Roboto-Regular", spaceLine: 0.5, textColor: textColor)
         
         self.stackInvalidCode = stackInvalidCode
-        stackInvalidCode.isHidden = true
+        self.stackInvalidCode.isHidden = true
     }
     
-    func validateToken(textFieldCode: UITextField, completion: @escaping(Bool) -> Void) {
+    func validateToken(textFieldCode: UITextField, button: UIButton, loading: UIActivityIndicatorView, completion: @escaping(Bool) -> Void) {
         guard let code = textFieldCode.text else { return }
         if ValidateForm.checkCode(code) {
             Attributes.setInicialAttributes(textField: textFieldCode, stackView: self.stackInvalidCode)
@@ -46,13 +46,22 @@ class ContinueRegistrationViewModel {
             })
             
         } else {
-            ValidateForm.showAlertError()
+            showLoading(status: false, button: button, loading: loading)
+            Attributes.setAttributeInvalidField(textField: textFieldCode, stackView: self.stackInvalidCode)
         }
         
     }
     
+    func showLoading(status: Bool, button: UIButton, loading: UIActivityIndicatorView)
+    {
+        ValidateForm.showLoading(status: status, button: button, loading: loading)
+    }
     
-    func resendToken() {
-        APIManager.shared.generateToken(email: emailUser)
+    func resendToken(completion: @escaping (Bool) -> Void){
+        APIManager.shared.generateToken(email: emailUser, completion: {(result) in
+            if result {
+                completion(true)
+            }
+        })
     }
 }

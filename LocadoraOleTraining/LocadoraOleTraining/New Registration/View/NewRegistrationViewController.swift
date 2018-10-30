@@ -13,6 +13,7 @@ class NewRegistrationViewController: UIViewController {
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var labelEmail: UILabel!
     @IBOutlet weak var buttonGo: UIButton!
+    @IBOutlet weak var loadingGo: UIActivityIndicatorView!
     
     @IBOutlet var textFields: [UITextField]!
     
@@ -26,7 +27,6 @@ class NewRegistrationViewController: UIViewController {
     
     
 
-//    let borderColor = UIColor(red: 0.99, green: 0.098, blue: 0.141, alpha: 1)
     
     var emailUser: String?
     var newRegistrationViewModel = NewRegistrationViewModel()
@@ -36,6 +36,10 @@ class NewRegistrationViewController: UIViewController {
         newRegistrationViewModel.startRegistration(emailUser: emailUser, labelTitle: labelTitle, labelEmail: labelEmail, stackViewFullName: stackViewFullName, stackViewUsername: stackViewUsername, stackViewPassword: stackViewPassword)
         
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        newRegistrationViewModel.showLoading(status: false, button: buttonGo, loading: loadingGo)
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,8 +53,8 @@ class NewRegistrationViewController: UIViewController {
     
     
     @IBAction func ButtonGo(_ sender: UIButton) {
-        
-        newRegistrationViewModel.goToNextScreen(textFieldFullName: textFieldFullName, textFieldUsername: textFieldUsername, textFieldPassword: textFieldPassword) { (result: Bool?) in
+        newRegistrationViewModel.showLoading(status: true, button: buttonGo, loading: loadingGo)
+        newRegistrationViewModel.goToNextScreen(button: buttonGo, loading: loadingGo, textFieldFullName: textFieldFullName, textFieldUsername: textFieldUsername, textFieldPassword: textFieldPassword) { (result: Bool?) in
             if let _ = result {
                 self.goToValidateTokenScreen()
             }

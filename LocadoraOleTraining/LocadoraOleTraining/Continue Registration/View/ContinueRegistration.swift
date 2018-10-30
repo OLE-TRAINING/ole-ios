@@ -17,25 +17,22 @@ class ContinueRegistration: UIViewController {
     @IBOutlet weak var buttonSend: UIButton!
     @IBOutlet weak var buttonValidate: UIButton!
     @IBOutlet weak var stackInvalidCode: UIStackView!
+    @IBOutlet weak var loadingValidate: UIActivityIndicatorView!
+    @IBOutlet weak var loadingSendAgain: UIActivityIndicatorView!
     
     var emailUser: String?
-    let continueRegistrationViewModel = ContinueRegistrationViewModel()
+    var continueRegistrationViewModel = ContinueRegistrationViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         continueRegistrationViewModel.continueRegistration(labelDidNotReceive: labelDidNotReceive, emailUser: emailUser, labelTitle: labelTitle, labelEmail: labelEmail, stackInvalidCode: stackInvalidCode)
         
-//        let textColor = UIColor(red: 0.357, green: 0.353, blue: 0.353, alpha: 1)
-//        Attributes.setAttributesLabel(label: labelTitle, labelText: "IDENTIFICAMOS QUE VOCÊ JÁ INICIOU UM CADASTRO, PARA CONCLUIRMOS, INFORME O CÓDIGO ENVIADO PARA O SEU E-MAIL    :", size: 16, fontFamily: "Dosis-Bold", spaceLine: 3.0, textColor: textColor)
-//        let emailColor = UIColor(red: 0.99, green: 0.098, blue: 0.141, alpha: 1)
-//        if let email = emailUser {
-//            Attributes.setAttributesLabel(label: labelEmail, labelText: email, size: 12, fontFamily: "Roboto-Bold", spaceLine: 0.6, textColor: emailColor)
-//        }
-//        Attributes.setAttributesLabel(label: labelDidNotReceive, labelText: "Não recebeu o código?", size: 12, fontFamily: "Roboto-Regular", spaceLine: 0.5, textColor: textColor)
-//
-//
-//        stackInvalidCode.isHidden = true
-
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        continueRegistrationViewModel.showLoading(status: false, button: buttonSend, loading: loadingSendAgain)
+        continueRegistrationViewModel.showLoading(status: false, button: buttonValidate, loading: loadingValidate)
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,29 +45,23 @@ class ContinueRegistration: UIViewController {
     }
     
     @IBAction func buttonValidate(_ sender: UIButton) {
-        
-        continueRegistrationViewModel.validateToken(textFieldCode: textFieldCode, completion: { (response: Bool) in
+        continueRegistrationViewModel.showLoading(status: true, button: buttonValidate, loading: loadingValidate)
+        continueRegistrationViewModel.validateToken(textFieldCode: textFieldCode, button: buttonValidate, loading: loadingValidate, completion: { (response: Bool) in
             if response {
                 self.goToLoginScreen()
             }
         })
-//        guard let code = textFieldCode.text else { return }
-//        if ValidateForm.checkCode(code) {
-//            Attributes.setInicialAttributes(textField: textFieldCode, stackView: stackInvalidCode)
-////            guard let email = labelEmail.text else { return }
-////            APIManager.shared.getUserWithEmail(email, completion: {(user: NewUsers?) in
-////                APIManager.shared.updateRegistrationStatus(email: (user?.email)!, password: (user?.password)!, completeName: (user?.completeName)!, username: (user?.username)!, registrationStatus: "REGISTERED" )
-////            })
-//            goToLoginScreen()
-//
-//        } else {
-//            Attributes.setAttributeInvalidField(textField: textFieldCode, stackView: stackInvalidCode)
-//        }
+
 
     }
     
     @IBAction func buttonSend(_ sender: UIButton) {
-        continueRegistrationViewModel.resendToken()
+        continueRegistrationViewModel.showLoading(status: true, button: buttonSend, loading: loadingSendAgain)
+        continueRegistrationViewModel.resendToken(completion: {(result) in
+            if result {
+                self.viewWillAppear(true)
+            }
+        })
     }
     
 }

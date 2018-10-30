@@ -47,7 +47,7 @@ class NewRegistrationViewModel {
 
     }
     
-    func goToNextScreen(textFieldFullName: UITextField, textFieldUsername: UITextField, textFieldPassword: UITextField,completion: @escaping(Bool?) -> Void) {
+    func goToNextScreen(button: UIButton, loading: UIActivityIndicatorView, textFieldFullName: UITextField, textFieldUsername: UITextField, textFieldPassword: UITextField,completion: @escaping(Bool?) -> Void) {
         if ValidateForm.checkFilledTextFields(textFieldName: textFieldFullName, textFieldUsername: textFieldUsername, textFieldPassword: textFieldPassword){
             
             Attributes.setInicialAttributes(textField: textFieldFullName, stackView: stackViewFullName)
@@ -64,20 +64,22 @@ class NewRegistrationViewModel {
                 }
             })
             
-            APIManager.shared.generateToken(email: email)
-            
         } else {
+            showLoading(status: false, button: button, loading: loading)
             switch ValidateForm.checkFullName(fullName: textFieldFullName.text ?? "") {
             case true:
                 Attributes.setInicialAttributes(textField: textFieldFullName, stackView: stackViewFullName)
             case false:
+                showLoading(status: false, button: button, loading: loading)
                 Attributes.setAttributeInvalidField(textField: textFieldFullName, stackView: stackViewFullName)
+                
             }
             
             switch ValidateForm.checkUsername(username: textFieldUsername.text ?? "") {
             case true:
                 Attributes.setInicialAttributes(textField: textFieldUsername, stackView: stackViewUsername)
             case false:
+                showLoading(status: false, button: button, loading: loading)
                 Attributes.setAttributeInvalidField(textField: textFieldUsername, stackView: stackViewUsername)
                 
             }
@@ -86,10 +88,16 @@ class NewRegistrationViewModel {
             case true:
                 Attributes.setInicialAttributes(textField: textFieldPassword, stackView: stackViewPassword)
             case false:
+                showLoading(status: false, button: button, loading: loading)
                 Attributes.setAttributeInvalidField(textField: textFieldPassword, stackView: stackViewPassword)
             }
             
         }
+    }
+    
+    func showLoading(status: Bool, button: UIButton, loading: UIActivityIndicatorView)
+    {
+        ValidateForm.showLoading(status: status, button: button, loading: loading)
     }
    
 }

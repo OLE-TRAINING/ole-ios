@@ -53,6 +53,10 @@ class ValidateForm: NSObject {
         return shared.checkCode(code)
     }
     
+    static func showLoading(status: Bool, button: UIButton, loading: UIActivityIndicatorView) {
+        return shared.showLoading(status, button: button, loading: loading)
+    }
+    
 
     
     
@@ -88,7 +92,7 @@ class ValidateForm: NSObject {
     }
     
     func checkCode(_ codigo: String) -> Bool {
-        let codeRegEx = "^.{6,15}$" // Codigo length 6-15
+        let codeRegEx = "^.{5,15}$" // Codigo length 6-15
         
         let testCode = NSPredicate(format: "SELF MATCHES[c] %@", codeRegEx)
         return testCode.evaluate(with: codigo)
@@ -119,15 +123,27 @@ class ValidateForm: NSObject {
     }
     
     func showAlertError() {
-        let alertController = UIAlertController(title: "Erro", message: "Erro insesperado. Verifique se todos os campos estão preenchido corretamente o tente novamente mais tarde!", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+        guard let viewController = UIApplication.shared.keyWindow?.rootViewController else { return }
+        
+        let alertController = UIAlertController(title: "Ops..", message: "Ocorreu um erro inesperado, por favor tente novamente.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Tentar novamente", style: UIAlertActionStyle.default) {
             UIAlertAction in
+                viewController.viewWillAppear(false)
         }
         
         alertController.addAction(okAction)
-        
-        guard let viewController = UIApplication.shared.keyWindow?.rootViewController else { return }
         viewController.present(alertController, animated: true, completion: nil)
+        viewController.viewWillAppear(false)
+    }
+    
+    func showLoading(_ status: Bool, button: UIButton, loading: UIActivityIndicatorView) {
+        if status {
+            loading.isHidden = false
+            button.isHidden = true
+        } else {
+            loading.isHidden = true
+            button.isHidden = false
+        }
     }
     
     
