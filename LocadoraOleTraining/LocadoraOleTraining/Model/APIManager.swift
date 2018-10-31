@@ -107,7 +107,7 @@ class APIManager: NSObject {
             }
     }
     
-    func authenticateUser(email: String, password: String) {
+    func authenticateUser(email: String, password: String, completion: @escaping (Bool) -> Void) {
         manager.requestSerializer = AFJSONRequestSerializer()
         manager.responseSerializer = AFJSONResponseSerializer()
         let url = baseURL + APIManager.getUsersEndpoint + "/validate" + key
@@ -118,9 +118,11 @@ class APIManager: NSObject {
             ] as [String : Any]
         
         manager.post(url, parameters: parameters, progress: nil, success: { (task, responseObject) in
-            //print("Response authenticateUser:" + responseObject.debugDescription)
+            print("Response authenticateUser:" + responseObject.debugDescription)
+            completion(true)
         }) { (task, error) in
-            //print("Error authenticateUser:" + error.localizedDescription)
+            print("Error authenticateUser:" + error.localizedDescription)
+            completion(false)
             ValidateForm.showAlertError()
         }
     }
@@ -162,9 +164,9 @@ class APIManager: NSObject {
         manager.requestSerializer.setValue("success", forHTTPHeaderField: "x-mock")
         manager.put(url, parameters: parameters, success: { (task, responseObject) in
             completion(true)
-            print("Response changePassword: " + responseObject.debugDescription)
+            //print("Response changePassword: " + responseObject.debugDescription)
         }) { (task, error) in
-            print("Error changePassword: " + error.localizedDescription)
+            //print("Error changePassword: " + error.localizedDescription)
             completion(false)
             ValidateForm.showAlertError()
         }
