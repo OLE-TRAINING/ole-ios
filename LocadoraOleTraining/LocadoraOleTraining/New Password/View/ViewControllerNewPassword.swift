@@ -33,6 +33,8 @@ class ViewControllerNewPassword: UIViewController {
         super.viewDidLoad()
         viewModelNewPassword.startTitles(labelTitle: labelTitle, email: emailUser, labelEmail: labelEmail, labelDidNotReceive: labelDidNotReceive, labelSubtitle: labelSubtitle)
         viewModelNewPassword.startStackViews(textFieldToken: textFieldToken, textFieldNewPassword: textFieldNewPassword, textFieldConfirmPassword: textFieldConfirmPassword, stackViewInvalidToken: stackViewInvalidToken, stackViewInvalidPassword: stackViewInvalidPassword, stackViewInvalidConfirmation: stackViewInvalidConfirmation)
+        buttonSendAgain.contentHorizontalAlignment = UIControlContentHorizontalAlignment.center
+        buttonSendAgain.contentVerticalAlignment = UIControlContentVerticalAlignment.top
     }
     
     override func viewWillAppear(_ animated: Bool) {

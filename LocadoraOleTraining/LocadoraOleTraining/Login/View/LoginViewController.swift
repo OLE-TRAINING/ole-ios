@@ -46,7 +46,11 @@ class LoginViewController: UIViewController {
     @IBAction func logInButton(_ sender: UIButton) {
         loginViewModel.showLoading(status: true, button: buttonLogIn, loading: loadingLogIn)
         guard let email = emailUser else { return }
-        loginViewModel.authenticateUser(email: email, textFieldPassword: textFieldPassword, button: buttonLogIn, loading: loadingLogIn)
+        loginViewModel.authenticateUser(email: email, textFieldPassword: textFieldPassword, button: buttonLogIn, loading: loadingLogIn, completion: {(result) in
+            if result {
+                self.goToHomeScreen()
+            }
+        })
 
     }
     @IBAction func buttonForgotPassword(_ sender: UIButton) {
@@ -64,6 +68,15 @@ extension LoginViewController {
         if let email = labelEmail.text {
             controller.emailUser = email
         }
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    func goToHomeScreen() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "home") as! HomeViewController
+//        if let email = labelEmail.text {
+//            controller.emailUser = email
+//        }
         self.navigationController?.pushViewController(controller, animated: true)
     }
 }

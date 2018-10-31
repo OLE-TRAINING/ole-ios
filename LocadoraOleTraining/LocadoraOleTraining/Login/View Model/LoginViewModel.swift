@@ -28,11 +28,15 @@ class LoginViewModel {
         self.viewInvalidData.isHidden = true
     }
     
-    func authenticateUser(email: String, textFieldPassword: UITextField, button: UIButton, loading: UIActivityIndicatorView) {
+    func authenticateUser(email: String, textFieldPassword: UITextField, button: UIButton, loading: UIActivityIndicatorView, completion: @escaping (Bool) -> Void) {
         guard let password = textFieldPassword.text else { return }
         if ValidateForm.checkPassword(password: password) {
             self.viewInvalidData.isHidden = true
-            APIManager.shared.authenticateUser(email: email, password: password)
+            APIManager.shared.authenticateUser(email: email, password: password, completion: { (result) in
+                if result {
+                    completion(true)
+                }
+            })
         } else {
             self.viewInvalidData.isHidden = false
             showLoading(status: false, button: button, loading: loading)

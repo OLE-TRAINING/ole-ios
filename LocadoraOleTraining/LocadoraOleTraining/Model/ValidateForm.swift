@@ -140,6 +140,7 @@ class ValidateForm: NSObject {
         if status {
             loading.isHidden = false
             button.isHidden = true
+            loading.startAnimating()
         } else {
             loading.isHidden = true
             button.isHidden = false

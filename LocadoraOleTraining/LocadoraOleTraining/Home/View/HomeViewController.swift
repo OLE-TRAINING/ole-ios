@@ -21,6 +21,9 @@ class HomeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func buttonBack(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
 
 }
