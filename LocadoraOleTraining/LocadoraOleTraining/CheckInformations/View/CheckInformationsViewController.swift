@@ -18,17 +18,17 @@ class CheckInformationsViewController: UIViewController {
     @IBOutlet weak var loading: UIActivityIndicatorView!
     
     var emailUser: String?
-    var chechInformationViewModel = CheckInformationsViewModel()
+    var checkInformationViewModel = CheckInformationsViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        chechInformationViewModel.checkInformations(email: emailUser, labelTitle: labelTitle, labelEmail: labelEmail, stackViewUsername: stackViewUsername)
+        checkInformationViewModel.checkInformations(email: emailUser, labelTitle: labelTitle, labelEmail: labelEmail, stackViewUsername: stackViewUsername)
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        chechInformationViewModel.showLoading(status: false, button: buttonGo, loading: loading)
+        checkInformationViewModel.showLoading(status: false, button: buttonGo, loading: loading)
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,15 +43,16 @@ class CheckInformationsViewController: UIViewController {
     
     
     @IBAction func buttonGo(_ sender: UIButton) {
-        chechInformationViewModel.showLoading(status: true, button: buttonGo, loading: loading)
-        chechInformationViewModel.validateUsername(textFieldUsername: textFieldUsername, button: buttonGo, loading: loading, completion:{ (result) in
+        checkInformationViewModel.showLoading(status: true, button: buttonGo, loading: loading)
+        checkInformationViewModel.validateUsername(textFieldUsername: textFieldUsername, button: buttonGo, loading: loading, completion:{ (result) in
             if result {
                 self.goToNewPasswordScreen()
+            } else {
+                self.checkInformationViewModel.showLoading(status: false, button: self.buttonGo, loading: self.loading)
             }
         })
     }
     
-
 }
 
 extension CheckInformationsViewController {

@@ -128,12 +128,12 @@ class ValidateForm: NSObject {
         let alertController = UIAlertController(title: "Ops..", message: "Ocorreu um erro inesperado, por favor tente novamente.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Tentar novamente", style: UIAlertActionStyle.default) {
             UIAlertAction in
-                viewController.viewWillAppear(false)
+                viewController.viewWillAppear(true)
         }
         
         alertController.addAction(okAction)
         viewController.present(alertController, animated: true, completion: nil)
-        viewController.viewWillAppear(false)
+        viewController.viewWillAppear(true)
     }
     
     func showLoading(_ status: Bool, button: UIButton, loading: UIActivityIndicatorView) {

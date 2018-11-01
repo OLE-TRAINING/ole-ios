@@ -78,8 +78,12 @@ class Attributes: NSObject {
         stackView.isHidden = false
     }
     
+    
 
     
 }
+
+
+
 
 

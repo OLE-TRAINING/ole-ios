@@ -34,6 +34,7 @@
 		5C59A714216E7E6F0053DC45 /* Dosis-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5C59A70D216E7E6F0053DC45 /* Dosis-Light.otf */; };
 		5C59A715216E7E6F0053DC45 /* Dosis-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5C59A70E216E7E6F0053DC45 /* Dosis-Regular.otf */; };
 		5C59A716216E7E6F0053DC45 /* Dosis-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5C59A70F216E7E6F0053DC45 /* Dosis-ExtraLight.otf */; };
+		5C5CBB70218B3D8E00205991 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5CBB6F218B3D8E00205991 /* HomeViewModel.swift */; };
 		5C5FE52221889AA200775C66 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5FE52121889AA200775C66 /* HomeViewController.swift */; };
 		5C69ADA72181DC7A00C5BCEA /* NewRegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C69ADA62181DC7A00C5BCEA /* NewRegistrationViewModel.swift */; };
 		5C69ADA92181EAF900C5BCEA /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C69ADA82181EAF900C5BCEA /* LoginViewModel.swift */; };
@@ -101,6 +102,7 @@
 		5C59A70D216E7E6F0053DC45 /* Dosis-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Light.otf"; sourceTree = "<group>"; };
 		5C59A70E216E7E6F0053DC45 /* Dosis-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-Regular.otf"; sourceTree = "<group>"; };
 		5C59A70F216E7E6F0053DC45 /* Dosis-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Dosis-ExtraLight.otf"; sourceTree = "<group>"; };
+		5C5CBB6F218B3D8E00205991 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		5C5FE52121889AA200775C66 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5C69ADA62181DC7A00C5BCEA /* NewRegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegistrationViewModel.swift; sourceTree = "<group>"; };
 		5C69ADA82181EAF900C5BCEA /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 		5C5FE51D21889A4D00775C66 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
+				5C5CBB6F218B3D8E00205991 /* HomeViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -612,12 +615,18 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-LocadoraOleTraining/Pods-LocadoraOleTraining-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/AutoInsetter/AutoInsetter.framework",
+				"${BUILT_PRODUCTS_DIR}/Pageboy/Pageboy.framework",
 				"${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework",
+				"${BUILT_PRODUCTS_DIR}/Tabman/Tabman.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AutoInsetter.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pageboy.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPKeyboardAvoiding.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Tabman.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -665,6 +674,7 @@
 				5CC41EF8217509A900F2FB3E /* ContinueRegistration.swift in Sources */,
 				5C69ADAD218207B300C5BCEA /* ValidateTokenViewModel.swift in Sources */,
 				5C5FE52221889AA200775C66 /* HomeViewController.swift in Sources */,
+				5C5CBB70218B3D8E00205991 /* HomeViewModel.swift in Sources */,
 				5C59A6D6216E2D2E0053DC45 /* AppDelegate.swift in Sources */,
 				5C69ADA72181DC7A00C5BCEA /* NewRegistrationViewModel.swift in Sources */,
 				5C778B0821874A5A00F6B269 /* ViewModelNewPassword.swift in Sources */,

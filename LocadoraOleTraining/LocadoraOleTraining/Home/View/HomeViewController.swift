@@ -8,17 +8,24 @@
 
 import UIKit
 
+
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var buttonMenu: UIButton!
+    @IBOutlet weak var labelTitle: UILabel!
+    @IBOutlet weak var pagerView: UIView!
+    
+    var homeViewModel = HomeViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        homeViewModel.startHome(labelTitle: labelTitle)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func buttonBack(_ sender: UIButton) {
@@ -27,3 +34,7 @@ class HomeViewController: UIViewController {
     
 
 }
+
+//extension HomeViewController: TabmanViewController, PageboyViewControllerDataSource {
+//    
+//}
