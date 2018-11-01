@@ -42,6 +42,7 @@ class ValidateTokenViewModel{
                 if response {
                     completion(true)
                 } else {
+                    Attributes.setAttributeInvalidField(textField: textFieldCode, stackView: self.stackViewInvalidCode)
                     completion(false)
                 }
             })

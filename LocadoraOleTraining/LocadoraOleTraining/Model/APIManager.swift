@@ -79,7 +79,7 @@ class APIManager: NSObject {
             completion(true)
         }) { (task, error) in
             //print("Error validateToken:" + error.localizedDescription)
-            ValidateForm.showAlertError()
+            //ValidateForm.showAlertError()
             completion(false)
         }
     }
@@ -98,10 +98,10 @@ class APIManager: NSObject {
                 ] as [String : Any]
             
             manager.post(url, parameters: parameters, progress: nil, success: { (task, responseObject) in
-                //print("Response createNewUser:" + responseObject.debugDescription)
+                print("Response createNewUser:" + responseObject.debugDescription)
                 completion(true)
             }) { (task, error) in
-                //print("Error createNewUser:" + error.localizedDescription)
+                print("Error createNewUser:" + error.localizedDescription)
                 ValidateForm.showAlertError()
                 completion(false)
             }
@@ -118,12 +118,12 @@ class APIManager: NSObject {
             ] as [String : Any]
         
         manager.post(url, parameters: parameters, progress: nil, success: { (task, responseObject) in
-            print("Response authenticateUser:" + responseObject.debugDescription)
+            //print("Response authenticateUser:" + responseObject.debugDescription)
             completion(true)
         }) { (task, error) in
-            print("Error authenticateUser:" + error.localizedDescription)
+            //print("Error authenticateUser:" + error.localizedDescription)
             completion(false)
-            ValidateForm.showAlertError()
+            //ValidateForm.showAlertError()
         }
     }
     

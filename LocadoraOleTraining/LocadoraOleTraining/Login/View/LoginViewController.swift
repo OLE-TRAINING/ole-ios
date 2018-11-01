@@ -49,6 +49,8 @@ class LoginViewController: UIViewController {
         loginViewModel.authenticateUser(email: email, textFieldPassword: textFieldPassword, button: buttonLogIn, loading: loadingLogIn, completion: {(result) in
             if result {
                 self.goToHomeScreen()
+            } else {
+                self.loginViewModel.showLoading(status: false, button: self.buttonLogIn, loading: self.loadingLogIn)
             }
         })
 

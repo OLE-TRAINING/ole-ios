@@ -64,6 +64,8 @@ class ViewControllerNewPassword: UIViewController {
         viewModelNewPassword.changePassword(button: buttonChangePassword, loading: loadingChangePassword, completion: { (result) in
             if result {
                 self.goToLoginScreen()
+            } else {
+                self.viewModelNewPassword.showLoading(status: false, button: self.buttonChangePassword, loading: self.loadingChangePassword)
             }
         })
     }

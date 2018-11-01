@@ -41,18 +41,21 @@ class ViewController: UIViewController {
     
     @IBAction func buttonGo(_ sender: UIButton) {
         viewModel.showLoading(status: true, button: buttonGo, loading: loading)
-        viewModel.goToNextScreen(textFieldEmail: textFieldEmail, button: buttonGo, loading: loading, completion: { [weak self] (result: String?) in
+        viewModel.goToNextScreen(textFieldEmail: textFieldEmail, button: buttonGo, loading: loading, completion: { (result: String?) in
             if result == "INEXISTENT" {
                 //email não existe
-                self?.goToRegistrationScreen()
+                self.goToRegistrationScreen()
             } else if result == "PENDING" {
                 //email existe e cadastro está incompleto
-                self?.goToContinueRegistrationScreen()
+                self.goToContinueRegistrationScreen()
                 
             } else if result == "REGISTERED" {
                 //email existe e cadastro está completo
-                self?.goToLoginScreen()
+                self.goToLoginScreen()
                 
+            }
+            else {
+                self.viewModel.showLoading(status: false, button: self.buttonGo, loading: self.loading)
             }
         })
     }

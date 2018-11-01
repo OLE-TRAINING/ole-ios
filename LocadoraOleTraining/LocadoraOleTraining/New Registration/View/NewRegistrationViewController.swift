@@ -57,6 +57,8 @@ class NewRegistrationViewController: UIViewController {
         newRegistrationViewModel.goToNextScreen(button: buttonGo, loading: loadingGo, textFieldFullName: textFieldFullName, textFieldUsername: textFieldUsername, textFieldPassword: textFieldPassword) { (result: Bool?) in
             if let _ = result {
                 self.goToValidateTokenScreen()
+            } else {
+                self.newRegistrationViewModel.showLoading(status: false, button: self.buttonGo, loading: self.loadingGo)
             }
         }
         

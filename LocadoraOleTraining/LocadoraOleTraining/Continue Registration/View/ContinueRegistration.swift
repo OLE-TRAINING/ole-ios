@@ -49,6 +49,8 @@ class ContinueRegistration: UIViewController {
         continueRegistrationViewModel.validateToken(textFieldCode: textFieldCode, button: buttonValidate, loading: loadingValidate, completion: { (response: Bool) in
             if response {
                 self.goToLoginScreen()
+            } else {
+                self.continueRegistrationViewModel.showLoading(status: false, button: self.buttonValidate, loading: self.loadingValidate)
             }
         })
 

@@ -48,6 +48,8 @@ class ValidateTokenViewController: UIViewController {
         validateTokenViewModel.validateToken(textFieldCode: textFieldCode, button: buttonValidate, loading: loadingValidate, completion: { (response: Bool) in
             if response {
                 self.goToLoginScreen()
+            } else {
+                self.validateTokenViewModel.showLoading(status: false, button: self.buttonValidate, loading: self.loadingValidate)
             }
         })
         

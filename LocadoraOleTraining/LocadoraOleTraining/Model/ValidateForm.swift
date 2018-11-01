@@ -70,7 +70,7 @@ class ValidateForm: NSObject {
     }
     
     func checkFullName(fullName: String) -> Bool {
-        let nameRegEx = "^[a-zA-Z ]+.{2,50}$" //nome com espaços
+        let nameRegEx = "^[a-zA-Z ]{2,50}$" //nome com espaços
 
         let testName = NSPredicate(format: "SELF MATCHES[c] %@", nameRegEx)
         return testName.evaluate(with: fullName)
@@ -78,7 +78,7 @@ class ValidateForm: NSObject {
     }
     
     func checkUsername(username: String) -> Bool {
-        let usernameRegEx = "^[a-zA-Z0-9]+.{1,15}$" //nome de usuario com letras maiúsculas, minúsculas e numeros sem espaços
+        let usernameRegEx = "^[a-zA-Z0-9]{1,15}$" //nome de usuario com letras maiúsculas, minúsculas e numeros sem espaços
         
         let testUsername = NSPredicate(format: "SELF MATCHES[c] %@", usernameRegEx)
         return testUsername.evaluate(with: username)
