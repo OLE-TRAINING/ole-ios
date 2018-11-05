@@ -15,9 +15,23 @@ class HomeViewModel {
     }
     
     func startHome(labelTitle: UILabel) {
-        let textColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1)
-        Attributes.setAttributesLabel(label: labelTitle, labelText: "OTMovies", size: 18, fontFamily: "Dosis-Bold", spaceLine: 0, textColor: textColor)
-
+        let normalString = "OTMovie"
+        
+        let attributedText = NSMutableAttributedString(string: normalString)
+        
+        attributedText.addAttributes([NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: UIFont(name: "Dosis-Bold", size: 20)!], range:    getRangeOfSubString(subString: "OT", fromString: normalString))
+        
+        attributedText.addAttributes([NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: UIFont(name: "Dosis-Regular", size: 20)!], range:  getRangeOfSubString(subString: "Movie", fromString: normalString))
+        
+        labelTitle.attributedText = attributedText
+    }
+    
+    func getRangeOfSubString(subString: String, fromString: String) -> NSRange {
+        let sampleLinkRange = fromString.range(of: subString)!
+        let startPos = fromString.distance(from: fromString.startIndex, to: sampleLinkRange.lowerBound)
+        let endPos = fromString.distance(from: fromString.startIndex, to: sampleLinkRange.upperBound)
+        let linkRange = NSMakeRange(startPos, endPos - startPos)
+        return linkRange
     }
     
     

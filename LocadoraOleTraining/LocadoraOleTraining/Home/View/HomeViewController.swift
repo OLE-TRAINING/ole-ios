@@ -11,6 +11,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var tableFilms: UITableView!
     @IBOutlet weak var buttonMenu: UIButton!
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var pagerView: UIView!
@@ -20,6 +21,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         homeViewModel.startHome(labelTitle: labelTitle)
+        self.initTable()
         
         
     }
@@ -35,6 +37,28 @@ class HomeViewController: UIViewController {
 
 }
 
-//extension HomeViewController: TabmanViewController, PageboyViewControllerDataSource {
-//    
-//}
+extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func initTable() {
+        self.tableFilms.dataSource = self
+        self.tableFilms.delegate = self
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // mudar tamanho da tabela quando chamar serviço
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTableViewCell
+//        let viagemAtual = listaViagens[indexPath.row]
+//        cell.configuraCelula(viagem: viagemAtual)
+        cell.configureCell()
+        
+        return cell
+    }
+    
+    
+}
+
+
