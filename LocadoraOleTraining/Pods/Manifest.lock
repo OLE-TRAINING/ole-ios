@@ -14,21 +14,33 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
+  - AutoInsetter (1.3.0)
+  - Pageboy (2.6.1)
+  - Tabman (1.10.2):
+    - AutoInsetter (~> 1.3.0)
+    - Pageboy (~> 2.6.0)
   - TPKeyboardAvoiding (1.3)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
+  - Tabman
   - TPKeyboardAvoiding (= 1.3)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
+    - AutoInsetter
+    - Pageboy
+    - Tabman
     - TPKeyboardAvoiding
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  AutoInsetter: 0ea4dddc17042ab45114ec5d5980764efae98584
+  Pageboy: c2a25d1c280e9b622014b692626f1ff9298e0ad2
+  Tabman: 6cff148419c5d8812d0e9f08f93b6f1c6ba54502
   TPKeyboardAvoiding: a5138f318c06fb3e151f886e18ce4a72695d9cbe
 
-PODFILE CHECKSUM: 0aac1f5ccdf5112b99b0a131ce27b9ce06972022
+PODFILE CHECKSUM: 6e162778b365e0be3be317e612b827d2c7de646e
 
 COCOAPODS: 1.5.3

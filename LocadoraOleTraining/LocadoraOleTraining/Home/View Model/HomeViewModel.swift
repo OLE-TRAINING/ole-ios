@@ -34,5 +34,9 @@ class HomeViewModel {
         return linkRange
     }
     
+    func configuraBar() {
+        
+    }
+    
     
 }

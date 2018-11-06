@@ -42,6 +42,7 @@ class LoginViewController: UIViewController {
     @IBAction func backButton(_ sender: UIButton) {
         self.navigationController?.viewControllers.remove(at: 1)
         self.navigationController?.popViewController(animated: true)
+
     }
     
     @IBAction func logInButton(_ sender: UIButton) {
