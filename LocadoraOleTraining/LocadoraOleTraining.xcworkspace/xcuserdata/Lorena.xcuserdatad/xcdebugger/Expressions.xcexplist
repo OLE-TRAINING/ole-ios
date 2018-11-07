@@ -3,10 +3,21 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "APIManager.getUserWithEmail(_:):APIManager.swift">
+         contextName = "APIManager.getHeaders(responseObject:):APIManager.swift">
       </ContextState>
       <ContextState
          contextName = "closure #1 in APIManager.getUserWithEmail(_:):APIManager.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in APIManager.post(url:parameters:success:failure:):APIManager.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "task?.response">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "APIManager.getUserWithEmail(_:):APIManager.swift">
       </ContextState>
       <ContextState
          contextName = "closure #1 in ViewController.buttonAvancar(_:):ViewController.swift">

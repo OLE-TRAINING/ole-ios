@@ -8,22 +8,26 @@
 
 import Foundation
 
-class HomeViewModel {
+class HomeViewModel  {
+    
     
     init() {
         
     }
     
-    func startHome(labelTitle: UILabel) {
-        let normalString = "OTMovie"
+    func startHome() -> UILabel {
+        let navLabel = UILabel()
+        let navTitle = NSMutableAttributedString(string: "OT", attributes:[
+            NSAttributedStringKey.foregroundColor: UIColor.white,
+            NSAttributedStringKey.font: UIFont(name: "Dosis-Bold", size: 20)!])
         
-        let attributedText = NSMutableAttributedString(string: normalString)
+        navTitle.append(NSMutableAttributedString(string: "Movies", attributes:[
+            NSAttributedStringKey.font: UIFont(name: "Dosis-Regular", size: 20)!,
+            NSAttributedStringKey.foregroundColor: UIColor.white]))
         
-        attributedText.addAttributes([NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: UIFont(name: "Dosis-Bold", size: 20)!], range:    getRangeOfSubString(subString: "OT", fromString: normalString))
+        navLabel.attributedText = navTitle
         
-        attributedText.addAttributes([NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: UIFont(name: "Dosis-Regular", size: 20)!], range:  getRangeOfSubString(subString: "Movie", fromString: normalString))
-        
-        labelTitle.attributedText = attributedText
+        return navLabel
     }
     
     func getRangeOfSubString(subString: String, fromString: String) -> NSRange {
@@ -34,9 +38,6 @@ class HomeViewModel {
         return linkRange
     }
     
-    func configuraBar() {
-        
-    }
     
     
 }

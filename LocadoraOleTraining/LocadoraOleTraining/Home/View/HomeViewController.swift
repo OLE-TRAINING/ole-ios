@@ -14,8 +14,6 @@ class HomeViewController: TabmanViewController{
     
     @IBOutlet weak var tableFilms: UITableView!
     @IBOutlet weak var buttonMenu: UIButton!
-    @IBOutlet weak var labelTitle: UILabel!
-    @IBOutlet weak var pagerView: UIView!
     
     private var viewControllers = [UIViewController]()
     
@@ -23,40 +21,11 @@ class HomeViewController: TabmanViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        homeViewModel.startHome(labelTitle: labelTitle)
         self.initTable()
-       
         self.dataSource = self
+        self.navigationItem.titleView = homeViewModel.startHome()
+        configureBar()
         
-        let greenColor = UIColor(red: 0.070, green: 0.592, blue: 0.576   , alpha: 1)
-        let yellowColor = UIColor(red: 1.0, green: 0.804, blue: 0.0, alpha: 1)
-        // receber os titulos de cada página do backend
-        self.bar.items = [Item(title: "Lançamentos"),
-                          Item(title: "Ação"),
-                          Item(title: "Aventura"),
-                          Item(title: "Animação"),
-                          Item(title: "Comédia"),
-                          Item(title: "Drama")]
-        
-        self.bar.style = .scrollingButtonBar
-        //self.bar.location = .top
-        self.bar.location = .preferred
-        
-        
-        
-        self.bar.appearance = TabmanBar.Appearance({ (appearance) in
-            
-            // customize appearance here
-            appearance.state.color = UIColor.white
-            appearance.state.selectedColor = UIColor.white
-            appearance.text.font = .systemFont(ofSize: 14.0)
-            appearance.indicator.isProgressive = true
-            appearance.indicator.color = yellowColor
-            appearance.layout.interItemSpacing = 20.0
-            appearance.style.background = .solid(color: greenColor)
-            
-
-        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -91,21 +60,50 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-    
+    func configureBar()  {
+        let greenColor = UIColor(red: 0.070, green: 0.592, blue: 0.576   , alpha: 1)
+        let yellowColor = UIColor(red: 1.0, green: 0.804, blue: 0.0, alpha: 1)
+        // receber os titulos de cada página do backend
+        self.bar.items = [Item(title: "Lançamentos"),
+                          Item(title: "Ação"),
+                          Item(title: "Aventura"),
+                          Item(title: "Animação"),
+                          Item(title: "Comédia"),
+                          Item(title: "Drama")]
+
+        self.bar.style = .scrollingButtonBar
+        self.bar.location = .top
+        
+
+        self.bar.appearance = TabmanBar.Appearance({ (appearance) in
+
+            // customize appearance here
+            appearance.state.color = UIColor.white
+            appearance.state.selectedColor = UIColor.white
+            appearance.text.font = .systemFont(ofSize: 14.0)
+            appearance.indicator.isProgressive = true
+            appearance.indicator.color = yellowColor
+            appearance.layout.interItemSpacing = 20.0
+            appearance.style.background = .solid(color: greenColor)
+
+
+        })
+    }
     
 }
 
 extension HomeViewController: PageboyViewControllerDataSource  {
-    
+
     func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
         return viewControllers.count
     }
     
     
+
     func viewController(for pageboyViewController: PageboyViewController, at index: PageboyViewController.PageIndex) -> UIViewController? {
         return viewControllers[index]
     }
-    
+
     func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {
         return nil
     }
