@@ -96,8 +96,7 @@ class NewRegistrationViewModel {
                 }
             })
         }
-            
-        //}
+        
     }
     
     func showLoading(status: Bool, button: UIButton, loading: UIActivityIndicatorView)

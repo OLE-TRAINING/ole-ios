@@ -10,6 +10,7 @@ import Foundation
 
 class HomeViewModel  {
     
+    //var filmGenres = Genres()
     
     init() {
         
@@ -28,6 +29,31 @@ class HomeViewModel  {
         navLabel.attributedText = navTitle
         
         return navLabel
+    }
+    
+    func getGenres(completion: @escaping ([String]) -> Void, id: @escaping ([Int]) -> Void) {
+        
+        APIManager.shared.getFilmGenres { (genres) in
+            var genersForTab = [String]()
+            var genredId = [Int]()
+            for index in (genres?.genres)! {
+                guard let gener = index.name else { return }
+                let id = index.id
+                genersForTab.append(gener)
+                genredId.append(id)
+                
+            }
+            completion(genersForTab)
+            id(genredId)
+        }
+        
+    }
+    
+    func getFilms(id: Int, completion: @escaping ([Film]) -> Void) {
+        APIManager.shared.getFilmsByGenre(id: id) { (films) in
+            //print("Filmes de ação: \(films)")
+        }
+        
     }
     
     func getRangeOfSubString(subString: String, fromString: String) -> NSRange {

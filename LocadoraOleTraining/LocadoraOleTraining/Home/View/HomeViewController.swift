@@ -17,6 +17,9 @@ class HomeViewController: TabmanViewController{
     
     private var viewControllers = [UIViewController]()
     
+    var filmGeners = [String]()
+    var filmsByGener = [Film]()
+    
     var homeViewModel = HomeViewModel()
     
     override func viewDidLoad() {
@@ -26,7 +29,9 @@ class HomeViewController: TabmanViewController{
         self.navigationItem.titleView = homeViewModel.startHome()
         configureBar()
         
+        
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -61,15 +66,29 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func configureBar()  {
+        
         let greenColor = UIColor(red: 0.070, green: 0.592, blue: 0.576   , alpha: 1)
         let yellowColor = UIColor(red: 1.0, green: 0.804, blue: 0.0, alpha: 1)
-        // receber os titulos de cada página do backend
-        self.bar.items = [Item(title: "Lançamentos"),
-                          Item(title: "Ação"),
-                          Item(title: "Aventura"),
-                          Item(title: "Animação"),
-                          Item(title: "Comédia"),
-                          Item(title: "Drama")]
+        
+        homeViewModel.getGenres(completion: { (genres) in
+            var itens = [Item]()
+            for genre in genres {
+                
+                itens.append(Item(title: genre))
+            }
+            self.bar.items = itens
+        }, id: { (ids) in
+            for id in ids {
+                self.homeViewModel.getFilms(id: id, completion: { (films) in
+                    //implemenar ação
+                })
+            }
+            
+        })
+        
+
+        
+        
 
         self.bar.style = .scrollingButtonBar
         self.bar.location = .top

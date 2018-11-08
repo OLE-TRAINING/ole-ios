@@ -36,5 +36,9 @@ class HomeCellViewModel {
         
     }
     
+    func setFilmInformations() {
+        
+    }
+    
     
 }

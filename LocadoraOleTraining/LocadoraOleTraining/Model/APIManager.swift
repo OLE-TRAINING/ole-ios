@@ -16,6 +16,30 @@ struct UsersInfo: Decodable {
     var registrationStatus: String = "INEXISTENT"
 }
 
+struct Genre : Decodable {
+    var id: Int = 0
+    var name: String? = nil
+}
+
+struct FilmGenre: Decodable {
+    var genre:String? = nil
+    var genres = [Genre]()
+}
+
+struct Film: Decodable {
+    var id: Int = 0
+    var posterId: String? = nil
+    var bannerId: String? = nil
+    var voteAverage: Double = 0.0
+    var title: String? = nil
+    var year: Int = 0
+    var genreNames = [String]()
+    var runtime: String? = nil
+    var overview: String? = nil
+    var favorit: Bool = false
+    var price: Double = 0.0
+    var acquired: Bool = false
+}
 
 
 class APIManager: NSObject {
@@ -23,6 +47,7 @@ class APIManager: NSObject {
     static let getUsersEndpoint = "/users"
     static let getTokensEndpoint = "/tokens"
     static let getValidateEndpoint = "/validate"
+    static let getFilmGenres = "/genres"
     let key = "?gw-app-key=593c3280aedd01364c73000d3ac06d76"
     let xMockKey = "x-mock"
     let xAccessTokenKey = "x-access-token"
@@ -51,8 +76,6 @@ class APIManager: NSObject {
             ValidateForm.showAlertError()
             completion(newUser)
         }
-        
-
 
     }
 
@@ -178,6 +201,50 @@ class APIManager: NSObject {
 
     }
     
+    func getFilmGenres(completion: @escaping (FilmGenre?) -> Void) {
+        let url = baseURL + APIManager.getFilmGenres
+        
+        self.get(url: url, success: { (task, responseObject) in
+            let dataJson = try! JSONSerialization.data(withJSONObject: responseObject as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
+            let genre = try?
+                JSONDecoder().decode(FilmGenre.self, from: dataJson)
+            completion(genre)
+        }) { (task, error) in
+            let genre = FilmGenre()
+            ValidateForm.showAlertError()
+            completion(genre)
+        }
+    }
+    
+    func getFilmsByGenre(id: Int, completion: @escaping ([Film]) -> Void) {
+        let url = baseURL + APIManager.getFilmGenres + "/\(id)/movies" + key
+        
+        manager.requestSerializer.setValue("action_genre", forHTTPHeaderField: "x-mock")
+        setAuthorizationToken(bearerToken: self.bearerToken)
+        self.get(url: url, success: { (task, responseObject) in
+            let dataJson = try! JSONSerialization.data(withJSONObject: responseObject as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
+            //let films = try?
+              //  JSONDecoder().decode([Film].self, from: dataJson)
+            do {
+                let films = try
+              JSONDecoder().decode([Film].self, from: dataJson)
+                print("Sucesso ao pegar filmes por genro: " + responseObject.debugDescription)
+                completion(films)
+            } catch {
+                print(error.localizedDescription)
+                completion([])
+            }
+            
+            
+        }) { (task, error) in
+            let film = [Film]()
+            //print("Erro ao pegar filmes por genero: " + error.debugDescription)
+            ValidateForm.showAlertError()
+            completion(film)
+        }
+        
+    }
+    
     
     private func setAuthorizationToken(bearerToken: String) {
         manager.requestSerializer.setValue("Bearer \(bearerToken)", forHTTPHeaderField: authorizationKey)
@@ -187,13 +254,17 @@ class APIManager: NSObject {
     private func getHeaders(responseObject: Any?) {
         if let responseObject = responseObject as? HTTPURLResponse {
             let accessToken = responseObject.allHeaderFields [self.xAccessTokenKey]
+            //print("accessToken: \(accessToken)")
             //let xUID = responseObject.allHeaderFields[self.xUID]
             self.bearerToken = accessToken as? String ?? ""
         }
     }
 
     
+    
     private func get(url: String, success: @escaping (URLSessionDataTask?, Any?) -> Void, failure: @escaping (URLSessionDataTask?, Error?) -> Void) {
+        
+        
         manager.get(url, parameters: nil, progress: nil, success: { [weak self] (task, responseObject) in
             self?.getHeaders(responseObject: task.response)
             success(task, responseObject)
@@ -223,3 +294,5 @@ class APIManager: NSObject {
         }
     }
 }
+
+
