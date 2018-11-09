@@ -212,7 +212,7 @@ class APIManager: NSObject {
             completion(genre)
         }) { (task, error) in
             let genre = FilmGenre()
-            ValidateForm.showAlertError()
+            //ValidateForm.showAlertError()
             print(error.debugDescription)
             completion(genre)
         }
@@ -240,7 +240,7 @@ class APIManager: NSObject {
         }) { (task, error) in
             let film = [Film]()
             //print("Erro ao pegar filmes por genero: " + error.debugDescription)
-            ValidateForm.showAlertError()
+            //ValidateForm.showAlertError()
             completion(film)
         }
         

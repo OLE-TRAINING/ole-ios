@@ -90,12 +90,12 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 //
 //        })
         
-        //initializeViewControllers(count: 21) //por enquanto, valor está fixo
+        initializeViewControllers(count: 20) //por enquanto, valor está fixo
         
 
         self.bar.style = .scrollingButtonBar
         self.bar.location = .top
-        
+        self.isScrollEnabled = true
 
         self.bar.appearance = TabmanBar.Appearance({ (appearance) in
 
@@ -103,10 +103,11 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             appearance.state.color = UIColor.white
             appearance.state.selectedColor = UIColor.white
             appearance.text.font = .systemFont(ofSize: 14.0)
-            appearance.indicator.isProgressive = true
+            //appearance.indicator.isProgressive = true
             appearance.indicator.color = yellowColor
             appearance.layout.interItemSpacing = 20.0
             appearance.style.background = .solid(color: greenColor)
+            
 
 
         })
@@ -166,7 +167,7 @@ extension HomeViewController: PageboyViewControllerDataSource  {
     
     
     func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
-        initializeViewControllers(count: 20) // por enquanto, valor fixo
+//        initializeViewControllers(count: 20) // por enquanto, valor fixo
         return viewControllers.count
     }
     
