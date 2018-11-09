@@ -31,7 +31,7 @@ class HomeViewModel  {
         return navLabel
     }
     
-    func getGenres(completion: @escaping ([String]) -> Void, id: @escaping ([Int]) -> Void) {
+    func getGenres(completion: @escaping ([String], [Int]) -> Void) {
         
         APIManager.shared.getFilmGenres { (genres) in
             var genersForTab = [String]()
@@ -43,8 +43,8 @@ class HomeViewModel  {
                 genredId.append(id)
                 
             }
-            completion(genersForTab)
-            id(genredId)
+            completion(genersForTab, genredId)
+            //id(genredId)
         }
         
     }
@@ -52,6 +52,7 @@ class HomeViewModel  {
     func getFilms(id: Int, completion: @escaping ([Film]) -> Void) {
         APIManager.shared.getFilmsByGenre(id: id) { (films) in
             //print("Filmes de ação: \(films)")
+            completion(films)
         }
         
     }

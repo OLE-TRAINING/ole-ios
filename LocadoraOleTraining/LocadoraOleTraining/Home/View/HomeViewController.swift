@@ -26,12 +26,14 @@ class HomeViewController: TabmanViewController{
         super.viewDidLoad()
         self.initTable()
         self.dataSource = self
-        self.navigationItem.titleView = homeViewModel.startHome()
-        configureBar()
-        
-        
+    
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationItem.titleView = homeViewModel.startHome()
+        configureBar()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -53,7 +55,8 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // mudar tamanho da tabela quando chamar serviço
-        return 3
+        //print(filmsByGener.count)
+        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -70,24 +73,24 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         let greenColor = UIColor(red: 0.070, green: 0.592, blue: 0.576   , alpha: 1)
         let yellowColor = UIColor(red: 1.0, green: 0.804, blue: 0.0, alpha: 1)
         
-        homeViewModel.getGenres(completion: { (genres) in
-            var itens = [Item]()
-            for genre in genres {
-                
-                itens.append(Item(title: genre))
-            }
-            self.bar.items = itens
-        }, id: { (ids) in
-            for id in ids {
-                self.homeViewModel.getFilms(id: id, completion: { (films) in
-                    //implemenar ação
-                })
-            }
-            
-        })
+//        homeViewModel.getGenres(completion: { (genres, ids) in
+//            var itens = [Item]()
+//            for id in ids {
+//                self.homeViewModel.getFilms(id: id, completion: { (films) in
+//                    self.filmsByGener = films
+//                    //print("\(films)\n")
+//                })
+//            }
+//            for genre in genres {
+//                //print("Filmes de \(genre): ")
+//                itens.append(Item(title: genre))
+//            }
+//
+//            self.bar.items = itens
+//
+//        })
         
-
-        
+        //initializeViewControllers(count: 21) //por enquanto, valor está fixo
         
 
         self.bar.style = .scrollingButtonBar
@@ -109,18 +112,67 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         })
     }
     
+    func goToLoginScreen() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "login") as! LoginViewController
+//        if let email = labelEmail.text {
+//            controller.emailUser = email
+//        }
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
 }
 
 extension HomeViewController: PageboyViewControllerDataSource  {
 
+    private func initializeViewControllers(count: Int) {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        var viewControllers = [UIViewController]()
+        var itens = [Item]()
+        var filmGenres = [String]()
+        
+        homeViewModel.getGenres(completion: { (genres, ids) in
+            
+            for id in ids {
+                self.homeViewModel.getFilms(id: id, completion: { (films) in
+                    self.filmsByGener = films
+                    //print("\(films)\n")
+                })
+            }
+            for genre in genres {
+                //print("Filmes de \(genre): ")
+                filmGenres.append(genre)
+                //itens.append(Item(title: genre))
+            }
+//            self.bar.items = itens
+//            viewControllers.append(viewController)
+            for index in 0 ..< count {
+                let viewController = storyboard.instantiateViewController(withIdentifier: "ChildViewController") as! ChildViewController
+                viewController.index = index + 1
+                itens.append(Item(title: filmGenres[index]))
+                viewControllers.append(viewController)
+                
+            }
+            
+            self.bar.items = itens
+            self.viewControllers = viewControllers
+            self.reloadPages()
+        })
+        
+        
+    }
+    
+    
+    
+    
     func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
+        initializeViewControllers(count: 20) // por enquanto, valor fixo
         return viewControllers.count
     }
     
     
-
     func viewController(for pageboyViewController: PageboyViewController, at index: PageboyViewController.PageIndex) -> UIViewController? {
-        return viewControllers[index]
+        return self.viewControllers[index]
     }
 
     func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {

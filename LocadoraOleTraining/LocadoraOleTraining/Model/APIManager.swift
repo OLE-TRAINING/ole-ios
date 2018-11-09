@@ -150,7 +150,6 @@ class APIManager: NSObject {
             completion(true)
         }) { (task, error) in
             completion(false)
-            ValidateForm.showAlertError()
         }
 
 
@@ -202,8 +201,10 @@ class APIManager: NSObject {
     }
     
     func getFilmGenres(completion: @escaping (FilmGenre?) -> Void) {
-        let url = baseURL + APIManager.getFilmGenres
+        let url = baseURL + APIManager.getFilmGenres + key
         
+        manager.requestSerializer.setValue("success", forHTTPHeaderField: xMockKey)
+        setAuthorizationToken(bearerToken: self.bearerToken)
         self.get(url: url, success: { (task, responseObject) in
             let dataJson = try! JSONSerialization.data(withJSONObject: responseObject as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
             let genre = try?
@@ -212,6 +213,7 @@ class APIManager: NSObject {
         }) { (task, error) in
             let genre = FilmGenre()
             ValidateForm.showAlertError()
+            print(error.debugDescription)
             completion(genre)
         }
     }
@@ -219,16 +221,15 @@ class APIManager: NSObject {
     func getFilmsByGenre(id: Int, completion: @escaping ([Film]) -> Void) {
         let url = baseURL + APIManager.getFilmGenres + "/\(id)/movies" + key
         
-        manager.requestSerializer.setValue("action_genre", forHTTPHeaderField: "x-mock")
+        // trocar o valor do xmocqando o serviço real for chamado
+        manager.requestSerializer.setValue("action_genre", forHTTPHeaderField: xMockKey)
         setAuthorizationToken(bearerToken: self.bearerToken)
         self.get(url: url, success: { (task, responseObject) in
             let dataJson = try! JSONSerialization.data(withJSONObject: responseObject as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
-            //let films = try?
-              //  JSONDecoder().decode([Film].self, from: dataJson)
             do {
                 let films = try
               JSONDecoder().decode([Film].self, from: dataJson)
-                print("Sucesso ao pegar filmes por genro: " + responseObject.debugDescription)
+                //print("Sucesso ao pegar filmes por genro: " + responseObject.debugDescription)
                 completion(films)
             } catch {
                 print(error.localizedDescription)
@@ -261,12 +262,12 @@ class APIManager: NSObject {
     }
 
     
-    
+    //criar um novo método get que encapsule a função de deserialização do arquivo json
     private func get(url: String, success: @escaping (URLSessionDataTask?, Any?) -> Void, failure: @escaping (URLSessionDataTask?, Error?) -> Void) {
         
         
         manager.get(url, parameters: nil, progress: nil, success: { [weak self] (task, responseObject) in
-            self?.getHeaders(responseObject: task.response)
+            self?.getHeaders(responseObject: responseObject.debugDescription)
             success(task, responseObject)
         }) { [weak self] (task, error) in
             self?.getHeaders(responseObject: task?.response)
