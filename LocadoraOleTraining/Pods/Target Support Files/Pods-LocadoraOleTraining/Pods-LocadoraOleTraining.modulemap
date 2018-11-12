@@ -1,6 +1,0 @@
-framework module Pods_LocadoraOleTraining {
-  umbrella header "Pods-LocadoraOleTraining-umbrella.h"
-
-  export *
-  module * { export * }
-}
