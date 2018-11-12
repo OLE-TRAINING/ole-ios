@@ -48,6 +48,8 @@ class APIManager: NSObject {
     static let getTokensEndpoint = "/tokens"
     static let getValidateEndpoint = "/validate"
     static let getFilmGenres = "/genres"
+    static let getMovies = "/movies"
+    static let getImage = "/image"
     let key = "?gw-app-key=593c3280aedd01364c73000d3ac06d76"
     let xMockKey = "x-mock"
     let xAccessTokenKey = "x-access-token"
@@ -219,10 +221,10 @@ class APIManager: NSObject {
     }
     
     func getFilmsByGenre(id: Int, completion: @escaping ([Film]) -> Void) {
-        let url = baseURL + APIManager.getFilmGenres + "/\(id)/movies" + key
+        let url = baseURL + APIManager.getFilmGenres + "/\(id)" + APIManager.getMovies + key
         
         // trocar o valor do xmocqando o serviço real for chamado
-        manager.requestSerializer.setValue("action_genre", forHTTPHeaderField: xMockKey)
+        //manager.requestSerializer.setValue("action_genre", forHTTPHeaderField: xMockKey)
         setAuthorizationToken(bearerToken: self.bearerToken)
         self.get(url: url, success: { (task, responseObject) in
             let dataJson = try! JSONSerialization.data(withJSONObject: responseObject as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
@@ -232,7 +234,7 @@ class APIManager: NSObject {
                 //print("Sucesso ao pegar filmes por genro: " + responseObject.debugDescription)
                 completion(films)
             } catch {
-                print(error.localizedDescription)
+                //print(error.localizedDescription)
                 completion([])
             }
             
@@ -244,6 +246,18 @@ class APIManager: NSObject {
             completion(film)
         }
         
+    }
+    
+    func getImagePoster(id: String, size: String, completion: @escaping (String) -> Void) {
+        let url = baseURL + APIManager.getMovies + "/\(id)" + APIManager.getImage + "/\(size)"
+        
+        self.get(url: url, success: { (task, responseObject) in
+            print("URL do poster: \(responseObject.debugDescription)")
+            completion(responseObject.debugDescription)
+        }) { (task, error) in
+            print("Erro na recuperação da imagem: \(error.debugDescription)")
+            completion("")
+        }
     }
     
     
@@ -267,7 +281,7 @@ class APIManager: NSObject {
         
         
         manager.get(url, parameters: nil, progress: nil, success: { [weak self] (task, responseObject) in
-            self?.getHeaders(responseObject: responseObject.debugDescription)
+            self?.getHeaders(responseObject: task.response)
             success(task, responseObject)
         }) { [weak self] (task, error) in
             self?.getHeaders(responseObject: task?.response)

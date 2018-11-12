@@ -1,16 +1,15 @@
 //
-//  HomeTableViewCell.swift
+//  MovieTableViewCell.swift
 //  LocadoraOleTraining
 //
-//  Created by Lorena Rodrigues Bruno on 05/11/2018.
+//  Created by Lorena Rodrigues Bruno on 12/11/2018.
 //  Copyright © 2018 Lorena Rodrigues Bruno. All rights reserved.
 //
 
 import UIKit
 
-class HomeTableViewCell: UITableViewCell {
-    
-    
+class MovieTableViewCell: UITableViewCell {
+
     @IBOutlet weak var imageFilm: UIImageView!
     @IBOutlet weak var iconFilm: UIImageView!
     @IBOutlet weak var viewBack: UIView!
@@ -25,27 +24,28 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var labelFilmPrice: UILabel!
     @IBOutlet weak var buttonLike: UIButton!
     
-    var homeCellViewModel = HomeCellViewModel()
+    var movieCellViewModel = MovieCellViewModel()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
-    func configureCell() {
-        homeCellViewModel.configureCell(imageFilm: imageFilm, viewNote: viewNote, viewBack: viewBack, labelPrice: labelFilmPrice, viewYellPoint: viewYellPoint)
+    
+    func configureCell(films: [Film]) {
+        movieCellViewModel.configureCell(imageFilm: imageFilm, viewNote: viewNote, viewBack: viewBack, labelPrice: labelFilmPrice, viewYellPoint: viewYellPoint)
+        movieCellViewModel.setFilmInformations(films: films, labelFilmName: labelFilmName, labelFilmCategory: labelFilmCategory, labelFilmDuration: labelFilmDuration, labelFilmYear: labelFilmYear, labelFilmSynopsis: labelFilmSynopsis, LabelFilmPrice: labelFilmPrice, labelNote: labelNote, imageFilm: imageFilm)
     }
     
     @IBAction func buttonLike(_ sender: UIButton) {
-        homeCellViewModel.favorite(buttonLike: buttonLike)
+        movieCellViewModel.favorite(buttonLike: buttonLike)
     }
     
+
+
 }
-
-

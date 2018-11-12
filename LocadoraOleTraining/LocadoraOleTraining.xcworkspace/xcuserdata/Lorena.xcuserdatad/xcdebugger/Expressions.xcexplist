@@ -28,6 +28,14 @@
          contextName = "APIManager.getUserWithEmail(_:):APIManager.swift">
       </ContextState>
       <ContextState
+         contextName = "ViewController.goToRegistrationScreen():ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.navigationController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in APIManager.post(url:parameters:success:failure:):APIManager.swift">
          <PersistentStrings>
             <PersistentString

@@ -23,6 +23,12 @@ class ChildViewController: UIViewController {
         if let index = self.index {
             self.label.text = "Page " + String(index)
             self.promptLabel.isHidden = index != 1
+            
         }
     }
+    
+    func doSomething() {
+        parentPageboy?.scrollToPage(.next, animated: true)
+    }
+    
 }
