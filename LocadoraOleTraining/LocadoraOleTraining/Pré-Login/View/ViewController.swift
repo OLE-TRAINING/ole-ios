@@ -72,7 +72,7 @@ extension ViewController {
         if let email = textFieldEmail.text {
             controller.emailUser = email
         }
-        self.navigationController?.pushViewController(controller, animated: true)
+        self.navigationController?.pushViewController(controller, animated: false)
     }
 
 

@@ -38,20 +38,21 @@ class MovieCellViewModel {
     
     func setFilmInformations(films: [Film], labelFilmName: UILabel, labelFilmCategory: UILabel, labelFilmDuration: UILabel, labelFilmYear: UILabel, labelFilmSynopsis: UILabel, LabelFilmPrice: UILabel, labelNote: UILabel, imageFilm: UIImageView ) {
         for film in films {
+            
             guard let posterId = film.posterId else { return }
-            APIManager.shared.getImagePoster(id: posterId, size: "original") { (urlImage) in
-                guard let url = URL(string: urlImage) else { return }
-                imageFilm.setImageWith(url)
-            }
-            
-            
+            guard let url = APIManager.shared.getImagePoster(id: posterId, size: "original") else { return }
+            imageFilm.setImageWith(url)
             labelFilmName.text = film.title
             //labelFilmCategorie.text = film.genreNames
             labelFilmDuration.text = film.runtime
             labelFilmYear.text = String(film.year)
             labelFilmSynopsis.text = film.overview
-            LabelFilmPrice.text = String(film.price)
+            LabelFilmPrice.text = "R$ " + String(film.price)
             labelNote.text = String(film.voteAverage)
+
+            
+            
+            
         }
         
         

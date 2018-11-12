@@ -16,11 +16,17 @@ class MoviesViewModel {
             //print("Filmes de ação: \(films)")
             self.movies = films
             completion(films)
+            
         }
         
     }
     
+    func loadForFilms(tableView: UITableView, loading: UIActivityIndicatorView) {
+       
+    }
+    
     func getGenres(completion: @escaping ([String], [Int]) -> Void) {
+        
         
         APIManager.shared.getFilmGenres { (genres) in
             var genersForTab = [String]()

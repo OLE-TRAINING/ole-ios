@@ -14,7 +14,10 @@ class MoviesViewController: UIViewController {
 
     var filmsByGener = [Film]()
     
+   
     @IBOutlet weak var tableView: UITableView!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,6 +90,7 @@ extension MoviesViewController: UITableViewDataSource, UITableViewDelegate {
         let movie = moviesViewModel.movies[indexPath.row]
         // TODO
         cell.configureCell(films: filmsByGener)
+        
 
     }
 }

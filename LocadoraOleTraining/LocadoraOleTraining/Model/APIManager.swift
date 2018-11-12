@@ -171,7 +171,7 @@ class APIManager: NSObject {
             "email": email
             ] as [String : Any]
 
-        manager.requestSerializer.setValue("", forHTTPHeaderField: xMockKey)
+        //manager.requestSerializer.setValue("", forHTTPHeaderField: xMockKey)
         self.post(url: url, parameters: parameters, success: { (task, responseObject) in
             completion(true)
         }) { (task, error) in
@@ -248,16 +248,17 @@ class APIManager: NSObject {
         
     }
     
-    func getImagePoster(id: String, size: String, completion: @escaping (String) -> Void) {
-        let url = baseURL + APIManager.getMovies + "/\(id)" + APIManager.getImage + "/\(size)"
+    func getImagePoster(id: String, size: String) -> URL? {
+        let url = baseURL + APIManager.getMovies + "/\(id)" + APIManager.getImage + "/\(size)" + key
         
-        self.get(url: url, success: { (task, responseObject) in
-            print("URL do poster: \(responseObject.debugDescription)")
-            completion(responseObject.debugDescription)
+        //setAuthorizationToken(bearerToken: self.bearerToken)
+        manager.get(url, parameters: nil, progress: nil, success: { (task, responseObject) in
+            
         }) { (task, error) in
-            print("Erro na recuperação da imagem: \(error.debugDescription)")
-            completion("")
+            
         }
+        
+        return URL(string: url)
     }
     
     
@@ -285,6 +286,7 @@ class APIManager: NSObject {
             success(task, responseObject)
         }) { [weak self] (task, error) in
             self?.getHeaders(responseObject: task?.response)
+            ValidateForm.showAlertSessionExpired()
             failure(task, error)
         }
     }
@@ -295,6 +297,7 @@ class APIManager: NSObject {
             success(task, responseObject)
         }) { [weak self] (task, error) in
             self?.getHeaders(responseObject: task?.response)
+            ValidateForm.showAlertSessionExpired()
             failure(task, error)
         }
     }
@@ -305,6 +308,7 @@ class APIManager: NSObject {
             success(task, responseObject)
         }) { [weak self] (task, error) in
             self?.getHeaders(responseObject: task?.response)
+            ValidateForm.showAlertSessionExpired()
             failure(task, error)
         }
     }

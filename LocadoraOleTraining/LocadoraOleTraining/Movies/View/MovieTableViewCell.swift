@@ -42,6 +42,8 @@ class MovieTableViewCell: UITableViewCell {
         movieCellViewModel.setFilmInformations(films: films, labelFilmName: labelFilmName, labelFilmCategory: labelFilmCategory, labelFilmDuration: labelFilmDuration, labelFilmYear: labelFilmYear, labelFilmSynopsis: labelFilmSynopsis, LabelFilmPrice: labelFilmPrice, labelNote: labelNote, imageFilm: imageFilm)
     }
     
+    
+    
     @IBAction func buttonLike(_ sender: UIButton) {
         movieCellViewModel.favorite(buttonLike: buttonLike)
     }

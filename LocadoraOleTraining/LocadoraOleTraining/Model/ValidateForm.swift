@@ -32,6 +32,9 @@ class ValidateForm: NSObject {
         return shared.showAlertError()
     }
     
+    static func showAlertSessionExpired()  {
+        return shared.showAlertSessionExpired()
+    }
     
     static func checkFilledTextFields(textFieldName: UITextField, textFieldUsername: UITextField, textFieldPassword: UITextField) -> Bool {
         return shared.checkFilledTextFields(textFieldName: textFieldName, textFieldUsername: textFieldUsername, textFieldPassword: textFieldPassword)
@@ -56,8 +59,6 @@ class ValidateForm: NSObject {
     static func showLoading(status: Bool, button: UIButton, loading: UIActivityIndicatorView) {
         return shared.showLoading(status, button: button, loading: loading)
     }
-    
-
     
     
     // MARK:-  IMPLEMENTATION OF STATIC METHODS
@@ -134,6 +135,19 @@ class ValidateForm: NSObject {
         alertController.addAction(okAction)
         viewController.present(alertController, animated: true, completion: nil)
         viewController.viewWillAppear(true)
+    }
+    
+    func showAlertSessionExpired() {
+        guard let viewController = UIApplication.shared.keyWindow?.rootViewController else { return }
+        
+        let alertController = UIAlertController(title: "Ops..", message: "Sua sessão expirou, para continuar utilizando o serviço, faça login novamente.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Tentar novamente", style: UIAlertActionStyle.default) {
+            UIAlertAction in
+
+        }
+        
+        alertController.addAction(okAction)
+        viewController.present(alertController, animated: true, completion: nil)
     }
     
     func showLoading(_ status: Bool, button: UIButton, loading: UIActivityIndicatorView) {
