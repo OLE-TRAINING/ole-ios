@@ -27,23 +27,32 @@ class MovieCellViewModel {
         labelPrice.layer.shadowOffset = CGSize(width: 0, height: 5)
     }
     
-    func favorite(buttonLike: UIButton) {
-        if buttonLike.currentImage == #imageLiteral(resourceName: "likeGreen") {
-            buttonLike.setBackgroundImage(#imageLiteral(resourceName: "likeFullGreen"), for: UIControlState.normal)
-        } else if buttonLike.currentImage == #imageLiteral(resourceName: "likeFullGreen") {
-            buttonLike.setBackgroundImage(#imageLiteral(resourceName: "likeGreen"), for: UIControlState.normal)
-        }
-        
-    }
+//    func favorite(buttonLike: UIButton) {
+//        if buttonLike.currentImage == UIImage(named: "likeGreen.png")  {
+//            buttonLike.setBackgroundImage(UIImage(named: "likeFullGreen.png"), for: UIControlState.normal)
+//        } else if buttonLike.currentImage == UIImage(named: "likeFullGreen.png")  {
+//            buttonLike.setBackgroundImage(UIImage(named: "likeGreen.png"), for: UIControlState.normal)
+//        }
+//
+//    }
     
     func setFilmInformations(films: [Film], labelFilmName: UILabel, labelFilmCategory: UILabel, labelFilmDuration: UILabel, labelFilmYear: UILabel, labelFilmSynopsis: UILabel, LabelFilmPrice: UILabel, labelNote: UILabel, imageFilm: UIImageView ) {
+        
         for film in films {
-            
+            var genresName = ""
             guard let posterId = film.posterId else { return }
             guard let url = APIManager.shared.getImagePoster(id: posterId, size: "original") else { return }
             imageFilm.setImageWith(url)
             labelFilmName.text = film.title
-            //labelFilmCategorie.text = film.genreNames
+            for genre in film.genreNames {
+                if genresName == "" {
+                    genresName = genre
+                } else {
+                    genresName = genresName + ", " + genre
+                }
+                
+            }
+            labelFilmCategory.text = genresName
             labelFilmDuration.text = film.runtime
             labelFilmYear.text = String(film.year)
             labelFilmSynopsis.text = film.overview

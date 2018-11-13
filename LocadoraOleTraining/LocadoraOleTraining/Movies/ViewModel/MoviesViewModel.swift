@@ -13,7 +13,6 @@ class MoviesViewModel {
     
     func getFilms(id: Int, completion: @escaping ([Film]) -> Void) {
         APIManager.shared.getFilmsByGenre(id: id) { (films) in
-            //print("Filmes de ação: \(films)")
             self.movies = films
             completion(films)
             
@@ -39,7 +38,6 @@ class MoviesViewModel {
                 
             }
             completion(genersForTab, genredId)
-            //id(genredId)
         }
         
     }

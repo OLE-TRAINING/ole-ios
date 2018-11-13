@@ -45,7 +45,7 @@ class MovieTableViewCell: UITableViewCell {
     
     
     @IBAction func buttonLike(_ sender: UIButton) {
-        movieCellViewModel.favorite(buttonLike: buttonLike)
+        //movieCellViewModel.favorite(buttonLike: buttonLike)
     }
     
 

@@ -14,20 +14,6 @@ class CategoriesViewModel {
         
     }
     
-//    func startHome() -> UILabel {
-//        let navLabel = UILabel()
-//        let navTitle = NSMutableAttributedString(string: "OT", attributes:[
-//            NSAttributedStringKey.foregroundColor: UIColor.white,
-//            NSAttributedStringKey.font: UIFont(name: "Dosis-Bold", size: 20)!])
-//        
-//        navTitle.append(NSMutableAttributedString(string: "Movies", attributes:[
-//            NSAttributedStringKey.font: UIFont(name: "Dosis-Regular", size: 20)!,
-//            NSAttributedStringKey.foregroundColor: UIColor.white]))
-//        
-//        navLabel.attributedText = navTitle
-//        
-//        return navLabel
-//    }
     
     func getGenres(completion: @escaping ([String], [Int]) -> Void) {
         
@@ -42,18 +28,10 @@ class CategoriesViewModel {
                 
             }
             completion(genersForTab, genredId)
-            //id(genredId)
         }
         
     }
-    
-//    func getFilms(id: Int, completion: @escaping ([Film]) -> Void) {
-//        APIManager.shared.getFilmsByGenre(id: id) { (films) in
-//            //print("Filmes de ação: \(films)")
-//            completion(films)
-//        }
-//        
-//    }
+
     
     func getRangeOfSubString(subString: String, fromString: String) -> NSRange {
         let sampleLinkRange = fromString.range(of: subString)!

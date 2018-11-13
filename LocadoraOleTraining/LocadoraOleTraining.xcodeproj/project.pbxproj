@@ -18,9 +18,9 @@
 		5C4F6AE4216F816F00688CB6 /* Roboto-Condensed.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C4F6ADC216F816F00688CB6 /* Roboto-Condensed.ttf */; };
 		5C4F6AE5216F816F00688CB6 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C4F6ADD216F816F00688CB6 /* Roboto-Italic.ttf */; };
 		5C4F6AE7216F857100688CB6 /* ValidateForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4F6AE6216F857100688CB6 /* ValidateForm.swift */; };
-		5C521274217F9E8800C08698 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C521273217F9E8800C08698 /* ViewModel.swift */; };
+		5C521274217F9E8800C08698 /* PreLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C521273217F9E8800C08698 /* PreLoginViewModel.swift */; };
 		5C59A6D6216E2D2E0053DC45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C59A6D5216E2D2E0053DC45 /* AppDelegate.swift */; };
-		5C59A6D8216E2D2E0053DC45 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C59A6D7216E2D2E0053DC45 /* ViewController.swift */; };
+		5C59A6D8216E2D2E0053DC45 /* PreLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C59A6D7216E2D2E0053DC45 /* PreLoginViewController.swift */; };
 		5C59A6DB216E2D2E0053DC45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C59A6D9216E2D2E0053DC45 /* Main.storyboard */; };
 		5C59A6DD216E2D300053DC45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C59A6DC216E2D300053DC45 /* Assets.xcassets */; };
 		5C59A6E0216E2D300053DC45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C59A6DE216E2D300053DC45 /* LaunchScreen.storyboard */; };
@@ -37,7 +37,6 @@
 		5C5ACFB32191EDB90033E80A /* CustomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5ACFB22191EDB90033E80A /* CustomBar.swift */; };
 		5C5CBB70218B3D8E00205991 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5CBB6F218B3D8E00205991 /* HomeViewModel.swift */; };
 		5C5FE52221889AA200775C66 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5FE52121889AA200775C66 /* HomeViewController.swift */; };
-		5C61CA3D2195FF2700D7BFF4 /* ChildrenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C61CA3C2195FF2700D7BFF4 /* ChildrenViewController.swift */; };
 		5C69ADA72181DC7A00C5BCEA /* NewRegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C69ADA62181DC7A00C5BCEA /* NewRegistrationViewModel.swift */; };
 		5C69ADA92181EAF900C5BCEA /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C69ADA82181EAF900C5BCEA /* LoginViewModel.swift */; };
 		5C69ADAB2181FC4300C5BCEA /* ContinueRegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C69ADAA2181FC4300C5BCEA /* ContinueRegistrationViewModel.swift */; };
@@ -89,10 +88,10 @@
 		5C4F6ADC216F816F00688CB6 /* Roboto-Condensed.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Condensed.ttf"; sourceTree = "<group>"; };
 		5C4F6ADD216F816F00688CB6 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
 		5C4F6AE6216F857100688CB6 /* ValidateForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateForm.swift; sourceTree = "<group>"; };
-		5C521273217F9E8800C08698 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		5C521273217F9E8800C08698 /* PreLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreLoginViewModel.swift; sourceTree = "<group>"; };
 		5C59A6D2216E2D2E0053DC45 /* LocadoraOleTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocadoraOleTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C59A6D5216E2D2E0053DC45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5C59A6D7216E2D2E0053DC45 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5C59A6D7216E2D2E0053DC45 /* PreLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreLoginViewController.swift; sourceTree = "<group>"; };
 		5C59A6DA216E2D2E0053DC45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5C59A6DC216E2D300053DC45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C59A6DF216E2D300053DC45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -114,7 +113,6 @@
 		5C5ACFB22191EDB90033E80A /* CustomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBar.swift; sourceTree = "<group>"; };
 		5C5CBB6F218B3D8E00205991 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		5C5FE52121889AA200775C66 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		5C61CA3C2195FF2700D7BFF4 /* ChildrenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildrenViewController.swift; sourceTree = "<group>"; };
 		5C69ADA62181DC7A00C5BCEA /* NewRegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegistrationViewModel.swift; sourceTree = "<group>"; };
 		5C69ADA82181EAF900C5BCEA /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		5C69ADAA2181FC4300C5BCEA /* ContinueRegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueRegistrationViewModel.swift; sourceTree = "<group>"; };
@@ -186,7 +184,7 @@
 		5C52126E217F9C3900C08698 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
-				5C521273217F9E8800C08698 /* ViewModel.swift */,
+				5C521273217F9E8800C08698 /* PreLoginViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -323,7 +321,7 @@
 		5C59A718216E846A0053DC45 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5C59A6D7216E2D2E0053DC45 /* ViewController.swift */,
+				5C59A6D7216E2D2E0053DC45 /* PreLoginViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -361,7 +359,6 @@
 		5C5FE51E21889A5400775C66 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				5C61CA3C2195FF2700D7BFF4 /* ChildrenViewController.swift */,
 				5C5FE52121889AA200775C66 /* HomeViewController.swift */,
 			);
 			path = View;
@@ -735,18 +732,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C59A6D8216E2D2E0053DC45 /* ViewController.swift in Sources */,
+				5C59A6D8216E2D2E0053DC45 /* PreLoginViewController.swift in Sources */,
 				5C6DD9F7217A757B003A891D /* RoundedButton.swift in Sources */,
 				5C84C31C2176023D00CADD58 /* ValidateTokenViewController.swift in Sources */,
 				5C69ADB4218231F300C5BCEA /* CheckInformationsViewModel.swift in Sources */,
 				5C88E63A2199A6FB00450B83 /* MovieTableViewCell.swift in Sources */,
-				5C521274217F9E8800C08698 /* ViewModel.swift in Sources */,
+				5C521274217F9E8800C08698 /* PreLoginViewModel.swift in Sources */,
 				5C59A707216E5E950053DC45 /* Attributes.swift in Sources */,
 				5C88E63121999EBE00450B83 /* CategoriesViewModel.swift in Sources */,
 				5C8DA60D2190980500D87A34 /* TabBarController.swift in Sources */,
 				5C7858BF217764D60007612D /* APIManager.swift in Sources */,
 				5C69ADB2218231DE00C5BCEA /* CheckInformationsViewController.swift in Sources */,
-				5C61CA3D2195FF2700D7BFF4 /* ChildrenViewController.swift in Sources */,
 				5C4F6AE7216F857100688CB6 /* ValidateForm.swift in Sources */,
 				5C88E62F21999E9D00450B83 /* CategoriesViewController.swift in Sources */,
 				5C84C3222176090300CADD58 /* LoginViewController.swift in Sources */,

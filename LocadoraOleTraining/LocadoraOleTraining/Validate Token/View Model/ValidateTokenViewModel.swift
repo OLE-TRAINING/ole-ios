@@ -19,15 +19,11 @@ class ValidateTokenViewModel{
     
     func startValidateToken(labelDidNotReceive: UILabel, emailUser: String, labelTitle: UILabel, labelEmail: UILabel, stackViewInvalidCode: UIStackView) {
         let textColor = UIColor(red: 0.357, green: 0.353, blue: 0.353, alpha: 1)
-        //guard let email = emailUser else { return }
         self.emailUser = emailUser
         
         Attributes.setAttributesLabel(label: labelTitle, labelText: "PARA SUA SEGURANÇA, INFORME O CÓDIGO ENVIADO PARA O SEU\nE-MAIL:", size: 16, fontFamily: "Dosis-Bold", spaceLine: 3.0, textColor: textColor)
         let emailColor = UIColor(red: 0.99, green: 0.098, blue: 0.141, alpha: 1)
-        //if let email = emailUser {
         Attributes.setAttributesLabel(label: labelEmail, labelText: emailUser, size: 12, fontFamily: "Roboto-Bold", spaceLine: 0.6, textColor: emailColor)
-        //}
-        
         Attributes.setAttributesLabel(label: labelDidNotReceive, labelText: "Não recebeu o código?", size: 12, fontFamily: "Roboto-Regular", spaceLine: 0.5, textColor: textColor)
         
         self.stackViewInvalidCode = stackViewInvalidCode

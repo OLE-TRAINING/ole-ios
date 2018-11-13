@@ -17,6 +17,8 @@ class CategoriesViewController: TabmanViewController {
     var filmGeners = [String]()
     var filmsByGener = [Film]()
 
+    @IBOutlet weak var viewLoading: UIView!
+    
     var categoriesViewModel = CategoriesViewModel()
     
     override func viewDidLoad() {
@@ -27,18 +29,11 @@ class CategoriesViewController: TabmanViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-//        self.navigationItem.titleView = categoriesViewModel.startHome()
-//        configureBar()
-        //initializeViewControllers(count: 20)
-        
     }
     
     
     
     func configureBar()  {
-        
-        //parentPageboy?.scrollToPage(.next, animated: true)
-        //self.isScrollEnabled = true
         
         let greenColor = UIColor(red: 0.070, green: 0.592, blue: 0.576   , alpha: 1)
         let yellowColor = UIColor(red: 1.0, green: 0.804, blue: 0.0, alpha: 1)
@@ -73,30 +68,17 @@ class CategoriesViewController: TabmanViewController {
 extension CategoriesViewController: PageboyViewControllerDataSource  {
     
     private func initializeViewControllers(count: Int) {
-//        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         var viewControllers = [UIViewController]()
         var itens = [Item]()
         var filmGenres = [String]()
         
         categoriesViewModel.getGenres(completion: { (genres, ids) in
-            
-//            for id in ids {
-//                self.categoriesViewModel.getFilms(id: id, completion: { (films) in
-//                    self.filmsByGener = films
-//                    print("\(films)\n")
-//                })
-//            }
+
             for genre in genres {
-                //print("Filmes de \(genre): ")
                 filmGenres.append(genre)
-                //itens.append(Item(title: genre))
             }
             
-            //            self.bar.items = itens
-            //            viewControllers.append(viewController)
             for index in 0 ..< count {
-//                let viewController = storyboard.instantiateViewController(withIdentifier: "ChildViewController") as! ChildViewController
-//                viewController.index = index + 1
                 let viewController = MoviesViewController.instance()
                 itens.append(Item(title: filmGenres[index]))
                 guard let vc = viewController else { return }
@@ -107,23 +89,19 @@ extension CategoriesViewController: PageboyViewControllerDataSource  {
             self.bar.items = itens
             self.viewControllers = viewControllers
             self.reloadPages()
+            
         })
         
         
     }
     
-
-    
     func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
-        //        initializeViewControllers(count: 20) // por enquanto, valor fixo
         return viewControllers.count
     }
     
     
     func viewController(for pageboyViewController: PageboyViewController, at index: PageboyViewController.PageIndex) -> UIViewController? {
         return self.viewControllers[index]
-//        let viewController = MoviesViewController.instance()
-//        return viewController
     }
     
     func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {

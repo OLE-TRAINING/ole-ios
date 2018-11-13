@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import MBProgressHUD
+
 
 class MoviesViewController: UIViewController {
 
@@ -14,7 +16,9 @@ class MoviesViewController: UIViewController {
 
     var filmsByGener = [Film]()
     
+
    
+    @IBOutlet weak var viewLoading: UIView!
     @IBOutlet weak var tableView: UITableView!
     
     
@@ -26,6 +30,8 @@ class MoviesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        let loadingNotification = MBProgressHUD.showAdded(to: self.viewLoading, animated: true)
+        loadingNotification.mode = MBProgressHUDMode.indeterminate
         fetchMovies()
     }
     
@@ -40,18 +46,17 @@ class MoviesViewController: UIViewController {
     }
     
     func fetchMovies() {
-        // TODO show loading
-        //var filmGenres = [String]()
-        
         moviesViewModel.getGenres(completion: { (genres, ids) in
-            
-//            for id in ids {
+
                 self.moviesViewModel.getFilms(id: 2, completion: { [weak self] (films) in
                     self?.filmsByGener = films
                     //print("\(films)\n")
                     self?.tableView.reloadData()
+                    guard let viewLoading = self?.viewLoading else { return }
+                    MBProgressHUD.hideAllHUDs(for: viewLoading, animated: true)
+                    viewLoading.isHidden = true
                 })
-//            }
+
             
         })
         
@@ -73,9 +78,6 @@ extension MoviesViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HomeTableViewCell
-        //        cell.configureCell()
-        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {
             return UITableViewCell()
         }
@@ -88,7 +90,6 @@ extension MoviesViewController: UITableViewDataSource, UITableViewDelegate {
             return
         }
         let movie = moviesViewModel.movies[indexPath.row]
-        // TODO
         cell.configureCell(films: filmsByGener)
         
 

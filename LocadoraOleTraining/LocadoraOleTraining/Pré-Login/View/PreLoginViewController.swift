@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PreLoginViewController: UIViewController {
 
     @IBOutlet weak var labelEmail: UILabel!
     @IBOutlet weak var buttonGo: UIButton!
@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var stackInvalidEmail: UIStackView!
     @IBOutlet weak var loading: UIActivityIndicatorView!
     
-    var viewModel = ViewModel()
+    var viewModel = PreLoginViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +64,7 @@ class ViewController: UIViewController {
 
 
 
-extension ViewController {
+extension PreLoginViewController {
 
     func goToRegistrationScreen() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
