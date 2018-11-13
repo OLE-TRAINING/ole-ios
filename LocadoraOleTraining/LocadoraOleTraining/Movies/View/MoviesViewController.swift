@@ -10,12 +10,12 @@ import UIKit
 import MBProgressHUD
 
 
+
 class MoviesViewController: UIViewController {
 
     var moviesViewModel = MoviesViewModel()
-
     var filmsByGener = [Film]()
-    
+    //var delegate: Delegate?
 
    
     @IBOutlet weak var viewLoading: UIView!
@@ -35,7 +35,7 @@ class MoviesViewController: UIViewController {
         fetchMovies()
     }
     
- 
+    
     
     static func instance() -> MoviesViewController? {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -50,7 +50,6 @@ class MoviesViewController: UIViewController {
 
                 self.moviesViewModel.getFilms(id: 2, completion: { [weak self] (films) in
                     self?.filmsByGener = films
-                    //print("\(films)\n")
                     self?.tableView.reloadData()
                     guard let viewLoading = self?.viewLoading else { return }
                     MBProgressHUD.hideAllHUDs(for: viewLoading, animated: true)
@@ -95,3 +94,22 @@ extension MoviesViewController: UITableViewDataSource, UITableViewDelegate {
 
     }
 }
+
+//extension MoviesViewController {
+//    func goToLoginScreen() {
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let controller = storyboard.instantiateViewController(withIdentifier: "login") as! LoginViewController
+//        self.navigationController?.pushViewController(controller, animated: true)
+//    }
+//
+//    func showAlertSessionExpired() {
+//        let alertController = UIAlertController(title: "Ops..", message: "Sua sessão expirou, para continuar utilizando o serviço, faça login novamente.", preferredStyle: .alert)
+//        let okAction = UIAlertAction(title: "Tentar novamente", style: UIAlertActionStyle.default) {
+//            UIAlertAction in
+//            self.goToLoginScreen()
+//        }
+//        alertController.addAction(okAction)
+//        self.present(alertController, animated: true, completion: nil)
+//    }
+//
+//}

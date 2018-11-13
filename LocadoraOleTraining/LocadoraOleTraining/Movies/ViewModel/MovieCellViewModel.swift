@@ -27,14 +27,18 @@ class MovieCellViewModel {
         labelPrice.layer.shadowOffset = CGSize(width: 0, height: 5)
     }
     
-//    func favorite(buttonLike: UIButton) {
-//        if buttonLike.currentImage == UIImage(named: "likeGreen.png")  {
-//            buttonLike.setBackgroundImage(UIImage(named: "likeFullGreen.png"), for: UIControlState.normal)
-//        } else if buttonLike.currentImage == UIImage(named: "likeFullGreen.png")  {
-//            buttonLike.setBackgroundImage(UIImage(named: "likeGreen.png"), for: UIControlState.normal)
-//        }
-//
-//    }
+    
+    func favorite(buttonLike: UIButton) {
+        //let buttonLike  = UIButton(type: .custom)
+        let imageHeart = UIImage(named: "likeGreen")
+        let imageLike = UIImage(named: "likeFullGreen")
+        if buttonLike.backgroundImage(for: UIControlState.normal) == imageHeart {
+            buttonLike.setBackgroundImage(imageLike, for: UIControlState.normal)
+        } else if buttonLike.backgroundImage(for: UIControlState.normal) == imageLike  {
+            buttonLike.setBackgroundImage(imageHeart, for: UIControlState.normal)
+        }
+
+    }
     
     func setFilmInformations(films: [Film], labelFilmName: UILabel, labelFilmCategory: UILabel, labelFilmDuration: UILabel, labelFilmYear: UILabel, labelFilmSynopsis: UILabel, LabelFilmPrice: UILabel, labelNote: UILabel, imageFilm: UIImageView ) {
         
@@ -58,10 +62,7 @@ class MovieCellViewModel {
             labelFilmSynopsis.text = film.overview
             LabelFilmPrice.text = "R$ " + String(film.price)
             labelNote.text = String(film.voteAverage)
-
-            
-            
-            
+ 
         }
         
         

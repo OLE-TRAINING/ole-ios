@@ -41,6 +41,10 @@ struct Film: Decodable {
     var acquired: Bool = false
 }
 
+protocol APIManagerDelegate {
+    func notifySessionExpired()
+}
+
 
 class APIManager: NSObject {
     let baseURL = "https://ole.dev.gateway.zup.me/client-training/v1"
@@ -57,6 +61,9 @@ class APIManager: NSObject {
     let authorizationKey = "Authorization"
     
     var bearerToken = ""
+    
+    var delegate: APIManagerDelegate?
+    
     
     static let shared = APIManager()
     
@@ -286,7 +293,7 @@ class APIManager: NSObject {
             success(task, responseObject)
         }) { [weak self] (task, error) in
             self?.getHeaders(responseObject: task?.response)
-            ValidateForm.showAlertSessionExpired()
+            self?.notifySessionExpiredIfNeeded(responseObject: task?.response as? HTTPURLResponse)
             failure(task, error)
         }
     }
@@ -297,7 +304,7 @@ class APIManager: NSObject {
             success(task, responseObject)
         }) { [weak self] (task, error) in
             self?.getHeaders(responseObject: task?.response)
-            ValidateForm.showAlertSessionExpired()
+            self?.notifySessionExpiredIfNeeded(responseObject: task?.response as? HTTPURLResponse)
             failure(task, error)
         }
     }
@@ -308,9 +315,17 @@ class APIManager: NSObject {
             success(task, responseObject)
         }) { [weak self] (task, error) in
             self?.getHeaders(responseObject: task?.response)
-            ValidateForm.showAlertSessionExpired()
+            self?.notifySessionExpiredIfNeeded(responseObject: task?.response as? HTTPURLResponse)
             failure(task, error)
         }
+    }
+    
+    private func notifySessionExpiredIfNeeded(responseObject: HTTPURLResponse?) {
+        guard let statusCode = responseObject?.statusCode else { return }
+        if statusCode == 401 {
+            delegate?.notifySessionExpired()
+        }
+        
     }
 }
 
