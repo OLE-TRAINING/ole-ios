@@ -63,14 +63,12 @@ class APIManager: NSObject {
     var bearerToken = ""
     
     var delegate: APIManagerDelegate?
-    
-    
+
     static let shared = APIManager()
     
     let manager = AFHTTPSessionManager()
 
-    
-    
+
     func getUserWithEmail(_ email: String, completion: @escaping (UsersInfo?) -> Void)  {
         let url = baseURL + APIManager.getUsersEndpoint + "/" + String(email) + key
 

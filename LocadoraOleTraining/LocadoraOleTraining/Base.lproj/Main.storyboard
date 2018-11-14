@@ -365,6 +365,7 @@
         <scene sceneID="F4t-0O-m7a">
             <objects>
                 <navigationController navigationBarHidden="YES" id="Q0c-Ae-pVQ" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="dnn-bp-oQp"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2Ow-Xo-c2N">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1604,12 +1605,12 @@
                         </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="K6W-X4-qqc" kind="relationship" relationship="rootViewController" id="Iyf-p7-rnB"/>
+                        <segue destination="K6W-X4-qqc" kind="relationship" relationship="rootViewController" id="3mm-Q2-VOx"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iF5-hk-6qr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6650" y="-397"/>
+            <point key="canvasLocation" x="6730" y="-397"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="aoQ-DE-dJY">

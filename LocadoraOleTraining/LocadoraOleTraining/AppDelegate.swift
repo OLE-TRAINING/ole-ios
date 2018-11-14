@@ -48,14 +48,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: APIManagerDelegate {
     func notifySessionExpired() {
-        guard let viewController = UIApplication.shared.keyWindow?.rootViewController else { return }
+        guard let viewController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController else { return }
         let alertController = UIAlertController(title: "Ops..", message: "Sua sessão expirou, para continuar utilizando o serviço, faça login novamente.", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Tentar novamente", style: UIAlertActionStyle.default) {
-            UIAlertAction in
-//                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//                let controller = storyboard.instantiateViewController(withIdentifier: "login") as! LoginViewController
-//                viewController.navigationController?.pushViewController(controller, animated: true)
-  
+        let okAction = UIAlertAction(title: "Tentar novamente", style: .default) {
+            _ in
+            viewController.popToRootViewController(animated: true)
         }
         alertController.addAction(okAction)
         viewController.present(alertController, animated: true, completion: nil)

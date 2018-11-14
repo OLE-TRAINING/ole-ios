@@ -78,6 +78,9 @@ extension LoginViewController {
     func goToHomeScreen() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "tabBar") as! TabBarController
+        if let email = labelEmail.text {
+            controller.emailUser = email
+        }
         self.navigationController?.pushViewController(controller, animated: true)
     }
 }
