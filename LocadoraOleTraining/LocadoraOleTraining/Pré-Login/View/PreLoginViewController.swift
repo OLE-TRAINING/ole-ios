@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PreLoginViewController: UIViewController {
 
     @IBOutlet weak var labelEmail: UILabel!
     @IBOutlet weak var buttonGo: UIButton!
@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var stackInvalidEmail: UIStackView!
     @IBOutlet weak var loading: UIActivityIndicatorView!
     
-    var viewModel = ViewModel()
+    var viewModel = PreLoginViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,18 +41,21 @@ class ViewController: UIViewController {
     
     @IBAction func buttonGo(_ sender: UIButton) {
         viewModel.showLoading(status: true, button: buttonGo, loading: loading)
-        viewModel.goToNextScreen(textFieldEmail: textFieldEmail, button: buttonGo, loading: loading, completion: { [weak self] (result: String?) in
+        viewModel.goToNextScreen(textFieldEmail: textFieldEmail, button: buttonGo, loading: loading, completion: { (result: String?) in
             if result == "INEXISTENT" {
                 //email não existe
-                self?.goToRegistrationScreen()
+                self.goToRegistrationScreen()
             } else if result == "PENDING" {
                 //email existe e cadastro está incompleto
-                self?.goToContinueRegistrationScreen()
+                self.goToContinueRegistrationScreen()
                 
             } else if result == "REGISTERED" {
                 //email existe e cadastro está completo
-                self?.goToLoginScreen()
+                self.goToLoginScreen()
                 
+            }
+            else {
+                self.viewModel.showLoading(status: false, button: self.buttonGo, loading: self.loading)
             }
         })
     }
@@ -61,7 +64,7 @@ class ViewController: UIViewController {
 
 
 
-extension ViewController {
+extension PreLoginViewController {
 
     func goToRegistrationScreen() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -69,7 +72,7 @@ extension ViewController {
         if let email = textFieldEmail.text {
             controller.emailUser = email
         }
-        self.navigationController?.pushViewController(controller, animated: true)
+        self.navigationController?.pushViewController(controller, animated: false)
     }
 
 

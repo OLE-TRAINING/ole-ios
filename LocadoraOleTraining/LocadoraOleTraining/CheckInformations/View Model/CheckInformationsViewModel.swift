@@ -39,7 +39,11 @@ class CheckInformationsViewModel {
                     APIManager.shared.confirmUserInformation(email: self.email, username: username, completion: {(result) in
                         guard let result = result else { return }
                         if result {
-                            completion(true)
+                            APIManager.shared.generateToken(email: self.email, completion: {(result) in
+                                if result {
+                                    completion(true)
+                                }
+                            })
                         }
                     })
                 } else {

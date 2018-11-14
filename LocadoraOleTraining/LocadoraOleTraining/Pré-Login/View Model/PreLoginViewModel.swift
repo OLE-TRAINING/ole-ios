@@ -10,7 +10,7 @@ import Foundation
 
 
 
-class ViewModel {
+class PreLoginViewModel {
 
     var labelEmail: UILabel!
     var stackInvalidEmail: UIStackView!

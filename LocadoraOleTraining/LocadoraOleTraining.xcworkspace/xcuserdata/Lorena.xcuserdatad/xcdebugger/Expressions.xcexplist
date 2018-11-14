@@ -3,10 +3,15 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "APIManager.getUserWithEmail(_:):APIManager.swift">
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in APIManager.getUserWithEmail(_:):APIManager.swift">
+         contextName = "AppDelegate.notifySessionExpired():AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "viewController.parentViewController">
+            </PersistentString>
+            <PersistentString
+               value = "viewController.navigationController">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "closure #1 in ViewController.buttonAvancar(_:):ViewController.swift">
@@ -15,6 +20,53 @@
                value = "user?.email">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ViewController.goToRegistrationScreen():ViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.navigationController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in HomeViewController.configureBar():HomeViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.bar.items">
+            </PersistentString>
+            <PersistentString
+               value = "self.bar.items?">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "APIManager.getHeaders(responseObject:):APIManager.swift">
+      </ContextState>
+      <ContextState
+         contextName = "APIManager.getUserWithEmail(_:):APIManager.swift">
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in AppDelegate.notifySessionExpired():AppDelegate.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "viewController.navigationController">
+            </PersistentString>
+            <PersistentString
+               value = "viewController.parent">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in APIManager.post(url:parameters:success:failure:):APIManager.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "task?.response">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in APIManager.getUserWithEmail(_:):APIManager.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

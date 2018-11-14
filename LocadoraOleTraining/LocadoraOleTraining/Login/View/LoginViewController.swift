@@ -40,7 +40,9 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func backButton(_ sender: UIButton) {
+        self.navigationController?.viewControllers.remove(at: 1)
         self.navigationController?.popViewController(animated: true)
+
     }
     
     @IBAction func logInButton(_ sender: UIButton) {
@@ -49,6 +51,8 @@ class LoginViewController: UIViewController {
         loginViewModel.authenticateUser(email: email, textFieldPassword: textFieldPassword, button: buttonLogIn, loading: loadingLogIn, completion: {(result) in
             if result {
                 self.goToHomeScreen()
+            } else {
+                self.loginViewModel.showLoading(status: false, button: self.buttonLogIn, loading: self.loadingLogIn)
             }
         })
 
@@ -73,10 +77,10 @@ extension LoginViewController {
     
     func goToHomeScreen() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "home") as! HomeViewController
-//        if let email = labelEmail.text {
-//            controller.emailUser = email
-//        }
+        let controller = storyboard.instantiateViewController(withIdentifier: "tabBar") as! TabBarController
+        if let email = labelEmail.text {
+            controller.emailUser = email
+        }
         self.navigationController?.pushViewController(controller, animated: true)
     }
 }

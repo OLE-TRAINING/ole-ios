@@ -73,9 +73,10 @@ class ViewModelNewPassword {
                                     completion(false)
                                     self.showLoading(status: false, button: button, loading: loading)
                                 }
-                                
+
                             })
                         } else {
+                            self.showLoading(status: false, button: button, loading: loading)
                             Attributes.setAttributeInvalidField(textField: self.textFieldToken, stackView: self.stackViewInvalidToken)
                         }
                     }
@@ -83,16 +84,18 @@ class ViewModelNewPassword {
                     self.showLoading(status: false, button: button, loading: loading)
                     Attributes.setAttributeInvalidField(textField: self.textFieldConfirmPassword, stackView: self.stackViewInvalidConfirmation)
                 }
-                
+
             } else {
                 self.showLoading(status: false, button: button, loading: loading)
                 Attributes.setAttributeInvalidField(textField: self.textFieldNewPassword, stackView: self.stackViewInvalidPassword)
             }
-            
+
         } else {
             self.showLoading(status: false, button: button, loading: loading)
             Attributes.setAttributeInvalidField(textField: textFieldToken, stackView: stackViewInvalidToken)
         }
+        
+            
         
         
     

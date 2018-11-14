@@ -13,7 +13,10 @@ import UIKit
 class ValidateForm: NSObject {
 
     static let shared = ValidateForm()
-    private override init() {}
+    private override init() {
+        
+    }
+    
     
     // MARK:-  STATIC METHODS
     
@@ -32,6 +35,9 @@ class ValidateForm: NSObject {
         return shared.showAlertError()
     }
     
+    static func showAlertSessionExpired()  {
+        return shared.showAlertSessionExpired()
+    }
     
     static func checkFilledTextFields(textFieldName: UITextField, textFieldUsername: UITextField, textFieldPassword: UITextField) -> Bool {
         return shared.checkFilledTextFields(textFieldName: textFieldName, textFieldUsername: textFieldUsername, textFieldPassword: textFieldPassword)
@@ -57,8 +63,6 @@ class ValidateForm: NSObject {
         return shared.showLoading(status, button: button, loading: loading)
     }
     
-
-    
     
     // MARK:-  IMPLEMENTATION OF STATIC METHODS
     
@@ -70,7 +74,7 @@ class ValidateForm: NSObject {
     }
     
     func checkFullName(fullName: String) -> Bool {
-        let nameRegEx = "^[a-zA-Z ]+.{2,50}$" //nome com espaços
+        let nameRegEx = "^[a-zA-Z ]{2,50}$" //nome com espaços
 
         let testName = NSPredicate(format: "SELF MATCHES[c] %@", nameRegEx)
         return testName.evaluate(with: fullName)
@@ -78,7 +82,7 @@ class ValidateForm: NSObject {
     }
     
     func checkUsername(username: String) -> Bool {
-        let usernameRegEx = "^[a-zA-Z0-9]+.{1,15}$" //nome de usuario com letras maiúsculas, minúsculas e numeros sem espaços
+        let usernameRegEx = "^[a-zA-Z0-9]{1,15}$" //nome de usuario com letras maiúsculas, minúsculas e numeros sem espaços
         
         let testUsername = NSPredicate(format: "SELF MATCHES[c] %@", usernameRegEx)
         return testUsername.evaluate(with: username)
@@ -128,12 +132,26 @@ class ValidateForm: NSObject {
         let alertController = UIAlertController(title: "Ops..", message: "Ocorreu um erro inesperado, por favor tente novamente.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Tentar novamente", style: UIAlertActionStyle.default) {
             UIAlertAction in
-                viewController.viewWillAppear(false)
+                viewController.viewWillAppear(true)
         }
         
         alertController.addAction(okAction)
         viewController.present(alertController, animated: true, completion: nil)
-        viewController.viewWillAppear(false)
+        viewController.viewWillAppear(true)
+    }
+    
+    func showAlertSessionExpired() {
+        
+//        guard let viewController = UIApplication.shared.keyWindow?.rootViewController else { return }
+        
+//        let alertController = UIAlertController(title: "Ops..", message: "Sua sessão expirou, para continuar utilizando o serviço, faça login novamente.", preferredStyle: .alert)
+//        let okAction = UIAlertAction(title: "Tentar novamente", style: UIAlertActionStyle.default) {
+//            UIAlertAction in
+//
+//        }
+//
+//        alertController.addAction(okAction)
+//        viewController.present(alertController, animated: true, completion: nil)
     }
     
     func showLoading(_ status: Bool, button: UIButton, loading: UIActivityIndicatorView) {

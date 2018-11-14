@@ -35,6 +35,9 @@ class LoginViewModel {
             APIManager.shared.authenticateUser(email: email, password: password, completion: { (result) in
                 if result {
                     completion(true)
+                } else {
+                    self.viewInvalidData.isHidden = false
+                    self.showLoading(status: false, button: button, loading: loading)
                 }
             })
         } else {

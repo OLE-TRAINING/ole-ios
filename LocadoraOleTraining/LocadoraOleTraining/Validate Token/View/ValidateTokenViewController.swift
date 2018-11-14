@@ -40,6 +40,7 @@ class ValidateTokenViewController: UIViewController {
     }
     
     @IBAction func backButton(_ sender: UIButton) {
+        self.navigationController?.viewControllers.remove(at: 1)
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -48,6 +49,8 @@ class ValidateTokenViewController: UIViewController {
         validateTokenViewModel.validateToken(textFieldCode: textFieldCode, button: buttonValidate, loading: loadingValidate, completion: { (response: Bool) in
             if response {
                 self.goToLoginScreen()
+            } else {
+                self.validateTokenViewModel.showLoading(status: false, button: self.buttonValidate, loading: self.loadingValidate)
             }
         })
         
