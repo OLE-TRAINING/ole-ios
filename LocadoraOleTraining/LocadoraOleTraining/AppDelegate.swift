@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AKSideMenu
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

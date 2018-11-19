@@ -31,14 +31,24 @@ struct Film: Decodable {
     var posterId: String? = nil
     var bannerId: String? = nil
     var voteAverage: Double = 0.0
+    var voteCount: Int = 0
     var title: String? = nil
     var year: Int = 0
     var genreNames = [String]()
     var runtime: String? = nil
+    //var runtime: Int = 0
     var overview: String? = nil
     var favorit: Bool = false
     var price: Double = 0.0
     var acquired: Bool = false
+    
+}
+
+struct FilmsByGener: Decodable {
+    var page: Int = 0
+    var totalPages: Int = 0
+    var totalMovies: Int = 0
+    var results = [Film]()
 }
 
 protocol APIManagerDelegate {
@@ -59,6 +69,8 @@ class APIManager: NSObject {
     let xAccessTokenKey = "x-access-token"
     let xUID = "x-uid"
     let authorizationKey = "Authorization"
+    let page = 1
+    let filmsPerPage = 10
     
     var bearerToken = ""
     
@@ -80,6 +92,7 @@ class APIManager: NSObject {
             completion(user)
         }) { (task, error) in
             let newUser = UsersInfo()
+            print(error.debugDescription)
             ValidateForm.showAlertError()
             completion(newUser)
         }
@@ -226,7 +239,7 @@ class APIManager: NSObject {
     }
     
     func getFilmsByGenre(id: Int, completion: @escaping ([Film]) -> Void) {
-        let url = baseURL + APIManager.getFilmGenres + "/\(id)" + APIManager.getMovies + key
+        let url = baseURL + APIManager.getFilmGenres + "/\(id)" + APIManager.getMovies + key + "&page=\(page)&amount=\(filmsPerPage)"
         
         // trocar o valor do xmocqando o serviço real for chamado
         //manager.requestSerializer.setValue("action_genre", forHTTPHeaderField: xMockKey)
@@ -235,19 +248,18 @@ class APIManager: NSObject {
             let dataJson = try! JSONSerialization.data(withJSONObject: responseObject as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
             do {
                 let films = try
-              JSONDecoder().decode([Film].self, from: dataJson)
-                //print("Sucesso ao pegar filmes por genro: " + responseObject.debugDescription)
-                completion(films)
+              JSONDecoder().decode(FilmsByGener.self, from: dataJson)
+//                print("Sucesso ao pegar filmes por genro: " + responseObject.debugDescription)
+                completion(films.results)
             } catch {
-                //print(error.localizedDescription)
+//                print("Erro de decodificação: " + error.localizedDescription)
                 completion([])
             }
             
             
         }) { (task, error) in
             let film = [Film]()
-            //print("Erro ao pegar filmes por genero: " + error.debugDescription)
-            //ValidateForm.showAlertError()
+//            print("Erro ao pegar filmes por genero: " + error.debugDescription)
             completion(film)
         }
         

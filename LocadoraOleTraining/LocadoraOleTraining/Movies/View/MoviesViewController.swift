@@ -10,22 +10,23 @@ import UIKit
 import MBProgressHUD
 
 
-
 class MoviesViewController: UIViewController {
 
     var moviesViewModel = MoviesViewModel()
     var filmsByGener = [Film]()
-    //var delegate: Delegate?
-
+    var tableViewMovies = TableViewMovies()
    
     @IBOutlet weak var viewLoading: UIView!
     @IBOutlet weak var tableView: UITableView!
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.initTable()
+        //self.initTable()
+        self.navigationController?.hidesBarsOnSwipe = true
+        self.tableView.delegate = self.tableViewMovies
+        self.tableView.dataSource = self.tableViewMovies
+      
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,57 +49,57 @@ class MoviesViewController: UIViewController {
     }
     
     func fetchMovies() {
-        moviesViewModel.getGenres(completion: { (genres, ids) in
-
-            //for id in ids {
-                self.moviesViewModel.getFilms(id: 2, completion: { [weak self] (films) in
-                    self?.filmsByGener = films
-                    self?.tableView.reloadData()
-                    guard let viewLoading = self?.viewLoading else { return }
+//        moviesViewModel.getGenres(completion: { (genres, ids) in
+//
+//            //for id in ids {
+//                self.moviesViewModel.getFilms(id: 2, completion: { [weak self] (films) in
+//                    self?.filmsByGener = films
+                    tableView.reloadData()
+                    guard let viewLoading = viewLoading else { return }
                     MBProgressHUD.hideAllHUDs(for: viewLoading, animated: true)
                     viewLoading.isHidden = true
-                })
-            //}
-                
-            
-            
-        })
-        
+//                })
+//            //}
+//
+//
+//
+//        })
+
     }
 
 }
 
-extension MoviesViewController: UITableViewDataSource, UITableViewDelegate {
-    
-    func initTable() {
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // mudar tamanho da tabela quando chamar serviço
-        //print(filmsByGener.count)
-        return moviesViewModel.movies.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {
-            return UITableViewCell()
-        }
-        return cell
-        
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard let cell = cell as? MovieTableViewCell else {
-            return
-        }
-        let movie = moviesViewModel.movies[indexPath.row]
-        cell.configureCell(films: filmsByGener)
-        
-
-    }
-}
+//extension MoviesViewController: UITableViewDataSource, UITableViewDelegate {
+//
+//    func initTable() {
+//        self.tableView.dataSource = self
+//        self.tableView.delegate = self
+//    }
+//
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        // mudar tamanho da tabela quando chamar serviço
+//        //print(filmsByGener.count)
+//        return moviesViewModel.movies.count
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell") else {
+//            return UITableViewCell()
+//        }
+//        return cell
+//
+//    }
+//
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        guard let cell = cell as? MovieTableViewCell else {
+//            return
+//        }
+//        let movie = moviesViewModel.movies[indexPath.row]
+//        cell.configureCell(films: filmsByGener)
+//
+//
+//    }
+//}
 
 extension MoviesViewController {
     func testSessionExpired() {
@@ -111,3 +112,5 @@ extension MoviesViewController {
     }
 
 }
+
+

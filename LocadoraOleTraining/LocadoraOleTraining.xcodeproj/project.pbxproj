@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3D0A9DF63084C87C047D535B /* Pods_LocadoraOleTraining.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19D0AEF60C156123943D370D /* Pods_LocadoraOleTraining.framework */; };
+		5C13B17621A2DE38000C6E9D /* TableViewMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C13B17521A2DE38000C6E9D /* TableViewMovies.swift */; };
 		5C4F6AD5216F746D00688CB6 /* NewRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4F6AD4216F746D00688CB6 /* NewRegistrationViewController.swift */; };
 		5C4F6ADE216F816F00688CB6 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C4F6AD6216F816E00688CB6 /* Roboto-Black.ttf */; };
 		5C4F6ADF216F816F00688CB6 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C4F6AD7216F816E00688CB6 /* Roboto-Regular.ttf */; };
@@ -78,6 +79,7 @@
 
 /* Begin PBXFileReference section */
 		19D0AEF60C156123943D370D /* Pods_LocadoraOleTraining.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocadoraOleTraining.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C13B17521A2DE38000C6E9D /* TableViewMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewMovies.swift; sourceTree = "<group>"; };
 		5C4F6AD4216F746D00688CB6 /* NewRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegistrationViewController.swift; sourceTree = "<group>"; };
 		5C4F6AD6216F816E00688CB6 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		5C4F6AD7216F816E00688CB6 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -335,6 +337,7 @@
 				5C6DD9F6217A757B003A891D /* RoundedButton.swift */,
 				5C8DA60C2190980500D87A34 /* TabBarController.swift */,
 				5C5ACFB22191EDB90033E80A /* CustomBar.swift */,
+				5C13B17521A2DE38000C6E9D /* TableViewMovies.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -687,6 +690,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-LocadoraOleTraining/Pods-LocadoraOleTraining-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/AKSideMenu/AKSideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/AutoInsetter/AutoInsetter.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Pageboy/Pageboy.framework",
@@ -696,6 +700,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AKSideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AutoInsetter.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pageboy.framework",
@@ -738,6 +743,7 @@
 				5C69ADB4218231F300C5BCEA /* CheckInformationsViewModel.swift in Sources */,
 				5C88E63A2199A6FB00450B83 /* MovieTableViewCell.swift in Sources */,
 				5C521274217F9E8800C08698 /* PreLoginViewModel.swift in Sources */,
+				5C13B17621A2DE38000C6E9D /* TableViewMovies.swift in Sources */,
 				5C59A707216E5E950053DC45 /* Attributes.swift in Sources */,
 				5C88E63121999EBE00450B83 /* CategoriesViewModel.swift in Sources */,
 				5C8DA60D2190980500D87A34 /* TabBarController.swift in Sources */,

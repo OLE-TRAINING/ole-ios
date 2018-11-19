@@ -6,4 +6,5 @@ target 'LocadoraOleTraining' do
     pod 'AFNetworking', '~> 3.0'
     pod 'Tabman', '1.10.2'
     pod 'MBProgressHUD', '~> 1.1.0'
+    pod 'AKSideMenu'
 end
