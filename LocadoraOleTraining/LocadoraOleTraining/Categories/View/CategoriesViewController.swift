@@ -10,11 +10,13 @@ import UIKit
 import Pageboy
 import Tabman
 
+
+
 class CategoriesViewController: TabmanViewController {
     
     private var viewControllers = [UIViewController]()
     
-    var filmGeners = [String]()
+    var filmGeners = [Genre]()
     var filmsByGener = [Film]()
 
     @IBOutlet weak var viewLoading: UIView!
@@ -70,9 +72,9 @@ extension CategoriesViewController: PageboyViewControllerDataSource  {
     private func initializeViewControllers(count: Int) {
         var viewControllers = [UIViewController]()
         var itens = [Item]()
-        var filmGenres = [String]()
+        var filmGenres = [Genre]()
         
-        categoriesViewModel.getGenres(completion: { (genres, ids) in
+        categoriesViewModel.getGenres(completion: { (genres) in
 
             for genre in genres {
                 filmGenres.append(genre)
@@ -80,8 +82,10 @@ extension CategoriesViewController: PageboyViewControllerDataSource  {
             
             for index in 0 ..< count {
                 let viewController = MoviesViewController.instance()
-                itens.append(Item(title: filmGenres[index]))
+                guard let titleMovie = filmGenres[index].name else { return }
+                itens.append(Item(title: titleMovie))
                 guard let vc = viewController else { return }
+                vc.genreId = filmGenres[index].id
                 viewControllers.append(vc)
 
             }

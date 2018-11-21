@@ -426,7 +426,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Não recebeu o código?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BdX-cv-jsw">
-                                        <rect key="frame" x="49" y="335.5" width="126" height="27"/>
+                                        <rect key="frame" x="50.5" y="335.5" width="123" height="27"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="27" id="IgH-P5-tez"/>
                                         </constraints>
@@ -575,7 +575,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Não recebeu o código?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jt5-uJ-mVj">
-                                        <rect key="frame" x="43.5" y="334.5" width="126" height="27"/>
+                                        <rect key="frame" x="43.5" y="334.5" width="123" height="27"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="27" id="Tul-RF-Qg4"/>
                                         </constraints>
@@ -719,7 +719,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INFORME SUA SENHA:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKd-lA-ur1">
-                                        <rect key="frame" x="43.5" y="60" width="288" height="19"/>
+                                        <rect key="frame" x="43.5" y="60" width="288" height="20.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="288" id="A0l-vD-7no"/>
                                         </constraints>
@@ -784,7 +784,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Usuário ou senha inválido!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yOK-yP-OVL">
-                                                <rect key="frame" x="117" y="14.5" width="141.5" height="14"/>
+                                                <rect key="frame" x="116.5" y="14.5" width="142.5" height="14"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="12"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -1062,7 +1062,7 @@
                                                 <rect key="frame" x="0.0" y="275" width="279" height="27"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Não recebeu o código?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJR-ns-W7H">
-                                                        <rect key="frame" x="0.0" y="0.0" width="126" height="27"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="123" height="27"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="27" id="FMz-mR-Szd"/>
                                                         </constraints>
@@ -1071,10 +1071,10 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eNL-Mo-h7H">
-                                                        <rect key="frame" x="126" y="0.0" width="153" height="27"/>
+                                                        <rect key="frame" x="123" y="0.0" width="156" height="27"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFK-ob-xQG">
-                                                                <rect key="frame" x="0.0" y="0.0" width="149" height="27"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="152" height="27"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="27" id="MW5-65-Rtf"/>
                                                                 </constraints>
@@ -1088,7 +1088,7 @@
                                                                 </connections>
                                                             </button>
                                                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="kUj-9x-hdp">
-                                                                <rect key="frame" x="149" y="0.0" width="4" height="27"/>
+                                                                <rect key="frame" x="152" y="0.0" width="4" height="27"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="4" id="Wc0-0T-wp6"/>
                                                                 </constraints>
@@ -1344,21 +1344,21 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nyw-1i-daJ">
                                                     <rect key="frame" x="14" y="60.5" width="346" height="155"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aJE-g6-DPF">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noImage" translatesAutoresizingMaskIntoConstraints="NO" id="aJE-g6-DPF">
                                                             <rect key="frame" x="8" y="-33" width="125" height="180"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="125" id="0eb-K8-nPI"/>
                                                                 <constraint firstAttribute="height" constant="180" id="Y0g-70-zzE"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome do Filme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0M6-cf-ccJ">
-                                                            <rect key="frame" x="158" y="11" width="68" height="12"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Nome do Filme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0M6-cf-ccJ">
+                                                            <rect key="frame" x="158" y="11" width="141" height="13"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categoria Filme " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="otY-Nc-HXk">
-                                                            <rect key="frame" x="158" y="25" width="161" height="10"/>
+                                                            <rect key="frame" x="158" y="25" width="50" height="10"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="7"/>
                                                             <color key="textColor" red="0.60784313725490191" green="0.63921568627450975" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -1398,7 +1398,7 @@
                                                             <color key="textColor" red="0.60784313729999995" green="0.63921568630000003" blue="0.61960784310000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bRu-nN-JZF">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movie" translatesAutoresizingMaskIntoConstraints="NO" id="bRu-nN-JZF">
                                                             <rect key="frame" x="303" y="129" width="23" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="23" id="uB7-fE-JVv"/>
@@ -1463,11 +1463,10 @@
                                                         <constraint firstItem="Bc6-60-3E5" firstAttribute="trailing" secondItem="nyw-1i-daJ" secondAttribute="trailingMargin" constant="1" id="M0f-rR-I2Q"/>
                                                         <constraint firstItem="Bc6-60-3E5" firstAttribute="leading" secondItem="C1S-it-Z1O" secondAttribute="leading" constant="-7.5" id="OSt-ao-8ip"/>
                                                         <constraint firstItem="BiU-ub-CkL" firstAttribute="leading" secondItem="koZ-di-T3z" secondAttribute="trailing" constant="8" id="PAJ-g5-3CB"/>
-                                                        <constraint firstItem="0M6-cf-ccJ" firstAttribute="trailing" secondItem="otY-Nc-HXk" secondAttribute="trailing" constant="-93" id="RUi-Cf-MnO"/>
                                                         <constraint firstItem="Bc6-60-3E5" firstAttribute="top" secondItem="WLW-8k-6Bg" secondAttribute="bottom" constant="29" id="Ths-i3-x5Z"/>
                                                         <constraint firstItem="bRu-nN-JZF" firstAttribute="top" secondItem="C1S-it-Z1O" secondAttribute="bottom" constant="2" id="VIT-tz-WSL"/>
                                                         <constraint firstAttribute="trailing" secondItem="bRu-nN-JZF" secondAttribute="trailing" constant="20" id="VXe-Sh-8d0"/>
-                                                        <constraint firstItem="WLW-8k-6Bg" firstAttribute="leading" secondItem="0M6-cf-ccJ" secondAttribute="trailing" constant="93" id="WdW-27-Oer"/>
+                                                        <constraint firstItem="WLW-8k-6Bg" firstAttribute="leading" secondItem="0M6-cf-ccJ" secondAttribute="trailing" constant="20" id="WdW-27-Oer"/>
                                                         <constraint firstAttribute="bottom" secondItem="T4i-nW-GXt" secondAttribute="bottom" constant="15" id="YBF-w0-skw"/>
                                                         <constraint firstItem="koZ-di-T3z" firstAttribute="leading" secondItem="aJE-g6-DPF" secondAttribute="trailing" constant="25" id="aeI-cy-YqE"/>
                                                         <constraint firstItem="bkm-kf-U1V" firstAttribute="centerX" secondItem="C1S-it-Z1O" secondAttribute="centerX" constant="-16" id="awc-gj-zrE"/>
@@ -1512,6 +1511,25 @@
                                             <outlet property="viewBack" destination="nyw-1i-daJ" id="5Ue-vE-OSW"/>
                                             <outlet property="viewNote" destination="T4i-nW-GXt" id="dKQ-TY-kCG"/>
                                             <outlet property="viewYellPoint" destination="koZ-di-T3z" id="LWU-km-7vD"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="cellLoading" focusStyle="custom" rowHeight="50" id="79Q-gv-Xcv" customClass="MovieTableViewCell" customModule="LocadoraOleTraining" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="266" width="375" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="79Q-gv-Xcv" id="iYK-2c-TGb">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="fVa-uo-hhg">
+                                                    <rect key="frame" x="177" y="15" width="20" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="loadingPages" destination="fVa-uo-hhg" id="lkr-d2-Jfy"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1687,6 +1705,8 @@
         <image name="like" width="24" height="24"/>
         <image name="likeGreen" width="24" height="24"/>
         <image name="menuIcon" width="24" height="24"/>
+        <image name="movie" width="24" height="24"/>
+        <image name="noImage" width="800" height="800"/>
         <image name="search" width="24" height="24"/>
     </resources>
 </document>

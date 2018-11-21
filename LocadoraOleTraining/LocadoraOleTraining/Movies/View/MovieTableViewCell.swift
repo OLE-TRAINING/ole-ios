@@ -23,6 +23,7 @@ class MovieTableViewCell: UITableViewCell {
     @IBOutlet weak var labelFilmSynopsis: UILabel!
     @IBOutlet weak var labelFilmPrice: UILabel!
     @IBOutlet weak var buttonLike: UIButton!
+    @IBOutlet weak var loadingPages: UIActivityIndicatorView!
     
     var movieCellViewModel = MovieCellViewModel()
     
@@ -37,17 +38,22 @@ class MovieTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configureCell(films: [Film]) {
+    func configureCell(film: Film) {
         movieCellViewModel.configureCell(imageFilm: imageFilm, viewNote: viewNote, viewBack: viewBack, labelPrice: labelFilmPrice, viewYellPoint: viewYellPoint)
-        movieCellViewModel.setFilmInformations(films: films, labelFilmName: labelFilmName, labelFilmCategory: labelFilmCategory, labelFilmDuration: labelFilmDuration, labelFilmYear: labelFilmYear, labelFilmSynopsis: labelFilmSynopsis, LabelFilmPrice: labelFilmPrice, labelNote: labelNote, imageFilm: imageFilm)
+        movieCellViewModel.setFilmInformations(film: film, labelFilmName: labelFilmName, labelFilmCategory: labelFilmCategory, labelFilmDuration: labelFilmDuration, labelFilmYear: labelFilmYear, labelFilmSynopsis: labelFilmSynopsis, LabelFilmPrice: labelFilmPrice, labelNote: labelNote, imageFilm: imageFilm, iconFilm: iconFilm, buttonLike: buttonLike)
+    }
+    
+    func loadPage() {
+        loadingPages.startAnimating()
     }
     
     
     
     @IBAction func buttonLike(_ sender: UIButton) {
-        movieCellViewModel.favorite(buttonLike: buttonLike)
+        
         
     }
+    
     
 
 

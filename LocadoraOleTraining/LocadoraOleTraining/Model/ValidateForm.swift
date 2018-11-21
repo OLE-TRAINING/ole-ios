@@ -35,10 +35,6 @@ class ValidateForm: NSObject {
         return shared.showAlertError()
     }
     
-    static func showAlertSessionExpired()  {
-        return shared.showAlertSessionExpired()
-    }
-    
     static func checkFilledTextFields(textFieldName: UITextField, textFieldUsername: UITextField, textFieldPassword: UITextField) -> Bool {
         return shared.checkFilledTextFields(textFieldName: textFieldName, textFieldUsername: textFieldUsername, textFieldPassword: textFieldPassword)
     }
@@ -63,6 +59,13 @@ class ValidateForm: NSObject {
         return shared.showLoading(status, button: button, loading: loading)
     }
     
+    static func checkFilmAcquired(acquired: Bool, labelPrice: UILabel, imageAcquired: UIImageView) {
+        return shared.checkFilmAcquired(acquired: acquired, labelPrice: labelPrice , imageAcquired: imageAcquired )
+    }
+    
+    static func checkFavorite(buttonLike: UIButton, favorite: Bool) {
+        return shared.checkFavorite(buttonLike: buttonLike, favorite: favorite)
+    }
     
     // MARK:-  IMPLEMENTATION OF STATIC METHODS
     
@@ -140,19 +143,6 @@ class ValidateForm: NSObject {
         viewController.viewWillAppear(true)
     }
     
-    func showAlertSessionExpired() {
-        
-//        guard let viewController = UIApplication.shared.keyWindow?.rootViewController else { return }
-        
-//        let alertController = UIAlertController(title: "Ops..", message: "Sua sessão expirou, para continuar utilizando o serviço, faça login novamente.", preferredStyle: .alert)
-//        let okAction = UIAlertAction(title: "Tentar novamente", style: UIAlertActionStyle.default) {
-//            UIAlertAction in
-//
-//        }
-//
-//        alertController.addAction(okAction)
-//        viewController.present(alertController, animated: true, completion: nil)
-    }
     
     func showLoading(_ status: Bool, button: UIButton, loading: UIActivityIndicatorView) {
         if status {
@@ -180,6 +170,27 @@ class ValidateForm: NSObject {
         
     }
     
+    func checkFilmAcquired(acquired: Bool, labelPrice: UILabel, imageAcquired: UIImageView) {
+        if acquired {
+            labelPrice.isHidden = true
+            imageAcquired.isHidden = false
+        } else {
+            labelPrice.isHidden = true
+            imageAcquired.isHidden = false
+        }
+    }
+    
+    func checkFavorite(buttonLike: UIButton, favorite: Bool) {
+        let imageHeart = UIImage(named: "likeGreen")
+        let imageLike = UIImage(named: "likeFullGreen")
+        if favorite {
+            buttonLike.setBackgroundImage(imageLike, for: UIControlState.normal)
+        } else {
+            buttonLike.setBackgroundImage(imageHeart, for: UIControlState.normal)
+        }
+        
+    }
+
 
     
 }

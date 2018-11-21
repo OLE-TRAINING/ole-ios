@@ -28,43 +28,31 @@ class MovieCellViewModel {
     }
     
     
-    func favorite(buttonLike: UIButton) {
-        //let buttonLike  = UIButton(type: .custom)
-        let imageHeart = UIImage(named: "likeGreen")
-        let imageLike = UIImage(named: "likeFullGreen")
-        if buttonLike.backgroundImage(for: UIControlState.normal) == imageHeart {
-            buttonLike.setBackgroundImage(imageLike, for: UIControlState.normal)
-        } else if buttonLike.backgroundImage(for: UIControlState.normal) == imageLike  {
-            buttonLike.setBackgroundImage(imageHeart, for: UIControlState.normal)
-        }
-
-    }
     
-    func setFilmInformations(films: [Film], labelFilmName: UILabel, labelFilmCategory: UILabel, labelFilmDuration: UILabel, labelFilmYear: UILabel, labelFilmSynopsis: UILabel, LabelFilmPrice: UILabel, labelNote: UILabel, imageFilm: UIImageView ) {
+    func setFilmInformations(film: Film, labelFilmName: UILabel, labelFilmCategory: UILabel, labelFilmDuration: UILabel, labelFilmYear: UILabel, labelFilmSynopsis: UILabel, LabelFilmPrice: UILabel, labelNote: UILabel, imageFilm: UIImageView, iconFilm: UIImageView, buttonLike: UIButton) {
         
-        for film in films {
-            var genresName = ""
-            guard let posterId = film.posterId else { return }
-            guard let url = APIManager.shared.getImagePoster(id: posterId, size: "original") else { return }
-            imageFilm.setImageWith(url)
-            labelFilmName.text = film.title
-            for genre in film.genreNames {
-                if genresName == "" {
-                    genresName = genre
-                } else {
-                    genresName = genresName + ", " + genre
-                }
-                
+        var genresName = ""
+        guard let posterId = film.posterId else { return }
+        guard let url = APIManager.shared.getImagePoster(id: posterId, size: "original") else { return }
+        imageFilm.setImageWith(url)
+        labelFilmName.text = film.title
+        for genre in film.genreNames {
+            if genresName == "" {
+                genresName = genre
+            } else {
+                genresName = genresName + ", " + genre
             }
-            labelFilmCategory.text = genresName
-            labelFilmDuration.text = film.runtime
-            labelFilmYear.text = String(film.year)
-            labelFilmSynopsis.text = film.overview
-            LabelFilmPrice.text = "R$ " + String(film.price)
-            labelNote.text = String(film.voteAverage)
- 
+            
         }
+        labelFilmCategory.text = genresName
+        labelFilmDuration.text = film.runtime
+        labelFilmYear.text = String(film.year)
+        labelFilmSynopsis.text = film.overview
+        LabelFilmPrice.text = "R$ " + String(film.price)
+        labelNote.text = String(film.voteAverage)
         
+        ValidateForm.checkFilmAcquired(acquired: film.acquired, labelPrice: LabelFilmPrice, imageAcquired: iconFilm)
+        ValidateForm.checkFavorite(buttonLike: buttonLike, favorite: film.favorit)
         
     }
 }
