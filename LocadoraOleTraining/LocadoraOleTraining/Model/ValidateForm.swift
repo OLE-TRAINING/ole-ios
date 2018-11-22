@@ -67,6 +67,10 @@ class ValidateForm: NSObject {
         return shared.checkFavorite(buttonLike: buttonLike, favorite: favorite)
     }
     
+    static func waitForImage(loading: UIActivityIndicatorView, imagePoster: UIImageView, flag: Bool) {
+        return shared.waitForImage(loading: loading, imagePoster: imagePoster, flag:flag)
+    }
+    
     // MARK:-  IMPLEMENTATION OF STATIC METHODS
     
     func checkEmail(_ email: String) -> Bool {
@@ -187,6 +191,18 @@ class ValidateForm: NSObject {
             buttonLike.setBackgroundImage(imageLike, for: UIControlState.normal)
         } else {
             buttonLike.setBackgroundImage(imageHeart, for: UIControlState.normal)
+        }
+        
+    }
+    
+    func waitForImage(loading: UIActivityIndicatorView, imagePoster: UIImageView, flag: Bool) {
+        if flag {
+            imagePoster.isHidden = true
+            loading.isHidden = false
+            loading.startAnimating()
+        } else {
+            imagePoster.isHidden = false
+            loading.isHidden = true
         }
         
     }

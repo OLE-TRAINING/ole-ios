@@ -11,9 +11,9 @@ import Foundation
 class MoviesViewModel {
      var movies = [Film]()
     
-    func getFilms(id: Int, completion: @escaping ([Film]) -> Void) {
-        APIManager.shared.getFilmsByGenre(id: id) { (films) in
-            self.movies = films
+    func getFilms(page: Int, id: Int, completion: @escaping ([Film]) -> Void) {
+        APIManager.shared.getFilmsByGenre(id: id, page: page) { (films) in
+            self.movies.append(contentsOf: films)
             completion(films)
             
         }

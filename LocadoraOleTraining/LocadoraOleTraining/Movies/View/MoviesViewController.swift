@@ -15,7 +15,8 @@ class MoviesViewController: UIViewController {
     var moviesViewModel = MoviesViewModel()
     var filmsByGener = [Film]()
     var genreId = 0
-    //var tableViewMovies = TableViewMovies()
+    var page = 2
+    var isLoadingMore = false // flag
    
     @IBOutlet weak var viewLoading: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -23,7 +24,6 @@ class MoviesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.initTable()
         self.navigationController?.hidesBarsOnSwipe = true
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -34,7 +34,7 @@ class MoviesViewController: UIViewController {
         super.viewWillAppear(animated)
         let loadingNotification = MBProgressHUD.showAdded(to: self.viewLoading, animated: true)
         loadingNotification.mode = MBProgressHUDMode.indeterminate
-        fetchMovies()
+        fetchMovies(page: 1)
 //        testSessionExpired()
         
     }
@@ -49,37 +49,34 @@ class MoviesViewController: UIViewController {
         return viewController
     }
     
-    func fetchMovies() {
+    func fetchMovies(page: Int) {
+//        viewLoading.isHidden = false
+//        let loadingNotification = MBProgressHUD.showAdded(to: self.viewLoading, animated: true)
+//        loadingNotification.mode = MBProgressHUDMode.indeterminate
+        
         moviesViewModel.getGenres(completion: { (genres) in
-
-            //for genre in genres {
-                self.moviesViewModel.getFilms(id: self.genreId , completion: { [weak self] (films) in
-                    self?.filmsByGener = films
-                    self!.tableView.reloadData()
-                    guard let viewLoading = self!.viewLoading else { return }
-                    MBProgressHUD.hideAllHUDs(for: viewLoading, animated: true)
-                    viewLoading.isHidden = true
-                })
-//            }
-
-
-
+            
+            self.moviesViewModel.getFilms(page: page,id: self.genreId , completion: { [weak self] (films) in
+                self?.filmsByGener = films
+                self!.tableView.reloadData()
+                guard let viewLoading = self!.viewLoading else { return }
+                MBProgressHUD.hideAllHUDs(for: viewLoading, animated: true)
+                viewLoading.isHidden = true
+                self!.isLoadingMore = false
+            })
+            
+            
+            
         })
-
+        
     }
 
 }
 
-extension MoviesViewController: UITableViewDataSource, UITableViewDelegate {
+extension MoviesViewController: UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate {
 
-    func initTable() {
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-    }
-
-    internal func numberOfSectionsInTableView(tableView: UITableView) -> Int
-    {
-        return 2;
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -94,44 +91,65 @@ extension MoviesViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       var cell = UITableViewCell()
-        if indexPath.row == 0 {
+        if indexPath.section == 0 {
             guard let cell0 = tableView.dequeueReusableCell(withIdentifier: "cell") else {
                 return UITableViewCell()
             }
-            cell = cell0
-        } else if indexPath.row == 1 {
+            return cell0
+        }
+        
+        if indexPath.section == 1 {
             guard let cell1 = tableView.dequeueReusableCell(withIdentifier: "cellLoading") else {
                 return UITableViewCell()
             }
-            cell = cell1
+            return cell1
         }
         
-        return cell
+        return UITableViewCell()
         
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-        if indexPath.row == 0 {
+        if indexPath.section == 0 {
+            
             guard let cell = cell as? MovieTableViewCell else {
                 return
             }
             let movie = moviesViewModel.movies[indexPath.row]
             cell.configureCell(film: movie)
-        } else if indexPath.row == 1{
+        }
+        
+        if indexPath.section == 1 {
             guard let cell = cell as? MovieTableViewCell else {
                 return
             }
             cell.loadPage()
+
         }
-
-
     }
-    
-    
+
+   
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        
+        let currentOffset = scrollView.contentOffset.y
+        let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
+        
+        if maximumOffset - currentOffset <= 10.0 && !isLoadingMore {
+            print("CARREGANDO MAIS FILMES")
+            isLoadingMore = true
+            fetchMovies(page: page)
+            page += 1
+            tableView.reloadData()
+        }
+        
+        
+    }
+
     
 }
+
+
 
 extension MoviesViewController {
     func testSessionExpired() {

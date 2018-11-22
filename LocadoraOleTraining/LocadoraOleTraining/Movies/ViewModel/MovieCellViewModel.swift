@@ -13,6 +13,8 @@ class MovieCellViewModel {
         
     }
     
+    var movies = [Film]()
+    
     
     func configureCell(imageFilm : UIImageView, viewNote: UIView, viewBack: UIView, labelPrice: UILabel, viewYellPoint: UIView) {
         viewNote.layer.cornerRadius = 18
@@ -29,7 +31,7 @@ class MovieCellViewModel {
     
     
     
-    func setFilmInformations(film: Film, labelFilmName: UILabel, labelFilmCategory: UILabel, labelFilmDuration: UILabel, labelFilmYear: UILabel, labelFilmSynopsis: UILabel, LabelFilmPrice: UILabel, labelNote: UILabel, imageFilm: UIImageView, iconFilm: UIImageView, buttonLike: UIButton) {
+    func setFilmInformations(film: Film, labelFilmName: UILabel, labelFilmCategory: UILabel, labelFilmDuration: UILabel, labelFilmYear: UILabel, labelFilmSynopsis: UILabel, LabelFilmPrice: UILabel, labelNote: UILabel, imageFilm: UIImageView, iconFilm: UIImageView, buttonLike: UIButton, loadingImage: UIActivityIndicatorView) {
         
         var genresName = ""
         guard let posterId = film.posterId else { return }
@@ -55,4 +57,9 @@ class MovieCellViewModel {
         ValidateForm.checkFavorite(buttonLike: buttonLike, favorite: film.favorit)
         
     }
+    
+
+        
+
+    
 }

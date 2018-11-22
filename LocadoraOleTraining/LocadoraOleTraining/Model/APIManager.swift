@@ -69,7 +69,7 @@ class APIManager: NSObject {
     let xAccessTokenKey = "x-access-token"
     let xUID = "x-uid"
     let authorizationKey = "Authorization"
-    let page = 1
+    //let page = 1
     let filmsPerPage = 10
     
     var bearerToken = ""
@@ -238,7 +238,7 @@ class APIManager: NSObject {
         }
     }
     
-    func getFilmsByGenre(id: Int, completion: @escaping ([Film]) -> Void) {
+    func getFilmsByGenre(id: Int, page: Int, completion: @escaping ([Film]) -> Void) {
         let url = baseURL + APIManager.getFilmGenres + "/\(id)" + APIManager.getMovies + key + "&page=\(page)&amount=\(filmsPerPage)"
         
         // trocar o valor do xmocqando o serviço real for chamado
@@ -270,7 +270,7 @@ class APIManager: NSObject {
         
         //setAuthorizationToken(bearerToken: self.bearerToken)
         manager.get(url, parameters: nil, progress: nil, success: { (task, responseObject) in
-            
+   
         }) { (task, error) in
             
         }
