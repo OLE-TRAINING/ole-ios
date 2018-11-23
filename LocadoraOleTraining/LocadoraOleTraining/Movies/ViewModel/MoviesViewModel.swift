@@ -11,10 +11,14 @@ import Foundation
 class MoviesViewModel {
      var movies = [Film]()
     
-    func getFilms(page: Int, id: Int, completion: @escaping ([Film]) -> Void) {
-        APIManager.shared.getFilmsByGenre(id: id, page: page) { (films) in
-            self.movies.append(contentsOf: films)
-            completion(films)
+    func getFilms(page: Int, id: Int, completion: @escaping ([Film], Int, Int) -> Void) {
+        APIManager.shared.getFilmsByGenre(id: id, page: page) { (filmsByGenre) in
+            self.movies.append(contentsOf: filmsByGenre.results)
+            completion(self.movies, filmsByGenre.totalPages, filmsByGenre.page)
+            
+            if filmsByGenre.page == filmsByGenre.totalPages {
+                //implementar comportamento
+            }
             
         }
         
@@ -25,12 +29,15 @@ class MoviesViewModel {
     }
     
     func getGenres(completion: @escaping ([Genre]) -> Void) {
-        
-        
         APIManager.shared.getFilmGenres { (genres) in
             var genre = [Genre]()
             for index in (genre) {
-                genre.append(index)
+                if index.id == -1 {
+                    genre.insert(index, at: 0)
+                } else {
+                    genre.append(index)
+                }
+                
                 
             }
             completion(genre)

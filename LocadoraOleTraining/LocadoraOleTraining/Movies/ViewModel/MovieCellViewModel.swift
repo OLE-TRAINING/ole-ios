@@ -32,11 +32,16 @@ class MovieCellViewModel {
     
     
     func setFilmInformations(film: Film, labelFilmName: UILabel, labelFilmCategory: UILabel, labelFilmDuration: UILabel, labelFilmYear: UILabel, labelFilmSynopsis: UILabel, LabelFilmPrice: UILabel, labelNote: UILabel, imageFilm: UIImageView, iconFilm: UIImageView, buttonLike: UIButton, loadingImage: UIActivityIndicatorView) {
+        ValidateForm.waitForImage(loading: loadingImage, imagePoster: imageFilm, flag: true)
         
         var genresName = ""
         guard let posterId = film.posterId else { return }
         guard let url = APIManager.shared.getImagePoster(id: posterId, size: "original") else { return }
-        imageFilm.setImageWith(url)
+        DispatchQueue.main.async {
+            imageFilm.setImageWith(url)
+            ValidateForm.waitForImage(loading: loadingImage, imagePoster: imageFilm, flag: false)
+        }
+        
         labelFilmName.text = film.title
         for genre in film.genreNames {
             if genresName == "" {

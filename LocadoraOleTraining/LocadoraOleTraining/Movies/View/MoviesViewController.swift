@@ -17,6 +17,8 @@ class MoviesViewController: UIViewController {
     var genreId = 0
     var page = 2
     var isLoadingMore = false // flag
+    var totalPages = 0
+    var currentPage = 1
    
     @IBOutlet weak var viewLoading: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -56,13 +58,20 @@ class MoviesViewController: UIViewController {
         
         moviesViewModel.getGenres(completion: { (genres) in
             
-            self.moviesViewModel.getFilms(page: page,id: self.genreId , completion: { [weak self] (films) in
+            self.moviesViewModel.getFilms(page: page,id: self.genreId , completion: { [weak self] (films, totalPages, currentPage) in
+                print("Id do gênero: \(self?.genreId)")
                 self?.filmsByGener = films
                 self!.tableView.reloadData()
                 guard let viewLoading = self!.viewLoading else { return }
                 MBProgressHUD.hideAllHUDs(for: viewLoading, animated: true)
                 viewLoading.isHidden = true
                 self!.isLoadingMore = false
+                self?.totalPages = totalPages
+                self?.currentPage = currentPage
+                
+                if totalPages == currentPage {
+                    //implementar desaparecimento do loading 
+                }
             })
             
             

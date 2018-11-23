@@ -81,12 +81,27 @@ extension CategoriesViewController: PageboyViewControllerDataSource  {
             }
             
             for index in 0 ..< count {
+                
                 let viewController = MoviesViewController.instance()
-                guard let titleMovie = filmGenres[index].name else { return }
-                itens.append(Item(title: titleMovie))
                 guard let vc = viewController else { return }
-                vc.genreId = filmGenres[index].id
-                viewControllers.append(vc)
+                
+                if index == count-1 {
+                    //Lamçamentos
+                    itens.insert((Item(title: "Lançamentos")), at: 0)
+                    vc.genreId = filmGenres[count-1].id
+                    viewControllers.insert(vc, at: 0)
+                    
+                } else {
+                    guard let titleMovie = filmGenres[index].name else { return }
+                    itens.append(Item(title: titleMovie))
+                    vc.genreId = filmGenres[index].id
+                    viewControllers.append(vc)
+                    
+                }
+                
+//                guard let vc = viewController else { return }
+//                vc.genreId = filmGenres[index].id
+                //viewControllers.append(vc)
 
             }
 

@@ -84,7 +84,6 @@ class APIManager: NSObject {
     func getUserWithEmail(_ email: String, completion: @escaping (UsersInfo?) -> Void)  {
         let url = baseURL + APIManager.getUsersEndpoint + "/" + String(email) + key
 
-        
         self.get(url: url, success: { (task, responseObject) in
             let dataJson = try! JSONSerialization.data(withJSONObject: responseObject as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
             let user = try?
@@ -230,6 +229,7 @@ class APIManager: NSObject {
             let genre = try?
                 JSONDecoder().decode(FilmGenre.self, from: dataJson)
             completion(genre)
+            //es aiprint("Generos: " + responseObject.debugDescription)
         }) { (task, error) in
             let genre = FilmGenre()
             //ValidateForm.showAlertError()
@@ -238,11 +238,9 @@ class APIManager: NSObject {
         }
     }
     
-    func getFilmsByGenre(id: Int, page: Int, completion: @escaping ([Film]) -> Void) {
+    func getFilmsByGenre(id: Int, page: Int, completion: @escaping (FilmsByGener) -> Void) {
         let url = baseURL + APIManager.getFilmGenres + "/\(id)" + APIManager.getMovies + key + "&page=\(page)&amount=\(filmsPerPage)"
         
-        // trocar o valor do xmocqando o serviço real for chamado
-        //manager.requestSerializer.setValue("action_genre", forHTTPHeaderField: xMockKey)
         setAuthorizationToken(bearerToken: self.bearerToken)
         self.get(url: url, success: { (task, responseObject) in
             let dataJson = try! JSONSerialization.data(withJSONObject: responseObject as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
@@ -250,15 +248,15 @@ class APIManager: NSObject {
                 let films = try
               JSONDecoder().decode(FilmsByGener.self, from: dataJson)
 //                print("Sucesso ao pegar filmes por genro: " + responseObject.debugDescription)
-                completion(films.results)
+                completion(films)
             } catch {
 //                print("Erro de decodificação: " + error.localizedDescription)
-                completion([])
+//                completion()
             }
             
             
         }) { (task, error) in
-            let film = [Film]()
+            let film = FilmsByGener()
 //            print("Erro ao pegar filmes por genero: " + error.debugDescription)
             completion(film)
         }
