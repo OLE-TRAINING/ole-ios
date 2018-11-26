@@ -53,6 +53,7 @@ struct FilmsByGener: Decodable {
 
 protocol APIManagerDelegate {
     func notifySessionExpired()
+    func notifyLogout()
 }
 
 
@@ -276,6 +277,17 @@ class APIManager: NSObject {
         return URL(string: url)
     }
     
+    func logout(email: String) {
+        let url = baseURL + APIManager.getUsersEndpoint + "/\(email)/logout" + key
+        
+        setAuthorizationToken(bearerToken: self.bearerToken)
+        self.post(url: url, parameters: nil, success: { (task, responseObject) in
+            self.delegate?.notifyLogout()
+            print("Sucesso")
+        }) { (task, error) in
+            print("Fracasso" + error.debugDescription)
+        }
+    }
     
     private func setAuthorizationToken(bearerToken: String) {
         manager.requestSerializer.setValue("Bearer \(bearerToken)", forHTTPHeaderField: authorizationKey)
@@ -290,6 +302,8 @@ class APIManager: NSObject {
             self.bearerToken = accessToken as? String ?? ""
         }
     }
+    
+    
 
     
     //criar um novo método get que encapsule a função de deserialização do arquivo json
@@ -306,7 +320,7 @@ class APIManager: NSObject {
         }
     }
     
-    private func post(url: String, parameters: [String : Any], success: @escaping (URLSessionDataTask?, Any?) -> Void, failure: @escaping (URLSessionDataTask?, Error?) -> Void) {
+    private func post(url: String, parameters: [String : Any]?, success: @escaping (URLSessionDataTask?, Any?) -> Void, failure: @escaping (URLSessionDataTask?, Error?) -> Void) {
         manager.post(url, parameters: parameters, progress: nil, success: { [weak self] (task, responseObject) in
             self?.getHeaders(responseObject: task.response)
             success(task, responseObject)

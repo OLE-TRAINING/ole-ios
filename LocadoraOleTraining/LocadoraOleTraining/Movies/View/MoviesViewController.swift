@@ -23,6 +23,7 @@ class MoviesViewController: UIViewController {
     @IBOutlet weak var viewLoading: UIView!
     @IBOutlet weak var tableView: UITableView!
     
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +60,6 @@ class MoviesViewController: UIViewController {
         moviesViewModel.getGenres(completion: { (genres) in
             
             self.moviesViewModel.getFilms(page: page,id: self.genreId , completion: { [weak self] (films, totalPages, currentPage) in
-                print("Id do gênero: \(self?.genreId)")
                 self?.filmsByGener = films
                 self!.tableView.reloadData()
                 guard let viewLoading = self!.viewLoading else { return }

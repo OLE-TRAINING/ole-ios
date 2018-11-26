@@ -59,5 +59,22 @@ extension AppDelegate: APIManagerDelegate {
         viewController.present(alertController, animated: true, completion: nil)
     
     }
+    
+    func notifyLogout() {
+        guard let viewController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController else { return }
+        let alertController = UIAlertController(title: "Sair...", message: "Deseja sair do aplicativo?", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Sim", style: .default) {
+            _ in
+            viewController.popToRootViewController(animated: true)
+        }
+        let cancelAction = UIAlertAction(title: "Não", style: .cancel) { _ in
+            
+        }
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        viewController.present(alertController, animated: true, completion: nil)
+        
+    }
+    
 }
 
