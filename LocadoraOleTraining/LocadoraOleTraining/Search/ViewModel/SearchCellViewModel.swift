@@ -1,17 +1,14 @@
 //
-//  MovieCellViewModel.swift
+//  SearchCellViewModel.swift
 //  LocadoraOleTraining
 //
-//  Created by Lorena Rodrigues Bruno on 12/11/2018.
+//  Created by Lorena Rodrigues Bruno on 27/11/18.
 //  Copyright © 2018 Lorena Rodrigues Bruno. All rights reserved.
 //
 
 import Foundation
 
-class MovieCellViewModel {
-    init() {
-        
-    }
+class SearchCellViewModel {
     
     var movies = [Film]()
     
@@ -63,9 +60,4 @@ class MovieCellViewModel {
         ValidateForm.checkFavorite(buttonLike: buttonLike, favorite: film.favorit)
         
     }
-    
-
-        
-
-    
 }

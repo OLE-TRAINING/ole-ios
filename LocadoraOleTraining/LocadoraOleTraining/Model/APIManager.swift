@@ -188,8 +188,7 @@ class APIManager: NSObject {
             "username": username,
             "email": email
             ] as [String : Any]
-
-        //manager.requestSerializer.setValue("", forHTTPHeaderField: xMockKey)
+        
         self.post(url: url, parameters: parameters, success: { (task, responseObject) in
             completion(true)
         }) { (task, error) in
@@ -210,7 +209,7 @@ class APIManager: NSObject {
             "newPasswordConfirmation" : newPasswordConfirmation
         ] as [String : Any]
         
-        manager.requestSerializer.setValue("success", forHTTPHeaderField: xMockKey)
+        //manager.requestSerializer.setValue("success", forHTTPHeaderField: xMockKey)
         self.put(url: url, parameters: parameters, success: { (task, responseObject) in
             completion(true)
         }) { (task, error) in
@@ -223,24 +222,23 @@ class APIManager: NSObject {
     func getFilmGenres(completion: @escaping (FilmGenre?) -> Void) {
         let url = baseURL + APIManager.getFilmGenres + key
         
-        manager.requestSerializer.setValue("success", forHTTPHeaderField: xMockKey)
+        //manager.requestSerializer.setValue("success", forHTTPHeaderField: xMockKey)
         setAuthorizationToken(bearerToken: self.bearerToken)
         self.get(url: url, success: { (task, responseObject) in
             let dataJson = try! JSONSerialization.data(withJSONObject: responseObject as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
             let genre = try?
                 JSONDecoder().decode(FilmGenre.self, from: dataJson)
             completion(genre)
-            //es aiprint("Generos: " + responseObject.debugDescription)
         }) { (task, error) in
             let genre = FilmGenre()
-            //ValidateForm.showAlertError()
             print(error.debugDescription)
             completion(genre)
         }
     }
     
-    func getFilmsByGenre(id: Int, page: Int, completion: @escaping (FilmsByGener) -> Void) {
-        let url = baseURL + APIManager.getFilmGenres + "/\(id)" + APIManager.getMovies + key + "&page=\(page)&amount=\(filmsPerPage)"
+    func getFilms(id: Int, page: Int, filter: String, completion: @escaping (FilmsByGener) -> Void) {
+        //let url = baseURL + APIManager.getFilmGenres + "/\(id)" + APIManager.getMovies + key + "&page=\(page)&amount=\(filmsPerPage)"
+        let url = baseURL + APIManager.getMovies + key + "&filter=\(filter)&page=\(page)&amount=\(filmsPerPage)&filter_id=\(id)"
         
         setAuthorizationToken(bearerToken: self.bearerToken)
         self.get(url: url, success: { (task, responseObject) in
@@ -248,17 +246,13 @@ class APIManager: NSObject {
             do {
                 let films = try
               JSONDecoder().decode(FilmsByGener.self, from: dataJson)
-//                print("Sucesso ao pegar filmes por genro: " + responseObject.debugDescription)
                 completion(films)
             } catch {
-//                print("Erro de decodificação: " + error.localizedDescription)
-//                completion()
             }
             
             
         }) { (task, error) in
             let film = FilmsByGener()
-//            print("Erro ao pegar filmes por genero: " + error.debugDescription)
             completion(film)
         }
         
@@ -267,7 +261,6 @@ class APIManager: NSObject {
     func getImagePoster(id: String, size: String) -> URL? {
         let url = baseURL + APIManager.getMovies + "/\(id)" + APIManager.getImage + "/\(size)" + key
         
-        //setAuthorizationToken(bearerToken: self.bearerToken)
         manager.get(url, parameters: nil, progress: nil, success: { (task, responseObject) in
    
         }) { (task, error) in
@@ -283,11 +276,32 @@ class APIManager: NSObject {
         setAuthorizationToken(bearerToken: self.bearerToken)
         self.post(url: url, parameters: nil, success: { (task, responseObject) in
             self.delegate?.notifyLogout()
-            print("Sucesso")
         }) { (task, error) in
-            print("Fracasso" + error.debugDescription)
         }
     }
+    
+    func getFilmsByName(filmName: String, page: Int, completion: @escaping (FilmsByGener) -> Void) {
+        let url = baseURL + APIManager.getMovies + key + "&filter=name&page=\(page)&amount=\(filmsPerPage)&filter_id=\(filmName)"
+
+        setAuthorizationToken(bearerToken: self.bearerToken)
+        self.get(url: url, success: { (task, responseObject) in
+            let dataJson = try! JSONSerialization.data(withJSONObject: responseObject as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
+            do {
+                let films = try
+                    JSONDecoder().decode(FilmsByGener.self, from: dataJson)
+                completion(films)
+            } catch {
+            }
+        print(responseObject.debugDescription)
+
+        }) { (task, error) in
+            let film = FilmsByGener()
+            completion(film)
+//            print(error.debugDescription)
+        }
+
+    }
+    
     
     private func setAuthorizationToken(bearerToken: String) {
         manager.requestSerializer.setValue("Bearer \(bearerToken)", forHTTPHeaderField: authorizationKey)
@@ -297,8 +311,6 @@ class APIManager: NSObject {
     private func getHeaders(responseObject: Any?) {
         if let responseObject = responseObject as? HTTPURLResponse {
             let accessToken = responseObject.allHeaderFields [self.xAccessTokenKey]
-            //print("accessToken: \(accessToken)")
-            //let xUID = responseObject.allHeaderFields[self.xUID]
             self.bearerToken = accessToken as? String ?? ""
         }
     }

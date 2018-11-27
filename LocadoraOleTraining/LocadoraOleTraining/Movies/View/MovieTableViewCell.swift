@@ -43,11 +43,17 @@ class MovieTableViewCell: UITableViewCell {
         //ValidateForm.waitForImage(loading: loadingImage, imagePoster: imageFilm, flag: true)
         movieCellViewModel.configureCell(imageFilm: imageFilm, viewNote: viewNote, viewBack: viewBack, labelPrice: labelFilmPrice, viewYellPoint: viewYellPoint)
         movieCellViewModel.setFilmInformations(film: film, labelFilmName: labelFilmName, labelFilmCategory: labelFilmCategory, labelFilmDuration: labelFilmDuration, labelFilmYear: labelFilmYear, labelFilmSynopsis: labelFilmSynopsis, LabelFilmPrice: labelFilmPrice, labelNote: labelNote, imageFilm: imageFilm, iconFilm: iconFilm, buttonLike: buttonLike, loadingImage: loadingImage)
+        
     }
     
     func loadPage() {
+        loadingPages.isHidden = false
         loadingPages.startAnimating()
-
+        
+    }
+    
+    func hideLoading() {
+        loadingPages.isHidden = true
     }
     
   

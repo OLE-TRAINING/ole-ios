@@ -12,7 +12,7 @@ class MoviesViewModel {
      var movies = [Film]()
     
     func getFilms(page: Int, id: Int, completion: @escaping ([Film], Int, Int) -> Void) {
-        APIManager.shared.getFilmsByGenre(id: id, page: page) { (filmsByGenre) in
+        APIManager.shared.getFilms(id: id, page: page, filter: "genres") { (filmsByGenre) in
             self.movies.append(contentsOf: filmsByGenre.results)
             completion(self.movies, filmsByGenre.totalPages, filmsByGenre.page)
             

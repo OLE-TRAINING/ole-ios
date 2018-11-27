@@ -16,9 +16,10 @@ class MoviesViewController: UIViewController {
     var filmsByGener = [Film]()
     var genreId = 0
     var page = 2
-    var isLoadingMore = false // flag
+    var isLoadingMore = false
     var totalPages = 0
     var currentPage = 1
+    var showLoading = false
    
     @IBOutlet weak var viewLoading: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -53,14 +54,12 @@ class MoviesViewController: UIViewController {
     }
     
     func fetchMovies(page: Int) {
-//        viewLoading.isHidden = false
-//        let loadingNotification = MBProgressHUD.showAdded(to: self.viewLoading, animated: true)
-//        loadingNotification.mode = MBProgressHUDMode.indeterminate
         
         moviesViewModel.getGenres(completion: { (genres) in
             
             self.moviesViewModel.getFilms(page: page,id: self.genreId , completion: { [weak self] (films, totalPages, currentPage) in
                 self?.filmsByGener = films
+                self?.showLoading = true
                 self!.tableView.reloadData()
                 guard let viewLoading = self!.viewLoading else { return }
                 MBProgressHUD.hideAllHUDs(for: viewLoading, animated: true)
@@ -127,14 +126,21 @@ extension MoviesViewController: UITableViewDataSource, UITableViewDelegate, UISc
             }
             let movie = moviesViewModel.movies[indexPath.row]
             cell.configureCell(film: movie)
+            
         }
         
         if indexPath.section == 1 {
             guard let cell = cell as? MovieTableViewCell else {
                 return
             }
-            cell.loadPage()
-
+            
+            if showLoading {
+                cell.loadPage()
+            } else {
+                cell.hideLoading()
+            }
+            
+            
         }
     }
 
@@ -145,10 +151,11 @@ extension MoviesViewController: UITableViewDataSource, UITableViewDelegate, UISc
         let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
         
         if maximumOffset - currentOffset <= 10.0 && !isLoadingMore {
-            print("CARREGANDO MAIS FILMES")
+            //print("CARREGANDO MAIS FILMES")
             isLoadingMore = true
             fetchMovies(page: page)
             page += 1
+            
             tableView.reloadData()
         }
         
