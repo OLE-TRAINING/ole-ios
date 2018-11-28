@@ -62,6 +62,8 @@
 		5C8DA60D2190980500D87A34 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8DA60C2190980500D87A34 /* TabBarController.swift */; };
 		5C99630A21AED21700870303 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C99630921AED21700870303 /* MovieDetailsViewController.swift */; };
 		5C99630C21AED25500870303 /* MovieDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C99630B21AED25500870303 /* MovieDetailsViewModel.swift */; };
+		5C99630E21AF003700870303 /* DetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C99630D21AF003700870303 /* DetailsTableViewCell.swift */; };
+		5C99631021AF006C00870303 /* DetailsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C99630F21AF006C00870303 /* DetailsCellViewModel.swift */; };
 		5CC41EF8217509A900F2FB3E /* ContinueRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC41EF7217509A900F2FB3E /* ContinueRegistration.swift */; };
 /* End PBXBuildFile section */
 
@@ -145,6 +147,8 @@
 		5C8DA60C2190980500D87A34 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		5C99630921AED21700870303 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 		5C99630B21AED25500870303 /* MovieDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewModel.swift; sourceTree = "<group>"; };
+		5C99630D21AF003700870303 /* DetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTableViewCell.swift; sourceTree = "<group>"; };
+		5C99630F21AF006C00870303 /* DetailsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCellViewModel.swift; sourceTree = "<group>"; };
 		5CC41EF7217509A900F2FB3E /* ContinueRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueRegistration.swift; sourceTree = "<group>"; };
 		7B715B4BEEEA97E299EC0DC7 /* Pods-LocadoraOleTraining.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocadoraOleTraining.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LocadoraOleTraining/Pods-LocadoraOleTraining.debug.xcconfig"; sourceTree = "<group>"; };
 		830B95FC87DF7D4C46799C3C /* Pods-LocadoraOleTraining.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocadoraOleTraining.release.xcconfig"; path = "Pods/Target Support Files/Pods-LocadoraOleTraining/Pods-LocadoraOleTraining.release.xcconfig"; sourceTree = "<group>"; };
@@ -554,6 +558,7 @@
 			isa = PBXGroup;
 			children = (
 				5C99630B21AED25500870303 /* MovieDetailsViewModel.swift */,
+				5C99630F21AF006C00870303 /* DetailsCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -562,6 +567,7 @@
 			isa = PBXGroup;
 			children = (
 				5C99630921AED21700870303 /* MovieDetailsViewController.swift */,
+				5C99630D21AF003700870303 /* DetailsTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -810,6 +816,7 @@
 				5C521274217F9E8800C08698 /* PreLoginViewModel.swift in Sources */,
 				5C59A707216E5E950053DC45 /* Attributes.swift in Sources */,
 				5C88E63121999EBE00450B83 /* CategoriesViewModel.swift in Sources */,
+				5C99630E21AF003700870303 /* DetailsTableViewCell.swift in Sources */,
 				5C8DA60D2190980500D87A34 /* TabBarController.swift in Sources */,
 				5C7858BF217764D60007612D /* APIManager.swift in Sources */,
 				5C69ADB2218231DE00C5BCEA /* CheckInformationsViewController.swift in Sources */,
@@ -818,6 +825,7 @@
 				5C88E62F21999E9D00450B83 /* CategoriesViewController.swift in Sources */,
 				5C84C3222176090300CADD58 /* LoginViewController.swift in Sources */,
 				5C99630A21AED21700870303 /* MovieDetailsViewController.swift in Sources */,
+				5C99631021AF006C00870303 /* DetailsCellViewModel.swift in Sources */,
 				5C69ADA92181EAF900C5BCEA /* LoginViewModel.swift in Sources */,
 				5C69ADAB2181FC4300C5BCEA /* ContinueRegistrationViewModel.swift in Sources */,
 				5C778B0621874A3700F6B269 /* ViewControllerNewPassword.swift in Sources */,

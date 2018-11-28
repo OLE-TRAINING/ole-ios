@@ -36,7 +36,6 @@ struct Film: Decodable {
     var year: Int = 0
     var genreNames = [String]()
     var runtime: String? = nil
-    //var runtime: Int = 0
     var overview: String? = nil
     var favorit: Bool = false
     var price: Double = 0.0
@@ -49,6 +48,25 @@ struct FilmsByGener: Decodable {
     var totalPages: Int = 0
     var totalMovies: Int = 0
     var results = [Film]()
+}
+
+struct FilmDetails: Decodable {
+    var id: Int = 0
+    var posterId: String? = nil
+    var bannerId: String? = nil
+    var voteAverage: Double = 0.0
+    var voteCount: Int = 0
+    var title: String? = nil
+    var year: Int = 0
+    var genreNames = [String]()
+    var runtime: String? = nil
+    var overview: String? = nil
+    var favorit: Bool = false
+    var price: Double = 0.0
+    var acquired: Bool = false
+    var director = [String]()
+    var writer = [String]()
+    var countries = [String]()
 }
 
 protocol APIManagerDelegate {
@@ -300,6 +318,26 @@ class APIManager: NSObject {
             //print(error.debugDescription)
         }
 
+    }
+    
+    func getFilmDetails(id: Int, completion: @escaping(FilmDetails) -> Void) {
+        let url = baseURL + APIManager.getMovies + "/\(id)/detail" + key
+        
+        setAuthorizationToken(bearerToken: self.bearerToken)
+        self.get(url: url, success: { (task, responseObject) in
+            print(responseObject.debugDescription)
+            let dataJson = try! JSONSerialization.data(withJSONObject: responseObject as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
+            do {
+                let filmDetails = try
+                    JSONDecoder().decode(FilmDetails.self, from: dataJson)
+                completion(filmDetails)
+            } catch {
+            }
+        }) { (task, error) in
+            print(error.debugDescription)
+            let filmDetails = FilmDetails()
+            completion(filmDetails)
+        }
     }
     
     

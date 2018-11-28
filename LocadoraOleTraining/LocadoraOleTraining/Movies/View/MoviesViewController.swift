@@ -20,7 +20,8 @@ class MoviesViewController: UIViewController {
     var totalPages = 0
     var currentPage = 1
     var showLoading = false
-   
+    var currentFilm = Film()
+    
     @IBOutlet weak var viewLoading: UIView!
     @IBOutlet weak var tableView: UITableView!
     
@@ -81,7 +82,7 @@ class MoviesViewController: UIViewController {
         if segue.identifier == "ShowDetailsSegue"
         {
             if let destinationVC = segue.destination as? MovieDetailsViewController {
-                //destinationVC.delegate = self
+                destinationVC.idFilm = currentFilm.id
             }
         }
         
@@ -152,11 +153,9 @@ extension MoviesViewController: UITableViewDataSource, UITableViewDelegate, UISc
         }
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        performSegue(withIdentifier: "ShowDetailsSegue", sender: self)
-//    }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        currentFilm = filmsByGener[indexPath.row]
         performSegue(withIdentifier: "ShowDetailsSegue", sender: self)
     }
    
