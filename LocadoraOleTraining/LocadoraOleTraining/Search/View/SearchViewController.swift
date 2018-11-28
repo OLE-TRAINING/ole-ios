@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class SearchViewController: UIViewController, UISearchBarDelegate    {
 
     @IBOutlet weak var searchTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var viewLoading: UIView!
     
     var searchViewModel = SearchViewModel()
     var filmsByGener = [Film]()
@@ -30,24 +32,40 @@ class SearchViewController: UIViewController, UISearchBarDelegate    {
         searchTableView.delegate = self
         searchTableView.dataSource = self
         searchBar.delegate = self
+        viewLoading.isHidden = true
+        
     }
     
-
+    @IBAction func tapToHideKeyboard(_ sender: UITapGestureRecognizer) {
+        self.searchBar.resignFirstResponder()
+    }
+    
     func fetchMovies(page: Int, searchText: String) {
+        viewLoading.isHidden = false
+        let loadingNotification = MBProgressHUD.showAdded(to: self.viewLoading, animated: true)
+        loadingNotification.mode = MBProgressHUDMode.indeterminate
         self.searchViewModel.getFilms(page: page, filmName: searchText, completion: { [weak self] (films, totalPages, currentPage) in
             self?.filmsByGener = films
             if totalPages == 0 {
                 self?.noResults = true
+                guard let viewLoading = self!.viewLoading else { return }
+                MBProgressHUD.hideAllHUDs(for: viewLoading, animated: true)
+                viewLoading.isHidden = true
+                self!.searchTableView.reloadData()
+                
             } else {
                 self?.showLoading = true
                 self!.searchTableView.reloadData()
+                guard let viewLoading = self!.viewLoading else { return }
+                MBProgressHUD.hideAllHUDs(for: viewLoading, animated: true)
+                viewLoading.isHidden = true
                 self!.isLoadingMore = false
                 self?.totalPages = totalPages
                 self?.currentPage = currentPage
                 
                 
                 if totalPages == currentPage {
-                    //implementar desaparecimento do loading
+                    print("Sem mais páginas para carregar")
                 }
             }
             
@@ -132,6 +150,7 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate, UISc
                 cell.hideLoading()
             }
             
+            cell.configureNoResultsLabel(searchText: searchText)
             cell.noResultsForSearch(noResults)
             
             

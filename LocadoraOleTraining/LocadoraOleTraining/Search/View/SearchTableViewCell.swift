@@ -49,6 +49,10 @@ class SearchTableViewCell: UITableViewCell {
         searchCellViewModel.setFilmInformations(film: film, labelFilmName: labelFilmName, labelFilmCategory: labelFilmCategory, labelFilmDuration: labelFilmDuration, labelFilmYear: labelFilmYear, labelFilmSynopsis: labelFilmSynopsis, LabelFilmPrice: labelFilmPrice, labelNote: labelNote, imageFilm: filmImage, iconFilm: imageAquired, buttonLike: buttonLike, loadingImage: loadingFilmImage)
     }
     
+    func configureNoResultsLabel(searchText: String) {
+        searchCellViewModel.setNoResultsInformation(noResultsLabel: labelNoResults, searchText: searchText)
+    }
+    
     func noResultsForSearch(_ flag: Bool) {
         if flag {
             labelNoResults.isHidden = false

@@ -292,12 +292,12 @@ class APIManager: NSObject {
                 completion(films)
             } catch {
             }
-        print(responseObject.debugDescription)
+        //print(responseObject.debugDescription)
 
         }) { (task, error) in
             let film = FilmsByGener()
             completion(film)
-//            print(error.debugDescription)
+            //print(error.debugDescription)
         }
 
     }

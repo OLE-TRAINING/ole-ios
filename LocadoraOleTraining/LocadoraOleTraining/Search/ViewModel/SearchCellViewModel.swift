@@ -26,6 +26,10 @@ class SearchCellViewModel {
         labelPrice.layer.shadowOffset = CGSize(width: 0, height: 5)
     }
     
+    func setNoResultsInformation(noResultsLabel: UILabel, searchText: String) {
+        Attributes.setAttributesLabel(label: noResultsLabel, labelText: "Sem resultados para '\(searchText)'", size: 14, fontFamily: "Roboto-Reglar", spaceLine: 1.4, textColor: UIColor.black)
+    }
+    
     
     
     func setFilmInformations(film: Film, labelFilmName: UILabel, labelFilmCategory: UILabel, labelFilmDuration: UILabel, labelFilmYear: UILabel, labelFilmSynopsis: UILabel, LabelFilmPrice: UILabel, labelNote: UILabel, imageFilm: UIImageView, iconFilm: UIImageView, buttonLike: UIButton, loadingImage: UIActivityIndicatorView) {

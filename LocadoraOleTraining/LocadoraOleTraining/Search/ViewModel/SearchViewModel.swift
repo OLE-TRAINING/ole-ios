@@ -13,8 +13,11 @@ class SearchViewModel {
     
     func getFilms(page: Int, filmName: String, completion: @escaping ([Film], Int, Int) -> Void) {
         APIManager.shared.getFilmsByName(filmName: filmName, page: page) { (filmsByGenre) in
-            //self.movies.append(contentsOf: filmsByGenre.results)
-            self.movies = filmsByGenre.results
+            if page > 1 {
+                self.movies.append(contentsOf: filmsByGenre.results)
+            } else {
+                self.movies = filmsByGenre.results
+            }
             completion(self.movies, filmsByGenre.totalPages, filmsByGenre.page)
             
             if filmsByGenre.page == filmsByGenre.totalPages {
