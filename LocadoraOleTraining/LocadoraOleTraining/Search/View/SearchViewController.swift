@@ -65,7 +65,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate    {
                 
                 
                 if totalPages == currentPage {
-                    print("Sem mais páginas para carregar")
+                    //print("Sem mais páginas para carregar")
                 }
             }
             

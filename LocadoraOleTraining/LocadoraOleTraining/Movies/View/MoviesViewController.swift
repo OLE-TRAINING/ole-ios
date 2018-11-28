@@ -72,10 +72,18 @@ class MoviesViewController: UIViewController {
                     //implementar desaparecimento do loading 
                 }
             })
-            
-            
-            
+
         })
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowDetailsSegue"
+        {
+            if let destinationVC = segue.destination as? MovieDetailsViewController {
+                //destinationVC.delegate = self
+            }
+        }
         
     }
 
@@ -143,7 +151,14 @@ extension MoviesViewController: UITableViewDataSource, UITableViewDelegate, UISc
             
         }
     }
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        performSegue(withIdentifier: "ShowDetailsSegue", sender: self)
+//    }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "ShowDetailsSegue", sender: self)
+    }
    
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         
