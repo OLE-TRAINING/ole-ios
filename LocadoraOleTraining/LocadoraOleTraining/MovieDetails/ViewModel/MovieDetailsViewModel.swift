@@ -11,6 +11,7 @@ import Foundation
 
 class MovieDetailsViewModel {
     
+    
     func startHome() -> UILabel {
         let navLabel = UILabel()
         let navTitle = NSMutableAttributedString(string: "OT", attributes:[
@@ -26,4 +27,6 @@ class MovieDetailsViewModel {
         
         return navLabel
     }
+    
+    
 }

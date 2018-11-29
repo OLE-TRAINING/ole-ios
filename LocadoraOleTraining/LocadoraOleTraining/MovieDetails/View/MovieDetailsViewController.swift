@@ -14,23 +14,40 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let movieDetailsViewModel = MovieDetailsViewModel()
+    let similarityViewModel = SimilarityViewModel()
     let movieDetails = [Film]()
     var idFilm = 0
+    var flag = false
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        // Do any additional setup after loading the view.
+        
+        self.navigationController?.hidesBarsOnSwipe = false       
+        self.navigationItem.titleView = movieDetailsViewModel.startHome()
+        self.navigationController?.isNavigationBarHidden = false
+        let backButton = UIBarButtonItem(image: UIImage(named: "back"), style: .plain, target: self, action: #selector(handleBackButton))
+        backButton.title = " "
+        backButton.tintColor = UIColor.white
+        backButton.imageInsets = UIEdgeInsets(top: 0, left: -8, bottom: 0, right: -8)
+        navigationItem.leftBarButtonItem = backButton
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        self.navigationItem.titleView = movieDetailsViewModel.startHome()
+        
+        
     }
 
+    @objc func handleBackButton(){
+        self.navigationController?.popViewController(animated: true)
+        
+    }
 
 }
 
@@ -45,10 +62,10 @@ extension MovieDetailsViewController: UITableViewDataSource, UITableViewDelegate
         if section == 0 {
             rows = 1
         }
-//        else if section == 1 {
-//            rows = moviesViewModel.movies.count
-//        }
-//
+        else if section == 1 {
+            rows = similarityViewModel.movies.count
+        }
+
         return rows
     }
     
@@ -60,12 +77,12 @@ extension MovieDetailsViewController: UITableViewDataSource, UITableViewDelegate
             return cell0
         }
         
-//        if indexPath.section == 1 {
-//            guard let cell1 = tableView.dequeueReusableCell(withIdentifier: "cellLoading") else {
-//                return UITableViewCell()
-//            }
-//            return cell1
-//        }
+        if indexPath.section == 1 {
+            guard let cell1 = tableView.dequeueReusableCell(withIdentifier: "cellSimilarity") else {
+                return UITableViewCell()
+            }
+            return cell1
+        }
         
         return UITableViewCell()
         
@@ -80,24 +97,30 @@ extension MovieDetailsViewController: UITableViewDataSource, UITableViewDelegate
             }
 //            let movie = moviesViewModel.movies[indexPath.row]
 //            cell.configureCell(film: movie)
-            cell.configureBorders()
-            cell.setFilmDetails(id: self.idFilm)
+            if flag {
+                cell.configureBorders()
+                cell.setFilmDetails(id: self.idFilm)
+                //tableView.reloadData()
+            } else {
+                tableView.reloadData()
+            }
+            
             
         }
         
-//        if indexPath.section == 1 {
-//            guard let cell = cell as? MovieTableViewCell else {
-//                return
-//            }
-//
+        if indexPath.section == 1 {
+            guard let cell = cell as? SimilarityTableViewCell else {
+                return
+            }
+
 //            if showLoading {
 //                cell.loadPage()
 //            } else {
 //                cell.hideLoading()
 //            }
-//
-//
-//        }
+
+
+        }
     }
 
     

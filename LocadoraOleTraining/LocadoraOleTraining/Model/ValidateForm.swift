@@ -206,6 +206,19 @@ class ValidateForm: NSObject {
         }
         
     }
+    
+    func arrayToString(array: [String]) -> String {
+        var string = ""
+        for item in array {
+            if string == "" {
+                string = item
+            } else {
+                string = string + ", " + item
+            }
+            
+        }
+        return string
+    }
 
 
     

@@ -60,6 +60,8 @@
 		5C88E63A2199A6FB00450B83 /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C88E6392199A6FB00450B83 /* MovieTableViewCell.swift */; };
 		5C88E63C2199A71C00450B83 /* MovieCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C88E63B2199A71C00450B83 /* MovieCellViewModel.swift */; };
 		5C8DA60D2190980500D87A34 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C8DA60C2190980500D87A34 /* TabBarController.swift */; };
+		5C969CFA21B06F1C00BEC511 /* SimilarityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C969CF921B06F1B00BEC511 /* SimilarityTableViewCell.swift */; };
+		5C969CFC21B06F3C00BEC511 /* SimilarityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C969CFB21B06F3C00BEC511 /* SimilarityViewModel.swift */; };
 		5C99630A21AED21700870303 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C99630921AED21700870303 /* MovieDetailsViewController.swift */; };
 		5C99630C21AED25500870303 /* MovieDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C99630B21AED25500870303 /* MovieDetailsViewModel.swift */; };
 		5C99630E21AF003700870303 /* DetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C99630D21AF003700870303 /* DetailsTableViewCell.swift */; };
@@ -145,6 +147,8 @@
 		5C88E6392199A6FB00450B83 /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
 		5C88E63B2199A71C00450B83 /* MovieCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCellViewModel.swift; sourceTree = "<group>"; };
 		5C8DA60C2190980500D87A34 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		5C969CF921B06F1B00BEC511 /* SimilarityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarityTableViewCell.swift; sourceTree = "<group>"; };
+		5C969CFB21B06F3C00BEC511 /* SimilarityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarityViewModel.swift; sourceTree = "<group>"; };
 		5C99630921AED21700870303 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 		5C99630B21AED25500870303 /* MovieDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewModel.swift; sourceTree = "<group>"; };
 		5C99630D21AF003700870303 /* DetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTableViewCell.swift; sourceTree = "<group>"; };
@@ -559,6 +563,7 @@
 			children = (
 				5C99630B21AED25500870303 /* MovieDetailsViewModel.swift */,
 				5C99630F21AF006C00870303 /* DetailsCellViewModel.swift */,
+				5C969CFB21B06F3C00BEC511 /* SimilarityViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -568,6 +573,7 @@
 			children = (
 				5C99630921AED21700870303 /* MovieDetailsViewController.swift */,
 				5C99630D21AF003700870303 /* DetailsTableViewCell.swift */,
+				5C969CF921B06F1B00BEC511 /* SimilarityTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -809,6 +815,7 @@
 				5C99630C21AED25500870303 /* MovieDetailsViewModel.swift in Sources */,
 				5C04923C21AD4EE400ACC5DF /* SearchViewController.swift in Sources */,
 				5C59A6D8216E2D2E0053DC45 /* PreLoginViewController.swift in Sources */,
+				5C969CFC21B06F3C00BEC511 /* SimilarityViewModel.swift in Sources */,
 				5C6DD9F7217A757B003A891D /* RoundedButton.swift in Sources */,
 				5C84C31C2176023D00CADD58 /* ValidateTokenViewController.swift in Sources */,
 				5C69ADB4218231F300C5BCEA /* CheckInformationsViewModel.swift in Sources */,
@@ -828,6 +835,7 @@
 				5C99631021AF006C00870303 /* DetailsCellViewModel.swift in Sources */,
 				5C69ADA92181EAF900C5BCEA /* LoginViewModel.swift in Sources */,
 				5C69ADAB2181FC4300C5BCEA /* ContinueRegistrationViewModel.swift in Sources */,
+				5C969CFA21B06F1C00BEC511 /* SimilarityTableViewCell.swift in Sources */,
 				5C778B0621874A3700F6B269 /* ViewControllerNewPassword.swift in Sources */,
 				5C04924221AD500000ACC5DF /* SearchCellViewModel.swift in Sources */,
 				5CC41EF8217509A900F2FB3E /* ContinueRegistration.swift in Sources */,

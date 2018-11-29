@@ -89,6 +89,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate    {
         fetchMovies(page: 1, searchText: self.searchText)
         searchTableView.reloadData()
     }
+    
+    
 
 }
 

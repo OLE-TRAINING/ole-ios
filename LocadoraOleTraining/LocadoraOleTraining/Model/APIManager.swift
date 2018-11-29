@@ -64,8 +64,8 @@ struct FilmDetails: Decodable {
     var favorit: Bool = false
     var price: Double = 0.0
     var acquired: Bool = false
-    var director = [String]()
-    var writer = [String]()
+    var directors = [String]()
+    var writers = [String]()
     var countries = [String]()
 }
 
@@ -288,6 +288,18 @@ class APIManager: NSObject {
         return URL(string: url)
     }
     
+    func getImageBanner(id: String, size: String) -> URL? {
+        let url = baseURL + APIManager.getMovies + "/\(id)" + APIManager.getImage + "/\(size)" + key
+        
+        manager.get(url, parameters: nil, progress: nil, success: { (task, responseObject) in
+            
+        }) { (task, error) in
+            
+        }
+        
+        return URL(string: url)
+    }
+    
     func logout(email: String) {
         let url = baseURL + APIManager.getUsersEndpoint + "/\(email)/logout" + key
         
@@ -325,16 +337,18 @@ class APIManager: NSObject {
         
         setAuthorizationToken(bearerToken: self.bearerToken)
         self.get(url: url, success: { (task, responseObject) in
-            print(responseObject.debugDescription)
+            
             let dataJson = try! JSONSerialization.data(withJSONObject: responseObject as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
             do {
                 let filmDetails = try
                     JSONDecoder().decode(FilmDetails.self, from: dataJson)
                 completion(filmDetails)
             } catch {
+//                print("Algo deu errado")
             }
+//            print(responseObject.debugDescription)
         }) { (task, error) in
-            print(error.debugDescription)
+//            print(error.debugDescription)
             let filmDetails = FilmDetails()
             completion(filmDetails)
         }

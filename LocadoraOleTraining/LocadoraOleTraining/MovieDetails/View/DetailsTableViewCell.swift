@@ -35,8 +35,6 @@ class DetailsTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
     func configureBorders() {
@@ -44,7 +42,7 @@ class DetailsTableViewCell: UITableViewCell {
     }
     
     func setFilmDetails(id: Int) {
-        detailsCellViewModel.setFilmDetails(id: id)
+        detailsCellViewModel.setFilmDetails(id: id, labelFilmName: labelFilmName , labelGenres: labelGeneres, labelNote: labelNote, labelTime: labelTime, labelDirector: labelDirector , labelWriter: labelWriter, labelSynopsis: labelSynopsis, imagePoster: imagePoster, imageBanner: imageBanner, buttonLike: buttonLike)
     }
     
 }

@@ -21,6 +21,7 @@ class MoviesViewController: UIViewController {
     var currentPage = 1
     var showLoading = false
     var currentFilm = Film()
+//    var flag = false
     
     @IBOutlet weak var viewLoading: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -79,10 +80,14 @@ class MoviesViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowDetailsSegue"
+        
+        if segue.identifier == "ShowDetailsSegue" 
         {
             if let destinationVC = segue.destination as? MovieDetailsViewController {
-                destinationVC.idFilm = currentFilm.id
+                let selectedRow = tableView.indexPathForSelectedRow?.row
+                destinationVC.idFilm = filmsByGener[selectedRow!].id
+                destinationVC.flag = true
+
             }
         }
         
@@ -155,8 +160,9 @@ extension MoviesViewController: UITableViewDataSource, UITableViewDelegate, UISc
     
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        currentFilm = filmsByGener[indexPath.row]
-        performSegue(withIdentifier: "ShowDetailsSegue", sender: self)
+//        currentFilm = filmsByGener[indexPath.row]
+//        flag = true
+        //performSegue(withIdentifier: "ShowDetailsSegue", sender: self)
     }
    
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
