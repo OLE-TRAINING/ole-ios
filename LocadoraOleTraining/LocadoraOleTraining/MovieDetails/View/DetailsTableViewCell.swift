@@ -24,6 +24,8 @@ class DetailsTableViewCell: UITableViewCell {
     @IBOutlet weak var buttonLike: UIButton!
     @IBOutlet weak var ImageAquired: UIImageView!
     @IBOutlet weak var labelSynopsis: UILabel!
+    @IBOutlet weak var loadingBanner: UIActivityIndicatorView!
+    @IBOutlet weak var loadingPoster: UIActivityIndicatorView!
     
     
     let detailsCellViewModel = DetailsCellViewModel()
@@ -42,7 +44,7 @@ class DetailsTableViewCell: UITableViewCell {
     }
     
     func setFilmDetails(id: Int) {
-        detailsCellViewModel.setFilmDetails(id: id, labelFilmName: labelFilmName , labelGenres: labelGeneres, labelNote: labelNote, labelTime: labelTime, labelDirector: labelDirector , labelWriter: labelWriter, labelSynopsis: labelSynopsis, imagePoster: imagePoster, imageBanner: imageBanner, buttonLike: buttonLike)
+        detailsCellViewModel.setFilmDetails(id: id, labelFilmName: labelFilmName , labelGenres: labelGeneres, labelNote: labelNote, labelTime: labelTime, labelDirector: labelDirector , labelWriter: labelWriter, labelSynopsis: labelSynopsis, imagePoster: imagePoster, imageBanner: imageBanner, buttonLike: buttonLike, loadingBanner: loadingBanner, loadingPoster: loadingPoster)
     }
     
 }

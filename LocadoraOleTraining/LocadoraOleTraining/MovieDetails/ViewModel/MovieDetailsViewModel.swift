@@ -10,7 +10,7 @@ import Foundation
 
 
 class MovieDetailsViewModel {
-    
+    var movies = [Film]()
     
     func startHome() -> UILabel {
         let navLabel = UILabel()
@@ -28,5 +28,18 @@ class MovieDetailsViewModel {
         return navLabel
     }
     
+    
+    func getSimilarFilms(page: Int, id: Int, completion: @escaping ([Film], Int, Int) -> Void) {
+        APIManager.shared.getSimilarFilms(id: id, page: page, filter: "similarity") { (filmsByGenre) in
+            self.movies.append(contentsOf: filmsByGenre.results)
+            completion(self.movies, filmsByGenre.totalPages, filmsByGenre.page)
+            
+            if filmsByGenre.page == filmsByGenre.totalPages {
+                //implementar comportamento
+            }
+            
+        }
+        
+    }
     
 }

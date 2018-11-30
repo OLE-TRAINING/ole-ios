@@ -19,25 +19,44 @@ class DetailsCellViewModel {
         imagePoster.layer.masksToBounds = true
     }
     
-    func setFilmDetails(id: Int, labelFilmName: UILabel, labelGenres: UILabel, labelNote: UILabel, labelTime: UILabel, labelDirector: UILabel, labelWriter: UILabel, labelSynopsis: UILabel, imagePoster: UIImageView, imageBanner: UIImageView, buttonLike: UIButton) {
+    func setFilmDetails(id: Int, labelFilmName: UILabel, labelGenres: UILabel, labelNote: UILabel, labelTime: UILabel, labelDirector: UILabel, labelWriter: UILabel, labelSynopsis: UILabel, imagePoster: UIImageView, imageBanner: UIImageView, buttonLike: UIButton, loadingBanner: UIActivityIndicatorView, loadingPoster: UIActivityIndicatorView) {
         APIManager.shared.getFilmDetails(id: id) { (details) in
+            imageBanner.isHidden = true
+            imagePoster.isHidden = true
+            loadingBanner.startAnimating()
+            loadingPoster.startAnimating()
+            
             labelFilmName.text = details.title
-            labelGenres.text = ValidateForm.shared.arrayToString(array: details.genreNames)
+            labelGenres.text = ValidateForm.arrayToString(array: details.genreNames)
             labelNote.text = "\(String(details.voteAverage))/10"
             guard let duration = details.runtime else { return }
-            labelTime.text = "\(details.year) \(ValidateForm.shared.arrayToString(array: details.countries)) \(duration)"
-            labelDirector.text = "Escritores: \(ValidateForm.shared.arrayToString(array: details.directors))"
-            labelWriter.text = "Diretores: \(ValidateForm.shared.arrayToString(array: details.writers))"
+            labelTime.text = "\(details.year) \(duration) \(ValidateForm.arrayToString(array: details.countries))"
+            labelDirector.text = "Escritores: \(ValidateForm.arrayToString(array: details.directors))"
+            labelWriter.text = "Diretores: \(ValidateForm.arrayToString(array: details.writers))"
             labelSynopsis.text = details.overview
             guard let posterId = details.posterId else { return }
             guard let urlPoster = APIManager.shared.getImagePoster(id: posterId, size: "original") else { return }
-            DispatchQueue.main.async {
-                imagePoster.setImageWith(urlPoster)
+            let request = URLRequest(url: urlPoster)
+            imagePoster.setImageWith(request, placeholderImage: UIImage(named: "noImage"), success: { (request, response, image) in
+                imagePoster.isHidden = false
+                imagePoster.image = image
+                loadingPoster.isHidden = true
+            }) { (request, response, error) in
+                imagePoster.isHidden = false
+                loadingPoster.isHidden = true
             }
+            
+            
             guard let bannerId = details.bannerId else { return }
             guard let urlBanner = APIManager.shared.getImagePoster(id: bannerId, size: "original") else { return }
-            DispatchQueue.main.async {
-                imageBanner.setImageWith(urlBanner)
+            let requestBanner = URLRequest(url: urlBanner)
+            imageBanner.setImageWith(requestBanner, placeholderImage: UIImage(named: "noImage"), success: { (request, response, image) in
+                imageBanner.isHidden = false
+                imageBanner.image = image
+                loadingBanner.isHidden = true
+            }) { (request, response, error) in
+                imageBanner.isHidden = false
+                loadingBanner.isHidden = true
             }
             ValidateForm.checkFavorite(buttonLike: buttonLike, favorite: details.favorit)
         }

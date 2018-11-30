@@ -218,6 +218,8 @@ class APIManager: NSObject {
     }
     
     func changePassword(email: String, confirmationToken: String, newPassword: String, newPasswordConfirmation: String, completion: @escaping(Bool) -> Void ) {
+        manager.requestSerializer = AFJSONRequestSerializer()
+        manager.responseSerializer = AFJSONResponseSerializer()
         let url = baseURL + APIManager.getUsersEndpoint + "/password" + key
         
         let parameters = [
@@ -228,11 +230,12 @@ class APIManager: NSObject {
         ] as [String : Any]
         
         //manager.requestSerializer.setValue("success", forHTTPHeaderField: xMockKey)
-        self.put(url: url, parameters: parameters, success: { (task, responseObject) in
+        manager.put(url, parameters: parameters, success: { (task, responseObject) in
             completion(true)
         }) { (task, error) in
             completion(false)
-            ValidateForm.showAlertError()
+//            print(error.debugDescription)
+            //ValidateForm.showAlertError()
         }
 
     }
@@ -276,26 +279,35 @@ class APIManager: NSObject {
         
     }
     
+    func getSimilarFilms(id: Int, page: Int, filter: String, completion: @escaping (FilmsByGener) -> Void) {
+        let url = baseURL + APIManager.getMovies + key + "&filter=\(filter)&page=\(page)&amount=5&filter_id=\(id)"
+        
+        setAuthorizationToken(bearerToken: self.bearerToken)
+        self.get(url: url, success: { (task, responseObject) in
+            let dataJson = try! JSONSerialization.data(withJSONObject: responseObject as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
+            do {
+                let films = try
+                    JSONDecoder().decode(FilmsByGener.self, from: dataJson)
+                completion(films)
+            } catch {
+            }
+            
+            
+        }) { (task, error) in
+            let film = FilmsByGener()
+            completion(film)
+        }
+        
+    }
+    
     func getImagePoster(id: String, size: String) -> URL? {
         let url = baseURL + APIManager.getMovies + "/\(id)" + APIManager.getImage + "/\(size)" + key
-        
-        manager.get(url, parameters: nil, progress: nil, success: { (task, responseObject) in
-   
-        }) { (task, error) in
-            
-        }
         
         return URL(string: url)
     }
     
     func getImageBanner(id: String, size: String) -> URL? {
         let url = baseURL + APIManager.getMovies + "/\(id)" + APIManager.getImage + "/\(size)" + key
-        
-        manager.get(url, parameters: nil, progress: nil, success: { (task, responseObject) in
-            
-        }) { (task, error) in
-            
-        }
         
         return URL(string: url)
     }

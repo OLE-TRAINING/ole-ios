@@ -1310,8 +1310,9 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xve-wZ-has">
                                                     <rect key="frame" x="14" y="60.5" width="346" height="155"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noImage" translatesAutoresizingMaskIntoConstraints="NO" id="qgA-l9-4CV">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qgA-l9-4CV">
                                                             <rect key="frame" x="8" y="-33" width="125" height="180"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="125" id="1kv-Th-SUY"/>
                                                                 <constraint firstAttribute="height" constant="180" id="BVU-dI-PYF"/>
@@ -1408,9 +1409,9 @@
                                                             <rect key="frame" x="158" y="38" width="6" height="7"/>
                                                             <color key="backgroundColor" red="1" green="0.80392156859999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </view>
-                                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="aLf-yn-LUU">
-                                                            <rect key="frame" x="52" y="38.5" width="37" height="37"/>
-                                                            <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="aLf-yn-LUU">
+                                                            <rect key="frame" x="60.5" y="47" width="20" height="20"/>
+                                                            <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </activityIndicatorView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1606,8 +1607,9 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nyw-1i-daJ">
                                                     <rect key="frame" x="14" y="60.5" width="346" height="155"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noImage" translatesAutoresizingMaskIntoConstraints="NO" id="aJE-g6-DPF">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aJE-g6-DPF">
                                                             <rect key="frame" x="8" y="-33" width="125" height="180"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="125" id="0eb-K8-nPI"/>
                                                                 <constraint firstAttribute="height" constant="180" id="Y0g-70-zzE"/>
@@ -1707,9 +1709,9 @@
                                                             <rect key="frame" x="158" y="42" width="6" height="5"/>
                                                             <color key="backgroundColor" red="1" green="0.80392156859999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </view>
-                                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="dJl-lR-y2e">
-                                                            <rect key="frame" x="52" y="38.5" width="37" height="37"/>
-                                                            <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="dJl-lR-y2e">
+                                                            <rect key="frame" x="60.5" y="47" width="20" height="20"/>
+                                                            <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </activityIndicatorView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1849,11 +1851,11 @@
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="xgu-cp-Sdh" customClass="MovieDetailsViewController" customModule="LocadoraOleTraining" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yv8-0g-ux4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="u2h-zD-hwd">
-                                <rect key="frame" x="0.0" y="20" width="375" height="780"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="980"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellDetails" rowHeight="471" id="Ean-gf-K5s" customClass="DetailsTableViewCell" customModule="LocadoraOleTraining" customModuleProvider="target">
@@ -1865,6 +1867,7 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xz5-FM-mLF">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="170" id="beh-SX-nlE"/>
                                                     </constraints>
@@ -1874,6 +1877,7 @@
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nj0-iP-cES">
                                                             <rect key="frame" x="16" y="-44" width="134" height="189"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="189" id="wGU-OA-gdx"/>
                                                             </constraints>
@@ -1969,6 +1973,10 @@
                                                             <rect key="frame" x="167" y="134" width="25" height="23"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </button>
+                                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ZZQ-Pl-5g4">
+                                                            <rect key="frame" x="73" y="40" width="20" height="20"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </activityIndicatorView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -2010,6 +2018,10 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="1" green="0.80392156859999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="zQQ-9v-dWm">
+                                                    <rect key="frame" x="177" y="75" width="20" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
@@ -2034,29 +2046,32 @@
                                             <outlet property="labelSynopsis" destination="yI3-f8-wZI" id="fS8-sk-hOq"/>
                                             <outlet property="labelTime" destination="UA7-dY-JAQ" id="Ghe-wd-Nkq"/>
                                             <outlet property="labelWriter" destination="rHy-4M-Uuc" id="Srx-yP-UFx"/>
+                                            <outlet property="loadingBanner" destination="zQQ-9v-dWm" id="KD2-hh-ZRg"/>
+                                            <outlet property="loadingPoster" destination="ZZQ-Pl-5g4" id="oqM-4w-DiC"/>
                                             <outlet property="viewIMDB" destination="qsu-U5-Lds" id="j90-IX-0iO"/>
                                             <outlet property="viewPlay" destination="V1b-fZ-Jes" id="Mt4-fT-r9P"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellSimilarity" rowHeight="258" id="0oM-db-2mi" userLabel="cellSimilarity">
-                                        <rect key="frame" x="0.0" y="499" width="375" height="258"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellSimilarity" rowHeight="247" id="0oM-db-2mi" customClass="SimilarityTableViewCell" customModule="LocadoraOleTraining" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="499" width="375" height="247"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0oM-db-2mi" id="KKV-KM-Q9m">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="257.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="246.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FU4-Yr-pJL">
-                                                    <rect key="frame" x="13" y="51.5" width="349" height="155"/>
+                                                    <rect key="frame" x="21" y="46" width="340" height="155"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noImage" translatesAutoresizingMaskIntoConstraints="NO" id="ega-GZ-ugz">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ega-GZ-ugz">
                                                             <rect key="frame" x="8" y="-33" width="125" height="180"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="180" id="6Su-UQ-se8"/>
                                                                 <constraint firstAttribute="width" constant="125" id="CtH-ZG-MkE"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome do Filme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lxw-ik-Faq">
-                                                            <rect key="frame" x="158" y="11" width="144" height="12"/>
+                                                            <rect key="frame" x="158" y="11" width="135" height="12"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="10"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -2068,7 +2083,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duração Filme " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QbM-st-j50">
-                                                            <rect key="frame" x="175" y="36" width="48" height="11"/>
+                                                            <rect key="frame" x="166" y="36" width="48" height="11"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="48" id="aCK-Rz-aQe"/>
                                                             </constraints>
@@ -2096,20 +2111,20 @@
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFr-LA-btM">
-                                                            <rect key="frame" x="162" y="55" width="184" height="72"/>
+                                                            <rect key="frame" x="153" y="55" width="184" height="72"/>
                                                             <string key="text">Eddie Brock (Tom Hardy) é um jornalista investigativo, que tem um quadro próprio em uma emissora local. Um dia, ele é escalado para entrevistar Carlton Drake (Riz Ahmed), o criador da Fundação Vida, que tem investido bastante em missões espaciais de forma a encontrar possíveis usos medicinais para a humanidade. Após acessar um documento sigiloso enviado à sua namorada, a advogada Anne Weying (Michelle Williams), Brock descobre que Drake tem feito experimentos científicos em humanos. Ele resolve denunciar esta situação durante a entrevista, o que faz com que seja demitido. Seis meses depois, o ainda desempregado Brock é procurado pela dra. Dora Skirth (Jenny Slate) com uma denúncia: Drake estaria usando simbiontes alienígenas em testes com humanos, muitos deles mortos como cobaias.</string>
                                                             <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="8"/>
                                                             <color key="textColor" red="0.60784313729999995" green="0.63921568630000003" blue="0.61960784310000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movie" translatesAutoresizingMaskIntoConstraints="NO" id="aTW-7v-WlH">
-                                                            <rect key="frame" x="306" y="129" width="23" height="18"/>
+                                                            <rect key="frame" x="297" y="129" width="23" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="23" id="uaG-jk-961"/>
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 00,00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVP-fK-pv5">
-                                                            <rect key="frame" x="297" y="129" width="44" height="18"/>
+                                                            <rect key="frame" x="288" y="129" width="44" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="44" id="vCI-zk-Ezg"/>
                                                             </constraints>
@@ -2119,7 +2134,7 @@
                                                             <size key="shadowOffset" width="0.0" height="0.0"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ano Filme " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ijw-uY-t1O">
-                                                            <rect key="frame" x="217" y="36" width="42" height="11"/>
+                                                            <rect key="frame" x="208" y="36" width="42" height="11"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="11" id="Gqz-KO-NTt"/>
                                                                 <constraint firstAttribute="width" constant="42" id="bui-a3-fHE"/>
@@ -2129,26 +2144,26 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Of1-BM-wim">
-                                                            <rect key="frame" x="322" y="5" width="18" height="17"/>
+                                                            <rect key="frame" x="313" y="5" width="18" height="17"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="18" id="Ohg-ds-5KF"/>
                                                             </constraints>
                                                             <state key="normal" backgroundImage="likeGreen"/>
                                                         </button>
                                                         <view alpha="0.15000000596046448" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v1f-Ru-x2B">
-                                                            <rect key="frame" x="154.5" y="51" width="187.5" height="1"/>
+                                                            <rect key="frame" x="145.5" y="51" width="187.5" height="1"/>
                                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="1" id="bE8-fz-5Tl"/>
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YCy-vV-fHB">
-                                                            <rect key="frame" x="158" y="38" width="9" height="7"/>
+                                                            <rect key="frame" x="158" y="38" width="0.0" height="7"/>
                                                             <color key="backgroundColor" red="1" green="0.80392156859999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </view>
-                                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="l43-LC-Mck">
-                                                            <rect key="frame" x="52" y="38.5" width="37" height="37"/>
-                                                            <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="l43-LC-Mck">
+                                                            <rect key="frame" x="60.5" y="47" width="20" height="20"/>
+                                                            <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </activityIndicatorView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2196,11 +2211,45 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="FU4-Yr-pJL" secondAttribute="trailing" constant="-2" id="2IF-Po-7O8"/>
-                                                <constraint firstItem="FU4-Yr-pJL" firstAttribute="centerY" secondItem="KKV-KM-Q9m" secondAttribute="centerY" id="V7h-9T-TPH"/>
-                                                <constraint firstItem="FU4-Yr-pJL" firstAttribute="centerX" secondItem="KKV-KM-Q9m" secondAttribute="centerX" id="cDF-0w-Guc"/>
+                                                <constraint firstItem="FU4-Yr-pJL" firstAttribute="top" secondItem="KKV-KM-Q9m" secondAttribute="top" constant="46" id="Bdw-R5-vo9"/>
+                                                <constraint firstItem="FU4-Yr-pJL" firstAttribute="leading" secondItem="KKV-KM-Q9m" secondAttribute="leading" constant="21" id="OZt-eB-IKw"/>
+                                                <constraint firstAttribute="trailing" secondItem="FU4-Yr-pJL" secondAttribute="trailing" constant="14" id="dX7-qD-SRD"/>
+                                                <constraint firstAttribute="bottom" secondItem="FU4-Yr-pJL" secondAttribute="bottom" constant="45.5" id="haR-2a-zyq"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="buttonLike" destination="Of1-BM-wim" id="Dok-rU-G6F"/>
+                                            <outlet property="iconFilm" destination="aTW-7v-WlH" id="r3r-m1-0HW"/>
+                                            <outlet property="imageFilm" destination="ega-GZ-ugz" id="lWe-VO-mQr"/>
+                                            <outlet property="labelFilmCategory" destination="OnJ-Zf-4ZQ" id="Pdv-fS-fgy"/>
+                                            <outlet property="labelFilmDuration" destination="QbM-st-j50" id="fF1-qT-WVg"/>
+                                            <outlet property="labelFilmName" destination="Lxw-ik-Faq" id="Aw5-8h-mZ9"/>
+                                            <outlet property="labelFilmPrice" destination="PVP-fK-pv5" id="Ddf-Xl-H1j"/>
+                                            <outlet property="labelFilmSynopsis" destination="fFr-LA-btM" id="KOK-yy-Bla"/>
+                                            <outlet property="labelFilmYear" destination="Ijw-uY-t1O" id="lD1-Jt-yEf"/>
+                                            <outlet property="labelNote" destination="WE9-vq-MGI" id="9Rh-bn-HMe"/>
+                                            <outlet property="loadingImage" destination="l43-LC-Mck" id="P7F-dO-DJz"/>
+                                            <outlet property="viewBack" destination="FU4-Yr-pJL" id="iO7-yc-2D0"/>
+                                            <outlet property="viewNote" destination="3Ca-8p-8NT" id="Pme-c6-xOm"/>
+                                            <outlet property="viewYellPoint" destination="YCy-vV-fHB" id="WhF-eX-iYw"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cellLoading" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellLoading" rowHeight="50" id="5Fw-Qi-vMD" customClass="SimilarityTableViewCell" customModule="LocadoraOleTraining" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="746" width="375" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Fw-Qi-vMD" id="Y6p-Pi-naZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="VUL-ga-cPY">
+                                                    <rect key="frame" x="177" y="14" width="20" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="loadingPages" destination="VUL-ga-cPY" id="gm4-cL-zwf"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -2214,7 +2263,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MNN-UP-EkX"/>
                     </view>
-                    <size key="freeformSize" width="375" height="800"/>
+                    <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="tableView" destination="u2h-zD-hwd" id="3zB-VI-rlH"/>
                     </connections>
@@ -2542,7 +2591,6 @@
         <image name="logout" width="128" height="128"/>
         <image name="menuIcon" width="24" height="24"/>
         <image name="movie" width="24" height="24"/>
-        <image name="noImage" width="800" height="800"/>
         <image name="pay" width="128" height="128"/>
         <image name="play" width="128" height="128"/>
         <image name="profile" width="128" height="128"/>

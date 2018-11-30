@@ -71,6 +71,10 @@ class ValidateForm: NSObject {
         return shared.waitForImage(loading: loading, imagePoster: imagePoster, flag:flag)
     }
     
+    static func arrayToString(array: [String]) -> String {
+        return shared.arrayToString(array: array)
+    }
+    
     // MARK:-  IMPLEMENTATION OF STATIC METHODS
     
     func checkEmail(_ email: String) -> Bool {

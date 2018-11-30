@@ -33,27 +33,24 @@ class SearchCellViewModel {
     
     
     func setFilmInformations(film: Film, labelFilmName: UILabel, labelFilmCategory: UILabel, labelFilmDuration: UILabel, labelFilmYear: UILabel, labelFilmSynopsis: UILabel, LabelFilmPrice: UILabel, labelNote: UILabel, imageFilm: UIImageView, iconFilm: UIImageView, buttonLike: UIButton, loadingImage: UIActivityIndicatorView) {
-        ValidateForm.waitForImage(loading: loadingImage, imagePoster: imageFilm, flag: true)
         
-        var genresName = ""
+        imageFilm.isHidden = true
+        loadingImage.startAnimating()
         guard let posterId = film.posterId else { return }
         guard let url = APIManager.shared.getImagePoster(id: posterId, size: "original") else { return }
-        DispatchQueue.main.async {
-            imageFilm.setImageWith(url)
-            
+        let request = URLRequest(url: url)
+        imageFilm.setImageWith(request, placeholderImage: UIImage(named: "noImage"), success: { (request, response, image) in
+            imageFilm.isHidden = false
+            imageFilm.image = image
+            loadingImage.isHidden = true
+        }) { (request, response, error) in
+            imageFilm.isHidden = false
+            loadingImage.isHidden = true
         }
-        ValidateForm.waitForImage(loading: loadingImage, imagePoster: imageFilm, flag: false)
+
         
         labelFilmName.text = film.title
-        for genre in film.genreNames {
-            if genresName == "" {
-                genresName = genre
-            } else {
-                genresName = genresName + ", " + genre
-            }
-            
-        }
-        labelFilmCategory.text = genresName
+        labelFilmCategory.text = ValidateForm.arrayToString(array: film.genreNames)
         labelFilmDuration.text = film.runtime
         labelFilmYear.text = String(film.year)
         labelFilmSynopsis.text = film.overview

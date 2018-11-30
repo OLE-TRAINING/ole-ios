@@ -59,6 +59,30 @@ class Attributes: NSObject {
         
     }
     
+    func setAttributesText(labelText: String, size: CGFloat, fontFamily: String, spaceLine: Double, textColor: UIColor) -> NSAttributedString {
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .center
+        
+        
+        let font = UIFont(name: fontFamily, size: size) ?? UIFont.systemFont(ofSize: size)
+        
+        let attributes: [NSAttributedStringKey: Any] =
+            [
+                .kern: spaceLine,
+                .foregroundColor: textColor,
+                .font: font,
+                .paragraphStyle: paragraphStyle,
+                .baselineOffset: 2
+                
+        ]
+        let attributedQuote = NSAttributedString(string: labelText, attributes: attributes)
+//        label.attributedText = attributedQuote
+        return attributedQuote
+        
+        
+    }
+    
     
     func setAttributesBorderTextField(textField: UITextField, cor: UIColor, width: CGFloat) {
         
