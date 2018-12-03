@@ -71,8 +71,8 @@ class ViewModelNewPassword {
                                     completion(true)
                                 } else {
                                     completion(false)
-                                    Attributes.setInicialAttributes(textField: self.textFieldToken, stackView: self.stackViewInvalidToken)
-                                    //self.showLoading(status: false, button: button, loading: loading)
+                                    self.showLoading(status: false, button: button, loading: loading)
+                                    Attributes.setAttributeInvalidField(textField: self.textFieldToken, stackView: self.stackViewInvalidToken)
                                 }
 
                             })

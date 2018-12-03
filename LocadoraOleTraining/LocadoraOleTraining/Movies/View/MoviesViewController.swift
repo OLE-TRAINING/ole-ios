@@ -21,7 +21,6 @@ class MoviesViewController: UIViewController {
     var currentPage = 1
     var showLoading = false
     var currentFilm = Film()
-//    var flag = false
     
     @IBOutlet weak var viewLoading: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -33,7 +32,6 @@ class MoviesViewController: UIViewController {
         self.navigationController?.hidesBarsOnSwipe = true
         self.tableView.delegate = self
         self.tableView.dataSource = self
-      
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +43,9 @@ class MoviesViewController: UIViewController {
         
     }
     
+//    override func viewWillDisappear(_ animated: Bool) {
+//        filmsByGener = [Film]()
+//    }
     
     
     static func instance() -> MoviesViewController? {
@@ -62,19 +63,18 @@ class MoviesViewController: UIViewController {
             self.moviesViewModel.getFilms(page: page,id: self.genreId , completion: { [weak self] (films, totalPages, currentPage) in
                 self?.filmsByGener = films
                 self?.showLoading = true
-                self!.tableView.reloadData()
+                self?.tableView.reloadData()
                 guard let viewLoading = self!.viewLoading else { return }
                 MBProgressHUD.hideAllHUDs(for: viewLoading, animated: true)
                 viewLoading.isHidden = true
-                self!.isLoadingMore = false
+                self?.isLoadingMore = false
                 self?.totalPages = totalPages
                 self?.currentPage = currentPage
-                
                 if totalPages == currentPage {
                     //implementar desaparecimento do loading 
                 }
             })
-
+            
         })
         
     }
@@ -97,6 +97,11 @@ class MoviesViewController: UIViewController {
 
 extension MoviesViewController: UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate {
 
+//    func refreshTable(){
+//        let indexPathForSection = IndexSet([0])
+//        tableView.reloadSections(indexPathForSection, with: .automatic)
+//    }
+//
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -140,7 +145,6 @@ extension MoviesViewController: UITableViewDataSource, UITableViewDelegate, UISc
             }
             let movie = moviesViewModel.movies[indexPath.row]
             cell.configureCell(film: movie)
-            
         }
         
         if indexPath.section == 1 {
@@ -154,16 +158,12 @@ extension MoviesViewController: UITableViewDataSource, UITableViewDelegate, UISc
                 cell.hideLoading()
             }
             
-            
         }
     }
     
+    
+    
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        currentFilm = filmsByGener[indexPath.row]
-//        flag = true
-        //performSegue(withIdentifier: "ShowDetailsSegue", sender: self)
-    }
    
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         
@@ -176,7 +176,6 @@ extension MoviesViewController: UITableViewDataSource, UITableViewDelegate, UISc
             fetchMovies(page: page)
             page += 1
             
-            tableView.reloadData()
         }
         
         

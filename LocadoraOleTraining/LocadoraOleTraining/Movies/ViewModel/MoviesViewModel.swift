@@ -10,9 +10,14 @@ import Foundation
 
 class MoviesViewModel {
      var movies = [Film]()
+    var dataTask: URLSessionDataTask?
     
-    func getFilms(page: Int, id: Int, completion: @escaping ([Film], Int, Int) -> Void) {
-        APIManager.shared.getFilms(id: id, page: page, filter: "genres") { (filmsByGenre) in
+    func getFilms(page: Int, id: Int, completion: @escaping ([Film], Int, Int) -> Void){
+        if dataTask != nil {
+            dataTask?.cancel()
+        }
+        
+        dataTask = APIManager.shared.getFilms(id: id, page: page, filter: "genres") { (filmsByGenre) in
             self.movies.append(contentsOf: filmsByGenre.results)
             completion(self.movies, filmsByGenre.totalPages, filmsByGenre.page)
             

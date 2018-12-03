@@ -72,6 +72,7 @@ struct FilmDetails: Decodable {
 protocol APIManagerDelegate {
     func notifySessionExpired()
     func notifyLogout()
+    func notifyInvalidEmail()
 }
 
 
@@ -229,40 +230,38 @@ class APIManager: NSObject {
             "newPasswordConfirmation" : newPasswordConfirmation
         ] as [String : Any]
         
-        //manager.requestSerializer.setValue("success", forHTTPHeaderField: xMockKey)
         manager.put(url, parameters: parameters, success: { (task, responseObject) in
             completion(true)
         }) { (task, error) in
             completion(false)
-//            print(error.debugDescription)
             //ValidateForm.showAlertError()
         }
 
     }
     
-    func getFilmGenres(completion: @escaping (FilmGenre?) -> Void) {
+    func getFilmGenres(completion: @escaping (FilmGenre?) -> Void) -> URLSessionDataTask? {
         let url = baseURL + APIManager.getFilmGenres + key
         
         //manager.requestSerializer.setValue("success", forHTTPHeaderField: xMockKey)
         setAuthorizationToken(bearerToken: self.bearerToken)
-        self.get(url: url, success: { (task, responseObject) in
+        return self.get(url: url, success: { (task, responseObject) in
             let dataJson = try! JSONSerialization.data(withJSONObject: responseObject as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
             let genre = try?
                 JSONDecoder().decode(FilmGenre.self, from: dataJson)
             completion(genre)
+            
         }) { (task, error) in
             let genre = FilmGenre()
-            print(error.debugDescription)
             completion(genre)
         }
     }
     
-    func getFilms(id: Int, page: Int, filter: String, completion: @escaping (FilmsByGener) -> Void) {
+    func getFilms(id: Int, page: Int, filter: String, completion: @escaping (FilmsByGener) -> Void) -> URLSessionDataTask? {
         //let url = baseURL + APIManager.getFilmGenres + "/\(id)" + APIManager.getMovies + key + "&page=\(page)&amount=\(filmsPerPage)"
         let url = baseURL + APIManager.getMovies + key + "&filter=\(filter)&page=\(page)&amount=\(filmsPerPage)&filter_id=\(id)"
         
         setAuthorizationToken(bearerToken: self.bearerToken)
-        self.get(url: url, success: { (task, responseObject) in
+        return self.get(url: url, success: { (task, responseObject) in
             let dataJson = try! JSONSerialization.data(withJSONObject: responseObject as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
             do {
                 let films = try
@@ -334,12 +333,12 @@ class APIManager: NSObject {
                 completion(films)
             } catch {
             }
-        //print(responseObject.debugDescription)
+//        print(responseObject.debugDescription)
 
         }) { (task, error) in
             let film = FilmsByGener()
             completion(film)
-            //print(error.debugDescription)
+//            print(error.debugDescription)
         }
 
     }
@@ -383,10 +382,10 @@ class APIManager: NSObject {
 
     
     //criar um novo método get que encapsule a função de deserialização do arquivo json
-    private func get(url: String, success: @escaping (URLSessionDataTask?, Any?) -> Void, failure: @escaping (URLSessionDataTask?, Error?) -> Void) {
+    private func get(url: String, success: @escaping (URLSessionDataTask?, Any?) -> Void, failure: @escaping (URLSessionDataTask?, Error?) -> Void) -> URLSessionDataTask? {
         
         
-        manager.get(url, parameters: nil, progress: nil, success: { [weak self] (task, responseObject) in
+        return manager.get(url, parameters: nil, progress: nil, success: { [weak self] (task, responseObject) in
             self?.getHeaders(responseObject: task.response)
             success(task, responseObject)
         }) { [weak self] (task, error) in
@@ -422,6 +421,9 @@ class APIManager: NSObject {
         guard let statusCode = responseObject?.statusCode else { return }
         if statusCode == 401 {
             delegate?.notifySessionExpired()
+        }
+        if statusCode == 404 {
+            delegate?.notifyInvalidEmail()
         }
         
     }

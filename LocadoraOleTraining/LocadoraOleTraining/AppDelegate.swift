@@ -76,5 +76,16 @@ extension AppDelegate: APIManagerDelegate {
         
     }
     
+    func notifyInvalidEmail() {
+        guard let viewController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController else { return }
+        let alertController = UIAlertController(title: "Ops..", message: "Não foi possível realizar o cadastro com este email", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Tentar novamente", style: .default) {
+            _ in
+            viewController.popToRootViewController(animated: true)
+        }
+        alertController.addAction(okAction)
+        viewController.present(alertController, animated: true, completion: nil)
+    }
+    
 }
 

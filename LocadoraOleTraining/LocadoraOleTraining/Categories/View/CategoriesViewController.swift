@@ -98,10 +98,6 @@ extension CategoriesViewController: PageboyViewControllerDataSource  {
                     viewControllers.append(vc)
                     
                 }
-                
-//                guard let vc = viewController else { return }
-//                vc.genreId = filmGenres[index].id
-                //viewControllers.append(vc)
 
             }
 
