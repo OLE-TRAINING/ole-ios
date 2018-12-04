@@ -43,11 +43,6 @@ class MoviesViewController: UIViewController {
         
     }
     
-//    override func viewWillDisappear(_ animated: Bool) {
-//        filmsByGener = [Film]()
-//    }
-    
-    
     static func instance() -> MoviesViewController? {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let viewController = storyboard.instantiateViewController(withIdentifier: "MoviesViewController") as? MoviesViewController else {
@@ -97,11 +92,6 @@ class MoviesViewController: UIViewController {
 
 extension MoviesViewController: UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate {
 
-//    func refreshTable(){
-//        let indexPathForSection = IndexSet([0])
-//        tableView.reloadSections(indexPathForSection, with: .automatic)
-//    }
-//
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -161,11 +151,7 @@ extension MoviesViewController: UITableViewDataSource, UITableViewDelegate, UISc
         }
     }
     
-    
-    
-
-   
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         
         let currentOffset = scrollView.contentOffset.y
         let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
@@ -178,9 +164,18 @@ extension MoviesViewController: UITableViewDataSource, UITableViewDelegate, UISc
             
         }
         
-        
+        if(velocity.y>0) {
+            UIView.animate(withDuration: 2.5, delay: 0, options: UIViewAnimationOptions(), animations: {
+                self.navigationController?.setNavigationBarHidden(true, animated: true)
+            }, completion: nil)
+            
+        } else {
+            UIView.animate(withDuration: 2.5, delay: 0, options: UIViewAnimationOptions(), animations: {
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
+                
+            }, completion: nil)
+        }
     }
-
     
 }
 

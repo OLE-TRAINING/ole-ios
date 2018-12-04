@@ -32,7 +32,7 @@ class SimilarityViewModel {
         let request = URLRequest(url: url)
         imageFilm.setImageWith(request, placeholderImage: UIImage(named: "noImage"), success: { (request, response, image) in
             imageFilm.isHidden = false
-            imageFilm.image = image
+            imageFilm.image = image.resizeImage(CGSize(width: 125, height: 180))
             loadingImage.isHidden = true
         }) { (request, response, error) in
             imageFilm.isHidden = false

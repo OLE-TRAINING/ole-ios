@@ -10,7 +10,6 @@ import UIKit
 
 class MovieDetailsViewController: UIViewController {
 
-     
     @IBOutlet weak var tableView: UITableView!
     
     let movieDetailsViewModel = MovieDetailsViewModel()
@@ -75,6 +74,7 @@ class MovieDetailsViewController: UIViewController {
             })
 
     }
+
 }
 
 extension MovieDetailsViewController: UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate {
@@ -179,23 +179,21 @@ extension MovieDetailsViewController: UITableViewDataSource, UITableViewDelegate
         return ""
     }
 
-    
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         let currentOffset = scrollView.contentOffset.y
         let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
-
+        
         if maximumOffset - currentOffset <= 10.0 && !isLoadingMore {
             //print("CARREGANDO MAIS FILMES")
             isLoadingMore = true
             fetchMovies(page: page)
             page += 1
-
+            
             tableView.reloadData()
         }
-
-
+        
     }
+
     
     
 }

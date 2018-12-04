@@ -39,7 +39,7 @@ class DetailsCellViewModel {
             let request = URLRequest(url: urlPoster)
             imagePoster.setImageWith(request, placeholderImage: UIImage(named: "noImage"), success: { (request, response, image) in
                 imagePoster.isHidden = false
-                imagePoster.image = image
+                imagePoster.image = image.resizeImage(CGSize(width: 125, height: 180))
                 loadingPoster.isHidden = true
             }) { (request, response, error) in
                 imagePoster.isHidden = false
@@ -52,7 +52,7 @@ class DetailsCellViewModel {
             let requestBanner = URLRequest(url: urlBanner)
             imageBanner.setImageWith(requestBanner, placeholderImage: UIImage(named: "noImage"), success: { (request, response, image) in
                 imageBanner.isHidden = false
-                imageBanner.image = image
+                imageBanner.image = image.resizeImage(CGSize(width: 375, height: 170))
                 loadingBanner.isHidden = true
             }) { (request, response, error) in
                 imageBanner.isHidden = false
@@ -61,45 +61,5 @@ class DetailsCellViewModel {
             ValidateForm.checkFavorite(buttonLike: buttonLike, favorite: details.favorit)
         }
     }
-//
-//    func setFilmInformations(film: FilmDetails, labelFilmName: UILabel, labelFilmGenres: UILabel, labelNote: UILabel, labelTime: UILabel ,labelFilmDuration: UILabel, labelFilmYear: UILabel,  imagePoster: UIImageView, imageBanner: UIImageView, buttonLike: UIButton, labelFilmSynopsis: UILabel) {
-////        ValidateForm.waitForImage(loading: loadingImage, imagePoster: imageFilm, flag: true)
-//
-//        var genresName = ""
-//        guard let posterId = film.posterId else { return }
-//        guard let url = APIManager.shared.getImagePoster(id: posterId, size: "original") else { return }
-//        DispatchQueue.main.async {
-//            imagePoster.setImageWith(url)
-//
-//        }
-//        //ValidateForm.waitForImage(loading: loadingImage, imagePoster: imageFilm, flag: false)
-//
-//        labelFilmName.text = film.title
-//        for genre in film.genreNames {
-//            if genresName == "" {
-//                genresName = genre
-//            } else {
-//                genresName = genresName + ", " + genre
-//            }
-//
-//        }
-//        labelFilmGenres.text = genresName
-//        for genre in film. {
-//            if genresName == "" {
-//                genresName = genre
-//            } else {
-//                genresName = genresName + ", " + genre
-//            }
-//
-//        }
-//        labelTime.text = "\(film.year) \()"
-//        labelFilmDuration.text = film.runtime
-//        labelFilmYear.text = String(film.year)
-//        labelFilmSynopsis.text = film.overview
-//        labelNote.text = "\(String(film.voteAverage))/10"
-//
-////        ValidateForm.checkFilmAcquired(acquired: film.acquired, labelPrice: LabelFilmPrice, imageAcquired: iconFilm)
-//        ValidateForm.checkFavorite(buttonLike: buttonLike, favorite: film.favorit)
-//
-//    }
+
 }

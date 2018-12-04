@@ -22,7 +22,7 @@ struct Genre : Decodable {
 }
 
 struct FilmGenre: Decodable {
-    var genre:String? = nil
+//    var genre:String? = nil
     var genres = [Genre]()
 }
 
@@ -239,12 +239,12 @@ class APIManager: NSObject {
 
     }
     
-    func getFilmGenres(completion: @escaping (FilmGenre?) -> Void) -> URLSessionDataTask? {
+    func getFilmGenres(completion: @escaping (FilmGenre?) -> Void) {
         let url = baseURL + APIManager.getFilmGenres + key
         
         //manager.requestSerializer.setValue("success", forHTTPHeaderField: xMockKey)
         setAuthorizationToken(bearerToken: self.bearerToken)
-        return self.get(url: url, success: { (task, responseObject) in
+        self.get(url: url, success: { (task, responseObject) in
             let dataJson = try! JSONSerialization.data(withJSONObject: responseObject as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
             let genre = try?
                 JSONDecoder().decode(FilmGenre.self, from: dataJson)
@@ -256,12 +256,12 @@ class APIManager: NSObject {
         }
     }
     
-    func getFilms(id: Int, page: Int, filter: String, completion: @escaping (FilmsByGener) -> Void) -> URLSessionDataTask? {
+    func getFilms(id: Int, page: Int, filter: String, completion: @escaping (FilmsByGener) -> Void){
         //let url = baseURL + APIManager.getFilmGenres + "/\(id)" + APIManager.getMovies + key + "&page=\(page)&amount=\(filmsPerPage)"
         let url = baseURL + APIManager.getMovies + key + "&filter=\(filter)&page=\(page)&amount=\(filmsPerPage)&filter_id=\(id)"
         
         setAuthorizationToken(bearerToken: self.bearerToken)
-        return self.get(url: url, success: { (task, responseObject) in
+        self.get(url: url, success: { (task, responseObject) in
             let dataJson = try! JSONSerialization.data(withJSONObject: responseObject as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
             do {
                 let films = try
@@ -382,10 +382,10 @@ class APIManager: NSObject {
 
     
     //criar um novo método get que encapsule a função de deserialização do arquivo json
-    private func get(url: String, success: @escaping (URLSessionDataTask?, Any?) -> Void, failure: @escaping (URLSessionDataTask?, Error?) -> Void) -> URLSessionDataTask? {
+    private func get(url: String, success: @escaping (URLSessionDataTask?, Any?) -> Void, failure: @escaping (URLSessionDataTask?, Error?) -> Void) {
         
         
-        return manager.get(url, parameters: nil, progress: nil, success: { [weak self] (task, responseObject) in
+        manager.get(url, parameters: nil, progress: nil, success: { [weak self] (task, responseObject) in
             self?.getHeaders(responseObject: task.response)
             success(task, responseObject)
         }) { [weak self] (task, error) in

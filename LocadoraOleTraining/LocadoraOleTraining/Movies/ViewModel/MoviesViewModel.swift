@@ -10,14 +10,9 @@ import Foundation
 
 class MoviesViewModel {
      var movies = [Film]()
-    var dataTask: URLSessionDataTask?
     
     func getFilms(page: Int, id: Int, completion: @escaping ([Film], Int, Int) -> Void){
-        if dataTask != nil {
-            dataTask?.cancel()
-        }
-        
-        dataTask = APIManager.shared.getFilms(id: id, page: page, filter: "genres") { (filmsByGenre) in
+        APIManager.shared.getFilms(id: id, page: page, filter: "genres") { (filmsByGenre) in
             self.movies.append(contentsOf: filmsByGenre.results)
             completion(self.movies, filmsByGenre.totalPages, filmsByGenre.page)
             
@@ -29,9 +24,9 @@ class MoviesViewModel {
         
     }
     
-    func loadForFilms(tableView: UITableView, loading: UIActivityIndicatorView) {
-       
-    }
+//    func loadForFilms(tableView: UITableView, loading: UIActivityIndicatorView) {
+//
+//    }
     
     func getGenres(completion: @escaping ([Genre]) -> Void) {
         APIManager.shared.getFilmGenres { (genres) in
@@ -42,8 +37,6 @@ class MoviesViewModel {
                 } else {
                     genre.append(index)
                 }
-                
-                
             }
             completion(genre)
         }
