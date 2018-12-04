@@ -10,6 +10,7 @@ import Foundation
 
 class HomeViewModel  {
     
+    var userEmail = ""
   
     func startHome() -> UILabel {
         let navLabel = UILabel()
@@ -23,8 +24,20 @@ class HomeViewModel  {
         
         navLabel.attributedText = navTitle
         
+        
         return navLabel
     }
    
+    func setEmailAndUsername(userEmail: String, email: UILabel, username: UILabel) {
+        self.userEmail = userEmail
+        email.text = userEmail
+        APIManager.shared.getUserWithEmail(userEmail) { (user) in
+            username.text = user?.username
+        }
+    }
+    
+    func logout() {
+        APIManager.shared.logout(email: userEmail)
+    }
     
 }

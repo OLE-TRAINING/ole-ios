@@ -62,8 +62,8 @@ class ViewModelNewPassword {
             if ValidateForm.checkPassword(password: password) {
                 Attributes.setInicialAttributes(textField: self.textFieldNewPassword, stackView: self.stackViewInvalidPassword)
                 if password == confirmationPassword {
-                    APIManager.shared.validateToken(textFieldCode: textFieldToken, email: self.email) { (result) in
-                        if result {
+//                    APIManager.shared.validateToken(textFieldCode: textFieldToken, email: self.email) { (result) in
+//                        if result {
                             APIManager.shared.changePassword(email: self.email, confirmationToken: token, newPassword: password, newPasswordConfirmation: confirmationPassword, completion: { (result) in
                                 if result {
                                     Attributes.setInicialAttributes(textField: self.textFieldNewPassword, stackView: self.stackViewInvalidPassword)
@@ -72,14 +72,15 @@ class ViewModelNewPassword {
                                 } else {
                                     completion(false)
                                     self.showLoading(status: false, button: button, loading: loading)
+                                    Attributes.setAttributeInvalidField(textField: self.textFieldToken, stackView: self.stackViewInvalidToken)
                                 }
 
                             })
-                        } else {
-                            self.showLoading(status: false, button: button, loading: loading)
-                            Attributes.setAttributeInvalidField(textField: self.textFieldToken, stackView: self.stackViewInvalidToken)
-                        }
-                    }
+//                        } else {
+//                            self.showLoading(status: false, button: button, loading: loading)
+//                            Attributes.setAttributeInvalidField(textField: self.textFieldToken, stackView: self.stackViewInvalidToken)
+//                        }
+//                    }
                 } else {
                     self.showLoading(status: false, button: button, loading: loading)
                     Attributes.setAttributeInvalidField(textField: self.textFieldConfirmPassword, stackView: self.stackViewInvalidConfirmation)

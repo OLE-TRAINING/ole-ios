@@ -11,33 +11,34 @@ import Foundation
 class MoviesViewModel {
      var movies = [Film]()
     
-    func getFilms(id: Int, completion: @escaping ([Film]) -> Void) {
-        APIManager.shared.getFilmsByGenre(id: id) { (films) in
-            self.movies = films
-            completion(films)
+    func getFilms(page: Int, id: Int, completion: @escaping ([Film], Int, Int) -> Void){
+        APIManager.shared.getFilms(id: id, page: page, filter: "genres") { (filmsByGenre) in
+            self.movies.append(contentsOf: filmsByGenre.results)
+            completion(self.movies, filmsByGenre.totalPages, filmsByGenre.page)
+            
+            if filmsByGenre.page == filmsByGenre.totalPages {
+                //implementar comportamento
+            }
             
         }
         
     }
     
-    func loadForFilms(tableView: UITableView, loading: UIActivityIndicatorView) {
-       
-    }
+//    func loadForFilms(tableView: UITableView, loading: UIActivityIndicatorView) {
+//
+//    }
     
-    func getGenres(completion: @escaping ([String], [Int]) -> Void) {
-        
-        
+    func getGenres(completion: @escaping ([Genre]) -> Void) {
         APIManager.shared.getFilmGenres { (genres) in
-            var genersForTab = [String]()
-            var genredId = [Int]()
-            for index in (genres?.genres)! {
-                guard let gener = index.name else { return }
-                let id = index.id
-                genersForTab.append(gener)
-                genredId.append(id)
-                
+            var genre = [Genre]()
+            for index in (genre) {
+                if index.id == -1 {
+                    genre.insert(index, at: 0)
+                } else {
+                    genre.append(index)
+                }
             }
-            completion(genersForTab, genredId)
+            completion(genre)
         }
         
     }

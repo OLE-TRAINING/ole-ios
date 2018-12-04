@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AKSideMenu
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -58,5 +59,33 @@ extension AppDelegate: APIManagerDelegate {
         viewController.present(alertController, animated: true, completion: nil)
     
     }
+    
+    func notifyLogout() {
+        guard let viewController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController else { return }
+        let alertController = UIAlertController(title: "Sair...", message: "Deseja sair do aplicativo?", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Sair", style: .default) {
+            _ in
+            viewController.popToRootViewController(animated: true)
+        }
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel) { _ in
+            
+        }
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        viewController.present(alertController, animated: true, completion: nil)
+        
+    }
+    
+    func notifyInvalidEmail() {
+        guard let viewController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController else { return }
+        let alertController = UIAlertController(title: "Ops..", message: "Não foi possível realizar o cadastro com este email", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Tentar novamente", style: .default) {
+            _ in
+            viewController.popToRootViewController(animated: true)
+        }
+        alertController.addAction(okAction)
+        viewController.present(alertController, animated: true, completion: nil)
+    }
+    
 }
 

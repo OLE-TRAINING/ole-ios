@@ -10,11 +10,14 @@ import UIKit
 import Pageboy
 import Tabman
 
+
+
 class CategoriesViewController: TabmanViewController {
     
     private var viewControllers = [UIViewController]()
     
-    var filmGeners = [String]()
+    var viewController = UIViewController()
+    var filmGenres = [Genre]()
     var filmsByGener = [Film]()
 
     @IBOutlet weak var viewLoading: UIView!
@@ -37,11 +40,8 @@ class CategoriesViewController: TabmanViewController {
         
         let greenColor = UIColor(red: 0.070, green: 0.592, blue: 0.576   , alpha: 1)
         let yellowColor = UIColor(red: 1.0, green: 0.804, blue: 0.0, alpha: 1)
-        
-        
-        
+    
         initializeViewControllers(count: 20) //por enquanto, valor está fixo
-        
         
         self.bar.style = .scrollingButtonBar
         self.bar.location = .top
@@ -70,23 +70,36 @@ extension CategoriesViewController: PageboyViewControllerDataSource  {
     private func initializeViewControllers(count: Int) {
         var viewControllers = [UIViewController]()
         var itens = [Item]()
-        var filmGenres = [String]()
         
-        categoriesViewModel.getGenres(completion: { (genres, ids) in
+        categoriesViewModel.getGenres(completion: { (genres) in
 
-            for genre in genres {
-                filmGenres.append(genre)
-            }
+            self.filmGenres = genres
+            let viewController = MoviesViewController.instance()
+            guard let vc = viewController else { return }
             
             for index in 0 ..< count {
+                
                 let viewController = MoviesViewController.instance()
-                itens.append(Item(title: filmGenres[index]))
                 guard let vc = viewController else { return }
-                viewControllers.append(vc)
+                
+                if index == 0 {
+                    //Lamçamentos
+                    itens.insert((Item(title: "Lançamentos")), at: index)
+                    vc.genreId = self.filmGenres[index].id
+                    viewControllers.insert(vc, at: 0)
+                    
+                } else {
+                    guard let titleMovie = self.filmGenres[index].name else { return }
+                    itens.append(Item(title: titleMovie))
+                    vc.genreId = self.filmGenres[index].id
+                    viewControllers.append(vc)
+                    
+                }
 
             }
 
             self.bar.items = itens
+            self.viewController = vc
             self.viewControllers = viewControllers
             self.reloadPages()
             
@@ -97,11 +110,13 @@ extension CategoriesViewController: PageboyViewControllerDataSource  {
     
     func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {
         return viewControllers.count
+//        return 1
     }
     
     
     func viewController(for pageboyViewController: PageboyViewController, at index: PageboyViewController.PageIndex) -> UIViewController? {
         return self.viewControllers[index]
+
     }
     
     func defaultPage(for pageboyViewController: PageboyViewController) -> PageboyViewController.Page? {

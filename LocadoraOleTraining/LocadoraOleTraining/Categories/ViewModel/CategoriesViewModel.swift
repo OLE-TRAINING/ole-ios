@@ -15,19 +15,18 @@ class CategoriesViewModel {
     }
     
     
-    func getGenres(completion: @escaping ([String], [Int]) -> Void) {
-        
+    func getGenres(completion: @escaping ([Genre]) -> Void) {
         APIManager.shared.getFilmGenres { (genres) in
-            var genersForTab = [String]()
-            var genredId = [Int]()
+            var genre = [Genre]()
             for index in (genres?.genres)! {
-                guard let gener = index.name else { return }
-                let id = index.id
-                genersForTab.append(gener)
-                genredId.append(id)
+                if index.id == -1 {
+                    genre.insert(index, at: 0)
+                } else {
+                    genre.append(index)
+                }
                 
             }
-            completion(genersForTab, genredId)
+            completion(genre)
         }
         
     }

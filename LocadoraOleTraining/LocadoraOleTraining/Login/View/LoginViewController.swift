@@ -22,6 +22,8 @@ class LoginViewController: UIViewController {
     var emailUser: String?
     var loginViewModel = LoginViewModel()
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loginViewModel.startLogin(labelTitle: labelTitle, labelEmail: labelEmail, viewInvalidData: viewInvalidData, emailUser: emailUser)
@@ -48,6 +50,7 @@ class LoginViewController: UIViewController {
     @IBAction func logInButton(_ sender: UIButton) {
         loginViewModel.showLoading(status: true, button: buttonLogIn, loading: loadingLogIn)
         guard let email = emailUser else { return }
+        UserDefaults.standard.set(email, forKey: "email")
         loginViewModel.authenticateUser(email: email, textFieldPassword: textFieldPassword, button: buttonLogIn, loading: loadingLogIn, completion: {(result) in
             if result {
                 self.goToHomeScreen()
@@ -81,6 +84,8 @@ extension LoginViewController {
         if let email = labelEmail.text {
             controller.emailUser = email
         }
+        
         self.navigationController?.pushViewController(controller, animated: true)
     }
+    
 }
