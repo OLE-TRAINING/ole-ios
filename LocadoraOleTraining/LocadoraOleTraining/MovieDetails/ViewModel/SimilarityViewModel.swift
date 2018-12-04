@@ -50,4 +50,5 @@ class SimilarityViewModel {
         ValidateForm.checkFavorite(buttonLike: buttonLike, favorite: film.favorit)
         
     }
+
 }

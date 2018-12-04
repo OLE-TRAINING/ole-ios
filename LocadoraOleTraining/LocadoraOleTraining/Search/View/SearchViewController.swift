@@ -24,7 +24,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate    {
     var showLoading = false
     var searchText = ""
     var noResults = false
-    
+    var noMoreFilmsToLoad = false
     
     
     override func viewDidLoad() {
@@ -54,18 +54,19 @@ class SearchViewController: UIViewController, UISearchBarDelegate    {
                 self!.searchTableView.reloadData()
                 
             } else {
+                self?.noResults = false
                 self?.showLoading = true
-                self!.searchTableView.reloadData()
+                self?.searchTableView.reloadData()
                 guard let viewLoading = self!.viewLoading else { return }
                 MBProgressHUD.hideAllHUDs(for: viewLoading, animated: true)
                 viewLoading.isHidden = true
-                self!.isLoadingMore = false
+                self?.isLoadingMore = false
                 self?.totalPages = totalPages
                 self?.currentPage = currentPage
                 
                 
                 if totalPages == currentPage {
-                    //print("Sem mais páginas para carregar")
+                    self?.noMoreFilmsToLoad = true
                 }
             }
             
@@ -90,6 +91,18 @@ class SearchViewController: UIViewController, UISearchBarDelegate    {
         searchTableView.reloadData()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "SearchDetailsSegue"
+        {
+            if let destinationVC = segue.destination as? MovieDetailsViewController {
+                let selectedRow = searchTableView.indexPathForSelectedRow?.row
+                destinationVC.idFilm = filmsByGener[selectedRow!].id
+                destinationVC.flag = true
+            }
+        }
+        
+    }
     
 
 }
@@ -154,7 +167,7 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate, UISc
             
             cell.configureNoResultsLabel(searchText: searchText)
             cell.noResultsForSearch(noResults)
-            
+            cell.noMoreFilmsToLoad(noMoreFilmsToLoad)
             
         }
     }

@@ -23,10 +23,7 @@ class MoviesViewModel {
         }
         
     }
-    
-//    func loadForFilms(tableView: UITableView, loading: UIActivityIndicatorView) {
-//
-//    }
+
     
     func getGenres(completion: @escaping ([Genre]) -> Void) {
         APIManager.shared.getFilmGenres { (genres) in

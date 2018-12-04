@@ -193,6 +193,16 @@ extension MovieDetailsViewController: UITableViewDataSource, UITableViewDelegate
         }
         
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedRow = tableView.indexPathForSelectedRow?.row
+        self.idFilm = filmsByGener[selectedRow!].id
+        self.flag = true
+        tableView.reloadData()
+        //tableView.setContentOffset(.zero, animated: true)
+        tableView.layoutIfNeeded()
+        tableView.contentOffset = CGPoint(x: 0, y: -tableView.contentInset.top)
+    }
 
     
     
