@@ -24,7 +24,6 @@ class MovieDetailsViewController: UIViewController {
     var showLoading = false
     var flag = false
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
@@ -33,6 +32,8 @@ class MovieDetailsViewController: UIViewController {
         self.navigationController?.hidesBarsOnSwipe = false       
         self.navigationItem.titleView = movieDetailsViewModel.startHome()
         self.navigationController?.isNavigationBarHidden = false
+
+        
         let backButton = UIBarButtonItem(image: UIImage(named: "back"), style: .plain, target: self, action: #selector(handleBackButton))
         backButton.title = " "
         backButton.tintColor = UIColor.white
@@ -198,10 +199,9 @@ extension MovieDetailsViewController: UITableViewDataSource, UITableViewDelegate
         let selectedRow = tableView.indexPathForSelectedRow?.row
         self.idFilm = filmsByGener[selectedRow!].id
         self.flag = true
-        tableView.reloadData()
-        //tableView.setContentOffset(.zero, animated: true)
-        tableView.layoutIfNeeded()
-        tableView.contentOffset = CGPoint(x: 0, y: -tableView.contentInset.top)
+        self.tableView.reloadData()
+        self.tableView.layoutIfNeeded()
+        self.tableView.scrollToRow(at: IndexPath(row: 0,  section:0 ), at: .top , animated: true)
     }
 
     

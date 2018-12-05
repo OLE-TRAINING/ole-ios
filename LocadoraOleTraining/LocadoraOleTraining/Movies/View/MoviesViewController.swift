@@ -32,6 +32,7 @@ class MoviesViewController: UIViewController {
         self.navigationController?.hidesBarsOnSwipe = true
         self.tableView.delegate = self
         self.tableView.dataSource = self
+//        self.tableView.allowsSelection = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -176,6 +177,8 @@ extension MoviesViewController: UITableViewDataSource, UITableViewDelegate, UISc
             }, completion: nil)
         }
     }
+    
+    
     
 }
 

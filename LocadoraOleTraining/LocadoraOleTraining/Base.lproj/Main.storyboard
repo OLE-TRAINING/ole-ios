@@ -1495,7 +1495,6 @@
                                             <outlet property="viewBack" destination="Xve-wZ-has" id="CdX-v0-dOY"/>
                                             <outlet property="viewNote" destination="4ig-EV-7SE" id="Fg0-Gj-wMt"/>
                                             <outlet property="viewPoint" destination="7mm-hu-DHT" id="Bc4-mj-Fsn"/>
-                                            <segue destination="xgu-cp-Sdh" kind="show" identifier="SearchDetailsSegue" id="Qls-LV-HM6"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" shouldIndentWhileEditing="NO" reuseIdentifier="cellLoading" focusStyle="custom" rowHeight="50" id="P9W-5f-bHR" customClass="SearchTableViewCell" customModule="LocadoraOleTraining" customModuleProvider="target">
@@ -1591,7 +1590,7 @@
                         <outlet property="searchResultsDelegate" destination="8fc-Uj-v7A" id="BAD-hB-qTf"/>
                     </connections>
                 </searchDisplayController>
-                <tapGestureRecognizer id="U8T-Z3-mLg">
+                <tapGestureRecognizer cancelsTouchesInView="NO" id="U8T-Z3-mLg">
                     <connections>
                         <action selector="tapToHideKeyboard:" destination="8fc-Uj-v7A" id="VZB-WG-5ry"/>
                     </connections>
@@ -1864,7 +1863,7 @@
         <!--Movie Details View Controller-->
         <scene sceneID="gWp-Da-ibW">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="xgu-cp-Sdh" customClass="MovieDetailsViewController" customModule="LocadoraOleTraining" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MovieDetailsViewController" hidesBottomBarWhenPushed="YES" id="xgu-cp-Sdh" customClass="MovieDetailsViewController" customModule="LocadoraOleTraining" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yv8-0g-ux4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2525,7 +2524,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Keg-hB-WeG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="MCf-vy-iFS"/>
+                <tapGestureRecognizer cancelsTouchesInView="NO" id="MCf-vy-iFS"/>
             </objects>
             <point key="canvasLocation" x="7588" y="-397.15142428785612"/>
         </scene>
@@ -2612,7 +2611,4 @@
         <image name="profilePhoto" width="225" height="225"/>
         <image name="search" width="24" height="24"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="Qls-LV-HM6"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -12,6 +12,7 @@
 		5C04923E21AD4EF600ACC5DF /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C04923D21AD4EF600ACC5DF /* SearchViewModel.swift */; };
 		5C04924021AD4FCD00ACC5DF /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C04923F21AD4FCD00ACC5DF /* SearchTableViewCell.swift */; };
 		5C04924221AD500000ACC5DF /* SearchCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C04924121AD500000ACC5DF /* SearchCellViewModel.swift */; };
+		5C253F2821B8335E00BEE65E /* PreLoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C253F2721B8335E00BEE65E /* PreLoginTests.swift */; };
 		5C4F6AD5216F746D00688CB6 /* NewRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4F6AD4216F746D00688CB6 /* NewRegistrationViewController.swift */; };
 		5C4F6ADE216F816F00688CB6 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C4F6AD6216F816E00688CB6 /* Roboto-Black.ttf */; };
 		5C4F6ADF216F816F00688CB6 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5C4F6AD7216F816E00688CB6 /* Roboto-Regular.ttf */; };
@@ -92,6 +93,7 @@
 		5C04923D21AD4EF600ACC5DF /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		5C04923F21AD4FCD00ACC5DF /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		5C04924121AD500000ACC5DF /* SearchCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellViewModel.swift; sourceTree = "<group>"; };
+		5C253F2721B8335E00BEE65E /* PreLoginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreLoginTests.swift; sourceTree = "<group>"; };
 		5C4F6AD4216F746D00688CB6 /* NewRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegistrationViewController.swift; sourceTree = "<group>"; };
 		5C4F6AD6216F816E00688CB6 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
 		5C4F6AD7216F816E00688CB6 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 			children = (
 				5C59A6EA216E2D300053DC45 /* LocadoraOleTrainingTests.swift */,
 				5C59A6EC216E2D300053DC45 /* Info.plist */,
+				5C253F2721B8335E00BEE65E /* PreLoginTests.swift */,
 			);
 			path = LocadoraOleTrainingTests;
 			sourceTree = "<group>";
@@ -859,6 +862,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C59A6EB216E2D300053DC45 /* LocadoraOleTrainingTests.swift in Sources */,
+				5C253F2821B8335E00BEE65E /* PreLoginTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
