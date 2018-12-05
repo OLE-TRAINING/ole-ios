@@ -589,7 +589,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Não recebeu o código?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jt5-uJ-mVj">
-                                        <rect key="frame" x="43.5" y="334.5" width="126" height="27"/>
+                                        <rect key="frame" x="43.5" y="334.5" width="123" height="27"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="27" id="Tul-RF-Qg4"/>
                                         </constraints>
@@ -1590,13 +1590,13 @@
                         <outlet property="searchResultsDelegate" destination="8fc-Uj-v7A" id="BAD-hB-qTf"/>
                     </connections>
                 </searchDisplayController>
-                <tapGestureRecognizer id="U8T-Z3-mLg">
+                <tapGestureRecognizer cancelsTouchesInView="NO" id="U8T-Z3-mLg">
                     <connections>
                         <action selector="tapToHideKeyboard:" destination="8fc-Uj-v7A" id="VZB-WG-5ry"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="6785" y="459"/>
+            <point key="canvasLocation" x="8516" y="369"/>
         </scene>
         <!--Movies View Controller-->
         <scene sceneID="6dN-ON-eLC">
@@ -1863,12 +1863,12 @@
         <!--Movie Details View Controller-->
         <scene sceneID="gWp-Da-ibW">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="xgu-cp-Sdh" customClass="MovieDetailsViewController" customModule="LocadoraOleTraining" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MovieDetailsViewController" hidesBottomBarWhenPushed="YES" id="xgu-cp-Sdh" customClass="MovieDetailsViewController" customModule="LocadoraOleTraining" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yv8-0g-ux4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="u2h-zD-hwd">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="u2h-zD-hwd">
                                 <rect key="frame" x="0.0" y="20" width="375" height="980"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -1876,7 +1876,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="471"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ean-gf-K5s" id="f8V-Hn-oZo">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="470.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="471"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xz5-FM-mLF">
@@ -2070,7 +2070,7 @@
                                         <rect key="frame" x="0.0" y="499" width="375" height="247"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0oM-db-2mi" id="KKV-KM-Q9m">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="246.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="247"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FU4-Yr-pJL">
@@ -2252,7 +2252,7 @@
                                         <rect key="frame" x="0.0" y="746" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5Fw-Qi-vMD" id="Y6p-Pi-naZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="VUL-ga-cPY">
@@ -2312,13 +2312,6 @@
                                         <rect key="frame" x="0.0" y="0.0" width="270" height="130"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="130" id="qz8-93-idk"/>
-                                        </constraints>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilePhoto" translatesAutoresizingMaskIntoConstraints="NO" id="OeN-p6-ik5">
-                                        <rect key="frame" x="83" y="87" width="85" height="85"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="85" id="89V-Hr-QF7"/>
-                                            <constraint firstAttribute="width" constant="85" id="Hhd-5y-Xq0"/>
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OCf-be-Cuv">
@@ -2467,6 +2460,13 @@
                                             <constraint firstItem="HWL-3B-nu8" firstAttribute="top" secondItem="OCf-be-Cuv" secondAttribute="top" constant="271" id="Tgb-xp-EHN"/>
                                         </constraints>
                                     </stackView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilePhoto" translatesAutoresizingMaskIntoConstraints="NO" id="OeN-p6-ik5">
+                                        <rect key="frame" x="93" y="87" width="85" height="85"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="85" id="89V-Hr-QF7"/>
+                                            <constraint firstAttribute="width" constant="85" id="Hhd-5y-Xq0"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -2478,7 +2478,7 @@
                                     <constraint firstItem="OCf-be-Cuv" firstAttribute="leading" secondItem="IDX-PM-2q3" secondAttribute="leading" id="amw-6Z-gMF"/>
                                     <constraint firstAttribute="trailing" secondItem="OCf-be-Cuv" secondAttribute="trailing" id="exI-tX-W7I"/>
                                     <constraint firstItem="cIa-8u-iGt" firstAttribute="top" secondItem="IDX-PM-2q3" secondAttribute="top" id="fW6-wW-vXl"/>
-                                    <constraint firstItem="OeN-p6-ik5" firstAttribute="leading" secondItem="cIa-8u-iGt" secondAttribute="trailing" constant="-187" id="rjg-1e-gLf"/>
+                                    <constraint firstItem="OeN-p6-ik5" firstAttribute="leading" secondItem="cIa-8u-iGt" secondAttribute="trailing" constant="-177" id="rjg-1e-gLf"/>
                                     <constraint firstItem="cIa-8u-iGt" firstAttribute="leading" secondItem="IDX-PM-2q3" secondAttribute="leading" id="wXe-gs-nIw"/>
                                 </constraints>
                             </view>
@@ -2524,7 +2524,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Keg-hB-WeG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="MCf-vy-iFS"/>
+                <tapGestureRecognizer cancelsTouchesInView="NO" id="MCf-vy-iFS"/>
             </objects>
             <point key="canvasLocation" x="7588" y="-397.15142428785612"/>
         </scene>

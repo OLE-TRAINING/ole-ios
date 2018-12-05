@@ -63,6 +63,15 @@ class SearchTableViewCell: UITableViewCell {
         
     }
     
+    func noMoreFilmsToLoad(_ flag: Bool) {
+        if flag {
+        loadingPages.isHidden = true
+        } else {
+        loadingPages.isHidden = false
+        }
+        
+    }
+    
     func loadPage() {
         loadingPages.isHidden = false
         loadingPages.startAnimating()

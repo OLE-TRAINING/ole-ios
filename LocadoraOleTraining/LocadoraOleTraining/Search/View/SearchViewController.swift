@@ -20,11 +20,11 @@ class SearchViewController: UIViewController, UISearchBarDelegate    {
     var isLoadingMore = false
     var page = 2
     var totalPages = 0
-    var currentPage = 1
+    var currentPage = 0
     var showLoading = false
     var searchText = ""
     var noResults = false
-    
+    var noMoreFilmsToLoad = false
     
     
     override func viewDidLoad() {
@@ -33,7 +33,11 @@ class SearchViewController: UIViewController, UISearchBarDelegate    {
         searchTableView.dataSource = self
         searchBar.delegate = self
         viewLoading.isHidden = true
-        
+        showLoading = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     @IBAction func tapToHideKeyboard(_ sender: UITapGestureRecognizer) {
@@ -42,6 +46,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate    {
     
     func fetchMovies(page: Int, searchText: String) {
         viewLoading.isHidden = false
+        showLoading = false
         let loadingNotification = MBProgressHUD.showAdded(to: self.viewLoading, animated: true)
         loadingNotification.mode = MBProgressHUDMode.indeterminate
         self.searchViewModel.getFilms(page: page, filmName: searchText, completion: { [weak self] (films, totalPages, currentPage) in
@@ -54,18 +59,20 @@ class SearchViewController: UIViewController, UISearchBarDelegate    {
                 self!.searchTableView.reloadData()
                 
             } else {
-                self?.showLoading = true
-                self!.searchTableView.reloadData()
+                self?.noResults = false
+                self?.searchTableView.reloadData()
                 guard let viewLoading = self!.viewLoading else { return }
                 MBProgressHUD.hideAllHUDs(for: viewLoading, animated: true)
                 viewLoading.isHidden = true
-                self!.isLoadingMore = false
+                self?.isLoadingMore = false
                 self?.totalPages = totalPages
                 self?.currentPage = currentPage
                 
                 
                 if totalPages == currentPage {
-                    //print("Sem mais páginas para carregar")
+                    self?.noMoreFilmsToLoad = true
+                } else {
+                    self?.noMoreFilmsToLoad = false
                 }
             }
             
@@ -90,6 +97,18 @@ class SearchViewController: UIViewController, UISearchBarDelegate    {
         searchTableView.reloadData()
     }
     
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//        if segue.identifier == "SearchDetailsSegue"
+//        {
+//            if let destinationVC = segue.destination as? MovieDetailsViewController {
+//                let selectedRow = searchTableView.indexPathForSelectedRow?.row
+//                destinationVC.idFilm = filmsByGener[selectedRow!].id
+//                destinationVC.flag = true
+//            }
+//        }
+//
+//    }
     
 
 }
@@ -146,17 +165,29 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate, UISc
             guard let cell = cell as? SearchTableViewCell else {
                 return
             }
+            
             if showLoading {
-                cell.loadPage()
-            } else {
                 cell.hideLoading()
+            } else {
+                cell.noMoreFilmsToLoad(noMoreFilmsToLoad)
+                cell.configureNoResultsLabel(searchText: searchText)
+                cell.noResultsForSearch(noResults)
             }
             
-            cell.configureNoResultsLabel(searchText: searchText)
-            cell.noResultsForSearch(noResults)
             
             
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MovieDetailsViewController") as? MovieDetailsViewController {
+            let selectedRow = searchTableView.indexPathForSelectedRow?.row
+            viewController.idFilm = filmsByGener[selectedRow!].id
+            viewController.flag = true
+//            self.navigationController?.isNavigationBarHidden = true
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
+        
     }
     
     

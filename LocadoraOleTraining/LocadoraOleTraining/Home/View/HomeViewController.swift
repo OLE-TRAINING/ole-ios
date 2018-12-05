@@ -36,7 +36,9 @@ class HomeViewController: UIViewController{
         
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
+        tap.cancelsTouchesInView = true
         viewBack.addGestureRecognizer(tap)
+        
         
         
         let userEmail = UserDefaults.standard.string(forKey: "email") ?? ""

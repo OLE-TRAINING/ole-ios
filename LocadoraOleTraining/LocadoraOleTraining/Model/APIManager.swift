@@ -323,9 +323,10 @@ class APIManager: NSObject {
     
     func getFilmsByName(filmName: String, page: Int, completion: @escaping (FilmsByGener) -> Void) {
         let url = baseURL + APIManager.getMovies + key + "&filter=name&page=\(page)&amount=\(filmsPerPage)&filter_id=\(filmName)"
-
+        let encodeURL = url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+        guard let newURL = encodeURL else { return }
         setAuthorizationToken(bearerToken: self.bearerToken)
-        self.get(url: url, success: { (task, responseObject) in
+        self.get(url: newURL, success: { (task, responseObject) in
             let dataJson = try! JSONSerialization.data(withJSONObject: responseObject as Any, options: JSONSerialization.WritingOptions.prettyPrinted)
             do {
                 let films = try
@@ -428,5 +429,6 @@ class APIManager: NSObject {
         
     }
 }
+
 
 
