@@ -40,15 +40,16 @@ class MovieDetailsViewController: UIViewController {
         backButton.imageInsets = UIEdgeInsets(top: 0, left: -8, bottom: 0, right: -8)
         navigationItem.leftBarButtonItem = backButton
         
+        fetchMovies(page: 1)
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        fetchMovies(page: 1)
         
-        
+
     }
+
 
     @objc func handleBackButton(){
         self.navigationController?.popViewController(animated: true)
@@ -57,17 +58,14 @@ class MovieDetailsViewController: UIViewController {
 
     func fetchMovies(page: Int) {
 
-            self.movieDetailsViewModel.getSimilarFilms(page: page,id: idFilm , completion: { [weak self] (films, totalPages, currentPage) in
+            self.movieDetailsViewModel.getSimilarFilms(page: page, id: idFilm , completion: { [weak self] (films, totalPages, currentPage) in
                 self?.filmsByGener = films
                 self?.showLoading = true
-                self!.tableView.reloadData()
-//                guard let viewLoading = self!.viewLoading else { return }
-//                MBProgressHUD.hideAllHUDs(for: viewLoading, animated: true)
-//                viewLoading.isHidden = true
-                self!.isLoadingMore = false
+                self?.tableView.reloadData()
+                self?.isLoadingMore = false
                 self?.totalPages = totalPages
                 self?.currentPage = currentPage
-                self!.tableView.reloadData()
+//                self!.tableView.reloadData()
 
                 if totalPages == currentPage {
                     //implementar desaparecimento do loading
@@ -199,9 +197,14 @@ extension MovieDetailsViewController: UITableViewDataSource, UITableViewDelegate
         let selectedRow = tableView.indexPathForSelectedRow?.row
         self.idFilm = filmsByGener[selectedRow!].id
         self.flag = true
+        movieDetailsViewModel.movies = [Film]()
         self.tableView.reloadData()
+        fetchMovies(page: 1)
+        
+        
         self.tableView.layoutIfNeeded()
         self.tableView.scrollToRow(at: IndexPath(row: 0,  section:0 ), at: .top , animated: true)
+        
     }
 
     
