@@ -36,18 +36,25 @@ class SearchCellViewModel {
         
         imageFilm.isHidden = true
         loadingImage.startAnimating()
-        guard let posterId = film.posterId else { return }
-        guard let url = APIManager.shared.getImagePoster(id: posterId, size: "original") else { return }
-        let request = URLRequest(url: url)
-        imageFilm.setImageWith(request, placeholderImage: UIImage(named: "noImage"), success: { (request, response, image) in
-            imageFilm.isHidden = false
-            imageFilm.image = image
-            loadingImage.isHidden = true
-        }) { (request, response, error) in
+        
+        if film.posterId == nil {
+            imageFilm.image = UIImage(named: "noPosterImg")
             imageFilm.isHidden = false
             loadingImage.isHidden = true
+        } else {
+            guard let posterId = film.posterId else {
+                return }
+            guard let url = APIManager.shared.getImagePoster(id: posterId, size: "original") else { return }
+            let request = URLRequest(url: url)
+            imageFilm.setImageWith(request, placeholderImage: UIImage(named: "noPosterImg"), success: { (request, response, image) in
+                imageFilm.isHidden = false
+                imageFilm.image = image
+                loadingImage.isHidden = true
+            }) { (request, response, error) in
+                imageFilm.isHidden = false
+                loadingImage.isHidden = true
+            }
         }
-
         
         labelFilmName.text = film.title
         labelFilmCategory.text = ValidateForm.arrayToString(array: film.genreNames)

@@ -111,8 +111,9 @@ class APIManager: NSObject {
             completion(user)
         }) { (task, error) in
             let newUser = UsersInfo()
-            print(error.debugDescription)
-            ValidateForm.showAlertError()
+            guard let msgError = error else { return }
+            ValidateForm.showAlertMsg(msg: msgError.localizedDescription)
+//            ValidateForm.showAlertError()
             completion(newUser)
         }
 
@@ -125,8 +126,10 @@ class APIManager: NSObject {
         self.put(url: url, parameters: nil, success: { (task, responseObject) in
             completion(true)
         }) { (task, error) in
+            guard let msgError = error else { return }
+            ValidateForm.showAlertMsg(msg: msgError.localizedDescription)
             completion(false)
-            ValidateForm.showAlertError()
+//            ValidateForm.showAlertError()
         }
         
 
@@ -146,6 +149,8 @@ class APIManager: NSObject {
         self.post(url: url, parameters: parameters, success: { (task, responseObject) in
             completion(true)
         }) { (task, error) in
+            guard let msgError = error else { return }
+            ValidateForm.showAlertMsg(msg: msgError.localizedDescription)
             completion(false)
         }
         
@@ -168,8 +173,10 @@ class APIManager: NSObject {
         self.post(url: url, parameters: parameters, success: { (task, responseObject) in
             completion(true)
         }) { (task, error) in
+            guard let msgError = error else { return }
+            ValidateForm.showAlertMsg(msg: msgError.localizedDescription)
             completion(false)
-            ValidateForm.showAlertError()
+//            ValidateForm.showAlertError()
         }
         
 
@@ -188,6 +195,8 @@ class APIManager: NSObject {
         self.post(url: url, parameters: parameters, success: { (task, responseObject) in
             completion(true)
         }) { (task, error) in
+            guard let msgError = error else { return }
+            ValidateForm.showAlertMsg(msg: msgError.localizedDescription)
             completion(false)
         }
 
@@ -211,8 +220,10 @@ class APIManager: NSObject {
         self.post(url: url, parameters: parameters, success: { (task, responseObject) in
             completion(true)
         }) { (task, error) in
+            guard let msgError = error else { return }
+            ValidateForm.showAlertMsg(msg: msgError.localizedDescription)
             completion(false)
-            ValidateForm.showAlertError()
+//            ValidateForm.showAlertError()
         }
         
         
@@ -233,6 +244,7 @@ class APIManager: NSObject {
         manager.put(url, parameters: parameters, success: { (task, responseObject) in
             completion(true)
         }) { (task, error) in
+            ValidateForm.showAlertMsg(msg: error.localizedDescription)
             completion(false)
             //ValidateForm.showAlertError()
         }
@@ -333,8 +345,9 @@ class APIManager: NSObject {
                     JSONDecoder().decode(FilmsByGener.self, from: dataJson)
                 completion(films)
             } catch {
+                let film = FilmsByGener()
+                completion(film)
             }
-//        print(responseObject.debugDescription)
 
         }) { (task, error) in
             let film = FilmsByGener()

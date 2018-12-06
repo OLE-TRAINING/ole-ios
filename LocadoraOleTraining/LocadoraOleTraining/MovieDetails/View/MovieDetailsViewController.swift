@@ -18,11 +18,13 @@ class MovieDetailsViewController: UIViewController {
     var filmsByGener = [Film]()
     var isLoadingMore = false
     var totalPages = 0
-    var currentPage = 1
+    var currentPage = 0
     var idFilm = 0
     var page = 2
     var showLoading = false
     var flag = false
+    var noResults = false
+    var noMoreFilmsToLoad = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +42,7 @@ class MovieDetailsViewController: UIViewController {
         backButton.imageInsets = UIEdgeInsets(top: 0, left: -8, bottom: 0, right: -8)
         navigationItem.leftBarButtonItem = backButton
         
+        showLoading = true
         fetchMovies(page: 1)
         
     }
@@ -57,21 +60,28 @@ class MovieDetailsViewController: UIViewController {
     }
 
     func fetchMovies(page: Int) {
-
-            self.movieDetailsViewModel.getSimilarFilms(page: page, id: idFilm , completion: { [weak self] (films, totalPages, currentPage) in
-                self?.filmsByGener = films
-                self?.showLoading = true
+        
+        showLoading = false
+        self.movieDetailsViewModel.getSimilarFilms(page: page, id: idFilm , completion: { [weak self] (films, totalPages, currentPage) in
+            self?.filmsByGener = films
+            if totalPages == 0 {
+                self?.noResults = true
+                self?.tableView.reloadData()
+            } else {
+                self?.noResults = false
                 self?.tableView.reloadData()
                 self?.isLoadingMore = false
                 self?.totalPages = totalPages
                 self?.currentPage = currentPage
-//                self!.tableView.reloadData()
 
                 if totalPages == currentPage {
-                    //implementar desaparecimento do loading
+                    self?.noMoreFilmsToLoad = true
+                } else {
+                    self?.noMoreFilmsToLoad = false
                 }
-            })
-
+            }
+        })
+        
     }
 
 }
@@ -139,6 +149,8 @@ extension MovieDetailsViewController: UITableViewDataSource, UITableViewDelegate
                 tableView.reloadData()
             }
             
+            cell.selectionStyle = .none;
+            cell.isUserInteractionEnabled = false
             
         }
 
@@ -152,18 +164,22 @@ extension MovieDetailsViewController: UITableViewDataSource, UITableViewDelegate
         }
         
         if indexPath.section == 2 {
-            guard let cell3 = cell as? MovieTableViewCell else {
+            guard let cell3 = cell as? SimilarityTableViewCell else {
                 return
             }
             
             if showLoading {
-                cell3.loadPage()
-            } else {
                 cell3.hideLoading()
+            } else {
+                cell3.noMoreFilmsToLoad(noMoreFilmsToLoad)
+                cell3.noResultsForSearch(noResults)
             }
             
+            cell3.selectionStyle = .none;
+            cell3.isUserInteractionEnabled = false
             
         }
+        
         
     }
     
