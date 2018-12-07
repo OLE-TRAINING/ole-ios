@@ -149,6 +149,9 @@ extension MoviesViewController: UITableViewDataSource, UITableViewDelegate, UISc
                 cell.hideLoading()
             }
             
+            cell.selectionStyle = .none;
+            cell.isUserInteractionEnabled = false
+            
         }
     }
     

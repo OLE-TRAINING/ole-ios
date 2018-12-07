@@ -35,6 +35,10 @@ class ValidateForm: NSObject {
         return shared.showAlertError()
     }
     
+    static func showAlertMsg(msg: String) {
+        return shared.showAlertMsg(msg: msg)
+    }
+    
     static func checkFilledTextFields(textFieldName: UITextField, textFieldUsername: UITextField, textFieldPassword: UITextField) -> Bool {
         return shared.checkFilledTextFields(textFieldName: textFieldName, textFieldUsername: textFieldUsername, textFieldPassword: textFieldPassword)
     }
@@ -151,6 +155,19 @@ class ValidateForm: NSObject {
         viewController.viewWillAppear(true)
     }
     
+    func showAlertMsg(msg: String) {
+        guard let viewController = UIApplication.shared.keyWindow?.rootViewController else { return }
+        
+        let alertController = UIAlertController(title: "Ops...", message: msg, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) {
+            UIAlertAction in
+        }
+        
+        alertController.addAction(okAction)
+        viewController.present(alertController, animated: true, completion: nil)
+        viewController.viewWillAppear(true)
+    }
+    
     
     func showLoading(_ status: Bool, button: UIButton, loading: UIActivityIndicatorView) {
         if status {
@@ -183,8 +200,8 @@ class ValidateForm: NSObject {
             labelPrice.isHidden = true
             imageAcquired.isHidden = false
         } else {
-            labelPrice.isHidden = true
-            imageAcquired.isHidden = false
+            labelPrice.isHidden = false
+            imageAcquired.isHidden = true
         }
     }
     

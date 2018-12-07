@@ -27,17 +27,26 @@ class SimilarityViewModel {
     func setFilmInformations(film: Film, labelFilmName: UILabel, labelFilmCategory: UILabel, labelFilmDuration: UILabel, labelFilmYear: UILabel, labelFilmSynopsis: UILabel, LabelFilmPrice: UILabel, labelNote: UILabel, imageFilm: UIImageView, iconFilm: UIImageView, buttonLike: UIButton, loadingImage: UIActivityIndicatorView) {
         imageFilm.isHidden = true
         loadingImage.startAnimating()
-        guard let posterId = film.posterId else { return }
-        guard let url = APIManager.shared.getImagePoster(id: posterId, size: "original") else { return }
-        let request = URLRequest(url: url)
-        imageFilm.setImageWith(request, placeholderImage: UIImage(named: "noImage"), success: { (request, response, image) in
-            imageFilm.isHidden = false
-            imageFilm.image = image.resizeImage(CGSize(width: 125, height: 180))
-            loadingImage.isHidden = true
-        }) { (request, response, error) in
+        
+        if film.posterId == nil {
+            imageFilm.image = UIImage(named: "noPosterImg")
             imageFilm.isHidden = false
             loadingImage.isHidden = true
+        } else {
+            guard let posterId = film.posterId else {
+                return }
+            guard let url = APIManager.shared.getImagePoster(id: posterId, size: "original") else { return }
+            let request = URLRequest(url: url)
+            imageFilm.setImageWith(request, placeholderImage: UIImage(named: "noPosterImg"), success: { (request, response, image) in
+                imageFilm.isHidden = false
+                imageFilm.image = image.resizeImage(CGSize(width: 125, height: 180))
+                loadingImage.isHidden = true
+            }) { (request, response, error) in
+                imageFilm.isHidden = false
+                loadingImage.isHidden = true
+            }
         }
+        
         labelFilmName.text = film.title
         labelFilmCategory.text = ValidateForm.arrayToString(array: film.genreNames)
         labelFilmDuration.text = film.runtime
@@ -50,5 +59,6 @@ class SimilarityViewModel {
         ValidateForm.checkFavorite(buttonLike: buttonLike, favorite: film.favorit)
         
     }
+    
 
 }

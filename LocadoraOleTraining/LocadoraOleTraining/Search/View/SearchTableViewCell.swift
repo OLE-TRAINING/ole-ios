@@ -68,6 +68,7 @@ class SearchTableViewCell: UITableViewCell {
         loadingPages.isHidden = true
         } else {
         loadingPages.isHidden = false
+        loadingPages.startAnimating()
         }
         
     }

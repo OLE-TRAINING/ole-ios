@@ -7,10 +7,16 @@
 //
 
 import XCTest
-//@testable import LocadoraOleTraining
+@testable import LocadoraOleTraining
 
 class PreLoginTests: XCTestCase {
-
+    
+//    func test_title_is_Podcaster() {
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let preLogin = storyboard.instantiateInitialViewController() as! PreLoginViewController
+//        let _ = preLogin.view
+//        XCTAssertEqual("INFORME SUA CONTA DE E-MAIL", preLogin.labelEmail!.text!)
+//    }
     
 
 }

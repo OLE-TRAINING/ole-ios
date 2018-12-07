@@ -27,6 +27,7 @@ class SimilarityTableViewCell: UITableViewCell {
     @IBOutlet weak var buttonLike: UIButton!
     @IBOutlet weak var loadingImage: UIActivityIndicatorView!
     @IBOutlet weak var loadingPages: UIActivityIndicatorView!
+    @IBOutlet weak var labelNoResults: UILabel!
     
     
     override func awakeFromNib() {
@@ -47,14 +48,36 @@ class SimilarityTableViewCell: UITableViewCell {
         
     }
     
-    func loadPage() {
-        loadingPages.isHidden = false
-        loadingPages.startAnimating()
-        
-    }
+//    func loadPage() {
+//        loadingPages.isHidden = false
+//        loadingPages.startAnimating()
+//        
+//    }
     
     func hideLoading() {
         loadingPages.isHidden = true
+    }
+    
+    func noResultsForSearch(_ flag: Bool) {
+        if flag {
+            labelNoResults.isHidden = false
+            loadingPages.isHidden = true
+        } else {
+            labelNoResults.isHidden = true
+            loadingPages.isHidden = false
+            loadingPages.startAnimating()
+        }
+        
+    }
+    
+    func noMoreFilmsToLoad(_ flag: Bool) {
+        if flag {
+            loadingPages.isHidden = true
+        } else {
+            loadingPages.isHidden = false
+            loadingPages.startAnimating()
+        }
+        
     }
 
 }

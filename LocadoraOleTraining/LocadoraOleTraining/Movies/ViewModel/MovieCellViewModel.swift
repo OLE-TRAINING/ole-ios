@@ -39,7 +39,7 @@ class MovieCellViewModel {
         guard let url = APIManager.shared.getImagePoster(id: posterId, size: "original") else { return }
 //        imageFilm.setImageWith(url)
         let request = URLRequest(url: url)
-        imageFilm.setImageWith(request, placeholderImage: UIImage(named: "noImage"), success: { (request, response, image) in
+        imageFilm.setImageWith(request, placeholderImage: UIImage(named: "noPosterImg"), success: { (request, response, image) in
             imageFilm.isHidden = false
             imageFilm.image = image.resizeImage(CGSize(width: 125, height: 180))
             loadingImage.isHidden = true

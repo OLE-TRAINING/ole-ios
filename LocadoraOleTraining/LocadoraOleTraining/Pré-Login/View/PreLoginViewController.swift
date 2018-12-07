@@ -37,7 +37,10 @@ class PreLoginViewController: UIViewController {
         self.view.endEditing(true)
     }
    
-
+    
+    func textFieldDidChange(_ textField: UITextField) {
+        
+    }
     
     @IBAction func buttonGo(_ sender: UIButton) {
         viewModel.showLoading(status: true, button: buttonGo, loading: loading)

@@ -174,8 +174,9 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate, UISc
                 cell.noResultsForSearch(noResults)
             }
             
-            
-            
+            cell.selectionStyle = .none;
+            cell.isUserInteractionEnabled = false
+
         }
     }
     
