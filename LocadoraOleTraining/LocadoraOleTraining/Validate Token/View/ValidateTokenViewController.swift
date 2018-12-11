@@ -12,7 +12,7 @@ class ValidateTokenViewController: UIViewController {
 
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var labelEmail: UILabel!
-    @IBOutlet weak var textFieldCode: UITextField!
+    @IBOutlet weak var textFieldToken: UITextField!
     @IBOutlet weak var labelDidNotReceive: UILabel!
     @IBOutlet weak var buttonSendAgain: UIButton!
     @IBOutlet weak var buttonValidate: UIButton!
@@ -26,6 +26,8 @@ class ValidateTokenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         validateTokenViewModel.startValidateToken(labelDidNotReceive: labelDidNotReceive, emailUser: emailUser, labelTitle: labelTitle, labelEmail: labelEmail, stackViewInvalidCode: stackInvalidCode)
+        validateTokenViewModel.disableButton(button: buttonValidate)
+        textFieldToken.addTarget(self, action: #selector(textFieldDidEndEditing(_:)), for: .editingDidEnd)
 
     }
 
@@ -46,7 +48,7 @@ class ValidateTokenViewController: UIViewController {
     
     @IBAction func buttonValidate(_ sender: UIButton) {
         validateTokenViewModel.showLoading(status: true, button: buttonValidate, loading: loadingValidate)
-        validateTokenViewModel.validateToken(textFieldCode: textFieldCode, button: buttonValidate, loading: loadingValidate, completion: { (response: Bool) in
+        validateTokenViewModel.validateToken(textFieldToken: textFieldToken, button: buttonValidate, loading: loadingValidate, completion: { (response: Bool) in
             if response {
                 self.goToLoginScreen()
             } else {
@@ -63,6 +65,13 @@ class ValidateTokenViewController: UIViewController {
         })
     }
     
+    @objc func textFieldDidEndEditing(_ textField: UITextField) {
+        if validateTokenViewModel.checkToken(textFieldToken: textFieldToken) {
+            validateTokenViewModel.enableButton(button: buttonValidate)
+        } else {
+            validateTokenViewModel.disableButton(button: buttonValidate)
+        }
+    }
     
 }
 

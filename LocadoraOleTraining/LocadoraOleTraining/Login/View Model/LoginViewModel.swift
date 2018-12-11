@@ -28,10 +28,22 @@ class LoginViewModel {
         self.viewInvalidData.isHidden = true
     }
     
+    func checkPassword(textFieldPassword: UITextField) -> Bool {
+        guard let password = textFieldPassword.text else { return false }
+        
+        switch ValidateForm.checkPassword(password: password) {
+        case true:
+            viewInvalidData.isHidden = true
+            return true
+        case false:
+            viewInvalidData.isHidden = false
+            return false
+        }
+        
+    }
+    
     func authenticateUser(email: String, textFieldPassword: UITextField, button: UIButton, loading: UIActivityIndicatorView, completion: @escaping (Bool) -> Void) {
         guard let password = textFieldPassword.text else { return }
-        if ValidateForm.checkPassword(password: password) {
-            self.viewInvalidData.isHidden = true
             APIManager.shared.authenticateUser(email: email, password: password, completion: { (result) in
                 if result {
                     completion(true)
@@ -40,14 +52,19 @@ class LoginViewModel {
                     self.showLoading(status: false, button: button, loading: loading)
                 }
             })
-        } else {
-            self.viewInvalidData.isHidden = false
-            showLoading(status: false, button: button, loading: loading)
-        }
+
     }
     
     func showLoading(status: Bool, button: UIButton, loading: UIActivityIndicatorView)
     {
         ValidateForm.showLoading(status: status, button: button, loading: loading)
+    }
+    
+    func disableButton(button: UIButton) {
+        ValidateForm.disableButton(button: button, bool: true)
+    }
+    
+    func enableButton(button: UIButton) {
+        ValidateForm.disableButton(button: button, bool: false)
     }
 }

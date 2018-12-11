@@ -12,7 +12,7 @@ class ContinueRegistration: UIViewController {
 
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var labelEmail: UILabel!
-    @IBOutlet weak var textFieldCode: UITextField!
+    @IBOutlet weak var textFieldToken: UITextField!
     @IBOutlet weak var labelDidNotReceive: UILabel!
     @IBOutlet weak var buttonSend: UIButton!
     @IBOutlet weak var buttonValidate: UIButton!
@@ -26,7 +26,8 @@ class ContinueRegistration: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         continueRegistrationViewModel.continueRegistration(labelDidNotReceive: labelDidNotReceive, emailUser: emailUser, labelTitle: labelTitle, labelEmail: labelEmail, stackInvalidCode: stackInvalidCode)
-        
+        continueRegistrationViewModel.disableButton(button: buttonValidate)
+        textFieldToken.addTarget(self, action: #selector(textFieldDidEndEditing(_:)), for: .editingDidEnd)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,7 +47,7 @@ class ContinueRegistration: UIViewController {
     
     @IBAction func buttonValidate(_ sender: UIButton) {
         continueRegistrationViewModel.showLoading(status: true, button: buttonValidate, loading: loadingValidate)
-        continueRegistrationViewModel.validateToken(textFieldCode: textFieldCode, button: buttonValidate, loading: loadingValidate, completion: { (response: Bool) in
+        continueRegistrationViewModel.validateToken(textFieldToken: textFieldToken, button: buttonValidate, loading: loadingValidate, completion: { (response: Bool) in
             if response {
                 self.goToLoginScreen()
             } else {
@@ -55,6 +56,14 @@ class ContinueRegistration: UIViewController {
         })
 
 
+    }
+    
+    @objc func textFieldDidEndEditing(_ textField: UITextField)  {
+        if continueRegistrationViewModel.checkToken(textFieldToken: textFieldToken) {
+            continueRegistrationViewModel.enableButton(button: buttonValidate)
+        } else {
+            continueRegistrationViewModel.disableButton(button: buttonValidate)
+        }
     }
     
     @IBAction func buttonSend(_ sender: UIButton) {

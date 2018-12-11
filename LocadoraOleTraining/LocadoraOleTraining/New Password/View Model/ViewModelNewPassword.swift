@@ -115,4 +115,12 @@ class ViewModelNewPassword {
     {
         ValidateForm.showLoading(status: status, button: button, loading: loading)
     }
+    
+    func disableButton(button: UIButton) {
+        ValidateForm.disableButton(button: button, bool: true)
+    }
+    
+    func enableButton(button: UIButton) {
+        ValidateForm.disableButton(button: button, bool: false)
+    }
 }

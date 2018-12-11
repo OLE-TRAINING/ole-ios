@@ -29,12 +29,21 @@ class ViewControllerNewPassword: UIViewController {
     
     var viewModelNewPassword = ViewModelNewPassword()
     
+    var resultToken = false
+    var resultPassword = false
+    var resultConfirmPassword = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModelNewPassword.startTitles(labelTitle: labelTitle, email: emailUser, labelEmail: labelEmail, labelDidNotReceive: labelDidNotReceive, labelSubtitle: labelSubtitle)
         viewModelNewPassword.startStackViews(textFieldToken: textFieldToken, textFieldNewPassword: textFieldNewPassword, textFieldConfirmPassword: textFieldConfirmPassword, stackViewInvalidToken: stackViewInvalidToken, stackViewInvalidPassword: stackViewInvalidPassword, stackViewInvalidConfirmation: stackViewInvalidConfirmation)
         buttonSendAgain.contentHorizontalAlignment = UIControlContentHorizontalAlignment.center
         buttonSendAgain.contentVerticalAlignment = UIControlContentVerticalAlignment.top
+        
+        viewModelNewPassword.disableButton(button: buttonChangePassword)
+        textFieldToken.addTarget(self, action: #selector(textFieldDidEndEditing(_:)), for: .editingDidEnd)
+        textFieldNewPassword.addTarget(self, action: #selector(textFieldDidEndEditing(_:)), for: .editingDidEnd)
+        textFieldConfirmPassword.addTarget(self, action: #selector(textFieldDidEndEditing(_:)), for: .editingDidEnd)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,6 +55,26 @@ class ViewControllerNewPassword: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
 
+    }
+    
+    @objc func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        if textField == textFieldToken {
+//            resultFullName = newRegistrationViewModel.checkFullName(textFieldFullName: textFieldFullName)
+        }
+        if textField == textFieldNewPassword {
+//            resultUsername = newRegistrationViewModel.checkUsername(textFieldUsername: textFieldUsername, msgUsername: msgUsername)
+        }
+        
+        if textField == textFieldConfirmPassword {
+//            resultPassword = newRegistrationViewModel.checkPassword(textFieldPassword: textFieldPassword)
+        }
+        
+        if resultToken && resultPassword && resultConfirmPassword {
+        viewModelNewPassword.enableButton(button: buttonChangePassword)
+        } else {
+            viewModelNewPassword.disableButton(button: buttonChangePassword)
+        }
     }
     
     @IBAction func buttonBack(_ sender: UIButton) {

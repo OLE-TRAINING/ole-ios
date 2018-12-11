@@ -20,22 +20,27 @@ class NewRegistrationViewController: UIViewController {
     @IBOutlet weak var textFieldFullName: UITextField!
     @IBOutlet weak var textFieldUsername: UITextField!
     @IBOutlet weak var textFieldPassword: UITextField!
+    @IBOutlet weak var msgUsername: UILabel!
     
     @IBOutlet weak var stackViewFullName: UIStackView!
     @IBOutlet weak var stackViewUsername: UIStackView!
     @IBOutlet weak var stackViewPassword: UIStackView!
     
-    
+    var resultFullName = false
+    var resultUsername = false
+    var resultPassword = false
 
-    
     var emailUser: String?
     var newRegistrationViewModel = NewRegistrationViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         newRegistrationViewModel.startRegistration(emailUser: emailUser, labelTitle: labelTitle, labelEmail: labelEmail, stackViewFullName: stackViewFullName, stackViewUsername: stackViewUsername, stackViewPassword: stackViewPassword)
+        newRegistrationViewModel.disableButton(button: buttonGo)
+        textFieldFullName.addTarget(self, action: #selector(textFieldDidEndEditing(_:)), for: .editingDidEnd)
+        textFieldUsername.addTarget(self, action: #selector(textFieldDidEndEditing(_:)), for: .editingDidEnd)
+        textFieldPassword.addTarget(self, action: #selector(textFieldDidEndEditing(_:)), for: .editingDidEnd)
         
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,15 +55,36 @@ class NewRegistrationViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    @objc func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        if textField == textFieldFullName {
+            resultFullName = newRegistrationViewModel.checkFullName(textFieldFullName: textFieldFullName)
+        }
+        if textField == textFieldUsername {
+            resultUsername = newRegistrationViewModel.checkUsername(textFieldUsername: textFieldUsername, msgUsername: msgUsername)
+        }
+        
+        if textField == textFieldPassword {
+            resultPassword = newRegistrationViewModel.checkPassword(textFieldPassword: textFieldPassword)
+        }
+        
+        if resultFullName && resultUsername && resultPassword {
+            newRegistrationViewModel.enableButton(button: buttonGo)
+        } else {
+            newRegistrationViewModel.disableButton(button: buttonGo)
+        }
+    }
     
     
     @IBAction func ButtonGo(_ sender: UIButton) {
         newRegistrationViewModel.showLoading(status: true, button: buttonGo, loading: loadingGo)
-        newRegistrationViewModel.goToNextScreen(button: buttonGo, loading: loadingGo, textFieldFullName: textFieldFullName, textFieldUsername: textFieldUsername, textFieldPassword: textFieldPassword) { (result: Bool?) in
-            if let _ = result {
+        newRegistrationViewModel.goToNextScreen(msgUsername: msgUsername, button: buttonGo, loading: loadingGo, textFieldFullName: textFieldFullName, textFieldUsername: textFieldUsername, textFieldPassword: textFieldPassword) { (result: Bool?) in
+            guard let flag = result else { return }
+            if flag {
                 self.goToValidateTokenScreen()
             } else {
                 self.newRegistrationViewModel.showLoading(status: false, button: self.buttonGo, loading: self.loadingGo)
+                
             }
         }
         
