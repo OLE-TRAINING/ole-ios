@@ -30,23 +30,35 @@ class ValidateTokenViewModel{
         self.stackViewInvalidCode.isHidden = true
     }
     
-    func validateToken(textFieldCode: UITextField, button: UIButton, loading: UIActivityIndicatorView, completion: @escaping(Bool) -> Void) {
-        guard let code = textFieldCode.text else { return }
-        if ValidateForm.checkCode(code) {
-            Attributes.setInicialAttributes(textField: textFieldCode, stackView: self.stackViewInvalidCode)
-            APIManager.shared.validateToken(textFieldCode: textFieldCode, email: emailUser, completion:  { (response: Bool) in
+    func checkToken(textFieldToken: UITextField) -> Bool {
+        guard let token = textFieldToken.text else { return false }
+        if ValidateForm.checkCode(token) {
+            Attributes.setInicialAttributes(textField: textFieldToken, stackView: self.stackViewInvalidCode)
+            return true
+        } else {
+            Attributes.setAttributeInvalidField(textField: textFieldToken, stackView: self.stackViewInvalidCode)
+            return false
+        }
+    }
+    
+    func validateToken(textFieldToken: UITextField, button: UIButton, loading: UIActivityIndicatorView, completion: @escaping(Bool) -> Void) {
+//        guard let code = textFieldCode.text else { return }
+//        if ValidateForm.checkCode(code) {
+//            Attributes.setInicialAttributes(textField: textFieldCode, stackView: self.stackViewInvalidCode)
+            APIManager.shared.validateToken(textFieldToken: textFieldToken, email: emailUser, completion:  { (response: Bool) in
                 if response {
                     completion(true)
                 } else {
-                    Attributes.setAttributeInvalidField(textField: textFieldCode, stackView: self.stackViewInvalidCode)
+                    self.showLoading(status: false, button: button, loading: loading)
+                    Attributes.setAttributeInvalidField(textField: textFieldToken, stackView: self.stackViewInvalidCode)
                     completion(false)
                 }
             })
             
-        } else {
-            showLoading(status: false, button: button, loading: loading)
-            Attributes.setAttributeInvalidField(textField: textFieldCode, stackView: self.stackViewInvalidCode)
-        }
+//        } else {
+//            showLoading(status: false, button: button, loading: loading)
+//            Attributes.setAttributeInvalidField(textField: textFieldCode, stackView: self.stackViewInvalidCode)
+//        }
         
     }
     
@@ -62,5 +74,15 @@ class ValidateTokenViewModel{
     {
         ValidateForm.showLoading(status: status, button: button, loading: loading)
     }
+    
+    func disableButton(button: UIButton) {
+        ValidateForm.disableButton(button: button, bool: true)
+    }
+    
+    func enableButton(button: UIButton) {
+        ValidateForm.disableButton(button: button, bool: false)
+    }
+    
+    
 
 }

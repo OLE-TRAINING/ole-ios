@@ -32,23 +32,28 @@ class ContinueRegistrationViewModel {
         self.stackInvalidCode.isHidden = true
     }
     
-    func validateToken(textFieldCode: UITextField, button: UIButton, loading: UIActivityIndicatorView, completion: @escaping(Bool) -> Void) {
-        guard let code = textFieldCode.text else { return }
-        if ValidateForm.checkCode(code) {
-            Attributes.setInicialAttributes(textField: textFieldCode, stackView: self.stackInvalidCode)
-            APIManager.shared.validateToken(textFieldCode: textFieldCode, email: emailUser, completion:  { (response: Bool) in
+    func checkToken(textFieldToken: UITextField) -> Bool {
+        guard let token = textFieldToken.text else { return false }
+        if ValidateForm.checkCode(token) {
+            Attributes.setInicialAttributes(textField: textFieldToken, stackView: self.stackInvalidCode)
+            return true
+        } else {
+            Attributes.setAttributeInvalidField(textField: textFieldToken, stackView: self.stackInvalidCode)
+            return false
+        }
+    }
+    
+    func validateToken(textFieldToken: UITextField, button: UIButton, loading: UIActivityIndicatorView, completion: @escaping(Bool) -> Void) {
+            APIManager.shared.validateToken(textFieldToken: textFieldToken, email: emailUser, completion:  { (response: Bool) in
                 if response {
                     completion(true)
                 } else {
-                    Attributes.setAttributeInvalidField(textField: textFieldCode, stackView: self.stackInvalidCode)
+                    self.showLoading(status: false, button: button, loading: loading)
+                    Attributes.setAttributeInvalidField(textField: textFieldToken, stackView: self.stackInvalidCode)
                     completion(false)
                 }
             })
-            
-        } else {
-            showLoading(status: false, button: button, loading: loading)
-            Attributes.setAttributeInvalidField(textField: textFieldCode, stackView: self.stackInvalidCode)
-        }
+   
         
     }
     
@@ -64,4 +69,13 @@ class ContinueRegistrationViewModel {
             }
         })
     }
+    
+    func disableButton(button: UIButton) {
+        ValidateForm.disableButton(button: button, bool: true)
+    }
+    
+    func enableButton(button: UIButton) {
+        ValidateForm.disableButton(button: button, bool: false)
+    }
+
 }

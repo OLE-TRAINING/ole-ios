@@ -16,16 +16,18 @@ class PreLoginViewController: UIViewController {
     @IBOutlet weak var stackInvalidEmail: UIStackView!
     @IBOutlet weak var loading: UIActivityIndicatorView!
     
-    var viewModel = PreLoginViewModel()
+    var preLoginViewModel = PreLoginViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.startAplication(labelEmail: labelEmail, stackInvalidEmail: stackInvalidEmail)
+        preLoginViewModel.startAplication(labelEmail: labelEmail, stackInvalidEmail: stackInvalidEmail)
+        preLoginViewModel.disableButton(buttonGo: buttonGo)
+        textFieldEmail.addTarget(self, action: #selector(textFieldDidEndEditing(_:)), for: .editingChanged)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.showLoading(status: false, button: buttonGo, loading: loading)
+        preLoginViewModel.showLoading(status: false, button: buttonGo, loading: loading)
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,15 +38,25 @@ class PreLoginViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-   
+
     
-    func textFieldDidChange(_ textField: UITextField) {
-        
+    
+    @objc func textFieldDidEndEditing(_ textField: UITextField) {
+        tryEmail()
+    }
+    
+    func tryEmail() {
+        PreLoginViewController.cancelPreviousPerformRequests(withTarget: self)
+        self.perform(#selector(checkEmail), with: nil, afterDelay: 1.0)
+    }
+    
+    @objc func checkEmail() {
+        preLoginViewModel.checkEmail(textFieldEmail: textFieldEmail, buttonGo: buttonGo)
     }
     
     @IBAction func buttonGo(_ sender: UIButton) {
-        viewModel.showLoading(status: true, button: buttonGo, loading: loading)
-        viewModel.goToNextScreen(textFieldEmail: textFieldEmail, button: buttonGo, loading: loading, completion: { (result: String?) in
+        preLoginViewModel.showLoading(status: true, button: buttonGo, loading: loading)
+        preLoginViewModel.goToNextScreen(textFieldEmail: textFieldEmail, button: buttonGo, loading: loading, completion: { (result: String?) in
             if result == "INEXISTENT" {
                 //email não existe
                 self.goToRegistrationScreen()
@@ -58,10 +70,11 @@ class PreLoginViewController: UIViewController {
                 
             }
             else {
-                self.viewModel.showLoading(status: false, button: self.buttonGo, loading: self.loading)
+                self.preLoginViewModel.showLoading(status: false, button: self.buttonGo, loading: self.loading)
             }
         })
     }
+    
 
 }
 

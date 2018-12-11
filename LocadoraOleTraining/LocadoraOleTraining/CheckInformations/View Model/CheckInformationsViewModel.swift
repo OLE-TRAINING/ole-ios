@@ -30,9 +30,19 @@ class CheckInformationsViewModel {
         stackViewUsername.isHidden = true
     }
     
+    func checkUsername(textFieldUsername: UITextField) -> Bool {
+        guard let username = textFieldUsername.text else { return false }
+        if ValidateForm.checkUsername(username: username) {
+            Attributes.setInicialAttributes(textField: textFieldUsername, stackView: self.stackViewUsername)
+            return true
+        } else {
+            Attributes.setAttributeInvalidField(textField: textFieldUsername, stackView: self.stackViewUsername)
+            return false
+        }
+    }
+    
     func validateUsername(textFieldUsername: UITextField, button: UIButton, loading: UIActivityIndicatorView, completion: @escaping(Bool) -> Void ) {
         guard let username = textFieldUsername.text else { return }
-        if ValidateForm.checkUsername(username: username) {
             APIManager.shared.getUserWithEmail(email) { (user) in
                 if username == user?.username {
                     Attributes.setInicialAttributes(textField: textFieldUsername, stackView: self.stackViewUsername)
@@ -52,18 +62,19 @@ class CheckInformationsViewModel {
                     completion(false)
                 }
             }
-            
-            
-        } else {
-            showLoading(status: false, button: button, loading: loading)
-            Attributes.setAttributeInvalidField(textField: textFieldUsername, stackView: self.stackViewUsername)
-            completion(false)
-        }
         
     }
     
     func showLoading(status: Bool, button: UIButton, loading: UIActivityIndicatorView)
     {
         ValidateForm.showLoading(status: status, button: button, loading: loading)
+    }
+    
+    func disableButton(button: UIButton) {
+        ValidateForm.disableButton(button: button, bool: true)
+    }
+    
+    func enableButton(button: UIButton) {
+        ValidateForm.disableButton(button: button, bool: false)
     }
 }

@@ -23,7 +23,8 @@ class CheckInformationsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         checkInformationViewModel.checkInformations(email: emailUser, labelTitle: labelTitle, labelEmail: labelEmail, stackViewUsername: stackViewUsername)
-        
+        checkInformationViewModel.disableButton(button: buttonGo)
+        textFieldUsername.addTarget(self, action: #selector(textFieldDidEndEditing(_:)), for: .editingDidEnd)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,6 +42,14 @@ class CheckInformationsViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    @objc func textFieldDidEndEditing(_ textField: UITextField) {
+        if checkInformationViewModel.checkUsername(textFieldUsername: textFieldUsername) {
+            checkInformationViewModel.enableButton(button: buttonGo)
+        } else {
+            checkInformationViewModel.disableButton(button: buttonGo)
+        }
+    }
+
     
     @IBAction func buttonGo(_ sender: UIButton) {
         checkInformationViewModel.showLoading(status: true, button: buttonGo, loading: loading)

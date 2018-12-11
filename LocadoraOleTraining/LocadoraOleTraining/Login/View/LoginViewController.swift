@@ -27,6 +27,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loginViewModel.startLogin(labelTitle: labelTitle, labelEmail: labelEmail, viewInvalidData: viewInvalidData, emailUser: emailUser)
+        loginViewModel.disableButton(button: buttonLogIn)
+        textFieldPassword.addTarget(self, action: #selector(textFieldDidEndEditing(_:)), for: .editingDidEnd)
         
     }
     
@@ -60,6 +62,16 @@ class LoginViewController: UIViewController {
         })
 
     }
+    
+    @objc func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        if loginViewModel.checkPassword(textFieldPassword: textFieldPassword) {
+            loginViewModel.enableButton(button: buttonLogIn)
+        } else {
+            loginViewModel.disableButton(button: buttonLogIn)
+        }
+    }
+    
     @IBAction func buttonForgotPassword(_ sender: UIButton) {
         loginViewModel.showLoading(status: true, button: buttonForgotPassword, loading: loadingForgotPassword)
         self.goToCheckInformationsScreen()

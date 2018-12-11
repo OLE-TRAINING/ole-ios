@@ -135,8 +135,8 @@ class APIManager: NSObject {
 
     }
     
-    func validateToken(textFieldCode: UITextField, email: String, completion: @escaping(Bool) -> Void) {
-        guard let token = textFieldCode.text else { return }
+    func validateToken(textFieldToken: UITextField, email: String, completion: @escaping(Bool) -> Void) {
+        guard let token = textFieldToken.text else { return }
         manager.requestSerializer = AFJSONRequestSerializer()
         manager.responseSerializer = AFJSONResponseSerializer()
         let url = baseURL + APIManager.getUsersEndpoint + "/" + email + "/register/" + token + key
@@ -146,11 +146,11 @@ class APIManager: NSObject {
             "token": token
             ] as [String : Any]
 
-        self.post(url: url, parameters: parameters, success: { (task, responseObject) in
+        manager.post(url, parameters: parameters, progress: nil, success: { (task, responseObject) in
             completion(true)
         }) { (task, error) in
-            guard let msgError = error else { return }
-            ValidateForm.showAlertMsg(msg: msgError.localizedDescription)
+//            guard let msgError = error else { return }
+//            ValidateForm.showAlertMsg(msg: error.localizedDescription)
             completion(false)
         }
         
@@ -171,12 +171,11 @@ class APIManager: NSObject {
                 ] as [String : Any]
 
         self.post(url: url, parameters: parameters, success: { (task, responseObject) in
-            completion(true)
+            completion(true )
         }) { (task, error) in
-            guard let msgError = error else { return }
-            ValidateForm.showAlertMsg(msg: msgError.localizedDescription)
+//            guard let msgError = error else { return }
+//            ValidateForm.showAlertMsg(msg: msgError.localizedDescription)
             completion(false)
-//            ValidateForm.showAlertError()
         }
         
 

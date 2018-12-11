@@ -47,55 +47,77 @@ class NewRegistrationViewModel {
 
     }
     
-    func goToNextScreen(button: UIButton, loading: UIActivityIndicatorView, textFieldFullName: UITextField, textFieldUsername: UITextField, textFieldPassword: UITextField,completion: @escaping(Bool?) -> Void) {
+    func disableButton(button: UIButton) {
+        ValidateForm.disableButton(button: button, bool: true)
+    }
+    
+    func enableButton(button: UIButton) {
+        ValidateForm.disableButton(button: button, bool: false)
+    }
+
+    func checkFullName(textFieldFullName: UITextField) -> Bool {
+        guard let fullName = textFieldFullName.text else { return false }
         
-        guard let fullName = textFieldFullName.text else { return }
-        guard let username = textFieldUsername.text else { return }
-        guard let password = textFieldPassword.text else { return }
-        
-        showLoading(status: false, button: button, loading: loading)
         switch ValidateForm.checkFullName(fullName: fullName) {
         case true:
             Attributes.setInicialAttributes(textField: textFieldFullName, stackView: stackViewFullName)
+            return true
         case false:
-            showLoading(status: false, button: button, loading: loading)
             Attributes.setAttributeInvalidField(textField: textFieldFullName, stackView: stackViewFullName)
-            
+            return false
         }
+    }
+    
+    func checkUsername(textFieldUsername: UITextField, msgUsername: UILabel) -> Bool {
+        guard let username = textFieldUsername.text else { return false }
         
         switch ValidateForm.checkUsername(username: username) {
         case true:
             Attributes.setInicialAttributes(textField: textFieldUsername, stackView: stackViewUsername)
+            return true
         case false:
-            showLoading(status: false, button: button, loading: loading)
+            msgUsername.text = "     Obrigatório conter letras e/ou números, no máximo 15 caracteres"
             Attributes.setAttributeInvalidField(textField: textFieldUsername, stackView: stackViewUsername)
-            
+            return false
         }
+        
+    }
+    
+    func checkPassword(textFieldPassword: UITextField) -> Bool {
+        guard let password = textFieldPassword.text else { return false }
         
         switch ValidateForm.checkPassword(password: password) {
         case true:
             Attributes.setInicialAttributes(textField: textFieldPassword, stackView: stackViewPassword)
+            return true
         case false:
-            showLoading(status: false, button: button, loading: loading)
             Attributes.setAttributeInvalidField(textField: textFieldPassword, stackView: stackViewPassword)
+            return false
         }
         
-        if ValidateForm.checkFullName(fullName: fullName) && ValidateForm.checkUsername(username: username) && ValidateForm.checkPassword(password: password) {
+    }
+    
+    
+    func goToNextScreen(msgUsername: UILabel, button: UIButton, loading: UIActivityIndicatorView, textFieldFullName: UITextField, textFieldUsername: UITextField, textFieldPassword: UITextField,completion: @escaping(Bool?) -> Void) {
+        
+        showLoading(status: false, button: button, loading: loading)
+
             Attributes.setInicialAttributes(textField: textFieldFullName, stackView: stackViewFullName)
             Attributes.setInicialAttributes(textField: textFieldUsername, stackView: stackViewUsername)
             Attributes.setInicialAttributes(textField: textFieldPassword, stackView: stackViewPassword)
             
             showLoading(status: true, button: button, loading: loading)
             APIManager.shared.createNewUser(email: labelEmail.text!, password: textFieldPassword.text!, completeName: textFieldFullName.text!, username: textFieldUsername.text!, completion: { (result: Bool?) in
-                if let _ = result {
+                guard let flag = result else { return }
+                if flag {
                     completion(true)
                 }
                 else {
-                    ValidateForm.showAlertError()
+                    msgUsername.text = "     Nome de usuario já existente"
+                    Attributes.setAttributeInvalidField(textField: textFieldUsername, stackView: self.stackViewUsername)
                     completion(false)
                 }
             })
-        }
         
     }
     

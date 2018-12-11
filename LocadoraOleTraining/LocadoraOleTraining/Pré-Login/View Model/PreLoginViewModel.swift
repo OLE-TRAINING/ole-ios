@@ -30,13 +30,27 @@ class PreLoginViewModel {
         let textColor = UIColor(red: 0.357, green: 0.353, blue: 0.353, alpha: 1)
         Attributes.setAttributesLabel(label: self.labelEmail, labelText: "INFORME SUA CONTA DE E-MAIL", size: 16, fontFamily: "Dosis-Bold", spaceLine: 3.0, textColor: textColor)
         self.stackInvalidEmail.isHidden = true
+        
+    }
+    
+    func disableButton(buttonGo: UIButton) {
+        ValidateForm.disableButton(button: buttonGo, bool: true)
+    }
+    
+    func checkEmail(textFieldEmail: UITextField, buttonGo: UIButton) {
+        guard let email = textFieldEmail.text else { return }
+        if ValidateForm.checkEmail(email) {
+            ValidateForm.disableButton(button: buttonGo, bool: false)
+            Attributes.setInicialAttributes(textField: textFieldEmail, stackView: stackInvalidEmail)
+        } else {
+            ValidateForm.disableButton(button: buttonGo, bool: true)
+            Attributes.setAttributeInvalidField(textField: textFieldEmail, stackView: stackInvalidEmail)
+        }
     }
     
     
     func goToNextScreen(textFieldEmail : UITextField, button: UIButton, loading: UIActivityIndicatorView, completion: @escaping(String?) -> Void) {
         guard let email = textFieldEmail.text else { return }
-        if ValidateForm.checkEmail(email) {
-            Attributes.setInicialAttributes(textField: textFieldEmail, stackView: stackInvalidEmail)
             APIManager.shared.getUserWithEmail(email, completion: { (user: UsersInfo?) in
                 if user?.registrationStatus == "INEXISTENT" {
                     //email não existe
@@ -53,10 +67,7 @@ class PreLoginViewModel {
                 }
 
             })
-        } else {
-            showLoading(status: false, button: button, loading: loading)
-            Attributes.setAttributeInvalidField(textField: textFieldEmail, stackView: stackInvalidEmail)
-        }
+
     }
     
     func showLoading(status: Bool, button: UIButton, loading: UIActivityIndicatorView)

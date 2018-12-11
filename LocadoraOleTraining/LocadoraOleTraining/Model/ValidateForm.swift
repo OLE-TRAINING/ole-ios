@@ -79,6 +79,10 @@ class ValidateForm: NSObject {
         return shared.arrayToString(array: array)
     }
     
+    static func disableButton(button: UIButton, bool: Bool) {
+        return shared.disableButton(button: button, bool: bool)
+    }
+    
     // MARK:-  IMPLEMENTATION OF STATIC METHODS
     
     func checkEmail(_ email: String) -> Bool {
@@ -241,6 +245,14 @@ class ValidateForm: NSObject {
         return string
     }
 
-
+    func disableButton(button: UIButton, bool: Bool) {
+        if bool {
+            button.isEnabled = false
+            button.alpha = 0.5
+        } else {
+            button.isEnabled = true
+            button.alpha = 1.0
+        }
+    }
     
 }
