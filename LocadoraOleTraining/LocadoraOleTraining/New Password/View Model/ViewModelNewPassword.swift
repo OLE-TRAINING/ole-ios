@@ -53,53 +53,61 @@ class ViewModelNewPassword {
         
     }
     
+    func checkToken(textFieldToken: UITextField) -> Bool {
+        guard let token = textFieldToken.text else { return false }
+        if ValidateForm.checkCode(token) {
+            Attributes.setInicialAttributes(textField: self.textFieldToken, stackView: self.stackViewInvalidToken)
+            return true
+        } else {
+            Attributes.setAttributeInvalidField(textField: textFieldToken, stackView: stackViewInvalidToken)
+            return false
+        }
+
+    }
+    
+    func checkNewPassword(textFieldNewPassword: UITextField) -> Bool {
+        guard let password = textFieldNewPassword.text else { return  false}
+        
+        if ValidateForm.checkPassword(password: password) {
+            Attributes.setInicialAttributes(textField: self.textFieldNewPassword, stackView: self.stackViewInvalidPassword)
+            return true
+        }  else {
+            Attributes.setAttributeInvalidField(textField: self.textFieldNewPassword, stackView: self.stackViewInvalidPassword)
+            return false
+        }
+    }
+    
+    func checkConfirmationPassword(textFieldNewPassword: UITextField, textFieldConfirmPassword: UITextField) -> Bool {
+        guard let confirmationPassword = textFieldConfirmPassword.text else { return false }
+        guard let password = textFieldNewPassword.text else { return false }
+        
+        if password == confirmationPassword {
+            Attributes.setInicialAttributes(textField: self.textFieldConfirmPassword, stackView: self.stackViewInvalidConfirmation)
+            return true
+        } else {
+            Attributes.setAttributeInvalidField(textField: self.textFieldConfirmPassword, stackView: self.stackViewInvalidConfirmation)
+            return false
+        }
+            
+    }
+    
+    
     func changePassword(button: UIButton, loading: UIActivityIndicatorView, completion: @escaping(Bool) -> Void ) {
         guard let token = textFieldToken.text else { return }
         guard let password = textFieldNewPassword.text else { return }
         guard let confirmationPassword = textFieldConfirmPassword.text else { return }
-        if ValidateForm.checkCode(token) {
-            Attributes.setInicialAttributes(textField: self.textFieldToken, stackView: self.stackViewInvalidToken)
-            if ValidateForm.checkPassword(password: password) {
+        APIManager.shared.changePassword(email: self.email, confirmationToken: token, newPassword: password, newPasswordConfirmation: confirmationPassword, completion: { (result) in
+            if result {
                 Attributes.setInicialAttributes(textField: self.textFieldNewPassword, stackView: self.stackViewInvalidPassword)
-                if password == confirmationPassword {
-//                    APIManager.shared.validateToken(textFieldCode: textFieldToken, email: self.email) { (result) in
-//                        if result {
-                            APIManager.shared.changePassword(email: self.email, confirmationToken: token, newPassword: password, newPasswordConfirmation: confirmationPassword, completion: { (result) in
-                                if result {
-                                    Attributes.setInicialAttributes(textField: self.textFieldNewPassword, stackView: self.stackViewInvalidPassword)
-                                    Attributes.setInicialAttributes(textField: self.textFieldConfirmPassword, stackView: self.stackViewInvalidConfirmation)
-                                    completion(true)
-                                } else {
-                                    completion(false)
-                                    self.showLoading(status: false, button: button, loading: loading)
-                                    Attributes.setAttributeInvalidField(textField: self.textFieldToken, stackView: self.stackViewInvalidToken)
-                                }
-
-                            })
-//                        } else {
-//                            self.showLoading(status: false, button: button, loading: loading)
-//                            Attributes.setAttributeInvalidField(textField: self.textFieldToken, stackView: self.stackViewInvalidToken)
-//                        }
-//                    }
-                } else {
-                    self.showLoading(status: false, button: button, loading: loading)
-                    Attributes.setAttributeInvalidField(textField: self.textFieldConfirmPassword, stackView: self.stackViewInvalidConfirmation)
-                }
-
+                Attributes.setInicialAttributes(textField: self.textFieldConfirmPassword, stackView: self.stackViewInvalidConfirmation)
+                completion(true)
             } else {
+                completion(false)
                 self.showLoading(status: false, button: button, loading: loading)
-                Attributes.setAttributeInvalidField(textField: self.textFieldNewPassword, stackView: self.stackViewInvalidPassword)
+                Attributes.setAttributeInvalidField(textField: self.textFieldToken, stackView: self.stackViewInvalidToken)
             }
-
-        } else {
-            self.showLoading(status: false, button: button, loading: loading)
-            Attributes.setAttributeInvalidField(textField: textFieldToken, stackView: stackViewInvalidToken)
-        }
-        
             
-        
-        
-    
+        })
 
     }
     
