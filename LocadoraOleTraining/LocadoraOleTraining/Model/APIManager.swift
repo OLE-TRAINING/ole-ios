@@ -191,11 +191,11 @@ class APIManager: NSObject {
             "password": password
             ] as [String : Any]
         
-        self.post(url: url, parameters: parameters, success: { (task, responseObject) in
+        self.post(url: url, parameters: parameters , success: { (task, responseObject) in
             completion(true)
         }) { (task, error) in
-            guard let msgError = error else { return }
-            ValidateForm.showAlertMsg(msg: msgError.localizedDescription)
+//            guard let msgError = error else { return }
+//            ValidateForm.showAlertMsg(msg: msgError.localizedDescription)
             completion(false)
         }
 
@@ -243,9 +243,7 @@ class APIManager: NSObject {
         manager.put(url, parameters: parameters, success: { (task, responseObject) in
             completion(true)
         }) { (task, error) in
-            ValidateForm.showAlertMsg(msg: error.localizedDescription)
             completion(false)
-            //ValidateForm.showAlertError()
         }
 
     }
@@ -253,7 +251,6 @@ class APIManager: NSObject {
     func getFilmGenres(completion: @escaping (FilmGenre?) -> Void) {
         let url = baseURL + APIManager.getFilmGenres + key
         
-        //manager.requestSerializer.setValue("success", forHTTPHeaderField: xMockKey)
         setAuthorizationToken(bearerToken: self.bearerToken)
         self.get(url: url, success: { (task, responseObject) in
             let dataJson = try! JSONSerialization.data(withJSONObject: responseObject as Any, options: JSONSerialization.WritingOptions.prettyPrinted)

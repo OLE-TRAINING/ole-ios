@@ -60,18 +60,19 @@ class ViewControllerNewPassword: UIViewController {
     @objc func textFieldDidEndEditing(_ textField: UITextField) {
         
         if textField == textFieldToken {
-//            resultFullName = newRegistrationViewModel.checkFullName(textFieldFullName: textFieldFullName)
+            resultToken = viewModelNewPassword.checkToken(textFieldToken: textFieldToken)
         }
         if textField == textFieldNewPassword {
-//            resultUsername = newRegistrationViewModel.checkUsername(textFieldUsername: textFieldUsername, msgUsername: msgUsername)
+            resultPassword = viewModelNewPassword.checkNewPassword(textFieldNewPassword: textFieldNewPassword)
+
         }
         
         if textField == textFieldConfirmPassword {
-//            resultPassword = newRegistrationViewModel.checkPassword(textFieldPassword: textFieldPassword)
+            resultConfirmPassword = viewModelNewPassword.checkConfirmationPassword(textFieldNewPassword: textFieldNewPassword, textFieldConfirmPassword: textFieldConfirmPassword)
         }
         
         if resultToken && resultPassword && resultConfirmPassword {
-        viewModelNewPassword.enableButton(button: buttonChangePassword)
+            viewModelNewPassword.enableButton(button: buttonChangePassword)
         } else {
             viewModelNewPassword.disableButton(button: buttonChangePassword)
         }
