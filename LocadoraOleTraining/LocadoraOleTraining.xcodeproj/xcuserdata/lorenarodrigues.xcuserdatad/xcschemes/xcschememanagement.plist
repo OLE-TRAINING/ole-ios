@@ -7,7 +7,25 @@
 		<key>LocadoraOleTraining.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>5C59A6D1216E2D2E0053DC45</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5C59A6E5216E2D300053DC45</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5C59A6F0216E2D300053DC45</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

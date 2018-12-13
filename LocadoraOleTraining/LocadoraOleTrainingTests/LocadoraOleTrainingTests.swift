@@ -7,7 +7,7 @@
 //
 
 import XCTest
-//@testable import LocadoraOleTraining
+@testable import LocadoraOleTraining
 
 class LocadoraOleTrainingTests: XCTestCase {
     

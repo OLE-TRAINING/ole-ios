@@ -7,16 +7,70 @@
 //
 
 import XCTest
+import InstantMock
+
 @testable import LocadoraOleTraining
 
 class PreLoginTests: XCTestCase {
+    var preLoginVC: PreLoginViewController!
+    var preLoginVM = PreLoginViewModel()
     
-//    func test_title_is_Podcaster() {
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-//        let preLogin = storyboard.instantiateInitialViewController() as! PreLoginViewController
-//        let _ = preLogin.view
-//        XCTAssertEqual("INFORME SUA CONTA DE E-MAIL", preLogin.labelEmail!.text!)
-//    }
+    
+    class MockAPIManager: APIManager, MockDelegate {
+        
+        var getEmailWasCalled = false
+        var result = UsersInfo(email: "usuario@novo.com", completeName: nil, username: nil, registrationStatus: "INEXISTENT")
+        
+        private let mock = Mock()
+        
+        var it: Mock {
+            return mock
+        }
+        
+        override func getUserWithEmail(_ email: String, completion: @escaping (UsersInfo?) -> Void) {
+            getEmailWasCalled = true
+            completion(result)
+        }
+    }
+    
+    func testGetEmail() {
+        
+        let expectation = XCTestExpectation(description: "Teste de cadastro inexistente")
+        let mock = MockAPIManager()
+        preLoginVC.textFieldEmail.text = "usuario@novo.com"
+        
+//        mock.stub().call(
+//            mock.getUserWithEmail(Arg.any(), completion: { (result: UsersInfo?) in
+//
+//            })
+//        ).andReturn(true)
+        
+        self.preLoginVM.goToNextScreen(textFieldEmail: self.preLoginVC.textFieldEmail , button: self.preLoginVC.buttonGo, loading: self.preLoginVC.loading) { (result: String?) in
+            XCTAssertTrue(mock.getEmailWasCalled)
+        }
+        
+        //        viewController.buttonGo.sendActions(for: .touchUpInside)
+        wait(for: [expectation], timeout: 10.0)
+    }
+    
+    
+    
+    override func setUp() {
+        super.setUp()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let navigationController = storyboard.instantiateInitialViewController() as! UINavigationController
+        preLoginVC = (navigationController.topViewController as! PreLoginViewController)
+        
+        UIApplication.shared.keyWindow!.rootViewController = preLoginVC
+        let _ = preLoginVC.view
+        
+    }
+    
+    override func tearDown() {
+        preLoginVC = nil
+        super.tearDown()
+    }
+
     
 
 }

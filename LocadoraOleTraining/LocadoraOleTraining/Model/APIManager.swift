@@ -149,8 +149,6 @@ class APIManager: NSObject {
         manager.post(url, parameters: parameters, progress: nil, success: { (task, responseObject) in
             completion(true)
         }) { (task, error) in
-//            guard let msgError = error else { return }
-//            ValidateForm.showAlertMsg(msg: error.localizedDescription)
             completion(false)
         }
         
@@ -194,8 +192,6 @@ class APIManager: NSObject {
         self.post(url: url, parameters: parameters , success: { (task, responseObject) in
             completion(true)
         }) { (task, error) in
-//            guard let msgError = error else { return }
-//            ValidateForm.showAlertMsg(msg: msgError.localizedDescription)
             completion(false)
         }
 
