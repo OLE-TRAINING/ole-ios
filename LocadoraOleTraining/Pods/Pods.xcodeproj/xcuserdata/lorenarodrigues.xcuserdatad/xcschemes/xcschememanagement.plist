@@ -34,12 +34,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-LocadoraOleTraining.xcscheme</key>
+		<key>Pods-LocadoraOleTraining-LocadoraOleTrainingTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-LocadoraOleTrainingTests.xcscheme</key>
+		<key>Pods-LocadoraOleTraining.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

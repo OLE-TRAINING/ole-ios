@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_LocadoraOleTraining_LocadoraOleTrainingTests : NSObject
+@end
+@implementation PodsDummy_Pods_LocadoraOleTraining_LocadoraOleTrainingTests
+@end

@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_LocadoraOleTrainingTestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_LocadoraOleTrainingTestsVersionString[];
+FOUNDATION_EXPORT double Pods_LocadoraOleTraining_LocadoraOleTrainingTestsVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_LocadoraOleTraining_LocadoraOleTrainingTestsVersionString[];
 

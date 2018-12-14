@@ -8,6 +8,7 @@
 
 import XCTest
 import InstantMock
+import Foundation
 
 @testable import LocadoraOleTraining
 
@@ -15,9 +16,7 @@ class PreLoginTests: XCTestCase {
     var preLoginVC: PreLoginViewController!
     var preLoginVM = PreLoginViewModel()
     
-    
     class MockAPIManager: APIManager, MockDelegate {
-        
         var getEmailWasCalled = false
         var result = UsersInfo(email: "usuario@novo.com", completeName: nil, username: nil, registrationStatus: "INEXISTENT")
         
@@ -27,10 +26,14 @@ class PreLoginTests: XCTestCase {
             return mock
         }
         
+        
         override func getUserWithEmail(_ email: String, completion: @escaping (UsersInfo?) -> Void) {
             getEmailWasCalled = true
             completion(result)
+            mock.call(email, completion )
         }
+        
+        
     }
     
     func testGetEmail() {
@@ -39,12 +42,12 @@ class PreLoginTests: XCTestCase {
         let mock = MockAPIManager()
         preLoginVC.textFieldEmail.text = "usuario@novo.com"
         
-//        mock.stub().call(
-//            mock.getUserWithEmail(Arg.any(), completion: { (result: UsersInfo?) in
-//
-//            })
-//        ).andReturn(true)
-        
+        mock.it.stub().call(
+            mock.getUserWithEmail(Arg.any(), completion: { (result: UsersInfo?) in
+
+            })
+        ).andReturn(true)
+
         self.preLoginVM.goToNextScreen(textFieldEmail: self.preLoginVC.textFieldEmail , button: self.preLoginVC.buttonGo, loading: self.preLoginVC.loading) { (result: String?) in
             XCTAssertTrue(mock.getEmailWasCalled)
         }
@@ -63,6 +66,7 @@ class PreLoginTests: XCTestCase {
         
         UIApplication.shared.keyWindow!.rootViewController = preLoginVC
         let _ = preLoginVC.view
+        
         
     }
     

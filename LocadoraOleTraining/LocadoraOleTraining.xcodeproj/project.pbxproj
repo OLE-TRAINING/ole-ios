@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		21AE82D5B4D77C6B00AB1C35 /* Pods_LocadoraOleTrainingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5409644860B8EF84EEB07483 /* Pods_LocadoraOleTrainingUITests.framework */; };
-		3427D6E315D32EAD8482E42F /* Pods_LocadoraOleTrainingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 549B7BCAA34E3B2D5340B497 /* Pods_LocadoraOleTrainingTests.framework */; };
-		3D0A9DF63084C87C047D535B /* Pods_LocadoraOleTraining.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19D0AEF60C156123943D370D /* Pods_LocadoraOleTraining.framework */; };
+		0114D8973E0100FB6334952D /* Pods_LocadoraOleTraining.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7DE6F6F6ADF1C2029FFC768 /* Pods_LocadoraOleTraining.framework */; };
+		42FB86B4E43ABB90A363B7BB /* Pods_LocadoraOleTrainingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B47E2FF593B65535C26C4F5 /* Pods_LocadoraOleTrainingUITests.framework */; };
+		514024D7108E4245A4F4FD6D /* Pods_LocadoraOleTraining_LocadoraOleTrainingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 020043F7ABB83281F3438196 /* Pods_LocadoraOleTraining_LocadoraOleTrainingTests.framework */; };
 		5C04923C21AD4EE400ACC5DF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C04923B21AD4EE400ACC5DF /* SearchViewController.swift */; };
 		5C04923E21AD4EF600ACC5DF /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C04923D21AD4EF600ACC5DF /* SearchViewModel.swift */; };
 		5C04924021AD4FCD00ACC5DF /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C04923F21AD4FCD00ACC5DF /* SearchTableViewCell.swift */; };
@@ -90,11 +90,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00348CCEEE91C5475726A99A /* Pods-LocadoraOleTrainingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocadoraOleTrainingTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LocadoraOleTrainingTests/Pods-LocadoraOleTrainingTests.release.xcconfig"; sourceTree = "<group>"; };
-		19D0AEF60C156123943D370D /* Pods_LocadoraOleTraining.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocadoraOleTraining.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		33669BBE909C2C6B173E9536 /* Pods-LocadoraOleTrainingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocadoraOleTrainingUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LocadoraOleTrainingUITests/Pods-LocadoraOleTrainingUITests.release.xcconfig"; sourceTree = "<group>"; };
-		5409644860B8EF84EEB07483 /* Pods_LocadoraOleTrainingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocadoraOleTrainingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		549B7BCAA34E3B2D5340B497 /* Pods_LocadoraOleTrainingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocadoraOleTrainingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		020043F7ABB83281F3438196 /* Pods_LocadoraOleTraining_LocadoraOleTrainingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocadoraOleTraining_LocadoraOleTrainingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0B47E2FF593B65535C26C4F5 /* Pods_LocadoraOleTrainingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocadoraOleTrainingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BFB1E67446CB3892529183E /* Pods-LocadoraOleTraining-LocadoraOleTrainingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocadoraOleTraining-LocadoraOleTrainingTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LocadoraOleTraining-LocadoraOleTrainingTests/Pods-LocadoraOleTraining-LocadoraOleTrainingTests.release.xcconfig"; sourceTree = "<group>"; };
+		22255CB5A94D0C98CB41EE94 /* Pods-LocadoraOleTrainingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocadoraOleTrainingUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LocadoraOleTrainingUITests/Pods-LocadoraOleTrainingUITests.release.xcconfig"; sourceTree = "<group>"; };
+		2455A5711995C18C374D4DB7 /* Pods-LocadoraOleTraining-LocadoraOleTrainingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocadoraOleTraining-LocadoraOleTrainingTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LocadoraOleTraining-LocadoraOleTrainingTests/Pods-LocadoraOleTraining-LocadoraOleTrainingTests.debug.xcconfig"; sourceTree = "<group>"; };
+		27C1CC821FD51BE14F8D376E /* Pods-LocadoraOleTraining.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocadoraOleTraining.release.xcconfig"; path = "Pods/Target Support Files/Pods-LocadoraOleTraining/Pods-LocadoraOleTraining.release.xcconfig"; sourceTree = "<group>"; };
 		5C04923B21AD4EE400ACC5DF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		5C04923D21AD4EF600ACC5DF /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		5C04923F21AD4FCD00ACC5DF /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
@@ -162,13 +163,12 @@
 		5C99630D21AF003700870303 /* DetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTableViewCell.swift; sourceTree = "<group>"; };
 		5C99630F21AF006C00870303 /* DetailsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCellViewModel.swift; sourceTree = "<group>"; };
 		5CC41EF7217509A900F2FB3E /* ContinueRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueRegistration.swift; sourceTree = "<group>"; };
-		7B715B4BEEEA97E299EC0DC7 /* Pods-LocadoraOleTraining.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocadoraOleTraining.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LocadoraOleTraining/Pods-LocadoraOleTraining.debug.xcconfig"; sourceTree = "<group>"; };
-		830B95FC87DF7D4C46799C3C /* Pods-LocadoraOleTraining.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocadoraOleTraining.release.xcconfig"; path = "Pods/Target Support Files/Pods-LocadoraOleTraining/Pods-LocadoraOleTraining.release.xcconfig"; sourceTree = "<group>"; };
-		854847D04A3AA760830EF41A /* Pods-LocadoraOleTrainingTests.xctest.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocadoraOleTrainingTests.xctest.xcconfig"; path = "Pods/Target Support Files/Pods-LocadoraOleTrainingTests/Pods-LocadoraOleTrainingTests.xctest.xcconfig"; sourceTree = "<group>"; };
-		B0C9A30DB000885F8CB9313B /* Pods-LocadoraOleTraining.xctest.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocadoraOleTraining.xctest.xcconfig"; path = "Pods/Target Support Files/Pods-LocadoraOleTraining/Pods-LocadoraOleTraining.xctest.xcconfig"; sourceTree = "<group>"; };
-		DEEC8F771360A311C0BE7539 /* Pods-LocadoraOleTrainingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocadoraOleTrainingTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LocadoraOleTrainingTests/Pods-LocadoraOleTrainingTests.debug.xcconfig"; sourceTree = "<group>"; };
-		EBB137A1A3A7AE9D33DDFEF0 /* Pods-LocadoraOleTrainingUITests.xctest.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocadoraOleTrainingUITests.xctest.xcconfig"; path = "Pods/Target Support Files/Pods-LocadoraOleTrainingUITests/Pods-LocadoraOleTrainingUITests.xctest.xcconfig"; sourceTree = "<group>"; };
-		F995E4C106150E628F235BAE /* Pods-LocadoraOleTrainingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocadoraOleTrainingUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LocadoraOleTrainingUITests/Pods-LocadoraOleTrainingUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		760FD4F86D58BC0BE3360FF7 /* Pods-LocadoraOleTrainingUITests.xctest.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocadoraOleTrainingUITests.xctest.xcconfig"; path = "Pods/Target Support Files/Pods-LocadoraOleTrainingUITests/Pods-LocadoraOleTrainingUITests.xctest.xcconfig"; sourceTree = "<group>"; };
+		84962A9D00D7135015134C36 /* Pods-LocadoraOleTraining.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocadoraOleTraining.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LocadoraOleTraining/Pods-LocadoraOleTraining.debug.xcconfig"; sourceTree = "<group>"; };
+		90F639EF0F6E5D4095398E96 /* Pods-LocadoraOleTraining-LocadoraOleTrainingTests.xctest.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocadoraOleTraining-LocadoraOleTrainingTests.xctest.xcconfig"; path = "Pods/Target Support Files/Pods-LocadoraOleTraining-LocadoraOleTrainingTests/Pods-LocadoraOleTraining-LocadoraOleTrainingTests.xctest.xcconfig"; sourceTree = "<group>"; };
+		985065B69D49F6589E612F9B /* Pods-LocadoraOleTrainingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocadoraOleTrainingUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LocadoraOleTrainingUITests/Pods-LocadoraOleTrainingUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A7DE6F6F6ADF1C2029FFC768 /* Pods_LocadoraOleTraining.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocadoraOleTraining.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC7313AC0F96570BC1ABDCCF /* Pods-LocadoraOleTraining.xctest.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocadoraOleTraining.xctest.xcconfig"; path = "Pods/Target Support Files/Pods-LocadoraOleTraining/Pods-LocadoraOleTraining.xctest.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,7 +176,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D0A9DF63084C87C047D535B /* Pods_LocadoraOleTraining.framework in Frameworks */,
+				0114D8973E0100FB6334952D /* Pods_LocadoraOleTraining.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,7 +184,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3427D6E315D32EAD8482E42F /* Pods_LocadoraOleTrainingTests.framework in Frameworks */,
+				514024D7108E4245A4F4FD6D /* Pods_LocadoraOleTraining_LocadoraOleTrainingTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,13 +192,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21AE82D5B4D77C6B00AB1C35 /* Pods_LocadoraOleTrainingUITests.framework in Frameworks */,
+				42FB86B4E43ABB90A363B7BB /* Pods_LocadoraOleTrainingUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A810917B9E52E504F7D9D20 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A7DE6F6F6ADF1C2029FFC768 /* Pods_LocadoraOleTraining.framework */,
+				020043F7ABB83281F3438196 /* Pods_LocadoraOleTraining_LocadoraOleTrainingTests.framework */,
+				0B47E2FF593B65535C26C4F5 /* Pods_LocadoraOleTrainingUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5C04923621AD4E6000ACC5DF /* Search */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,8 +300,8 @@
 				5C59A6E9216E2D300053DC45 /* LocadoraOleTrainingTests */,
 				5C59A6F4216E2D300053DC45 /* LocadoraOleTrainingUITests */,
 				5C59A6D3216E2D2E0053DC45 /* Products */,
-				C6F07ED1E2C487041FB34790 /* Pods */,
-				6FD368D1712365DDDC574DA8 /* Frameworks */,
+				EB170C69E7E8126A1348D0D7 /* Pods */,
+				3A810917B9E52E504F7D9D20 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -611,28 +621,18 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		6FD368D1712365DDDC574DA8 /* Frameworks */ = {
+		EB170C69E7E8126A1348D0D7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				19D0AEF60C156123943D370D /* Pods_LocadoraOleTraining.framework */,
-				549B7BCAA34E3B2D5340B497 /* Pods_LocadoraOleTrainingTests.framework */,
-				5409644860B8EF84EEB07483 /* Pods_LocadoraOleTrainingUITests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C6F07ED1E2C487041FB34790 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				7B715B4BEEEA97E299EC0DC7 /* Pods-LocadoraOleTraining.debug.xcconfig */,
-				830B95FC87DF7D4C46799C3C /* Pods-LocadoraOleTraining.release.xcconfig */,
-				B0C9A30DB000885F8CB9313B /* Pods-LocadoraOleTraining.xctest.xcconfig */,
-				DEEC8F771360A311C0BE7539 /* Pods-LocadoraOleTrainingTests.debug.xcconfig */,
-				854847D04A3AA760830EF41A /* Pods-LocadoraOleTrainingTests.xctest.xcconfig */,
-				00348CCEEE91C5475726A99A /* Pods-LocadoraOleTrainingTests.release.xcconfig */,
-				F995E4C106150E628F235BAE /* Pods-LocadoraOleTrainingUITests.debug.xcconfig */,
-				EBB137A1A3A7AE9D33DDFEF0 /* Pods-LocadoraOleTrainingUITests.xctest.xcconfig */,
-				33669BBE909C2C6B173E9536 /* Pods-LocadoraOleTrainingUITests.release.xcconfig */,
+				84962A9D00D7135015134C36 /* Pods-LocadoraOleTraining.debug.xcconfig */,
+				DC7313AC0F96570BC1ABDCCF /* Pods-LocadoraOleTraining.xctest.xcconfig */,
+				27C1CC821FD51BE14F8D376E /* Pods-LocadoraOleTraining.release.xcconfig */,
+				2455A5711995C18C374D4DB7 /* Pods-LocadoraOleTraining-LocadoraOleTrainingTests.debug.xcconfig */,
+				90F639EF0F6E5D4095398E96 /* Pods-LocadoraOleTraining-LocadoraOleTrainingTests.xctest.xcconfig */,
+				1BFB1E67446CB3892529183E /* Pods-LocadoraOleTraining-LocadoraOleTrainingTests.release.xcconfig */,
+				985065B69D49F6589E612F9B /* Pods-LocadoraOleTrainingUITests.debug.xcconfig */,
+				760FD4F86D58BC0BE3360FF7 /* Pods-LocadoraOleTrainingUITests.xctest.xcconfig */,
+				22255CB5A94D0C98CB41EE94 /* Pods-LocadoraOleTrainingUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -644,11 +644,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5C59A6FA216E2D300053DC45 /* Build configuration list for PBXNativeTarget "LocadoraOleTraining" */;
 			buildPhases = (
-				A94281F0228DB942790986C8 /* [CP] Check Pods Manifest.lock */,
+				39556849F4FAF0045D1BDDA4 /* [CP] Check Pods Manifest.lock */,
 				5C59A6CE216E2D2E0053DC45 /* Sources */,
 				5C59A6CF216E2D2E0053DC45 /* Frameworks */,
 				5C59A6D0216E2D2E0053DC45 /* Resources */,
-				90131CD2AE56B110C36B2F00 /* [CP] Embed Pods Frameworks */,
+				AFF8240A2229D35B0BCE5335 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -663,11 +663,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5C59A6FD216E2D300053DC45 /* Build configuration list for PBXNativeTarget "LocadoraOleTrainingTests" */;
 			buildPhases = (
-				DB983F6BCD9D1D07E60F2651 /* [CP] Check Pods Manifest.lock */,
+				21A4E14142F55F0CDCF8C94E /* [CP] Check Pods Manifest.lock */,
 				5C59A6E2216E2D300053DC45 /* Sources */,
 				5C59A6E3216E2D300053DC45 /* Frameworks */,
 				5C59A6E4216E2D300053DC45 /* Resources */,
-				C21EB1BBBB73B41E6FA69D07 /* [CP] Embed Pods Frameworks */,
+				01F40B774D1AACAB38B2E3C4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -683,11 +683,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5C59A700216E2D300053DC45 /* Build configuration list for PBXNativeTarget "LocadoraOleTrainingUITests" */;
 			buildPhases = (
-				5A1E9FBBA30D45577D5373F7 /* [CP] Check Pods Manifest.lock */,
+				479E671F6FD6698EBD50F71C /* [CP] Check Pods Manifest.lock */,
 				5C59A6ED216E2D300053DC45 /* Sources */,
 				5C59A6EE216E2D300053DC45 /* Frameworks */,
 				5C59A6EF216E2D300053DC45 /* Resources */,
-				950F762B583938E2694B029E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -786,7 +785,87 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5A1E9FBBA30D45577D5373F7 /* [CP] Check Pods Manifest.lock */ = {
+		01F40B774D1AACAB38B2E3C4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-LocadoraOleTraining-LocadoraOleTrainingTests/Pods-LocadoraOleTraining-LocadoraOleTrainingTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/AKSideMenu/AKSideMenu.framework",
+				"${BUILT_PRODUCTS_DIR}/AutoInsetter/AutoInsetter.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/Pageboy/Pageboy.framework",
+				"${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework",
+				"${BUILT_PRODUCTS_DIR}/Tabman/Tabman.framework",
+				"${BUILT_PRODUCTS_DIR}/InstantMock/InstantMock.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AKSideMenu.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AutoInsetter.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pageboy.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPKeyboardAvoiding.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Tabman.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InstantMock.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LocadoraOleTraining-LocadoraOleTrainingTests/Pods-LocadoraOleTraining-LocadoraOleTrainingTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		21A4E14142F55F0CDCF8C94E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LocadoraOleTraining-LocadoraOleTrainingTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		39556849F4FAF0045D1BDDA4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LocadoraOleTraining-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		479E671F6FD6698EBD50F71C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -808,10 +887,12 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		90131CD2AE56B110C36B2F00 /* [CP] Embed Pods Frameworks */ = {
+		AFF8240A2229D35B0BCE5335 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			inputFileListPaths = (
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-LocadoraOleTraining/Pods-LocadoraOleTraining-frameworks.sh",
@@ -824,6 +905,8 @@
 				"${BUILT_PRODUCTS_DIR}/Tabman/Tabman.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AKSideMenu.framework",
@@ -836,90 +919,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LocadoraOleTraining/Pods-LocadoraOleTraining-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		950F762B583938E2694B029E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-LocadoraOleTrainingUITests/Pods-LocadoraOleTrainingUITests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/InstantMock/InstantMock.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InstantMock.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LocadoraOleTrainingUITests/Pods-LocadoraOleTrainingUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A94281F0228DB942790986C8 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-LocadoraOleTraining-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C21EB1BBBB73B41E6FA69D07 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-LocadoraOleTrainingTests/Pods-LocadoraOleTrainingTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/InstantMock/InstantMock.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InstantMock.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LocadoraOleTrainingTests/Pods-LocadoraOleTrainingTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DB983F6BCD9D1D07E60F2651 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-LocadoraOleTrainingTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1026,6 +1025,7 @@
 		5C59A6F8216E2D300053DC45 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1086,6 +1086,7 @@
 		5C59A6F9216E2D300053DC45 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1139,7 +1140,7 @@
 		};
 		5C59A6FB216E2D300053DC45 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7B715B4BEEEA97E299EC0DC7 /* Pods-LocadoraOleTraining.debug.xcconfig */;
+			baseConfigurationReference = 84962A9D00D7135015134C36 /* Pods-LocadoraOleTraining.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1151,9 +1152,27 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"-framework",
+					"\"AFNetworking\"",
+					"-framework",
+					"\"AKSideMenu\"",
+					"-framework",
+					"\"AutoInsetter\"",
+					"-framework",
+					"\"MBProgressHUD\"",
+					"-framework",
+					"\"Pageboy\"",
+					"-framework",
+					"\"TPKeyboardAvoiding\"",
+					"-framework",
+					"\"Tabman\"",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.zup.oletraining.LocadoraOleTraining;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OBJC_BRIDGING_HEADER = "LocadoraOleTraining/LocadoraOleTraining-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -1163,7 +1182,7 @@
 		};
 		5C59A6FC216E2D300053DC45 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 830B95FC87DF7D4C46799C3C /* Pods-LocadoraOleTraining.release.xcconfig */;
+			baseConfigurationReference = 27C1CC821FD51BE14F8D376E /* Pods-LocadoraOleTraining.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1174,6 +1193,23 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-framework",
+					"\"AFNetworking\"",
+					"-framework",
+					"\"AKSideMenu\"",
+					"-framework",
+					"\"AutoInsetter\"",
+					"-framework",
+					"\"MBProgressHUD\"",
+					"-framework",
+					"\"Pageboy\"",
+					"-framework",
+					"\"TPKeyboardAvoiding\"",
+					"-framework",
+					"\"Tabman\"",
+					"$(inherited)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.zup.oletraining.LocadoraOleTraining;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1186,9 +1222,8 @@
 		};
 		5C59A6FE216E2D300053DC45 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DEEC8F771360A311C0BE7539 /* Pods-LocadoraOleTrainingTests.debug.xcconfig */;
+			baseConfigurationReference = 2455A5711995C18C374D4DB7 /* Pods-LocadoraOleTraining-LocadoraOleTrainingTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SZSQ274898;
@@ -1198,8 +1233,28 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"-framework",
+					"\"AFNetworking\"",
+					"-framework",
+					"\"AKSideMenu\"",
+					"-framework",
+					"\"AutoInsetter\"",
+					"-framework",
+					"\"InstantMock\"",
+					"-framework",
+					"\"MBProgressHUD\"",
+					"-framework",
+					"\"Pageboy\"",
+					"-framework",
+					"\"TPKeyboardAvoiding\"",
+					"-framework",
+					"\"Tabman\"",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.zup.oletraining.LocadoraOleTrainingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LocadoraOleTraining.app/LocadoraOleTraining";
@@ -1208,9 +1263,8 @@
 		};
 		5C59A6FF216E2D300053DC45 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 00348CCEEE91C5475726A99A /* Pods-LocadoraOleTrainingTests.release.xcconfig */;
+			baseConfigurationReference = 1BFB1E67446CB3892529183E /* Pods-LocadoraOleTraining-LocadoraOleTrainingTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SZSQ274898;
@@ -1219,6 +1273,25 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-framework",
+					"\"AFNetworking\"",
+					"-framework",
+					"\"AKSideMenu\"",
+					"-framework",
+					"\"AutoInsetter\"",
+					"-framework",
+					"\"InstantMock\"",
+					"-framework",
+					"\"MBProgressHUD\"",
+					"-framework",
+					"\"Pageboy\"",
+					"-framework",
+					"\"TPKeyboardAvoiding\"",
+					"-framework",
+					"\"Tabman\"",
+					"$(inherited)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.zup.oletraining.LocadoraOleTrainingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1230,9 +1303,8 @@
 		};
 		5C59A701216E2D300053DC45 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F995E4C106150E628F235BAE /* Pods-LocadoraOleTrainingUITests.debug.xcconfig */;
+			baseConfigurationReference = 985065B69D49F6589E612F9B /* Pods-LocadoraOleTrainingUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SZSQ274898;
 				INFOPLIST_FILE = LocadoraOleTrainingUITests/Info.plist;
@@ -1241,8 +1313,28 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				OTHER_LDFLAGS = (
+					"-framework",
+					"\"AFNetworking\"",
+					"-framework",
+					"\"AKSideMenu\"",
+					"-framework",
+					"\"AutoInsetter\"",
+					"-framework",
+					"\"InstantMock\"",
+					"-framework",
+					"\"MBProgressHUD\"",
+					"-framework",
+					"\"Pageboy\"",
+					"-framework",
+					"\"TPKeyboardAvoiding\"",
+					"-framework",
+					"\"Tabman\"",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.zup.oletraining.LocadoraOleTrainingUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = LocadoraOleTraining;
@@ -1251,9 +1343,8 @@
 		};
 		5C59A702216E2D300053DC45 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 33669BBE909C2C6B173E9536 /* Pods-LocadoraOleTrainingUITests.release.xcconfig */;
+			baseConfigurationReference = 22255CB5A94D0C98CB41EE94 /* Pods-LocadoraOleTrainingUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SZSQ274898;
 				INFOPLIST_FILE = LocadoraOleTrainingUITests/Info.plist;
@@ -1261,6 +1352,25 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-framework",
+					"\"AFNetworking\"",
+					"-framework",
+					"\"AKSideMenu\"",
+					"-framework",
+					"\"AutoInsetter\"",
+					"-framework",
+					"\"InstantMock\"",
+					"-framework",
+					"\"MBProgressHUD\"",
+					"-framework",
+					"\"Pageboy\"",
+					"-framework",
+					"\"TPKeyboardAvoiding\"",
+					"-framework",
+					"\"Tabman\"",
+					"$(inherited)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.zup.oletraining.LocadoraOleTrainingUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1273,6 +1383,7 @@
 		A7EFD9FB21C2746E00345608 /* xctest */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1314,6 +1425,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
+					"XCTEST=1",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -1332,7 +1444,7 @@
 		};
 		A7EFD9FC21C2746E00345608 /* xctest */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B0C9A30DB000885F8CB9313B /* Pods-LocadoraOleTraining.xctest.xcconfig */;
+			baseConfigurationReference = DC7313AC0F96570BC1ABDCCF /* Pods-LocadoraOleTraining.xctest.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1343,6 +1455,23 @@
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-framework",
+					"\"AFNetworking\"",
+					"-framework",
+					"\"AKSideMenu\"",
+					"-framework",
+					"\"AutoInsetter\"",
+					"-framework",
+					"\"MBProgressHUD\"",
+					"-framework",
+					"\"Pageboy\"",
+					"-framework",
+					"\"TPKeyboardAvoiding\"",
+					"-framework",
+					"\"Tabman\"",
+					"$(inherited)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.zup.oletraining.LocadoraOleTraining;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1356,9 +1485,8 @@
 		};
 		A7EFD9FD21C2746E00345608 /* xctest */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 854847D04A3AA760830EF41A /* Pods-LocadoraOleTrainingTests.xctest.xcconfig */;
+			baseConfigurationReference = 90F639EF0F6E5D4095398E96 /* Pods-LocadoraOleTraining-LocadoraOleTrainingTests.xctest.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SZSQ274898;
@@ -1367,6 +1495,25 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-framework",
+					"\"AFNetworking\"",
+					"-framework",
+					"\"AKSideMenu\"",
+					"-framework",
+					"\"AutoInsetter\"",
+					"-framework",
+					"\"InstantMock\"",
+					"-framework",
+					"\"MBProgressHUD\"",
+					"-framework",
+					"\"Pageboy\"",
+					"-framework",
+					"\"TPKeyboardAvoiding\"",
+					"-framework",
+					"\"Tabman\"",
+					"$(inherited)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.zup.oletraining.LocadoraOleTrainingTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1378,9 +1525,8 @@
 		};
 		A7EFD9FE21C2746E00345608 /* xctest */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EBB137A1A3A7AE9D33DDFEF0 /* Pods-LocadoraOleTrainingUITests.xctest.xcconfig */;
+			baseConfigurationReference = 760FD4F86D58BC0BE3360FF7 /* Pods-LocadoraOleTrainingUITests.xctest.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SZSQ274898;
 				INFOPLIST_FILE = LocadoraOleTrainingUITests/Info.plist;
@@ -1388,6 +1534,25 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-framework",
+					"\"AFNetworking\"",
+					"-framework",
+					"\"AKSideMenu\"",
+					"-framework",
+					"\"AutoInsetter\"",
+					"-framework",
+					"\"InstantMock\"",
+					"-framework",
+					"\"MBProgressHUD\"",
+					"-framework",
+					"\"Pageboy\"",
+					"-framework",
+					"\"TPKeyboardAvoiding\"",
+					"-framework",
+					"\"Tabman\"",
+					"$(inherited)",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.zup.oletraining.LocadoraOleTrainingUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -404,9 +404,9 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IDENTIFICAMOS QUE VOCÊ JÁ INICIOU UM CADASTRO, PARA CONCLUIRMOS, INFORME O TOKEN ENVIADO PARA O SEU EMAIL:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kaq-k8-uQ8">
-                                        <rect key="frame" x="46.5" y="60.5" width="282" height="102"/>
+                                        <rect key="frame" x="47" y="61" width="282" height="116"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="102" id="QgE-Vv-nXu"/>
+                                            <constraint firstAttribute="height" constant="116" id="QgE-Vv-nXu"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -466,15 +466,6 @@
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="6KW-Qf-8aa">
                                         <rect key="frame" x="177.5" y="570.5" width="20" height="20"/>
                                     </activityIndicatorView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lorena@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0v-hE-I4K">
-                                        <rect key="frame" x="117" y="162.5" width="141" height="20.5"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="20.5" id="Yx4-Bb-qe0"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.99607843137254903" green="0.2196078431372549" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z7a-oh-zfK">
                                         <rect key="frame" x="8" y="8" width="36" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -499,6 +490,15 @@
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Aul-a5-tk7">
                                         <rect key="frame" x="249.5" y="336" width="20" height="20"/>
                                     </activityIndicatorView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lorena@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0v-hE-I4K">
+                                        <rect key="frame" x="117" y="174" width="141" height="20.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20.5" id="Yx4-Bb-qe0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.99607843137254903" green="0.2196078431372549" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -525,7 +525,7 @@
                                     <constraint firstItem="Kaq-k8-uQ8" firstAttribute="top" secondItem="8g1-4R-eow" secondAttribute="top" constant="60.5" id="p1H-dr-45O"/>
                                     <constraint firstItem="DeV-vW-MeM" firstAttribute="centerY" secondItem="8g1-4R-eow" secondAttribute="centerY" id="po7-zf-l1z"/>
                                     <constraint firstItem="BdX-cv-jsw" firstAttribute="top" secondItem="ubc-nQ-6Lr" secondAttribute="bottom" constant="18" id="qjP-lw-5dp"/>
-                                    <constraint firstItem="R0v-hE-I4K" firstAttribute="top" secondItem="Kaq-k8-uQ8" secondAttribute="bottom" id="rWI-3j-a8B"/>
+                                    <constraint firstItem="R0v-hE-I4K" firstAttribute="top" secondItem="Kaq-k8-uQ8" secondAttribute="bottom" constant="-3" id="rWI-3j-a8B"/>
                                     <constraint firstItem="DeV-vW-MeM" firstAttribute="top" secondItem="ubc-nQ-6Lr" secondAttribute="bottom" constant="2" id="tc9-Fw-3MH"/>
                                     <constraint firstItem="6KW-Qf-8aa" firstAttribute="centerY" secondItem="dMX-IO-Ug5" secondAttribute="centerY" id="uZq-8M-fBa"/>
                                     <constraint firstItem="BdX-cv-jsw" firstAttribute="centerX" secondItem="8g1-4R-eow" secondAttribute="centerX" constant="-75.5" id="x3z-Op-YSy"/>
@@ -556,7 +556,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qtj-vq-BOI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1683.75" y="116.19718309859155"/>
+            <point key="canvasLocation" x="1682.4000000000001" y="115.59220389805098"/>
         </scene>
         <!--Validate Token View Controller-->
         <scene sceneID="ZPh-CL-QhU">
@@ -1024,16 +1024,16 @@
                                         <rect key="frame" x="48" y="60" width="279" height="560"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="PARA SUA SEGURANÇA, INFORME O TOKEN ENVIADO PARA O SEU E-MAL:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OqD-ve-iO3">
-                                                <rect key="frame" x="0.0" y="0.0" width="279" height="80"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="279" height="100"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="80" id="eXj-aJ-Sh5"/>
+                                                    <constraint firstAttribute="height" constant="100" id="eXj-aJ-Sh5"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lorena@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWt-et-t9Z">
-                                                <rect key="frame" x="0.0" y="84" width="279" height="17"/>
+                                                <rect key="frame" x="0.0" y="104" width="279" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="17" id="NRJ-t4-Lte"/>
                                                 </constraints>
@@ -1041,12 +1041,8 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d2Y-oj-ha1">
-                                                <rect key="frame" x="0.0" y="105" width="279" height="100"/>
-                                                <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                            </view>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Token de validação" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2cS-1P-04t">
-                                                <rect key="frame" x="0.0" y="209" width="279" height="50"/>
+                                                <rect key="frame" x="0.0" y="125" width="279" height="50"/>
                                                 <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="QpT-9s-EfL"/>
@@ -1056,7 +1052,7 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="And-rG-dyc" userLabel="Stack View Email">
-                                                <rect key="frame" x="0.0" y="263" width="279" height="8"/>
+                                                <rect key="frame" x="0.0" y="179" width="279" height="8"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="     Token inválido" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="br5-ck-JhL">
                                                         <rect key="frame" x="0.0" y="0.0" width="229" height="8"/>
@@ -1074,7 +1070,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sTJ-1d-vA9">
-                                                <rect key="frame" x="0.0" y="275" width="279" height="27"/>
+                                                <rect key="frame" x="0.0" y="191" width="279" height="27"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Não recebeu o token?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJR-ns-W7H">
                                                         <rect key="frame" x="0.0" y="0.0" width="116.5" height="27"/>
@@ -1113,7 +1109,7 @@
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crie sua nova senha" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIf-9K-pc4">
-                                                <rect key="frame" x="0.0" y="306" width="279" height="45"/>
+                                                <rect key="frame" x="0.0" y="222" width="279" height="45"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="3nf-go-9jY"/>
                                                 </constraints>
@@ -1122,7 +1118,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nova senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uGy-Nk-1MF">
-                                                <rect key="frame" x="0.0" y="355" width="279" height="50"/>
+                                                <rect key="frame" x="0.0" y="271" width="279" height="50"/>
                                                 <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="uId-8l-buM"/>
@@ -1132,7 +1128,7 @@
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="kjG-SU-7Fs" userLabel="Stack View Email">
-                                                <rect key="frame" x="0.0" y="409" width="279" height="8"/>
+                                                <rect key="frame" x="0.0" y="325" width="279" height="8"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="     Obrigatório conter letras e números, entre 6 e 10 caracteres" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ris-Xd-NXk">
                                                         <rect key="frame" x="0.0" y="0.0" width="229" height="8"/>
@@ -1150,7 +1146,7 @@
                                                 </subviews>
                                             </stackView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirme sua senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dZz-Nd-Ley">
-                                                <rect key="frame" x="0.0" y="421" width="279" height="50"/>
+                                                <rect key="frame" x="0.0" y="337" width="279" height="50"/>
                                                 <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="BaN-Rs-Zne"/>
@@ -1160,7 +1156,7 @@
                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="L1b-bt-1Zx" userLabel="Stack View Email">
-                                                <rect key="frame" x="0.0" y="475" width="279" height="8"/>
+                                                <rect key="frame" x="0.0" y="391" width="279" height="8"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="     Nova senha e sua confirmação são diferentes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbD-RB-lMj">
                                                         <rect key="frame" x="0.0" y="0.0" width="229" height="8"/>
@@ -1178,14 +1174,14 @@
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M3q-jd-bIV">
-                                                <rect key="frame" x="0.0" y="487" width="279" height="0.0"/>
+                                                <rect key="frame" x="0.0" y="403" width="279" height="0.0"/>
                                                 <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="syc-Wh-Z1R">
-                                                <rect key="frame" x="0.0" y="491" width="279" height="45"/>
+                                                <rect key="frame" x="0.0" y="407" width="279" height="129"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dY-pb-5sP" customClass="RoundedButton" customModule="LocadoraOleTraining" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="259" height="45"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="259" height="129"/>
                                                         <color key="backgroundColor" red="0.070588235289999995" green="0.59215686270000001" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="45" id="GXL-x0-hCj"/>
@@ -1203,7 +1199,7 @@
                                                         </connections>
                                                     </button>
                                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="57V-TS-4th">
-                                                        <rect key="frame" x="259" y="0.0" width="20" height="45"/>
+                                                        <rect key="frame" x="259" y="0.0" width="20" height="129"/>
                                                     </activityIndicatorView>
                                                 </subviews>
                                             </stackView>
@@ -1218,7 +1214,6 @@
                                         <color key="backgroundColor" red="0.96078431369999995" green="0.96470588239999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="syc-Wh-Z1R" firstAttribute="top" secondItem="L1b-bt-1Zx" secondAttribute="bottom" constant="8" symbolic="YES" id="DUJ-Wg-5Uk"/>
-                                            <constraint firstItem="2cS-1P-04t" firstAttribute="top" secondItem="OqD-ve-iO3" secondAttribute="bottom" constant="129" id="HKa-cb-Zks"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
@@ -1637,7 +1632,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categoria Filme " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="otY-Nc-HXk">
-                                                            <rect key="frame" x="158" y="25" width="51.5" height="10"/>
+                                                            <rect key="frame" x="158" y="25" width="50" height="10"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="7"/>
                                                             <color key="textColor" red="0.60784313725490191" green="0.63921568627450975" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
