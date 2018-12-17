@@ -404,7 +404,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IDENTIFICAMOS QUE VOCÊ JÁ INICIOU UM CADASTRO, PARA CONCLUIRMOS, INFORME O TOKEN ENVIADO PARA O SEU EMAIL:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kaq-k8-uQ8">
-                                        <rect key="frame" x="47" y="61" width="282" height="116"/>
+                                        <rect key="frame" x="46.5" y="60.5" width="282" height="116"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="116" id="QgE-Vv-nXu"/>
                                         </constraints>
@@ -491,7 +491,7 @@
                                         <rect key="frame" x="249.5" y="336" width="20" height="20"/>
                                     </activityIndicatorView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lorena@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0v-hE-I4K">
-                                        <rect key="frame" x="117" y="174" width="141" height="20.5"/>
+                                        <rect key="frame" x="117" y="173.5" width="141" height="20.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20.5" id="Yx4-Bb-qe0"/>
                                         </constraints>
@@ -714,7 +714,7 @@
                         <outlet property="labelTitle" destination="OHM-NB-Zyx" id="O0K-Nx-7nc"/>
                         <outlet property="loadingSendAgain" destination="LwD-ZD-yyk" id="Wk7-NK-TIa"/>
                         <outlet property="loadingValidate" destination="Vpx-eh-nTA" id="zb4-RY-Ew9"/>
-                        <outlet property="stackInvalidCode" destination="IUS-ms-ULy" id="CSP-4r-1kp"/>
+                        <outlet property="stackInvalidCode" destination="IUS-ms-ULy" id="Uwf-OC-R33"/>
                         <outlet property="textFieldToken" destination="JWu-B5-9vV" id="oJT-ow-R6g"/>
                     </connections>
                 </viewController>
@@ -1632,7 +1632,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categoria Filme " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="otY-Nc-HXk">
-                                                            <rect key="frame" x="158" y="25" width="50" height="10"/>
+                                                            <rect key="frame" x="158" y="25" width="51.5" height="10"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="7"/>
                                                             <color key="textColor" red="0.60784313725490191" green="0.63921568627450975" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>

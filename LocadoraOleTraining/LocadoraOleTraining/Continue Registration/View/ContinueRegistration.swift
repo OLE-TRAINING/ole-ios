@@ -36,10 +36,6 @@ class ContinueRegistration: UIViewController {
         continueRegistrationViewModel.showLoading(status: false, button: buttonValidate, loading: loadingValidate)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     @IBAction func backButton(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)

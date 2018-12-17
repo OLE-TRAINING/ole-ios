@@ -18,7 +18,9 @@ class PreLoginTests: XCTestCase {
     
     class MockAPIManager: APIManager, MockDelegate {
         var getEmailWasCalled = false
-        var result = UsersInfo(email: "usuario@novo.com", completeName: nil, username: nil, registrationStatus: "INEXISTENT")
+        var resultEmailInexistent = UsersInfo(email: "usuario@inexistent.com", completeName: nil, username: nil, registrationStatus: "INEXISTENT")
+        var resultEmailPending = UsersInfo(email: "usuario@pending.com", completeName: "usuario pendente", username: "pendente", registrationStatus: "PENDING")
+        var resultEmailRegistered = UsersInfo(email: "usuario@registered.com", completeName: "usuario registrado" , username: "novousuarioRegistrado", registrationStatus: "REGISTERED")
         
         private let mock = Mock()
         
@@ -29,33 +31,99 @@ class PreLoginTests: XCTestCase {
         
         override func getUserWithEmail(_ email: String, completion: @escaping (UsersInfo?) -> Void) {
             getEmailWasCalled = true
-            completion(result)
-            mock.call(email, completion )
+            if email == "usuario@inexistent.com" {
+                completion(resultEmailInexistent)
+            } else if email == "usuario@pending.com" {
+                completion(resultEmailPending)
+            } else if email == "usuario@registered.com" {
+                completion(resultEmailRegistered)
+            }
+            
         }
         
         
     }
     
-    func testGetEmail() {
+    func testGetEmailInexistent() {
         
         let expectation = XCTestExpectation(description: "Teste de cadastro inexistente")
         let mock = MockAPIManager()
-        preLoginVC.textFieldEmail.text = "usuario@novo.com"
+        preLoginVC.textFieldEmail.text = "usuario@inexistent.com"
+        let email = preLoginVC.textFieldEmail.text
         
         mock.it.stub().call(
-            mock.getUserWithEmail(Arg.any(), completion: { (result: UsersInfo?) in
-
+            mock.getUserWithEmail(email!, completion: { (result) in
+    
             })
         ).andReturn(true)
 
-        self.preLoginVM.goToNextScreen(textFieldEmail: self.preLoginVC.textFieldEmail , button: self.preLoginVC.buttonGo, loading: self.preLoginVC.loading) { (result: String?) in
-            XCTAssertTrue(mock.getEmailWasCalled)
-        }
+        preLoginVM.startAplication(labelEmail: preLoginVC.labelEmail, stackInvalidEmail: preLoginVC.stackInvalidEmail)
+        preLoginVC.textFieldDidEndEditing(preLoginVC.textFieldEmail)
+        preLoginVC.checkEmail()
+        preLoginVM.checkEmail(textFieldEmail: preLoginVC.textFieldEmail, buttonGo: preLoginVC.buttonGo)
+        preLoginVC.buttonGo.sendActions(for: .touchUpInside)
+        preLoginVC.goToRegistrationScreen()
+        XCTAssertTrue(mock.getEmailWasCalled)
+        expectation.fulfill()
         
-        //        viewController.buttonGo.sendActions(for: .touchUpInside)
         wait(for: [expectation], timeout: 10.0)
     }
     
+    func testGetEmailPending() {
+        
+        let expectation = XCTestExpectation(description: "Teste de cadastro pendente")
+        let mock = MockAPIManager()
+        preLoginVC.textFieldEmail.text = "usuario@pending.com"
+        let email = preLoginVC.textFieldEmail.text
+        
+        mock.it.stub().call(
+            mock.getUserWithEmail(email!, completion: { (result) in
+                
+            })
+            ).andReturn(true)
+        
+        preLoginVM.startAplication(labelEmail: preLoginVC.labelEmail, stackInvalidEmail: preLoginVC.stackInvalidEmail)
+        preLoginVC.textFieldDidEndEditing(preLoginVC.textFieldEmail)
+        preLoginVC.checkEmail()
+        preLoginVM.checkEmail(textFieldEmail: preLoginVC.textFieldEmail, buttonGo: preLoginVC.buttonGo)
+        preLoginVC.buttonGo.sendActions(for: .touchUpInside)
+//        preLoginVC.goToRegistrationScreen()
+        XCTAssertTrue(mock.getEmailWasCalled)
+        expectation.fulfill()
+        wait(for: [expectation], timeout: 10.0)
+    }
+    
+    func testGetEmailRegistered() {
+        
+        let expectation = XCTestExpectation(description: "Teste de cadastro registrado")
+        let mock = MockAPIManager()
+        preLoginVC.textFieldEmail.text = "usuario@registered.com"
+        let email = preLoginVC.textFieldEmail.text
+        
+        mock.it.stub().call(
+            mock.getUserWithEmail(email!, completion: { (result) in
+                
+            })
+            ).andReturn(true)
+        
+        preLoginVM.startAplication(labelEmail: preLoginVC.labelEmail, stackInvalidEmail: preLoginVC.stackInvalidEmail)
+        preLoginVC.textFieldDidEndEditing(preLoginVC.textFieldEmail)
+        preLoginVC.checkEmail()
+        preLoginVM.checkEmail(textFieldEmail: preLoginVC.textFieldEmail, buttonGo: preLoginVC.buttonGo)
+        preLoginVC.buttonGo.sendActions(for: .touchUpInside)
+//        preLoginVC.goToLoginScreen()
+        XCTAssertTrue(mock.getEmailWasCalled)
+        expectation.fulfill()
+        wait(for: [expectation], timeout: 10.0)
+    }
+    
+    func testInvalidEmail() {
+        preLoginVC.textFieldEmail.text = "usuario.com"
+        preLoginVC.checkEmail()
+        preLoginVM.startAplication(labelEmail: preLoginVC.labelEmail, stackInvalidEmail: preLoginVC.stackInvalidEmail)
+        preLoginVC.textFieldDidEndEditing(preLoginVC.textFieldEmail)
+        preLoginVM.checkEmail(textFieldEmail: preLoginVC.textFieldEmail, buttonGo: preLoginVC.buttonGo)
+    }
     
     
     override func setUp() {

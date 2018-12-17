@@ -37,9 +37,6 @@ class ValidateTokenViewController: UIViewController {
         validateTokenViewModel.showLoading(status: false, button: buttonValidate, loading: loadingValidate)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     
     @IBAction func backButton(_ sender: UIButton) {
         self.navigationController?.viewControllers.remove(at: 1)

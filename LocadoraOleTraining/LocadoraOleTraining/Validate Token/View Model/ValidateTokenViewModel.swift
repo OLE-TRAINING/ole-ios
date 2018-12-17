@@ -42,9 +42,6 @@ class ValidateTokenViewModel{
     }
     
     func validateToken(textFieldToken: UITextField, button: UIButton, loading: UIActivityIndicatorView, completion: @escaping(Bool) -> Void) {
-//        guard let code = textFieldCode.text else { return }
-//        if ValidateForm.checkCode(code) {
-//            Attributes.setInicialAttributes(textField: textFieldCode, stackView: self.stackViewInvalidCode)
             APIManager.shared.validateToken(textFieldToken: textFieldToken, email: emailUser, completion:  { (response: Bool) in
                 if response {
                     completion(true)
@@ -54,11 +51,6 @@ class ValidateTokenViewModel{
                     completion(false)
                 }
             })
-            
-//        } else {
-//            showLoading(status: false, button: button, loading: loading)
-//            Attributes.setAttributeInvalidField(textField: textFieldCode, stackView: self.stackViewInvalidCode)
-//        }
         
     }
     

@@ -37,11 +37,6 @@ class LoginViewController: UIViewController {
         loginViewModel.showLoading(status: false, button: buttonLogIn, loading: loadingLogIn)
         loginViewModel.showLoading(status: false, button: buttonForgotPassword, loading: loadingForgotPassword)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     @IBAction func backButton(_ sender: UIButton) {
         self.navigationController?.viewControllers.remove(at: 1)

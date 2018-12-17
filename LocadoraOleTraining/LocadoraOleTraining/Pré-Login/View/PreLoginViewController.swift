@@ -30,10 +30,10 @@ class PreLoginViewController: UIViewController {
         preLoginViewModel.showLoading(status: false, button: buttonGo, loading: loading)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
-    }
+//    override func didReceiveMemoryWarning() {
+//        super.didReceiveMemoryWarning()
+//        
+//    }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)

@@ -70,6 +70,11 @@
 		5C99630E21AF003700870303 /* DetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C99630D21AF003700870303 /* DetailsTableViewCell.swift */; };
 		5C99631021AF006C00870303 /* DetailsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C99630F21AF006C00870303 /* DetailsCellViewModel.swift */; };
 		5CC41EF8217509A900F2FB3E /* ContinueRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC41EF7217509A900F2FB3E /* ContinueRegistration.swift */; };
+		A7E7958921C7D7E000C6A3E8 /* NewRegistrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E7958821C7D7E000C6A3E8 /* NewRegistrationTests.swift */; };
+		A7E7958B21C7E8F300C6A3E8 /* ContinueRegistrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E7958A21C7E8F300C6A3E8 /* ContinueRegistrationTests.swift */; };
+		A7E7958D21C80A5F00C6A3E8 /* ValidateTokenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E7958C21C80A5F00C6A3E8 /* ValidateTokenTests.swift */; };
+		A7E7958F21C80FD100C6A3E8 /* LoginTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E7958E21C80FD100C6A3E8 /* LoginTests.swift */; };
+		A7E7959121C81E0B00C6A3E8 /* CheckInformationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7E7959021C81E0B00C6A3E8 /* CheckInformationsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,6 +173,11 @@
 		90F639EF0F6E5D4095398E96 /* Pods-LocadoraOleTraining-LocadoraOleTrainingTests.xctest.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocadoraOleTraining-LocadoraOleTrainingTests.xctest.xcconfig"; path = "Pods/Target Support Files/Pods-LocadoraOleTraining-LocadoraOleTrainingTests/Pods-LocadoraOleTraining-LocadoraOleTrainingTests.xctest.xcconfig"; sourceTree = "<group>"; };
 		985065B69D49F6589E612F9B /* Pods-LocadoraOleTrainingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocadoraOleTrainingUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LocadoraOleTrainingUITests/Pods-LocadoraOleTrainingUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A7DE6F6F6ADF1C2029FFC768 /* Pods_LocadoraOleTraining.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocadoraOleTraining.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7E7958821C7D7E000C6A3E8 /* NewRegistrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRegistrationTests.swift; sourceTree = "<group>"; };
+		A7E7958A21C7E8F300C6A3E8 /* ContinueRegistrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueRegistrationTests.swift; sourceTree = "<group>"; };
+		A7E7958C21C80A5F00C6A3E8 /* ValidateTokenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidateTokenTests.swift; sourceTree = "<group>"; };
+		A7E7958E21C80FD100C6A3E8 /* LoginTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTests.swift; sourceTree = "<group>"; };
+		A7E7959021C81E0B00C6A3E8 /* CheckInformationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInformationsTests.swift; sourceTree = "<group>"; };
 		DC7313AC0F96570BC1ABDCCF /* Pods-LocadoraOleTraining.xctest.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocadoraOleTraining.xctest.xcconfig"; path = "Pods/Target Support Files/Pods-LocadoraOleTraining/Pods-LocadoraOleTraining.xctest.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -348,6 +358,11 @@
 				5C59A6EA216E2D300053DC45 /* LocadoraOleTrainingTests.swift */,
 				5C59A6EC216E2D300053DC45 /* Info.plist */,
 				5C253F2721B8335E00BEE65E /* PreLoginTests.swift */,
+				A7E7958821C7D7E000C6A3E8 /* NewRegistrationTests.swift */,
+				A7E7958A21C7E8F300C6A3E8 /* ContinueRegistrationTests.swift */,
+				A7E7958C21C80A5F00C6A3E8 /* ValidateTokenTests.swift */,
+				A7E7958E21C80FD100C6A3E8 /* LoginTests.swift */,
+				A7E7959021C81E0B00C6A3E8 /* CheckInformationsTests.swift */,
 			);
 			path = LocadoraOleTrainingTests;
 			sourceTree = "<group>";
@@ -975,7 +990,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C59A6EB216E2D300053DC45 /* LocadoraOleTrainingTests.swift in Sources */,
+				A7E7958D21C80A5F00C6A3E8 /* ValidateTokenTests.swift in Sources */,
+				A7E7958B21C7E8F300C6A3E8 /* ContinueRegistrationTests.swift in Sources */,
+				A7E7958F21C80FD100C6A3E8 /* LoginTests.swift in Sources */,
 				5C253F2821B8335E00BEE65E /* PreLoginTests.swift in Sources */,
+				A7E7959121C81E0B00C6A3E8 /* CheckInformationsTests.swift in Sources */,
+				A7E7958921C7D7E000C6A3E8 /* NewRegistrationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1321,8 +1341,6 @@
 					"-framework",
 					"\"AutoInsetter\"",
 					"-framework",
-					"\"InstantMock\"",
-					"-framework",
 					"\"MBProgressHUD\"",
 					"-framework",
 					"\"Pageboy\"",
@@ -1360,8 +1378,6 @@
 					"\"AKSideMenu\"",
 					"-framework",
 					"\"AutoInsetter\"",
-					"-framework",
-					"\"InstantMock\"",
 					"-framework",
 					"\"MBProgressHUD\"",
 					"-framework",
@@ -1542,8 +1558,6 @@
 					"\"AKSideMenu\"",
 					"-framework",
 					"\"AutoInsetter\"",
-					"-framework",
-					"\"InstantMock\"",
 					"-framework",
 					"\"MBProgressHUD\"",
 					"-framework",

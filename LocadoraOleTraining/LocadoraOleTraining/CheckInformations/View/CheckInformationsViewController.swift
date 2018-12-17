@@ -32,12 +32,6 @@ class CheckInformationsViewController: UIViewController {
         checkInformationViewModel.showLoading(status: false, button: buttonGo, loading: loading)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
     @IBAction func buttonBack(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
