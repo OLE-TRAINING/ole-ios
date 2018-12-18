@@ -50,8 +50,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate: APIManagerDelegate {
     func notifySessionExpired() {
         guard let viewController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController else { return }
-        let alertController = UIAlertController(title: "Ops..", message: "Sua sessão expirou, para continuar utilizando o serviço, faça login novamente.", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Tentar novamente", style: .default) {
+        let alertController = UIAlertController(title: "", message: "Sessão expirada, favor logar novamente", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Logar novamente", style: .default) {
             _ in
             viewController.popToRootViewController(animated: true)
         }
@@ -62,16 +62,18 @@ extension AppDelegate: APIManagerDelegate {
     
     func notifyLogout() {
         guard let viewController = UIApplication.shared.keyWindow?.rootViewController as? UINavigationController else { return }
-        let alertController = UIAlertController(title: "Sair...", message: "Deseja sair do aplicativo?", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Sair", style: .default) {
+        let alertController = UIAlertController(title: "", message: "Deseja realmente deslogar?", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Sim", style: .default) {
             _ in
             viewController.popToRootViewController(animated: true)
         }
-        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel) { _ in
+        let cancelAction = UIAlertAction(title: "Não", style: .default) { _ in
             
         }
         alertController.addAction(okAction)
         alertController.addAction(cancelAction)
+        
+        
         viewController.present(alertController, animated: true, completion: nil)
         
     }

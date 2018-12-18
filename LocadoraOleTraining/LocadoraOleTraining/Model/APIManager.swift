@@ -189,9 +189,12 @@ class APIManager: NSObject {
             "password": password
             ] as [String : Any]
         
-        self.post(url: url, parameters: parameters , success: { (task, responseObject) in
+        
+        manager.post(url, parameters: parameters, progress: nil, success: { [weak self] (task, responseObject) in
+            self?.getHeaders(responseObject: task.response)
             completion(true)
-        }) { (task, error) in
+        }) { [weak self] (task, error) in
+            self?.getHeaders(responseObject: task?.response)
             completion(false)
         }
 

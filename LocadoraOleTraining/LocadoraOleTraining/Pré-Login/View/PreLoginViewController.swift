@@ -22,7 +22,7 @@ class PreLoginViewController: UIViewController {
         super.viewDidLoad()
         preLoginViewModel.startAplication(labelEmail: labelEmail, stackInvalidEmail: stackInvalidEmail)
         preLoginViewModel.disableButton(buttonGo: buttonGo)
-        textFieldEmail.addTarget(self, action: #selector(textFieldDidEndEditing(_:)), for: .editingChanged)
+        textFieldEmail.addTarget(self, action: #selector(textFieldDidEndEditing(_:)), for: .editingDidEnd)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,10 +30,7 @@ class PreLoginViewController: UIViewController {
         preLoginViewModel.showLoading(status: false, button: buttonGo, loading: loading)
     }
 
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//        
-//    }
+
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
@@ -42,17 +39,9 @@ class PreLoginViewController: UIViewController {
     
     
     @objc func textFieldDidEndEditing(_ textField: UITextField) {
-        tryEmail()
-    }
-    
-    func tryEmail() {
-        PreLoginViewController.cancelPreviousPerformRequests(withTarget: self)
-        self.perform(#selector(checkEmail), with: nil, afterDelay: 1.0)
-    }
-    
-    @objc func checkEmail() {
         preLoginViewModel.checkEmail(textFieldEmail: textFieldEmail, buttonGo: buttonGo)
     }
+    
     
     @IBAction func buttonGo(_ sender: UIButton) {
         preLoginViewModel.showLoading(status: true, button: buttonGo, loading: loading)

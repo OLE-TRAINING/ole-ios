@@ -113,7 +113,7 @@ class NewRegistrationViewModel {
                     completion(true)
                 }
                 else {
-                    msgUsername.text = "     Nome de usuario já existente"
+                    msgUsername.text = "     Nome de usuario já cadastrado"
                     Attributes.setAttributeInvalidField(textField: textFieldUsername, stackView: self.stackViewUsername)
                     completion(false)
                 }

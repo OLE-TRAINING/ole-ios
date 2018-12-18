@@ -47,9 +47,6 @@ class NewRegistrationViewController: UIViewController {
         newRegistrationViewModel.showLoading(status: false, button: buttonGo, loading: loadingGo)
     }
 
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//    }
     
     @IBAction func backButton(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)

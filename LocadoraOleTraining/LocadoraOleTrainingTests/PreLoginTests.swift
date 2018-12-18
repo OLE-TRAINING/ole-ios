@@ -59,8 +59,9 @@ class PreLoginTests: XCTestCase {
 
         preLoginVM.startAplication(labelEmail: preLoginVC.labelEmail, stackInvalidEmail: preLoginVC.stackInvalidEmail)
         preLoginVC.textFieldDidEndEditing(preLoginVC.textFieldEmail)
-        preLoginVC.checkEmail()
-        preLoginVM.checkEmail(textFieldEmail: preLoginVC.textFieldEmail, buttonGo: preLoginVC.buttonGo)
+//        preLoginVC.checkEmail()
+//        preLoginVM.checkEmail(textFieldEmail: preLoginVC.textFieldEmail, buttonGo: preLoginVC.buttonGo)
+        preLoginVC.textFieldDidEndEditing(preLoginVC.textFieldEmail)
         preLoginVC.buttonGo.sendActions(for: .touchUpInside)
         preLoginVC.goToRegistrationScreen()
         XCTAssertTrue(mock.getEmailWasCalled)
@@ -84,10 +85,10 @@ class PreLoginTests: XCTestCase {
         
         preLoginVM.startAplication(labelEmail: preLoginVC.labelEmail, stackInvalidEmail: preLoginVC.stackInvalidEmail)
         preLoginVC.textFieldDidEndEditing(preLoginVC.textFieldEmail)
-        preLoginVC.checkEmail()
-        preLoginVM.checkEmail(textFieldEmail: preLoginVC.textFieldEmail, buttonGo: preLoginVC.buttonGo)
+        preLoginVC.textFieldDidEndEditing(preLoginVC.textFieldEmail)
+//        preLoginVM.checkEmail(textFieldEmail: preLoginVC.textFieldEmail, buttonGo: preLoginVC.buttonGo)
         preLoginVC.buttonGo.sendActions(for: .touchUpInside)
-//        preLoginVC.goToRegistrationScreen()
+        preLoginVC.goToRegistrationScreen()
         XCTAssertTrue(mock.getEmailWasCalled)
         expectation.fulfill()
         wait(for: [expectation], timeout: 10.0)
@@ -108,10 +109,11 @@ class PreLoginTests: XCTestCase {
         
         preLoginVM.startAplication(labelEmail: preLoginVC.labelEmail, stackInvalidEmail: preLoginVC.stackInvalidEmail)
         preLoginVC.textFieldDidEndEditing(preLoginVC.textFieldEmail)
-        preLoginVC.checkEmail()
-        preLoginVM.checkEmail(textFieldEmail: preLoginVC.textFieldEmail, buttonGo: preLoginVC.buttonGo)
+//        preLoginVC.checkEmail()
+//        preLoginVM.checkEmail(textFieldEmail: preLoginVC.textFieldEmail, buttonGo: preLoginVC.buttonGo)
+        preLoginVC.textFieldDidEndEditing(preLoginVC.textFieldEmail)
         preLoginVC.buttonGo.sendActions(for: .touchUpInside)
-//        preLoginVC.goToLoginScreen()
+        preLoginVC.goToLoginScreen()
         XCTAssertTrue(mock.getEmailWasCalled)
         expectation.fulfill()
         wait(for: [expectation], timeout: 10.0)
@@ -119,10 +121,13 @@ class PreLoginTests: XCTestCase {
     
     func testInvalidEmail() {
         preLoginVC.textFieldEmail.text = "usuario.com"
-        preLoginVC.checkEmail()
+//        preLoginVC.checkEmail()
+        preLoginVC.textFieldDidEndEditing(preLoginVC.textFieldEmail)
         preLoginVM.startAplication(labelEmail: preLoginVC.labelEmail, stackInvalidEmail: preLoginVC.stackInvalidEmail)
         preLoginVC.textFieldDidEndEditing(preLoginVC.textFieldEmail)
         preLoginVM.checkEmail(textFieldEmail: preLoginVC.textFieldEmail, buttonGo: preLoginVC.buttonGo)
+        XCTAssertFalse(preLoginVM.stackInvalidEmail.isHidden)
+        
     }
     
     

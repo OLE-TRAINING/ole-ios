@@ -41,7 +41,6 @@ class ContinueRegistrationTests: XCTestCase {
         continueRegistrationVC.textFieldToken.text = "s4c3ss"
         XCTAssertEqual(continueRegistrationVC.emailUser, "usuario@pending.com")
         continueRegistrationVC.textFieldDidEndEditing(continueRegistrationVC.textFieldToken)
-        continueRegistrationVC.textFieldDidEndEditing(continueRegistrationVC.textFieldToken)
         mock.it.expect().call(
             mock.it.stub().call(
                 mock.validateToken(textFieldToken: continueRegistrationVC.textFieldToken, email: continueRegistrationVC.emailUser!, completion: { (result) in
