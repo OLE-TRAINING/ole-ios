@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57094CA59BCBE759B251EB06 /* Pods_ole_training.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE758D357AA0CB5178B6B40C /* Pods_ole_training.framework */; };
 		6556646B21FF5B82003BA9FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6556646A21FF5B82003BA9FC /* AppDelegate.swift */; };
 		6556646D21FF5B82003BA9FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6556646C21FF5B82003BA9FC /* ViewController.swift */; };
 		6556647021FF5B82003BA9FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6556646E21FF5B82003BA9FC /* Main.storyboard */; };
@@ -14,6 +15,8 @@
 		6556647521FF5B8B003BA9FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6556647321FF5B8B003BA9FC /* LaunchScreen.storyboard */; };
 		6556648021FF5B8B003BA9FC /* ole_trainingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6556647F21FF5B8B003BA9FC /* ole_trainingTests.swift */; };
 		6556648B21FF5B8B003BA9FC /* ole_trainingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6556648A21FF5B8B003BA9FC /* ole_trainingUITests.swift */; };
+		7A787BDCC49E89407BC7F4EA /* Pods_ole_trainingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC93DAF5C39B49DD6DC3282E /* Pods_ole_trainingUITests.framework */; };
+		92F15A290F0AA741DFA589DB /* Pods_ole_trainingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC03A8B7EE28E579F8A1D5CD /* Pods_ole_trainingTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +37,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E383F883866E4781673E5CA /* Pods-ole-trainingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ole-trainingUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ole-trainingUITests/Pods-ole-trainingUITests.release.xcconfig"; sourceTree = "<group>"; };
+		25307802C1EF327F76B1E515 /* Pods-ole-trainingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ole-trainingUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ole-trainingUITests/Pods-ole-trainingUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		37DC63E3B830A5F26C4989BA /* Pods-ole-trainingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ole-trainingTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ole-trainingTests/Pods-ole-trainingTests.debug.xcconfig"; sourceTree = "<group>"; };
+		41705F73CF3E95143C4BE14A /* Pods-ole-training.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ole-training.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ole-training/Pods-ole-training.debug.xcconfig"; sourceTree = "<group>"; };
+		5C1C2B423FC9648A56B482CC /* Pods-ole-trainingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ole-trainingTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ole-trainingTests/Pods-ole-trainingTests.release.xcconfig"; sourceTree = "<group>"; };
 		6556646721FF5B82003BA9FC /* ole-training.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ole-training.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6556646A21FF5B82003BA9FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6556646C21FF5B82003BA9FC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +55,10 @@
 		6556648621FF5B8B003BA9FC /* ole-trainingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ole-trainingUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6556648A21FF5B8B003BA9FC /* ole_trainingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ole_trainingUITests.swift; sourceTree = "<group>"; };
 		6556648C21FF5B8B003BA9FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D30E38B80C752B277DB12F52 /* Pods-ole-training.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ole-training.release.xcconfig"; path = "Pods/Target Support Files/Pods-ole-training/Pods-ole-training.release.xcconfig"; sourceTree = "<group>"; };
+		DC03A8B7EE28E579F8A1D5CD /* Pods_ole_trainingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ole_trainingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC93DAF5C39B49DD6DC3282E /* Pods_ole_trainingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ole_trainingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE758D357AA0CB5178B6B40C /* Pods_ole_training.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ole_training.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57094CA59BCBE759B251EB06 /* Pods_ole_training.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92F15A290F0AA741DFA589DB /* Pods_ole_trainingTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +82,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A787BDCC49E89407BC7F4EA /* Pods_ole_trainingUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		299E76C2A9A865F293F71D92 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EE758D357AA0CB5178B6B40C /* Pods_ole_training.framework */,
+				DC03A8B7EE28E579F8A1D5CD /* Pods_ole_trainingTests.framework */,
+				DC93DAF5C39B49DD6DC3282E /* Pods_ole_trainingUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6556645E21FF5B82003BA9FC = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +106,8 @@
 				6556647E21FF5B8B003BA9FC /* ole-trainingTests */,
 				6556648921FF5B8B003BA9FC /* ole-trainingUITests */,
 				6556646821FF5B82003BA9FC /* Products */,
+				95EE96B5CB3A39A75D9D4D95 /* Pods */,
+				299E76C2A9A865F293F71D92 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +152,19 @@
 			path = "ole-trainingUITests";
 			sourceTree = "<group>";
 		};
+		95EE96B5CB3A39A75D9D4D95 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				41705F73CF3E95143C4BE14A /* Pods-ole-training.debug.xcconfig */,
+				D30E38B80C752B277DB12F52 /* Pods-ole-training.release.xcconfig */,
+				37DC63E3B830A5F26C4989BA /* Pods-ole-trainingTests.debug.xcconfig */,
+				5C1C2B423FC9648A56B482CC /* Pods-ole-trainingTests.release.xcconfig */,
+				25307802C1EF327F76B1E515 /* Pods-ole-trainingUITests.debug.xcconfig */,
+				1E383F883866E4781673E5CA /* Pods-ole-trainingUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +172,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6556648F21FF5B8B003BA9FC /* Build configuration list for PBXNativeTarget "ole-training" */;
 			buildPhases = (
+				0CF5BF4CF62134EFCD670835 /* [CP] Check Pods Manifest.lock */,
 				6556646321FF5B82003BA9FC /* Sources */,
 				6556646421FF5B82003BA9FC /* Frameworks */,
 				6556646521FF5B82003BA9FC /* Resources */,
+				F08FC2F32A84DA977A4D5C64 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,6 +191,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6556649221FF5B8B003BA9FC /* Build configuration list for PBXNativeTarget "ole-trainingTests" */;
 			buildPhases = (
+				36AFF6463607759024E0CB62 /* [CP] Check Pods Manifest.lock */,
 				6556647721FF5B8B003BA9FC /* Sources */,
 				6556647821FF5B8B003BA9FC /* Frameworks */,
 				6556647921FF5B8B003BA9FC /* Resources */,
@@ -167,6 +210,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6556649521FF5B8B003BA9FC /* Build configuration list for PBXNativeTarget "ole-trainingUITests" */;
 			buildPhases = (
+				2ADEE5103205AD539DFA2A51 /* [CP] Check Pods Manifest.lock */,
 				6556648221FF5B8B003BA9FC /* Sources */,
 				6556648321FF5B8B003BA9FC /* Frameworks */,
 				6556648421FF5B8B003BA9FC /* Resources */,
@@ -250,6 +294,97 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0CF5BF4CF62134EFCD670835 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ole-training-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2ADEE5103205AD539DFA2A51 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ole-trainingUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		36AFF6463607759024E0CB62 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ole-trainingTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F08FC2F32A84DA977A4D5C64 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ole-training/Pods-ole-training-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ole-training/Pods-ole-training-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6556646321FF5B82003BA9FC /* Sources */ = {
@@ -430,6 +565,7 @@
 		};
 		6556649021FF5B8B003BA9FC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41705F73CF3E95143C4BE14A /* Pods-ole-training.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -448,6 +584,7 @@
 		};
 		6556649121FF5B8B003BA9FC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D30E38B80C752B277DB12F52 /* Pods-ole-training.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -466,6 +603,7 @@
 		};
 		6556649321FF5B8B003BA9FC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 37DC63E3B830A5F26C4989BA /* Pods-ole-trainingTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -487,6 +625,7 @@
 		};
 		6556649421FF5B8B003BA9FC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C1C2B423FC9648A56B482CC /* Pods-ole-trainingTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -508,6 +647,7 @@
 		};
 		6556649621FF5B8B003BA9FC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25307802C1EF327F76B1E515 /* Pods-ole-trainingUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -528,6 +668,7 @@
 		};
 		6556649721FF5B8B003BA9FC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E383F883866E4781673E5CA /* Pods-ole-trainingUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
